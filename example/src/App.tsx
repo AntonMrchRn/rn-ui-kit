@@ -1,31 +1,33 @@
+import { useFonts } from 'expo-font';
 import * as React from 'react';
-
-import { StyleSheet, View, Text } from 'react-native';
-import { multiply } from 'rn-ui-kit';
+import { SafeAreaView, ScrollView } from 'react-native';
+import { Text } from 'rn-ui-kit';
 
 export default function App() {
-  const [result, setResult] = React.useState<number | undefined>();
-
-  React.useEffect(() => {
-    multiply(3, 7).then(setResult);
-  }, []);
-
+  const [fontsLoaded] = useFonts({
+    'Open Sans Bold': require('../assets/fonts/OpenSans/OpenSans-Bold.ttf'),
+    'Open Sans Semibold': require('../assets/fonts/OpenSans/OpenSans-SemiBold.ttf'),
+    'Nunito Sans Regular': require('../assets/fonts/NunitoSans_7pt/NunitoSans_7pt-Regular.ttf'),
+    'Nunito Sans Bold': require('../assets/fonts/NunitoSans_7pt/NunitoSans_7pt-Bold.ttf'),
+    'Nunito Sans Semibold': require('../assets/fonts/NunitoSans_7pt/NunitoSans_7pt-SemiBold.ttf'),
+  });
+  if (!fontsLoaded) {
+    return null;
+  }
   return (
-    <View style={styles.container}>
-      <Text>Result: {result}</Text>
-    </View>
+    <SafeAreaView>
+      <ScrollView>
+        <Text variant={'title1'}>title1</Text>
+        <Text variant={'title2'}>title2</Text>
+        <Text variant={'title3'}>title3</Text>
+        <Text variant={'bodyMRegular'}>bodyMRegular</Text>
+        <Text variant={'bodyMBold'}>bodyMBold</Text>
+        <Text variant={'bodySRegular'}>bodySRegular</Text>
+        <Text variant={'bodySBold'}>bodySBold</Text>
+        <Text variant={'captionRegular'}>captionRegular</Text>
+        <Text variant={'captionBold'}>captionBold</Text>
+        <Text variant={'tabBarLabel'}>tabBarLabel</Text>
+      </ScrollView>
+    </SafeAreaView>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  box: {
-    width: 60,
-    height: 60,
-    marginVertical: 20,
-  },
-});
