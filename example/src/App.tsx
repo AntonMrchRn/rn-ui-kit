@@ -2,6 +2,7 @@ import { useFonts } from 'expo-font';
 import * as React from 'react';
 import { SafeAreaView, ScrollView } from 'react-native';
 import { Texts } from './components/Texts';
+import { CheckBoxes } from './components/Checkboxes';
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -18,6 +19,7 @@ export default function App() {
     <SafeAreaView>
       <ScrollView>
         <Texts />
+        <CheckBoxes />
       </ScrollView>
     </SafeAreaView>
   );
