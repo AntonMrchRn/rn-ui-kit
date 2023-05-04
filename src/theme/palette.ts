@@ -57,6 +57,7 @@ export type Colors = {
     warningDisable: string;
   };
 };
+
 export const colors: Colors = {
   text: {
     basic: '#1B1B1B',
