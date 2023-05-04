@@ -2,6 +2,7 @@ import { useFonts } from 'expo-font';
 import * as React from 'react';
 import { SafeAreaView, ScrollView } from 'react-native';
 import { Texts } from './components/Texts';
+import { CheckBoxes } from './components/Checkboxes';
 import { ThemeProvider } from 'rn-ui-kit';
 
 export default function App() {
@@ -20,6 +21,7 @@ export default function App() {
     <SafeAreaView>
       <ScrollView>
         <ThemeProvider>
+          <CheckBoxes />
           <Texts />
         </ThemeProvider>
       </ScrollView>
