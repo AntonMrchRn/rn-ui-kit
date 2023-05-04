@@ -3,6 +3,7 @@ import * as React from 'react';
 import { SafeAreaView, ScrollView } from 'react-native';
 import { Texts } from './components/Texts';
 import { CheckBoxes } from './components/Checkboxes';
+import { ThemeProvider } from 'rn-ui-kit';
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -12,14 +13,17 @@ export default function App() {
     'Nunito Sans Bold': require('../assets/fonts/NunitoSans_7pt/NunitoSans_7pt-Bold.ttf'),
     'Nunito Sans Semibold': require('../assets/fonts/NunitoSans_7pt/NunitoSans_7pt-SemiBold.ttf'),
   });
+
   if (!fontsLoaded) {
     return null;
   }
   return (
     <SafeAreaView>
       <ScrollView>
-        <Texts />
-        <CheckBoxes />
+        <ThemeProvider>
+          <CheckBoxes />
+          <Texts />
+        </ThemeProvider>
       </ScrollView>
     </SafeAreaView>
   );
