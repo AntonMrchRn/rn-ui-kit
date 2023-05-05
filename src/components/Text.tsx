@@ -1,14 +1,11 @@
 import React, { FC } from 'react';
-import { StyleProp, TextStyle } from 'react-native';
 import {
   Text as RNText,
   TextProps as RNTextProps,
   StyleSheet,
 } from 'react-native';
 
-type Typography = Record<string, StyleProp<TextStyle>>;
-
-export const typography: Typography = {
+export const typography = StyleSheet.create({
   title1: {
     fontFamily: 'Open Sans Bold',
     fontStyle: 'normal',
@@ -79,7 +76,7 @@ export const typography: Typography = {
     fontSize: 10,
     lineHeight: 12,
   },
-};
+});
 
 export type Variant =
   | 'title1'
@@ -97,7 +94,7 @@ export type TextProps = RNTextProps & { variant: Variant };
 
 export const Text: FC<TextProps> = (props) => {
   const variant = typography[props.variant];
-  const style = StyleSheet.compose(props.style, variant);
+  const style = StyleSheet.compose(variant, props.style);
   return (
     <RNText style={style} {...props}>
       {props.children}
