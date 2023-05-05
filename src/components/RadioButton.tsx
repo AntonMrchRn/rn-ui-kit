@@ -9,14 +9,14 @@ import {
 import { useTheme } from '../theme/ThemeProvider';
 import { View } from 'react-native';
 
-export type CheckboxProps = TouchableOpacityProps & {
+export type RadioButtonProps = TouchableOpacityProps & {
   checked: boolean;
 };
 
-export const RadioButton: FC<CheckboxProps> = (props) => {
+export const RadioButton: FC<RadioButtonProps> = (props) => {
   const theme = useTheme();
 
-  const stylesCheckBox = StyleSheet.create({
+  const stylesRadioButton = StyleSheet.create({
     initial: {
       height: 32,
       width: 32,
@@ -55,21 +55,21 @@ export const RadioButton: FC<CheckboxProps> = (props) => {
 
   const currentStyle = () => {
     if (!props.checked && !props.disabled) {
-      return stylesCheckBox.uncheckedUndisabled;
+      return stylesRadioButton.uncheckedUndisabled;
     }
     if (props.checked && !props.disabled) {
-      return stylesCheckBox.checkedUndisabled;
+      return stylesRadioButton.checkedUndisabled;
     }
     if (!props.checked && props.disabled) {
-      return stylesCheckBox.uncheckedDisabled;
+      return stylesRadioButton.uncheckedDisabled;
     }
     if (props.checked && props.disabled) {
-      return stylesCheckBox.checkedDisabled;
+      return stylesRadioButton.checkedDisabled;
     }
     return;
   };
 
-  const style = StyleSheet.compose(stylesCheckBox.initial, [
+  const style = StyleSheet.compose(stylesRadioButton.initial, [
     props.style as StyleProp<ViewStyle>,
     currentStyle(),
   ]);
@@ -79,8 +79,8 @@ export const RadioButton: FC<CheckboxProps> = (props) => {
       {props.checked && (
         <View
           style={[
-            stylesCheckBox.radioActive,
-            props.disabled && stylesCheckBox.radioDisabled,
+            stylesRadioButton.radioActive,
+            props.disabled && stylesRadioButton.radioDisabled,
           ]}
         />
       )}
