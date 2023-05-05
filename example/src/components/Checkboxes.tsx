@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { CheckBox } from 'rn-ui-kit';
+import { CheckBox, Spacer } from 'rn-ui-kit';
 import { LinkIcon } from '../../../src/icons/LinkIcon';
 
 export const CheckBoxes = () => {
@@ -7,7 +7,7 @@ export const CheckBoxes = () => {
   const [isChecked2, setIsChecked2] = useState(false);
 
   return (
-    <>
+    <Spacer size="s">
       <CheckBox
         checked={isChecked}
         onPress={() => setIsChecked(!isChecked)}
@@ -28,6 +28,6 @@ export const CheckBoxes = () => {
         disabled={true}
         icon={<LinkIcon size="M" color="#fff" />}
       />
-    </>
+    </Spacer>
   );
 };
