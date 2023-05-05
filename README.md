@@ -6,22 +6,43 @@ rn-ui-kit
 
 ```sh
 npm install rn-ui-kit
+npm install react-native-svg
 ```
 
 or
 
 ```sh
 yarn add rn-ui-kit
+yarn add react-native-svg
+```
+
+then
+
+```sh
+cd ios && pod install && cd ..
+```
+
+or
+
+```sh
+npx pod-install
 ```
 
 ## Usage
 
 ```js
-import { multiply } from 'rn-ui-kit';
+import { SegmentedControl, ThemeProvider } from 'rn-ui-kit';
 
 // ...
 
-const result = await multiply(3, 7);
+return (
+  <ThemeProvider>
+    <SegmentedControl
+      tabs={['Label 1', 'Label 2', 'Label 3']}
+      onChange={(index: number) => console.log('Index: ', index)}
+    />
+  </ThemeProvider>
+);
 ```
 
 ---

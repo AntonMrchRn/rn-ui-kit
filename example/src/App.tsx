@@ -4,6 +4,7 @@ import { SafeAreaView, ScrollView } from 'react-native';
 import { Texts } from './components/Texts';
 import { CheckBoxes } from './components/Checkboxes';
 import { SegmentedControl, ThemeProvider } from 'rn-ui-kit';
+import { Links } from './components/Links';
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -27,6 +28,7 @@ export default function App() {
             tabs={['Label 1', 'Label 2', 'Label 3']}
             onChange={(index: number) => console.log('Index: ', index)}
           />
+          <Links />
         </ThemeProvider>
       </ScrollView>
     </SafeAreaView>
