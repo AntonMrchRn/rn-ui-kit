@@ -48,7 +48,7 @@ export default StyleSheet.create({
   },
   tab: {
     flex: 1,
-    paddingVertical: 8, // iOS Default
+    paddingVertical: 8,
     alignItems: 'center',
     justifyContent: 'center',
   },
