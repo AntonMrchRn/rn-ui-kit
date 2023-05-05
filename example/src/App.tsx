@@ -5,6 +5,7 @@ import { Texts } from './components/Texts';
 import { CheckBoxes } from './components/Checkboxes';
 import { SegmentedControl, ThemeProvider } from 'rn-ui-kit';
 import { Links } from './components/Links';
+import { Spacers } from './components/Spacers';
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -29,6 +30,7 @@ export default function App() {
             onChange={(index: number) => console.log('Index: ', index)}
           />
           <Links />
+          <Spacers />
         </ThemeProvider>
       </ScrollView>
     </SafeAreaView>
