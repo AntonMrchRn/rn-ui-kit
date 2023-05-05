@@ -1,17 +1,20 @@
-import React, { FC } from 'react';
+import React, { FC, ReactElement } from 'react';
 import {
   StyleSheet,
   StyleProp,
   ViewStyle,
   TouchableOpacityProps,
-  Text,
   TouchableOpacity,
 } from 'react-native';
 import { useTheme } from '../theme/ThemeProvider';
+import { CheckBoxIcon } from '../icons/CheckBoxIcon';
 
-export type CheckboxProps = TouchableOpacityProps & { checked: boolean };
+export type CheckboxProps = TouchableOpacityProps & {
+  checked: boolean;
+  icon?: ReactElement;
+};
 
-export const CheckBox: FC<CheckboxProps> = (props) => {
+export const CheckBox: FC<CheckboxProps> = ({ icon, ...props }) => {
   const theme = useTheme();
 
   const stylesCheckBox = StyleSheet.create({
@@ -56,6 +59,7 @@ export const CheckBox: FC<CheckboxProps> = (props) => {
     if (props.checked && props.disabled) {
       return stylesCheckBox.checkedDisabled;
     }
+    return;
   };
 
   const style = StyleSheet.compose(stylesCheckBox.initial, [
@@ -65,7 +69,7 @@ export const CheckBox: FC<CheckboxProps> = (props) => {
 
   return (
     <TouchableOpacity style={style} {...props} activeOpacity={0.7}>
-      {props.checked && <Text>+</Text>}
+      {props.checked && (icon ? icon : <CheckBoxIcon />)}
     </TouchableOpacity>
   );
 };
