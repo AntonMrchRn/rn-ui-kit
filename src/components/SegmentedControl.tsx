@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useTheme } from '../theme/ThemeProvider';
 import {
   Text,
   Animated,
@@ -43,12 +44,13 @@ export const SegmentedControl: React.FC<SegmentedControlProps> = ({
   activeTabColor = '#FFFFFF',
   extraSpacing = 0,
 }) => {
+  const theme = useTheme();
   const { width: ScreenWidth } = Dimensions.get('screen');
 
   const styles = StyleSheet.create({
     container: {
       padding: 2,
-      backgroundColor: '#ECF2FF',
+      backgroundColor: theme.background.fieldMain,
       borderRadius: 8,
     },
     tab: {
@@ -59,7 +61,7 @@ export const SegmentedControl: React.FC<SegmentedControlProps> = ({
     },
     activeTab: {
       borderWidth: 1,
-      borderColor: '#3F51B5',
+      borderColor: theme.stroke.accent,
       borderRadius: 7,
     },
     textStyle: {
@@ -75,7 +77,7 @@ export const SegmentedControl: React.FC<SegmentedControlProps> = ({
     },
   });
 
-  const _containerStyle = (width?: number): ViewStyle => ({
+  const _containerStyle = (): ViewStyle => ({
     width: width || ScreenWidth - 32,
     display: 'flex',
     flexDirection: 'row',
@@ -84,12 +86,7 @@ export const SegmentedControl: React.FC<SegmentedControlProps> = ({
     backgroundColor: '#F3F5F6',
   });
 
-  const _selectedTabStyle = (
-    tabs: any[],
-    activeTabColor: string,
-    translateXAnimation: any,
-    width?: number
-  ): CustomStyleProp => [
+  const _selectedTabStyle = (translateXAnimation: any): CustomStyleProp => [
     {
       ...StyleSheet.absoluteFillObject,
       borderRadius: 8,
@@ -139,7 +136,7 @@ export const SegmentedControl: React.FC<SegmentedControlProps> = ({
   const renderSelectedTab = () => (
     <Animated.View
       style={[
-        _selectedTabStyle(tabs, activeTabColor, slideAnimation, width),
+        _selectedTabStyle(slideAnimation),
         styles.activeTab,
         selectedTabStyle,
       ]}
@@ -176,7 +173,7 @@ export const SegmentedControl: React.FC<SegmentedControlProps> = ({
   };
 
   return (
-    <Animated.View style={[_containerStyle(width), styles.container, style]}>
+    <Animated.View style={[_containerStyle(), styles.container, style]}>
       {renderSelectedTab()}
       {tabs.map((tab, index: number) => renderTab(tab, index))}
     </Animated.View>
