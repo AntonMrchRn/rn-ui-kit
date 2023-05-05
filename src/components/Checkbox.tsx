@@ -24,7 +24,6 @@ export const CheckBox: FC<CheckboxProps> = ({ icon, ...props }) => {
       borderWidth: 1.5,
       borderColor: theme.background.accent,
       borderRadius: 5,
-      margin: 5,
       alignItems: 'center',
       justifyContent: 'center',
     },
