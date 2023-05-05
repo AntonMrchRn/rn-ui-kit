@@ -1,22 +1,65 @@
-import React, { FC } from 'react';
+import React, { FC, ReactElement } from 'react';
 import {
   StyleSheet,
   StyleProp,
   ViewStyle,
-  Pressable,
-  PressableProps,
+  TouchableOpacityProps,
+  TouchableOpacity,
 } from 'react-native';
+import { useTheme } from '../theme/ThemeProvider';
+import { CheckBoxIcon } from '../icons/CheckBoxIcon';
 
-export type CheckboxProps = PressableProps & { checked: boolean };
+export type CheckboxProps = TouchableOpacityProps & {
+  checked: boolean;
+  icon?: ReactElement;
+};
 
-export const CheckBox: FC<CheckboxProps> = (props) => {
+export const CheckBox: FC<CheckboxProps> = ({ icon, ...props }) => {
+  const theme = useTheme();
+
+  const stylesCheckBox = StyleSheet.create({
+    initial: {
+      height: 32,
+      width: 32,
+      borderWidth: 1.5,
+      borderColor: theme.background.accent,
+      borderRadius: 5,
+      margin: 5,
+      alignItems: 'center',
+      justifyContent: 'center',
+    },
+    uncheckedUndisabled: {
+      borderColor: theme.background.accent,
+      backgroundColor: 'transparent',
+    },
+    checkedUndisabled: {
+      borderColor: theme.background.accent,
+      backgroundColor: theme.background.accent,
+    },
+    uncheckedDisabled: {
+      borderColor: theme.background.neutralDisable,
+      backgroundColor: 'transparent',
+    },
+    checkedDisabled: {
+      borderColor: theme.background.neutralDisable,
+      backgroundColor: theme.background.neutralDisable,
+    },
+  });
+
   const currentStyle = () => {
-    if (props.checked && props.disabled) {
-      return stylesCheckBox.diabled;
+    if (!props.checked && !props.disabled) {
+      return stylesCheckBox.uncheckedUndisabled;
+    }
+    if (props.checked && !props.disabled) {
+      return stylesCheckBox.checkedUndisabled;
     }
     if (!props.checked && props.disabled) {
-      return stylesCheckBox.checked;
+      return stylesCheckBox.uncheckedDisabled;
     }
+    if (props.checked && props.disabled) {
+      return stylesCheckBox.checkedDisabled;
+    }
+    return;
   };
 
   const style = StyleSheet.compose(stylesCheckBox.initial, [
@@ -25,22 +68,8 @@ export const CheckBox: FC<CheckboxProps> = (props) => {
   ]);
 
   return (
-    <Pressable style={style} {...props}>
-      {props.children}
-    </Pressable>
+    <TouchableOpacity style={style} {...props} activeOpacity={0.7}>
+      {props.checked && (icon ? icon : <CheckBoxIcon />)}
+    </TouchableOpacity>
   );
 };
-
-const stylesCheckBox = StyleSheet.create({
-  initial: {
-    height: 40,
-    width: 40,
-    borderBotom: 'green',
-  },
-  diabled: {
-    backgroundColor: 'red',
-  },
-  checked: {
-    backgroundColor: 'green',
-  },
-});
