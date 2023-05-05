@@ -1,11 +1,12 @@
 import { useFonts } from 'expo-font';
 import * as React from 'react';
-import { SafeAreaView, ScrollView } from 'react-native';
+import { SafeAreaView, ScrollView, View } from 'react-native';
 import { Texts } from './components/Texts';
 import { CheckBoxes } from './components/Checkboxes';
 import { SegmentedControl, ThemeProvider } from 'rn-ui-kit';
 import { Links } from './components/Links';
 import { Spacers } from './components/Spacers';
+import { RadioButtons } from './components/RadioButtons';
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -21,9 +22,15 @@ export default function App() {
   }
   return (
     <SafeAreaView>
-      <ScrollView>
+      <ScrollView contentContainerStyle={{ paddingHorizontal: 10 }}>
         <ThemeProvider>
-          <CheckBoxes />
+          <View
+            style={{ flexDirection: 'row', justifyContent: 'space-evenly' }}
+          >
+            <CheckBoxes />
+            <RadioButtons />
+          </View>
+
           <Texts />
           <SegmentedControl
             tabs={['Label 1', 'Label 2', 'Label 3']}
