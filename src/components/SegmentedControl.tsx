@@ -8,11 +8,8 @@ import {
   TouchableOpacity,
   TextStyle,
   I18nManager,
+  StyleSheet,
 } from 'react-native';
-
-import styles, { _containerStyle, _selectedTabStyle } from './styles';
-
-const { width: ScreenWidth } = Dimensions.get('screen');
 
 export type CustomStyleProp =
   | StyleProp<ViewStyle>
@@ -46,6 +43,76 @@ export const SegmentedControl: React.FC<SegmentedControlProps> = ({
   activeTabColor = '#FFFFFF',
   extraSpacing = 0,
 }) => {
+  const { width: ScreenWidth } = Dimensions.get('screen');
+
+  const styles = StyleSheet.create({
+    container: {
+      padding: 2,
+      backgroundColor: '#ECF2FF',
+      borderRadius: 8,
+    },
+    tab: {
+      flex: 1,
+      paddingVertical: 8,
+      alignItems: 'center',
+      justifyContent: 'center',
+    },
+    activeTab: {
+      borderWidth: 1,
+      borderColor: '#3F51B5',
+      borderRadius: 7,
+    },
+    textStyle: {
+      fontFamily: 'Nunito Sans Regular',
+      fontStyle: 'normal',
+      fontWeight: '400',
+      fontSize: 13,
+      lineHeight: 16,
+    },
+    activeTextStyle: {
+      fontFamily: 'Nunito Sans Bold',
+      fontWeight: '700',
+    },
+  });
+
+  const _containerStyle = (width?: number): ViewStyle => ({
+    width: width || ScreenWidth - 32,
+    display: 'flex',
+    flexDirection: 'row',
+    alignItems: 'center',
+    borderRadius: 8,
+    backgroundColor: '#F3F5F6',
+  });
+
+  const _selectedTabStyle = (
+    tabs: any[],
+    activeTabColor: string,
+    translateXAnimation: any,
+    width?: number
+  ): CustomStyleProp => [
+    {
+      ...StyleSheet.absoluteFillObject,
+      borderRadius: 8,
+      marginVertical: 2,
+      marginHorizontal: 2,
+      width: (width ? width - 8 : ScreenWidth - 35) / tabs?.length,
+      backgroundColor: activeTabColor,
+      shadowColor: '#000',
+      shadowOpacity: 0.2,
+      shadowRadius: 3,
+      shadowOffset: {
+        width: 0,
+        height: 2,
+      },
+      elevation: 4,
+      transform: [
+        {
+          translateX: translateXAnimation,
+        },
+      ],
+    },
+  ];
+
   const translateValue =
     (width ? width + extraSpacing : ScreenWidth - 35) / tabs.length;
   const [slideAnimation, _] = useState(new Animated.Value(0));
