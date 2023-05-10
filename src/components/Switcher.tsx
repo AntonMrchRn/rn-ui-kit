@@ -1,14 +1,14 @@
 import React, { FC } from 'react';
-import { Switch, SwitchProps } from 'react-native-switch';
-import { useTheme } from 'rn-ui-kit';
+import { Switch as RNSwitch, SwitchProps } from 'react-native-switch';
+import { useTheme } from '../theme/ThemeProvider';
 
-const WrongSwitch = Switch as any;
+const CustomSwitch = RNSwitch as any;
 
-export const Switcher: FC<SwitchProps> = (props) => {
+export const Switch: FC<SwitchProps> = (props) => {
   const theme = useTheme();
 
   return (
-    <WrongSwitch
+    <CustomSwitch
       value={props.value}
       activeText={''}
       inActiveText={''}

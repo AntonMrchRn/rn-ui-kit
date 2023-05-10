@@ -8,7 +8,7 @@ import { Links } from './components/Links';
 import { Spacers } from './components/Spacers';
 import { RadioButtons } from './components/RadioButtons';
 import { Inputs } from './components/Inputs';
-import { Switchers } from './components/Switchers';
+import { Switches } from './components/Switches';
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -31,9 +31,8 @@ export default function App() {
           >
             <CheckBoxes />
             <RadioButtons />
-            <Switchers />
+            <Switches />
           </View>
-
           <Texts />
           <SegmentedControl
             tabs={['Label 1', 'Label 2', 'Label 3']}
