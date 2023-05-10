@@ -7,6 +7,7 @@ import { SegmentedControl, ThemeProvider } from 'rn-ui-kit';
 import { Links } from './components/Links';
 import { Spacers } from './components/Spacers';
 import { RadioButtons } from './components/RadioButtons';
+import { Inputs } from './components/Inputs';
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -34,10 +35,11 @@ export default function App() {
           <Texts />
           <SegmentedControl
             tabs={['Label 1', 'Label 2', 'Label 3']}
-            onChange={(index: number) => console.log('Index: ', index)}
+            onChange={() => {}}
           />
           <Links />
           <Spacers />
+          <Inputs />
         </ThemeProvider>
       </ScrollView>
     </SafeAreaView>
