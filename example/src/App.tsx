@@ -7,6 +7,7 @@ import { SegmentedControl, ThemeProvider } from 'rn-ui-kit';
 import { Links } from './components/Links';
 import { Spacers } from './components/Spacers';
 import { RadioButtons } from './components/RadioButtons';
+import { Switchers } from './components/Switchers';
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -29,6 +30,7 @@ export default function App() {
           >
             <CheckBoxes />
             <RadioButtons />
+            <Switchers />
           </View>
 
           <Texts />
