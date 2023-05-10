@@ -18,8 +18,8 @@ export const RadioButton: FC<RadioButtonProps> = (props) => {
 
   const stylesRadioButton = StyleSheet.create({
     initial: {
-      height: 32,
-      width: 32,
+      height: 26,
+      width: 26,
       borderWidth: 1.5,
       borderColor: theme.background.accent,
       borderRadius: 50,
@@ -43,8 +43,8 @@ export const RadioButton: FC<RadioButtonProps> = (props) => {
       backgroundColor: 'transparent',
     },
     radioActive: {
-      height: 16,
-      width: 16,
+      height: 13,
+      width: 13,
       backgroundColor: theme.background.accent,
       borderRadius: 50,
     },

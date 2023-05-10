@@ -5,6 +5,7 @@ import { SegmentedControl } from './components/SegmentedControl';
 import { Link } from './components/Link';
 import { Spacer } from './components/Spacer';
 import { RadioButton } from './components/RadioButton';
+import { Switcher } from './components/Switcher';
 
 export {
   ThemeProvider,
@@ -15,4 +16,5 @@ export {
   Link,
   Spacer,
   RadioButton,
+  Switcher,
 };
