@@ -56,6 +56,10 @@ export const InputTime: FC<InputTimeProps> = ({
       paddingHorizontal: 10,
       flexDirection: 'row',
       alignItems: 'center',
+      borderWidth: 1,
+      borderColor: isError
+        ? theme.background.fieldDanger
+        : theme.background.fieldMain,
     },
     input: {
       flex: 1,
@@ -67,8 +71,10 @@ export const InputTime: FC<InputTimeProps> = ({
       color: isError ? theme.text.danger : theme.text.basic,
     },
     focused: {
-      borderWidth: 1,
       borderColor: isError ? theme.stroke.danger : theme.stroke.accent,
+    },
+    icon: {
+      marginRight: 8,
     },
   });
 
@@ -93,7 +99,9 @@ export const InputTime: FC<InputTimeProps> = ({
 
   return (
     <View style={currentContainerStyle}>
-      <ClockIcon color={getColor()} />
+      <View style={styles.icon}>
+        <ClockIcon color={getColor()} />
+      </View>
       <MaskInput
         placeholder={placeholder || '00:00'}
         placeholderTextColor={placeholderTextColor || theme.text.neutral}
