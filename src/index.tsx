@@ -8,6 +8,8 @@ import { RadioButton } from './components/RadioButton';
 import { Input } from './components/Input';
 import { InputPhone } from './components/InputPhone';
 import { Switch } from './components/Switcher';
+import { InputDate } from './components/InputDate';
+import { InputTime } from './components/InputTime';
 
 export {
   ThemeProvider,
@@ -21,4 +23,6 @@ export {
   Input,
   InputPhone,
   Switch,
+  InputTime,
+  InputDate,
 };
