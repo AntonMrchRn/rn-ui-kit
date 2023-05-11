@@ -4,7 +4,7 @@ import SVG, { ClipPath, Defs, G, Path, Rect } from 'react-native-svg';
 export const RuFlagIcon = () => {
   return (
     <SVG width="20" height="20" viewBox="0 0 20 20" fill="none">
-      <G clip-path="url(#clip0_48_6191)">
+      <G clipPath="url(#clip0_48_6191)">
         <Path
           d="M9.96875 0.625C5.90625 0.625 2.4375 3.25 1.15625 6.875H18.8437C17.5312 3.25 14.0625 0.625 9.96875 0.625Z"
           fill="white"

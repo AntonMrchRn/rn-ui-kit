@@ -1,5 +1,5 @@
 import React from 'react';
-import { Input, InputPhone } from 'rn-ui-kit';
+import { Input, InputDate, InputPhone, InputTime } from 'rn-ui-kit';
 
 export const Inputs = () => {
   return (
@@ -30,6 +30,12 @@ export const Inputs = () => {
         label="Label"
       />
       <InputPhone />
+      <InputDate />
+      <InputDate value={'140497'} />
+      <InputDate isError value={'140497'} />
+      <InputTime />
+      <InputTime value={'1337'} />
+      <InputTime isError value={'1337'} />
     </>
   );
 };

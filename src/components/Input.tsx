@@ -7,11 +7,11 @@ import {
   TextInputFocusEventData,
   TextInputProps,
   TextProps,
+  TextInput,
+  View,
+  ViewProps,
 } from 'react-native';
 import { useTheme } from '../theme/ThemeProvider';
-import { TextInput } from 'react-native';
-import { View } from 'react-native';
-import { ViewProps } from 'react-native';
 import { InputClearIcon } from '../icons/InputClearIcon';
 import { TouchableOpacity } from 'react-native';
 import { InputEyeCloseIcon } from '../icons/InputEyeCloseIcon';
