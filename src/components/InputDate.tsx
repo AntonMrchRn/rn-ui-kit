@@ -56,6 +56,10 @@ export const InputDate: FC<InputDateProps> = ({
       paddingHorizontal: 10,
       flexDirection: 'row',
       alignItems: 'center',
+      borderWidth: 1,
+      borderColor: isError
+        ? theme.background.fieldDanger
+        : theme.background.fieldMain,
     },
     input: {
       flex: 1,
@@ -67,8 +71,10 @@ export const InputDate: FC<InputDateProps> = ({
       color: isError ? theme.text.danger : theme.text.basic,
     },
     focused: {
-      borderWidth: 1,
       borderColor: isError ? theme.stroke.danger : theme.stroke.accent,
+    },
+    icon: {
+      marginRight: 8,
     },
   });
 
@@ -93,7 +99,10 @@ export const InputDate: FC<InputDateProps> = ({
 
   return (
     <View style={currentContainerStyle}>
-      <CalendarIcon color={getColor()} />
+      <View style={styles.icon}>
+        <CalendarIcon color={getColor()} />
+      </View>
+
       <MaskInput
         placeholder={placeholder || 'ДД/ММ/ГГ'}
         placeholderTextColor={placeholderTextColor || theme.text.neutral}

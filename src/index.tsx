@@ -10,6 +10,7 @@ import { InputPhone } from './components/InputPhone';
 import { Switch } from './components/Switcher';
 import { InputDate } from './components/InputDate';
 import { InputTime } from './components/InputTime';
+import { InputCode } from './components/InputCode';
 
 export {
   ThemeProvider,
@@ -25,4 +26,5 @@ export {
   Switch,
   InputTime,
   InputDate,
+  InputCode,
 };

@@ -72,6 +72,10 @@ export const Input: FC<InputProps> = ({
       paddingHorizontal: 10,
       flexDirection: 'row',
       alignItems: 'center',
+      borderWidth: 1,
+      borderColor: isError
+        ? theme.background.fieldDanger
+        : theme.background.fieldMain,
     },
     input: {
       flex: 1,
@@ -83,7 +87,6 @@ export const Input: FC<InputProps> = ({
       color: isError ? theme.text.danger : theme.text.basic,
     },
     focused: {
-      borderWidth: 1,
       borderColor: isError ? theme.stroke.danger : theme.stroke.accent,
     },
     label: {

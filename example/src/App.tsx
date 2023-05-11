@@ -3,7 +3,7 @@ import * as React from 'react';
 import { SafeAreaView, ScrollView, View } from 'react-native';
 import { Texts } from './components/Texts';
 import { CheckBoxes } from './components/Checkboxes';
-import { SegmentedControl, ThemeProvider } from 'rn-ui-kit';
+import { SegmentedControl, Spacer, ThemeProvider } from 'rn-ui-kit';
 import { Links } from './components/Links';
 import { Spacers } from './components/Spacers';
 import { RadioButtons } from './components/RadioButtons';
@@ -26,21 +26,23 @@ export default function App() {
     <SafeAreaView>
       <ScrollView contentContainerStyle={{ paddingHorizontal: 10 }}>
         <ThemeProvider>
-          <View
-            style={{ flexDirection: 'row', justifyContent: 'space-evenly' }}
-          >
-            <CheckBoxes />
-            <RadioButtons />
-            <Switches />
-          </View>
-          <Texts />
-          <SegmentedControl
-            tabs={['Label 1', 'Label 2', 'Label 3']}
-            onChange={() => {}}
-          />
-          <Links />
-          <Spacers />
-          <Inputs />
+          <Spacer size={'xxl'}>
+            <View
+              style={{ flexDirection: 'row', justifyContent: 'space-evenly' }}
+            >
+              <CheckBoxes />
+              <RadioButtons />
+              <Switches />
+            </View>
+            <Texts />
+            <SegmentedControl
+              tabs={['Label 1', 'Label 2', 'Label 3']}
+              onChange={() => {}}
+            />
+            <Links />
+            <Spacers />
+            <Inputs />
+          </Spacer>
         </ThemeProvider>
       </ScrollView>
     </SafeAreaView>
