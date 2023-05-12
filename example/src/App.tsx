@@ -26,7 +26,7 @@ export default function App() {
     <SafeAreaView>
       <ScrollView contentContainerStyle={{ paddingHorizontal: 10 }}>
         <ThemeProvider>
-          <Spacer size={'xxl'}>
+          <Spacer size={'xxl'} separator="bottom">
             <View
               style={{ flexDirection: 'row', justifyContent: 'space-evenly' }}
             >
