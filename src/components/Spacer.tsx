@@ -1,15 +1,35 @@
 import React, { Children, FC } from 'react';
 import { StyleSheet, View } from 'react-native';
+import { useTheme } from '../theme/ThemeProvider';
 
 export type SpaceSize = 'xs' | 's' | 'm' | 'l' | 'xl' | 'xxl';
 
 export type SpacerProps = {
   size: SpaceSize;
   horizontal?: boolean;
+  separator?: 'top' | 'bottom';
   children?: JSX.Element | JSX.Element[];
 };
 
-export const Spacer: FC<SpacerProps> = ({ size, children, horizontal }) => {
+export const Spacer: FC<SpacerProps> = ({
+  size,
+  children,
+  horizontal,
+  separator,
+}) => {
+  const theme = useTheme();
+
+  const getSeparator = () => {
+    const borderColor = theme.stroke.disableDivider;
+    if (separator === 'top') {
+      return { borderTopWidth: 1, borderColor };
+    }
+    if (separator === 'bottom') {
+      return { borderBottomWidth: 1, borderColor };
+    }
+    return {};
+  };
+
   const styles = StyleSheet.create({
     xs: {
       marginVertical: horizontal ? 0 : 2,
@@ -38,21 +58,28 @@ export const Spacer: FC<SpacerProps> = ({ size, children, horizontal }) => {
     horizontal: {
       flexDirection: 'row',
     },
+    separator: getSeparator(),
   });
 
   return (
     <View style={horizontal && styles.horizontal}>
       {children ? (
-        Children.toArray(children).map((item: any, index) => {
+        Children.map(children, (item, index) => {
           return (
             <View key={index} style={horizontal && styles.horizontal}>
-              {index !== 0 && <View style={styles[size]} />}
-              {item}
+              {index !== 0 && <View style={[styles[size], styles.separator]} />}
+              <>{item}</>
             </View>
           );
         })
       ) : (
-        <View style={[styles[size], horizontal && styles.horizontal]} />
+        <View
+          style={[
+            styles[size],
+            styles.separator,
+            horizontal && styles.horizontal,
+          ]}
+        />
       )}
     </View>
   );

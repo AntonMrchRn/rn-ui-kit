@@ -24,6 +24,7 @@ export const Inputs = () => {
         label="Label"
         hint="error message"
       />
+      <Input variant="message" placeholder="Сообщение..." editable={false} />
       <Input
         variant="text"
         placeholder="Placeholder"

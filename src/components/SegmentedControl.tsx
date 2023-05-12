@@ -60,8 +60,6 @@ export const SegmentedControl: React.FC<SegmentedControlProps> = ({
       justifyContent: 'center',
     },
     activeTab: {
-      borderWidth: 1,
-      borderColor: theme.stroke.accent,
       borderRadius: 7,
     },
     textStyle: {
@@ -74,6 +72,7 @@ export const SegmentedControl: React.FC<SegmentedControlProps> = ({
     activeTextStyle: {
       fontFamily: 'Nunito Sans Bold',
       fontWeight: '700',
+      color: theme.text.accent,
     },
   });
 
