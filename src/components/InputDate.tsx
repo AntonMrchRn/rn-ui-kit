@@ -1,10 +1,9 @@
-import React, { FC, useRef, useState } from 'react';
+import React, { FC, useState } from 'react';
 import {
   NativeSyntheticEvent,
   StyleProp,
   StyleSheet,
   TextInputFocusEventData,
-  TextInput,
   View,
   ViewProps,
 } from 'react-native';
@@ -30,7 +29,6 @@ export const InputDate: FC<InputDateProps> = ({
 }) => {
   const [isFocused, setIsFocused] = useState(false);
 
-  const inputRef = useRef<TextInput>(null);
   const theme = useTheme();
 
   const getColor = () => {
@@ -102,14 +100,12 @@ export const InputDate: FC<InputDateProps> = ({
       <View style={styles.icon}>
         <CalendarIcon color={getColor()} />
       </View>
-
       <MaskInput
         placeholder={placeholder || 'ДД/ММ/ГГ'}
         placeholderTextColor={placeholderTextColor || theme.text.neutral}
         onFocus={handleFocus}
         style={currentInputStyle}
         onBlur={handleBlur}
-        ref={inputRef}
         mask={mask || dateMask}
         {...props}
       />

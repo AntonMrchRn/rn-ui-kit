@@ -138,12 +138,22 @@ export const Input: FC<InputProps> = ({
     setIsVisible(!isVisible);
   };
 
+  const getPlaceholderColor = () => {
+    if (placeholderTextColor) {
+      return placeholderTextColor;
+    }
+    if (typeof props.editable === 'boolean' && !props.editable) {
+      return theme.text.neutralDisable;
+    }
+    return theme.text.neutral;
+  };
+
   return (
     <View>
       {label && <Text style={currentLabelStyle}>{label}</Text>}
       <View style={currentContainerStyle}>
         <TextInput
-          placeholderTextColor={placeholderTextColor || theme.text.neutral}
+          placeholderTextColor={getPlaceholderColor()}
           onFocus={handleFocus}
           style={currentInputStyle}
           onBlur={handleBlur}

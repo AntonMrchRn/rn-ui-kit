@@ -43,11 +43,11 @@ export const Spacer: FC<SpacerProps> = ({ size, children, horizontal }) => {
   return (
     <View style={horizontal && styles.horizontal}>
       {children ? (
-        Children.toArray(children).map((item: any, index) => {
+        Children.map(children, (item, index) => {
           return (
             <View key={index} style={horizontal && styles.horizontal}>
               {index !== 0 && <View style={styles[size]} />}
-              {item}
+              <>{item}</>
             </View>
           );
         })

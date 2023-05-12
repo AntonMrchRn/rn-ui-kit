@@ -1,10 +1,9 @@
-import React, { FC, useRef, useState } from 'react';
+import React, { FC, useState } from 'react';
 import {
   NativeSyntheticEvent,
   StyleProp,
   StyleSheet,
   TextInputFocusEventData,
-  TextInput,
   View,
   ViewProps,
 } from 'react-native';
@@ -30,7 +29,6 @@ export const InputTime: FC<InputTimeProps> = ({
 }) => {
   const [isFocused, setIsFocused] = useState(false);
 
-  const inputRef = useRef<TextInput>(null);
   const theme = useTheme();
 
   const getColor = () => {
@@ -108,7 +106,6 @@ export const InputTime: FC<InputTimeProps> = ({
         onFocus={handleFocus}
         style={currentInputStyle}
         onBlur={handleBlur}
-        ref={inputRef}
         mask={mask || timeMask}
         {...props}
       />
