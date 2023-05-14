@@ -9,6 +9,7 @@ import { Spacers } from './components/Spacers';
 import { RadioButtons } from './components/RadioButtons';
 import { Inputs } from './components/Inputs';
 import { Switches } from './components/Switches';
+import { Badges } from './components/Badges';
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -42,6 +43,7 @@ export default function App() {
             <Links />
             <Spacers />
             <Inputs />
+            <Badges />
           </Spacer>
         </ThemeProvider>
       </ScrollView>
