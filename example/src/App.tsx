@@ -9,6 +9,7 @@ import { Spacers } from './components/Spacers';
 import { RadioButtons } from './components/RadioButtons';
 import { Inputs } from './components/Inputs';
 import { Switches } from './components/Switches';
+import { Tooltips } from './components/Tooltips';
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -34,6 +35,7 @@ export default function App() {
               <RadioButtons />
               <Switches />
             </View>
+            <Tooltips />
             <Texts />
             <SegmentedControl
               tabs={['Label 1', 'Label 2', 'Label 3']}
@@ -42,6 +44,7 @@ export default function App() {
             <Links />
             <Spacers />
             <Inputs />
+            <Tooltips />
           </Spacer>
         </ThemeProvider>
       </ScrollView>
