@@ -9,6 +9,7 @@ import { Spacers } from './components/Spacers';
 import { RadioButtons } from './components/RadioButtons';
 import { Inputs } from './components/Inputs';
 import { Switches } from './components/Switches';
+import { Tooltips } from './components/Tooltips';
 import { Badges } from './components/Badges';
 
 export default function App() {
@@ -43,6 +44,7 @@ export default function App() {
             <Links />
             <Spacers />
             <Inputs />
+            <Tooltips />
             <Badges />
           </Spacer>
         </ThemeProvider>

@@ -11,6 +11,7 @@ import { Switch } from './components/Switcher';
 import { InputDate } from './components/InputDate';
 import { InputTime } from './components/InputTime';
 import { InputCode } from './components/InputCode';
+import { Tooltip } from './components/Tooltip';
 import { Badge } from './components/Badge';
 
 export {
@@ -28,5 +29,6 @@ export {
   InputTime,
   InputDate,
   InputCode,
+  Tooltip,
   Badge,
 };
