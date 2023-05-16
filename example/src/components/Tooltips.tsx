@@ -9,10 +9,11 @@ export const Tooltips = () => {
       <Tooltip
         onClose={() => setState(false)}
         isVisible={state}
-        triangleEdge="right"
-        triagnleAlign="end"
+        triangleEdge="bottom"
+        triagnleAlign="start"
         title="Заголовок"
         text="Локаничная подсказка этого тултипа,но желательно не делать ее больше3-4 строчек"
+        coords={{ x: 10, y: 110 }}
       >
         <Text variant="title1" onPress={() => setState(!state)}>
           tooltip

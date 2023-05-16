@@ -25,6 +25,7 @@ export type TooltipProps = {
   triagnleAlign?: 'start' | 'center' | 'end';
   isVisible?: boolean;
   onClose?: () => void;
+  coords?: { x: number; y: number };
 };
 
 export const Tooltip: FC<TooltipProps> = ({
@@ -40,6 +41,7 @@ export const Tooltip: FC<TooltipProps> = ({
   isVisible = false,
   onClose,
   children,
+  coords = { x: 0, y: 0 },
 }) => {
   const theme = useTheme();
   const [measure, setMeasure] = useState({ x: 0, y: 0 });
@@ -70,8 +72,8 @@ export const Tooltip: FC<TooltipProps> = ({
       color: theme.text.contrast,
     },
     modal: {
-      top: measure.y,
-      left: measure.x,
+      top: measure.y - coords.y,
+      left: measure.x + coords.x,
       position: 'absolute',
     },
   });
