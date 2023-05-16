@@ -61,7 +61,7 @@ export const InputCode: FC<InputCodeProps> = ({
         keyboardType="number-pad"
         textContentType="oneTimeCode"
         renderCell={({ index, symbol }) => (
-          <View style={styles.cell}>
+          <View style={styles.cell} key={index}>
             {symbol ? (
               <Text
                 key={index}
