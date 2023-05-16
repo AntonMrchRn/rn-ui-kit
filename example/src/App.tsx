@@ -10,6 +10,7 @@ import { RadioButtons } from './components/RadioButtons';
 import { Inputs } from './components/Inputs';
 import { Switches } from './components/Switches';
 import { Tooltips } from './components/Tooltips';
+import { Badges } from './components/Badges';
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -45,6 +46,7 @@ export default function App() {
             <Spacers />
             <Inputs />
             <Tooltips />
+            <Badges />
           </Spacer>
         </ThemeProvider>
       </ScrollView>

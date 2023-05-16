@@ -101,7 +101,7 @@ export const colors: Colors = {
     modal: '#00000040',
     tooltip: '#00000060',
     specialLight: '#E2FDFF',
-    special: ' #00B6C1',
+    special: '#00B6C1',
   },
   stroke: {
     accent: '#3F51B5',

@@ -12,6 +12,7 @@ import { InputDate } from './components/InputDate';
 import { InputTime } from './components/InputTime';
 import { InputCode } from './components/InputCode';
 import { Tooltip } from './components/Tooltip';
+import { Badge } from './components/Badge';
 
 export {
   ThemeProvider,
@@ -29,4 +30,5 @@ export {
   InputDate,
   InputCode,
   Tooltip,
+  Badge,
 };
