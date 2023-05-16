@@ -42,8 +42,8 @@ export const Tooltip: FC<TooltipProps> = ({
   children,
 }) => {
   const theme = useTheme();
-  const [state, setState] = useState({ x: 0, y: 0 });
-  console.log('🚀 ~ file: Tooltip.tsx:46 ~ state:', state);
+  const [measure, setMeasure] = useState({ x: 0, y: 0 });
+
   const styles = StyleSheet.create({
     container: {
       backgroundColor: 'rgba(0, 0, 0, 0.6)',
@@ -68,6 +68,11 @@ export const Tooltip: FC<TooltipProps> = ({
       fontSize: 13,
       lineHeight: 16,
       color: theme.text.contrast,
+    },
+    modal: {
+      top: measure.y,
+      left: measure.x,
+      position: 'absolute',
     },
   });
 
@@ -164,9 +169,11 @@ export const Tooltip: FC<TooltipProps> = ({
   const ref = useRef<View>(null);
 
   useEffect(() => {
-    ref?.current?.measureInWindow((x, y) => {
-      setState({ x, y });
-    });
+    if (isVisible) {
+      ref?.current?.measureInWindow((x, y) => {
+        setMeasure({ x, y });
+      });
+    }
   }, [isVisible]);
 
   return (
@@ -178,7 +185,7 @@ export const Tooltip: FC<TooltipProps> = ({
         animationOut="fadeOut"
         backdropColor="transparent"
         backdropOpacity={1}
-        style={{ top: state.y, left: state.x, position: 'absolute' }}
+        style={styles.modal}
       >
         <TouchableWithoutFeedback onPress={onClose}>
           <View style={currentContainerStyle}>
