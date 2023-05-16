@@ -5,13 +5,14 @@ import { LinkIcon } from '../../../src/icons/LinkIcon';
 export const Badges = () => {
   return (
     <Spacer size="s">
-      <Badge customIcon={<LinkIcon size="M" color="#fff" />} />
-      <Badge variantColor={2} icon={true} />
-      <Badge variantColor={3} />
-      <Badge variantColor={4} />
-      <Badge variantColor={5} />
-      <Badge variantColor={6} />
-      <Badge variantColor={7} />
+      <Badge icon={<LinkIcon size="M" color="#fff" />} label="Badge" />
+      <Badge variant="accent" icon={true} label="Badge" />
+      <Badge variant="danger" label="Badge" />
+      <Badge variant="secondary" label="Badge" />
+      <Badge variant="warning" label="Badge" />
+      <Badge variant="success" label="Badge" />
+      <Badge variant="basic" label="Badge" />
+      <Badge variant="special" label="Badge" />
     </Spacer>
   );
 };

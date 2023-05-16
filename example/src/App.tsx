@@ -36,7 +36,6 @@ export default function App() {
               <RadioButtons />
               <Switches />
             </View>
-            <Tooltips />
             <Texts />
             <SegmentedControl
               tabs={['Label 1', 'Label 2', 'Label 3']}

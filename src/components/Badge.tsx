@@ -6,98 +6,94 @@ import {
   ViewProps,
   Text,
   View,
+  TextStyle,
 } from 'react-native';
 
 import { useTheme } from '../theme/ThemeProvider';
 import { BadgeIcon } from '../icons/BadgeIcom';
 
 export type BadgeProps = ViewProps & {
-  customIcon?: ReactElement;
-  variantColor?: number;
-  icon?: boolean;
+  icon?: ReactElement | true;
+  variant?:
+    | 'accent'
+    | 'danger'
+    | 'secondary'
+    | 'warning'
+    | 'success'
+    | 'basic'
+    | 'special';
+  label?: string;
+  labelStyle?: StyleProp<TextStyle>;
 };
 
 export const Badge: FC<BadgeProps> = ({
-  customIcon,
   icon,
-  variantColor = 1,
+  variant = 'accent',
+  labelStyle,
+  label = '',
   ...props
 }) => {
   const theme = useTheme();
 
-  const stylesBadge = StyleSheet.create({
+  const styles = StyleSheet.create({
     label: {
       color: '#fff',
       marginLeft: 5,
       fontFamily: 'Nunito Sans Regular',
     },
-    initial: {
+    badge: {
       height: 28,
       borderRadius: 8,
       paddingHorizontal: 15,
       flexDirection: 'row',
-      backgroundColor: theme.background.accent,
       alignItems: 'center',
       justifyContent: 'center',
       alignSelf: 'flex-start',
     },
-    red: {
+    accent: {
+      backgroundColor: theme.background.accent,
+    },
+    danger: {
       backgroundColor: theme.background.danger,
     },
-    secondaryRed: {
-      backgroundColor: theme.background.fieldDanger,
-    },
-    pink: {
+    secondary: {
       backgroundColor: theme.background.secondary,
     },
-    orange: {
+    warning: {
       backgroundColor: theme.icons.warning,
     },
-    green: {
+    success: {
       backgroundColor: theme.background.success,
     },
-    black: {
+    basic: {
       backgroundColor: theme.icons.basic,
     },
-    berserk: {
+    special: {
       backgroundColor: theme.background.special,
     },
   });
 
-  const currentStyle = () => {
-    if (variantColor === 1) {
-      return stylesBadge.initial;
+  const getIcon = () => {
+    if (icon) {
+      if (typeof icon === 'boolean') {
+        return <BadgeIcon />;
+      }
+      return icon;
     }
-    if (variantColor === 2) {
-      return stylesBadge.pink;
-    }
-    if (variantColor === 3) {
-      return stylesBadge.red;
-    }
-    if (variantColor === 4) {
-      return stylesBadge.orange;
-    }
-    if (variantColor === 5) {
-      return stylesBadge.green;
-    }
-    if (variantColor === 6) {
-      return stylesBadge.black;
-    }
-    if (variantColor === 7) {
-      return stylesBadge.berserk;
-    }
-    return;
+    return null;
   };
 
-  const style = StyleSheet.compose(stylesBadge.initial, [
+  const currentBadgeStyle = StyleSheet.compose(styles.badge, [
+    styles[variant],
     props.style as StyleProp<ViewStyle>,
-    currentStyle(),
   ]);
 
+  const currentLabelStyle = StyleSheet.compose(styles.label, labelStyle);
+
   return (
-    <View style={style} {...props}>
-      {customIcon ? customIcon : icon && <BadgeIcon />}
-      <Text style={stylesBadge.label}>Badge</Text>
+    <View style={currentBadgeStyle} {...props}>
+      {getIcon()}
+      <Text style={currentLabelStyle}>{label}</Text>
     </View>
   );
 };
