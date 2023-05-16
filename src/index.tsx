@@ -11,6 +11,7 @@ import { Switch } from './components/Switcher';
 import { InputDate } from './components/InputDate';
 import { InputTime } from './components/InputTime';
 import { InputCode } from './components/InputCode';
+import { Badge } from './components/Badge';
 
 export {
   ThemeProvider,
@@ -27,4 +28,5 @@ export {
   InputTime,
   InputDate,
   InputCode,
+  Badge,
 };
