@@ -1,9 +1,18 @@
 import React, { FC } from 'react';
-import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import {
+  View,
+  Text,
+  StyleSheet,
+  TouchableOpacity,
+  StyleProp,
+  ViewStyle,
+  TextStyle,
+} from 'react-native';
 import { SwipeListView } from 'react-native-swipe-list-view';
 import { useTheme } from '../theme/ThemeProvider';
 import { EditActionIcon } from '../icons/EditActionIcon';
 import { DeleteActionIcon } from '../icons/DeleteActionIcon';
+import { ReturnActionIcon } from '../icons/ReturnActionIcon';
 
 export type SwipeListData = {
   id: string;
@@ -18,16 +27,49 @@ export type SwipeListData = {
 
 export type SwipeListProps = {
   data: SwipeListData[];
+  variant: 'default' | 'user' | 'coordinator' | 'delete';
   fistAction: (item: SwipeListData) => void;
   secondAction: (item: SwipeListData) => void;
+  containerStyle?: StyleProp<ViewStyle>;
+  hiddenContainerStyle?: StyleProp<ViewStyle>;
+  itemsContainerStyle?: StyleProp<ViewStyle>;
+  actionStyle?: StyleProp<ViewStyle>;
+  firstActionStyle?: StyleProp<ViewStyle>;
+  secondActionStyle?: StyleProp<ViewStyle>;
+  labelStyle?: StyleProp<TextStyle>;
+  titleStyle?: StyleProp<TextStyle>;
+  itemTextStyle?: StyleProp<TextStyle>;
 };
 
 export const SwipeList: FC<SwipeListProps> = ({
   data,
+  variant,
   fistAction,
   secondAction,
+  containerStyle,
+  labelStyle,
+  titleStyle,
+  itemTextStyle,
+  itemsContainerStyle,
+  hiddenContainerStyle,
+  actionStyle,
+  firstActionStyle,
+  secondActionStyle,
 }) => {
   const theme = useTheme();
+
+  const getContainerBackgroundColor = () => {
+    switch (variant) {
+      case 'user':
+        return theme.background.fieldSuccess;
+      case 'coordinator':
+        return theme.background.fieldWarning;
+      default:
+        return theme.background.main;
+    }
+  };
+
+  const isDelete = variant === 'delete';
 
   const styles = StyleSheet.create({
     text: {
@@ -36,7 +78,7 @@ export const SwipeList: FC<SwipeListProps> = ({
       fontWeight: '400',
       fontSize: 13,
       lineHeight: 16,
-      color: theme.text.neutral,
+      color: isDelete ? theme.text.neutralDisable : theme.text.neutral,
     },
     label: {
       fontFamily: 'Nunito Sans Regular',
@@ -44,7 +86,7 @@ export const SwipeList: FC<SwipeListProps> = ({
       fontWeight: '400',
       fontSize: 13,
       lineHeight: 16,
-      color: theme.text.neutral,
+      color: isDelete ? theme.text.neutralDisable : theme.text.neutral,
       marginBottom: 4,
     },
     title: {
@@ -53,12 +95,12 @@ export const SwipeList: FC<SwipeListProps> = ({
       fontWeight: '700',
       fontSize: 17,
       lineHeight: 24,
-      color: theme.text.basic,
+      color: isDelete ? theme.text.neutralDisable : theme.text.basic,
     },
     container: {
       paddingVertical: 16,
       paddingHorizontal: 20,
-      backgroundColor: theme.background.main,
+      backgroundColor: getContainerBackgroundColor(),
     },
     items: {
       marginTop: 10,
@@ -79,19 +121,54 @@ export const SwipeList: FC<SwipeListProps> = ({
       backgroundColor: theme.background.accent,
     },
     second: {
-      backgroundColor: theme.background.danger,
+      backgroundColor: isDelete
+        ? theme.background.success
+        : theme.background.danger,
     },
   });
 
-  const renderItem: FC<{ item: SwipeListData; index: number }> = ({ item }) => (
-    <View style={styles.container}>
-      <Text style={styles.label}>{item.label}</Text>
-      <Text style={styles.title}>{item.title}</Text>
-      <View style={styles.items}>
+  const currentContainerStyle = StyleSheet.compose(
+    styles.container,
+    containerStyle
+  );
+  const currentLabelStyle = StyleSheet.compose(styles.label, labelStyle);
+  const currentTitleStyle = StyleSheet.compose(styles.title, titleStyle);
+  const currentItemTextStyle = StyleSheet.compose(styles.text, itemTextStyle);
+  const currentItemsContainerStyle = StyleSheet.compose(
+    styles.items,
+    itemsContainerStyle
+  );
+  const currentHiddenContainerStyle = StyleSheet.compose(
+    styles.hidden,
+    hiddenContainerStyle
+  );
+  const currentActionStyle = StyleSheet.compose(styles.action, actionStyle);
+  const currentFirstActionStyle = StyleSheet.compose(
+    styles.first,
+    firstActionStyle
+  );
+  const currentSecondActionStyle = StyleSheet.compose(
+    styles.second,
+    secondActionStyle
+  );
+  const firstActionStyleCompose = StyleSheet.compose(
+    currentActionStyle,
+    currentFirstActionStyle
+  );
+  const secondActionStyleCompose = StyleSheet.compose(
+    currentActionStyle,
+    currentSecondActionStyle
+  );
+
+  const renderItem: FC<{ item: SwipeListData }> = ({ item }) => (
+    <View style={currentContainerStyle}>
+      <Text style={currentLabelStyle}>{item.label}</Text>
+      <Text style={currentTitleStyle}>{item.title}</Text>
+      <View style={currentItemsContainerStyle}>
         {item.items.map((i) => (
           <View key={i.id}>
             {i?.icon}
-            <Text style={styles.text}>{i.text}</Text>
+            <Text style={currentItemTextStyle}>{i.text}</Text>
           </View>
         ))}
       </View>
@@ -100,18 +177,18 @@ export const SwipeList: FC<SwipeListProps> = ({
 
   const renderHiddenItem: FC<{ item: SwipeListData }> = ({ item }) => {
     return (
-      <View style={styles.hidden}>
+      <View style={currentHiddenContainerStyle}>
         <TouchableOpacity
-          style={[styles.action, styles.first]}
+          style={firstActionStyleCompose}
           onPress={() => fistAction(item)}
         >
           <EditActionIcon />
         </TouchableOpacity>
         <TouchableOpacity
-          style={[styles.action, styles.second]}
+          style={secondActionStyleCompose}
           onPress={() => secondAction(item)}
         >
-          <DeleteActionIcon />
+          {isDelete ? <ReturnActionIcon /> : <DeleteActionIcon />}
         </TouchableOpacity>
       </View>
     );
