@@ -5,14 +5,14 @@ rn-ui-kit
 ## Installation
 
 ```sh
-npm install rn-ui-kit
+npm install "git+https://git@devgit.apteka-aprel.ru/mobile/rn-ui-kit"
 npm install react-native-svg
 ```
 
 or
 
 ```sh
-yarn add rn-ui-kit
+yarn add "git+https://git@devgit.apteka-aprel.ru/mobile/rn-ui-kit"
 yarn add react-native-svg
 ```
 
