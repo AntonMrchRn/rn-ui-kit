@@ -13,6 +13,7 @@ import { InputTime } from './components/InputTime';
 import { InputCode } from './components/InputCode';
 import { Tooltip } from './components/Tooltip';
 import { Badge } from './components/Badge';
+import { TabControl } from './components/TabControl';
 
 export {
   ThemeProvider,
@@ -31,4 +32,5 @@ export {
   InputCode,
   Tooltip,
   Badge,
+  TabControl,
 };
