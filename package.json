@@ -71,11 +71,12 @@
     "react-native-builder-bob": "^0.20.4",
     "react-native-confirmation-code-field": "^7.3.1",
     "react-native-mask-input": "^1.2.3",
+    "react-native-modal": "^13.0.1",
     "react-native-svg": "^13.9.0",
     "react-native-switch": "^1.5.1",
     "release-it": "^15.0.0",
-    "react-native-modal": "^13.0.1",
-    "typescript": "^4.5.2"
+    "typescript": "^4.5.2",
+    "react-native-swipe-list-view": "^3.2.9"
   },
   "resolutions": {
     "@types/react": "17.0.21"
@@ -85,9 +86,10 @@
     "react-native": "*",
     "react-native-confirmation-code-field": "*",
     "react-native-mask-input": "*",
+    "react-native-modal": "*",
     "react-native-svg": "*",
     "react-native-switch": "*",
-    "react-native-modal": "*"
+    "react-native-swipe-list-view": "*"
   },
   "engines": {
     "node": ">= 16.0.0"

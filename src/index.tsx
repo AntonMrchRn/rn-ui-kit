@@ -13,6 +13,7 @@ import { InputTime } from './components/InputTime';
 import { InputCode } from './components/InputCode';
 import { Tooltip } from './components/Tooltip';
 import { Badge } from './components/Badge';
+import { SwipeList } from './components/SwipeList';
 import { TabControl } from './components/TabControl';
 
 export {
@@ -32,5 +33,6 @@ export {
   InputCode,
   Tooltip,
   Badge,
+  SwipeList,
   TabControl,
 };

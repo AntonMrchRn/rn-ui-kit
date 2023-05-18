@@ -11,6 +11,7 @@ import { Inputs } from './components/Inputs';
 import { Switches } from './components/Switches';
 import { Tooltips } from './components/Tooltips';
 import { Badges } from './components/Badges';
+import { SwipeLists } from './components/SwipeLists';
 import { TabControls } from './components/TabControls';
 
 export default function App() {
@@ -26,9 +27,9 @@ export default function App() {
     return null;
   }
   return (
-    <SafeAreaView>
-      <ScrollView contentContainerStyle={{ paddingHorizontal: 10 }}>
-        <ThemeProvider>
+    <ThemeProvider>
+      <SafeAreaView style={{ flex: 1 }}>
+        <ScrollView contentContainerStyle={{ paddingHorizontal: 10 }}>
           <Spacer size={'xxl'} separator="bottom">
             <View
               style={{ flexDirection: 'row', justifyContent: 'space-evenly' }}
@@ -49,8 +50,9 @@ export default function App() {
             <Tooltips />
             <Badges />
           </Spacer>
-        </ThemeProvider>
-      </ScrollView>
-    </SafeAreaView>
+        </ScrollView>
+        <SwipeLists />
+      </SafeAreaView>
+    </ThemeProvider>
   );
 }

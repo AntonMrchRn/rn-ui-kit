@@ -5,8 +5,7 @@
   "scripts": {
     "start": "expo start",
     "android": "expo start --android",
-    "ios": "expo start --ios",
-    "web": "expo start --web"
+    "ios": "expo start --ios"
   },
   "dependencies": {
     "@types/react-native": "0.71.6",
@@ -20,8 +19,8 @@
     "react-native-mask-input": "^1.2.3",
     "react-native-modal": "^13.0.1",
     "react-native-svg": "13.4.0",
-    "react-native-switch": "^1.5.1",
-    "react-native-web": "~0.18.10"
+    "react-native-swipe-list-view": "^3.2.9",
+    "react-native-switch": "^1.5.1"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0",
