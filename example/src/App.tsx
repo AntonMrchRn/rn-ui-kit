@@ -12,6 +12,7 @@ import { Switches } from './components/Switches';
 import { Tooltips } from './components/Tooltips';
 import { Badges } from './components/Badges';
 import { SwipeLists } from './components/SwipeLists';
+import { TabControls } from './components/TabControls';
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -37,6 +38,7 @@ export default function App() {
               <RadioButtons />
               <Switches />
             </View>
+            <TabControls />
             <Texts />
             <SegmentedControl
               tabs={['Label 1', 'Label 2', 'Label 3']}

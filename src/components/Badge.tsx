@@ -13,7 +13,7 @@ import { useTheme } from '../theme/ThemeProvider';
 import { BadgeIcon } from '../icons/BadgeIcom';
 
 export type BadgeProps = ViewProps & {
-  icon?: ReactElement | true;
+  icon?: ReactElement | boolean;
   variant?:
     | 'accent'
     | 'danger'
