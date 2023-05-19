@@ -11,8 +11,8 @@ import { Inputs } from './components/Inputs';
 import { Switches } from './components/Switches';
 import { Tooltips } from './components/Tooltips';
 import { Badges } from './components/Badges';
-import { SwipeLists } from './components/SwipeLists';
 import { TabControls } from './components/TabControls';
+import { Modals } from './components/Modals';
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -49,9 +49,10 @@ export default function App() {
             <Inputs />
             <Tooltips />
             <Badges />
+            <Modals />
           </Spacer>
         </ScrollView>
-        <SwipeLists />
+        {/* <SwipeLists /> */}
       </SafeAreaView>
     </ThemeProvider>
   );

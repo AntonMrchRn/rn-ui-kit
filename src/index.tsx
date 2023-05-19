@@ -15,6 +15,7 @@ import { Tooltip } from './components/Tooltip';
 import { Badge } from './components/Badge';
 import { SwipeList } from './components/SwipeList';
 import { TabControl } from './components/TabControl';
+import { Modal } from './components/Modal';
 
 export {
   ThemeProvider,
@@ -35,4 +36,5 @@ export {
   Badge,
   SwipeList,
   TabControl,
+  Modal,
 };
