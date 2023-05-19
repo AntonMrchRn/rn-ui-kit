@@ -102,7 +102,8 @@ export type ModalProps = {
 };
 
 export const Modal: FC<ModalProps> = ({
-  backdropColor = 'transparent',
+  backdropOpacity = 1,
+  backdropColor,
   modalStyle,
   containerStyle,
   closeIconContainerStyle,
@@ -195,7 +196,12 @@ export const Modal: FC<ModalProps> = ({
   };
 
   return (
-    <RNModal {...props} backdropColor={backdropColor} style={modalStyle}>
+    <RNModal
+      {...props}
+      backdropOpacity={backdropOpacity}
+      backdropColor={backdropColor || theme.background.modal}
+      style={modalStyle}
+    >
       <View style={currentContainerStyle}>
         <View style={currentCloseIconContainerStyle}>
           <TouchableOpacity onPress={closeIconPress}>
