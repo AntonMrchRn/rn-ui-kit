@@ -98,7 +98,7 @@ export type ModalProps = {
   titleStyle?: StyleProp<TextStyle>;
   description?: string;
   descriptionStyle?: StyleProp<TextStyle>;
-  content?: JSX.Element;
+  children?: JSX.Element | JSX.Element[];
 };
 
 export const Modal: FC<ModalProps> = ({
@@ -115,7 +115,7 @@ export const Modal: FC<ModalProps> = ({
   titleStyle,
   description,
   descriptionStyle,
-  content,
+  children,
   ...props
 }) => {
   const theme = useTheme();
@@ -213,7 +213,7 @@ export const Modal: FC<ModalProps> = ({
         {description && (
           <Text style={currentDescriptionStyle}>{description}</Text>
         )}
-        {content}
+        {children}
       </View>
     </RNModal>
   );

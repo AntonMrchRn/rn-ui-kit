@@ -13,7 +13,9 @@ export const Modals = () => {
         headerIcon="error"
         title="Превышен лимит загрузки"
         description="Общий размер загружаемых файловне должен превышать 50 МВ"
-      />
+      >
+        <Text variant="title3">children content</Text>
+      </Modal>
       <Text variant="title3" onPress={() => setState(true)}>
         open modal
       </Text>
