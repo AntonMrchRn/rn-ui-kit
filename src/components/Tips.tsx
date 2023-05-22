@@ -83,6 +83,7 @@ export const Tips: FC<TipsProps> = ({
       borderWidth: 1,
       borderColor: getBorderColor(),
       borderRadius: 12,
+      alignItems: 'flex-start',
     },
     text: {
       fontFamily: 'Nunito Sans Regular',
@@ -100,6 +101,7 @@ export const Tips: FC<TipsProps> = ({
       paddingHorizontal: 16,
       borderWidth: 1.5,
       borderColor: getButtonBorderColor(),
+      borderRadius: 8,
     },
     buttonText: {
       fontFamily: 'Nunito Sans Bold',
