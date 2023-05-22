@@ -13,6 +13,7 @@ import { Tooltips } from './components/Tooltips';
 import { Badges } from './components/Badges';
 import { TabControls } from './components/TabControls';
 import { Modals } from './components/Modals';
+import { Tipses } from './components/Tipses';
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -50,6 +51,7 @@ export default function App() {
             <Tooltips />
             <Badges />
             <Modals />
+            <Tipses />
           </Spacer>
         </ScrollView>
         {/* <SwipeLists /> */}
