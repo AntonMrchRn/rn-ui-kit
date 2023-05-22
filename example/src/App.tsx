@@ -14,6 +14,7 @@ import { Badges } from './components/Badges';
 import { TabControls } from './components/TabControls';
 import { Modals } from './components/Modals';
 import { Tipses } from './components/Tipses';
+import { Banners } from './components/Banners';
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -52,6 +53,7 @@ export default function App() {
             <Badges />
             <Modals />
             <Tipses />
+            <Banners />
           </Spacer>
         </ScrollView>
         {/* <SwipeLists /> */}
