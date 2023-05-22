@@ -36,7 +36,9 @@ export const TabControl: FC<TabControlProps> = ({
 
   const styles = StyleSheet.create({
     wrapper: {
-      backgroundColor: '#fff',
+      padding: 5,
+      borderRadius: 4,
+      backgroundColor: theme.background.main,
       margin: 10,
       paddingVertical: 5,
       borderBottomWidth: 1.5,
