@@ -15,9 +15,10 @@ import { BannerCloseIcon } from '../icons/BannerCloseIcon';
 import { useTheme } from '../theme/ThemeProvider';
 
 export type BannerProps = {
-  containerStyle?: StyleProp<ViewStyle>;
+  visible: boolean;
   type: 'error' | 'success' | 'warning' | 'info';
   icon: 'success' | 'info' | 'alert' | JSX.Element;
+  containerStyle?: StyleProp<ViewStyle>;
   closeIcon?: JSX.Element;
   iconStyle?: StyleProp<ViewStyle>;
   titleStyle?: StyleProp<TextStyle>;
@@ -25,7 +26,7 @@ export type BannerProps = {
   title?: string;
   text?: string;
   iconColor?: string;
-  closeIconPress?: () => void;
+  onClosePress?: () => void;
   buttonTextStyle?: StyleProp<TextStyle>;
   buttonStyle?: StyleProp<ViewStyle>;
   onButtonPress?: () => void;
@@ -42,12 +43,13 @@ export const Banner: FC<BannerProps> = ({
   closeIcon,
   text,
   textStyle,
-  closeIconPress,
+  onClosePress,
   buttonStyle,
   buttonTextStyle,
   onButtonPress,
   buttonText,
   iconColor,
+  visible,
 }) => {
   const theme = useTheme();
 
@@ -188,28 +190,31 @@ export const Banner: FC<BannerProps> = ({
     buttonTextStyle
   );
 
-  return (
-    <View style={currentContainerStyle}>
-      <View style={currentIconStyle}>{getIcon()}</View>
-      <View style={styles.wrapper}>
-        <View style={styles.header}>
-          {title ? <Text style={currentTitleStyle}>{title}</Text> : <View />}
-          <TouchableOpacity onPress={closeIconPress}>
-            {closeIcon || <BannerCloseIcon />}
-          </TouchableOpacity>
-        </View>
-        <View style={styles.body}>
-          {text && <Text style={currentTextStyle}>{text}</Text>}
-          {buttonText && (
-            <TouchableOpacity
-              style={currentButtonStyle}
-              onPress={onButtonPress}
-            >
-              <Text style={currentButtonTextStyle}>{buttonText}</Text>
+  if (visible) {
+    return (
+      <View style={currentContainerStyle}>
+        <View style={currentIconStyle}>{getIcon()}</View>
+        <View style={styles.wrapper}>
+          <View style={styles.header}>
+            {title ? <Text style={currentTitleStyle}>{title}</Text> : <View />}
+            <TouchableOpacity onPress={onClosePress}>
+              {closeIcon || <BannerCloseIcon />}
             </TouchableOpacity>
-          )}
+          </View>
+          <View style={styles.body}>
+            {text && <Text style={currentTextStyle}>{text}</Text>}
+            {buttonText && (
+              <TouchableOpacity
+                style={currentButtonStyle}
+                onPress={onButtonPress}
+              >
+                <Text style={currentButtonTextStyle}>{buttonText}</Text>
+              </TouchableOpacity>
+            )}
+          </View>
         </View>
       </View>
-    </View>
-  );
+    );
+  }
+  return null;
 };
