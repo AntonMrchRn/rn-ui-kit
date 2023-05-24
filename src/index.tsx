@@ -19,6 +19,7 @@ import { Modal } from './components/Modal';
 import { Tips } from './components/Tips';
 import { Banner } from './components/Banner';
 import { Card } from './components/Card';
+import { Toast } from './components/Toast';
 
 export {
   ThemeProvider,
@@ -43,4 +44,5 @@ export {
   Tips,
   Banner,
   Card,
+  Toast,
 };
