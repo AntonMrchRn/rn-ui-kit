@@ -114,6 +114,6 @@ export const colors: Colors = {
     danger: '#EB142D',
     dangerDisable: '#FCD9DC',
     warning: '#FF820F',
-    warningDisable: ' #FFDEC0',
+    warningDisable: '#FFDEC0',
   },
 };

@@ -13,6 +13,8 @@ import { Tooltips } from './components/Tooltips';
 import { Badges } from './components/Badges';
 import { TabControls } from './components/TabControls';
 import { Modals } from './components/Modals';
+import { Tipses } from './components/Tipses';
+import { Banners } from './components/Banners';
 import { Cards } from './components/Cards';
 
 export default function App() {
@@ -52,6 +54,8 @@ export default function App() {
             <Tooltips />
             <Badges />
             <Modals />
+            <Tipses />
+            <Banners />
           </Spacer>
         </ScrollView>
         {/* <SwipeLists /> */}

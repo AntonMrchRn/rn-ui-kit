@@ -16,6 +16,8 @@ import { Badge } from './components/Badge';
 import { SwipeList } from './components/SwipeList';
 import { TabControl } from './components/TabControl';
 import { Modal } from './components/Modal';
+import { Tips } from './components/Tips';
+import { Banner } from './components/Banner';
 import { Card } from './components/Card';
 
 export {
@@ -38,5 +40,7 @@ export {
   SwipeList,
   TabControl,
   Modal,
+  Tips,
+  Banner,
   Card,
 };
