@@ -34,12 +34,6 @@ export const TabControls = () => {
       count: 4,
       icon: <LinkIcon color="#000" size="M" />,
     },
-    {
-      id: 6,
-      label: 'test3',
-      count: 4,
-      icon: <LinkIcon color="#000" size="M" />,
-    },
   ];
 
   const initialId = 2;

@@ -15,6 +15,7 @@ import { TabControls } from './components/TabControls';
 import { Modals } from './components/Modals';
 import { Tipses } from './components/Tipses';
 import { Banners } from './components/Banners';
+import { Cards } from './components/Cards';
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -30,7 +31,7 @@ export default function App() {
   }
   return (
     <ThemeProvider>
-      <SafeAreaView style={{ flex: 1 }}>
+      <SafeAreaView style={{ flex: 1, backgroundColor: '#fff' }}>
         <ScrollView contentContainerStyle={{ paddingHorizontal: 10 }}>
           <Spacer size={'xxl'} separator="bottom">
             <View
@@ -41,6 +42,7 @@ export default function App() {
               <Switches />
             </View>
             <TabControls />
+            <Cards />
             <Texts />
             <SegmentedControl
               tabs={['Label 1', 'Label 2', 'Label 3']}

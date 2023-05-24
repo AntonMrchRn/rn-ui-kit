@@ -18,6 +18,7 @@ import { TabControl } from './components/TabControl';
 import { Modal } from './components/Modal';
 import { Tips } from './components/Tips';
 import { Banner } from './components/Banner';
+import { Card } from './components/Card';
 
 export {
   ThemeProvider,
@@ -41,4 +42,5 @@ export {
   Modal,
   Tips,
   Banner,
+  Card,
 };
