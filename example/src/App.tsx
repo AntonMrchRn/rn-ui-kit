@@ -16,6 +16,7 @@ import { Modals } from './components/Modals';
 import { Tipses } from './components/Tipses';
 import { Banners } from './components/Banners';
 import { Cards } from './components/Cards';
+import { Buttons } from './components/Buttons';
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -42,6 +43,7 @@ export default function App() {
               <Switches />
             </View>
             <TabControls />
+            <Buttons />
             <Cards />
             <Texts />
             <SegmentedControl
