@@ -10,7 +10,7 @@ import {
 } from 'react-native';
 
 import { useTheme } from '../theme/ThemeProvider';
-import { BadgeIcon } from '../icons/BadgeIcom';
+import { BadgeIcon } from '../icons/BadgeIcon';
 
 export type BadgeProps = ViewProps & {
   icon?: ReactElement | boolean;

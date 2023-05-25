@@ -14,6 +14,7 @@ import { Badges } from './components/Badges';
 import { TabControls } from './components/TabControls';
 import { Modals } from './components/Modals';
 import { Cards } from './components/Cards';
+import { Buttons } from './components/Buttons';
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -40,6 +41,7 @@ export default function App() {
               <Switches />
             </View>
             <TabControls />
+            <Buttons />
             <Cards />
             <Texts />
             <SegmentedControl

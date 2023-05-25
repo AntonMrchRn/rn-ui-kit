@@ -17,6 +17,7 @@ import { SwipeList } from './components/SwipeList';
 import { TabControl } from './components/TabControl';
 import { Modal } from './components/Modal';
 import { Card } from './components/Card';
+import { Button } from './components/Button';
 
 export {
   ThemeProvider,
@@ -39,4 +40,5 @@ export {
   TabControl,
   Modal,
   Card,
+  Button,
 };
