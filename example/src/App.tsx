@@ -16,6 +16,7 @@ import { Modals } from './components/Modals';
 import { Tipses } from './components/Tipses';
 import { Banners } from './components/Banners';
 import { Cards } from './components/Cards';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -30,36 +31,38 @@ export default function App() {
     return null;
   }
   return (
-    <ThemeProvider>
-      <SafeAreaView style={{ flex: 1, backgroundColor: '#fff' }}>
-        <ScrollView contentContainerStyle={{ paddingHorizontal: 10 }}>
-          <Spacer size={'xxl'} separator="bottom">
-            <View
-              style={{ flexDirection: 'row', justifyContent: 'space-evenly' }}
-            >
-              <CheckBoxes />
-              <RadioButtons />
-              <Switches />
-            </View>
-            <TabControls />
-            <Cards />
-            <Texts />
-            <SegmentedControl
-              tabs={['Label 1', 'Label 2', 'Label 3']}
-              onChange={() => {}}
-            />
-            <Links />
-            <Spacers />
-            <Inputs />
-            <Tooltips />
-            <Badges />
-            <Modals />
-            <Tipses />
-            <Banners />
-          </Spacer>
-        </ScrollView>
-        {/* <SwipeLists /> */}
-      </SafeAreaView>
-    </ThemeProvider>
+    <SafeAreaProvider>
+      <ThemeProvider>
+        <SafeAreaView style={{ flex: 1, backgroundColor: '#fff' }}>
+          <ScrollView contentContainerStyle={{ paddingHorizontal: 10 }}>
+            <Spacer size={'xxl'} separator="bottom">
+              <View
+                style={{ flexDirection: 'row', justifyContent: 'space-evenly' }}
+              >
+                <CheckBoxes />
+                <RadioButtons />
+                <Switches />
+              </View>
+              <TabControls />
+              <Cards />
+              <Texts />
+              <SegmentedControl
+                tabs={['Label 1', 'Label 2', 'Label 3']}
+                onChange={() => {}}
+              />
+              <Links />
+              <Spacers />
+              <Inputs />
+              <Tooltips />
+              <Badges />
+              <Modals />
+              <Tipses />
+              <Banners />
+            </Spacer>
+          </ScrollView>
+          {/* <SwipeLists /> */}
+        </SafeAreaView>
+      </ThemeProvider>
+    </SafeAreaProvider>
   );
 }
