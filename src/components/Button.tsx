@@ -57,7 +57,7 @@ export const Button: FC<ButtonProps> = ({
     smallButton: {
       height: 40,
       borderRadius: 8,
-      paddingHorizontal: 15,
+      paddingHorizontal: 16,
       flexDirection: 'row',
       alignItems: 'center',
       justifyContent: 'center',
