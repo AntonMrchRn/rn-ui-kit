@@ -3,7 +3,12 @@ import * as React from 'react';
 import { SafeAreaView, ScrollView, View } from 'react-native';
 import { Texts } from './components/Texts';
 import { CheckBoxes } from './components/Checkboxes';
-import { SegmentedControl, Spacer, ThemeProvider } from 'rn-ui-kit';
+import {
+  SegmentedControl,
+  Spacer,
+  ThemeProvider,
+  ToastProvider,
+} from 'rn-ui-kit';
 import { Links } from './components/Links';
 import { Spacers } from './components/Spacers';
 import { RadioButtons } from './components/RadioButtons';
@@ -17,6 +22,7 @@ import { Tipses } from './components/Tipses';
 import { Banners } from './components/Banners';
 import { Cards } from './components/Cards';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
+import { Toasts } from './components/Toasts';
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -33,35 +39,41 @@ export default function App() {
   return (
     <SafeAreaProvider>
       <ThemeProvider>
-        <SafeAreaView style={{ flex: 1, backgroundColor: '#fff' }}>
-          <ScrollView contentContainerStyle={{ paddingHorizontal: 10 }}>
-            <Spacer size={'xxl'} separator="bottom">
-              <View
-                style={{ flexDirection: 'row', justifyContent: 'space-evenly' }}
-              >
-                <CheckBoxes />
-                <RadioButtons />
-                <Switches />
-              </View>
-              <TabControls />
-              <Cards />
-              <Texts />
-              <SegmentedControl
-                tabs={['Label 1', 'Label 2', 'Label 3']}
-                onChange={() => {}}
-              />
-              <Links />
-              <Spacers />
-              <Inputs />
-              <Tooltips />
-              <Badges />
-              <Modals />
-              <Tipses />
-              <Banners />
-            </Spacer>
-          </ScrollView>
-          {/* <SwipeLists /> */}
-        </SafeAreaView>
+        <ToastProvider>
+          <SafeAreaView style={{ flex: 1, backgroundColor: '#fff' }}>
+            <ScrollView contentContainerStyle={{ paddingHorizontal: 10 }}>
+              <Spacer size={'xxl'} separator="bottom">
+                <Toasts />
+                <View
+                  style={{
+                    flexDirection: 'row',
+                    justifyContent: 'space-evenly',
+                  }}
+                >
+                  <CheckBoxes />
+                  <RadioButtons />
+                  <Switches />
+                </View>
+                <TabControls />
+                <Cards />
+                <Texts />
+                <SegmentedControl
+                  tabs={['Label 1', 'Label 2', 'Label 3']}
+                  onChange={() => {}}
+                />
+                <Links />
+                <Spacers />
+                <Inputs />
+                <Tooltips />
+                <Badges />
+                <Modals />
+                <Tipses />
+                <Banners />
+              </Spacer>
+            </ScrollView>
+            {/* <SwipeLists /> */}
+          </SafeAreaView>
+        </ToastProvider>
       </ThemeProvider>
     </SafeAreaProvider>
   );

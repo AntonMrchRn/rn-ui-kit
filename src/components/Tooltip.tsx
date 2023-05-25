@@ -48,7 +48,7 @@ export const Tooltip: FC<TooltipProps> = ({
 
   const styles = StyleSheet.create({
     container: {
-      backgroundColor: 'rgba(0, 0, 0, 0.6)',
+      backgroundColor: 'rgba(0, 0, 0, 0.9)',
       borderRadius: 8,
       paddingVertical: 12,
       paddingHorizontal: 16,
