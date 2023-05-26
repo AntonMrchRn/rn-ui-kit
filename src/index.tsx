@@ -19,6 +19,8 @@ import { Modal } from './components/Modal';
 import { Tips } from './components/Tips';
 import { Banner } from './components/Banner';
 import { Card } from './components/Card';
+import { Toast } from './components/Toast/Toast';
+import { ToastProvider, useToast } from './components/Toast/ToastProvider';
 import { Button } from './components/Button';
 
 export {
@@ -44,5 +46,8 @@ export {
   Tips,
   Banner,
   Card,
+  Toast,
+  ToastProvider,
+  useToast,
   Button,
 };

@@ -194,7 +194,7 @@ export const Button: FC<ButtonProps> = ({
   return (
     <TouchableOpacity style={currentButtonStyle} {...props} activeOpacity={0.5}>
       {getIcon()}
-      {label.length > 0 && <Text style={currentLabelStyle}>{label}</Text>}
+      {label && <Text style={currentLabelStyle}>{label}</Text>}
     </TouchableOpacity>
   );
 };
