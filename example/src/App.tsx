@@ -24,6 +24,7 @@ import { Cards } from './components/Cards';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { Toasts } from './components/Toasts';
 import { Buttons } from './components/Buttons';
+import { BottomSheets } from './components/BottomSheets';
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -55,6 +56,7 @@ export default function App() {
                   <RadioButtons />
                   <Switches />
                 </View>
+                <BottomSheets />
                 <TabControls />
                 <Buttons />
                 <Cards />
