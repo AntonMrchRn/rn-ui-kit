@@ -23,6 +23,7 @@ import { Banners } from './components/Banners';
 import { Cards } from './components/Cards';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { Toasts } from './components/Toasts';
+import { Buttons } from './components/Buttons';
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -55,6 +56,7 @@ export default function App() {
                   <Switches />
                 </View>
                 <TabControls />
+                <Buttons />
                 <Cards />
                 <Texts />
                 <SegmentedControl
