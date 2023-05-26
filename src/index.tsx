@@ -22,6 +22,7 @@ import { Card } from './components/Card';
 import { Toast } from './components/Toast/Toast';
 import { ToastProvider, useToast } from './components/Toast/ToastProvider';
 import { Button } from './components/Button';
+import { BottomSheet } from './components/BottomSheet';
 
 export {
   ThemeProvider,
@@ -50,4 +51,5 @@ export {
   ToastProvider,
   useToast,
   Button,
+  BottomSheet,
 };

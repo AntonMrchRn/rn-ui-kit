@@ -1,23 +1,23 @@
 import React, { useState } from 'react';
-import { Modal, Text } from 'rn-ui-kit';
+import { BottomSheet, Text } from 'rn-ui-kit';
 
-export const Modals = () => {
+export const BottomSheets = () => {
   const [state, setState] = useState(false);
   return (
     <>
-      <Modal
+      <BottomSheet
         isVisible={state}
         onBackdropPress={() => setState(false)}
         closeIconPress={() => setState(false)}
+        onSwipeComplete={() => setState(false)}
         closeIcon
-        headerIcon="error"
-        title="Превышен лимит загрузки"
-        description="Общий размер загружаемых файловне должен превышать 50 МВ"
+        title="Modal Header"
+        subtitle="Subtitle"
       >
         <Text variant="title3">children content</Text>
-      </Modal>
+      </BottomSheet>
       <Text variant="title3" onPress={() => setState(true)}>
-        open modal
+        open bottom sheet
       </Text>
     </>
   );
