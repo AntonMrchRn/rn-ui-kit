@@ -90,7 +90,13 @@ export type Variant =
   | 'captionBold'
   | 'tabBarLabel';
 
-export type TextProps = RNTextProps & { variant: Variant };
+export type TextProps = RNTextProps & {
+  /**
+   * Должен быть указан один из дефолтных типов, описанных в компоненте. Стили можно перебить через проп style
+   *
+   */
+  variant: Variant;
+};
 
 export const Text: FC<TextProps> = (props) => {
   const variant = typography[props.variant];

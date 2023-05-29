@@ -65,6 +65,7 @@ return (
 # Компоненты
 
 [`<Text />`](docs/text.md)
+[`<ThemeProvider />`](docs/themeProvider.md)
 
 ---
 

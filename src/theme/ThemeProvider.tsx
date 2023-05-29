@@ -6,10 +6,19 @@ ThemeContext.displayName = 'ThemeContext';
 
 export const useTheme = () => useContext(ThemeContext);
 
-export const ThemeProvider: FC<{
+export type ThemeProviderProps = {
   children: JSX.Element | JSX.Element[];
+  /**
+   * Принимает в себя обьект, с помощью которого можно переназначить определенные заданные цвета в палетке своими
+   *
+   */
   theme?: Colors;
-}> = ({ children, theme = colors }) => {
+};
+
+export const ThemeProvider: FC<ThemeProviderProps> = ({
+  children,
+  theme = colors,
+}) => {
   return (
     <ThemeContext.Provider value={theme}>{children}</ThemeContext.Provider>
   );
