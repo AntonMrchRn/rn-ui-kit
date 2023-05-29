@@ -25,6 +25,7 @@ import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { Toasts } from './components/Toasts';
 import { Buttons } from './components/Buttons';
 import { BottomSheets } from './components/BottomSheets';
+import { Chipses } from './components/Chipses';
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -65,6 +66,7 @@ export default function App() {
                   tabs={['Label 1', 'Label 2', 'Label 3']}
                   onChange={() => {}}
                 />
+                <Chipses />
                 <Links />
                 <Spacers />
                 <Inputs />

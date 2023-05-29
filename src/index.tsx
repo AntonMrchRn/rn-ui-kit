@@ -23,6 +23,7 @@ import { Toast } from './components/Toast/Toast';
 import { ToastProvider, useToast } from './components/Toast/ToastProvider';
 import { Button } from './components/Button';
 import { BottomSheet } from './components/BottomSheet';
+import { Chips } from './components/Chips';
 
 export {
   ThemeProvider,
@@ -52,4 +53,5 @@ export {
   useToast,
   Button,
   BottomSheet,
+  Chips,
 };
