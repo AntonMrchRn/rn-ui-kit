@@ -83,18 +83,31 @@ return (
 # Компоненты
 
 [`<Text />`](docs/text.md)
+
 [`<ThemeProvider />`](docs/themeProvider.md)
+
 [`<Toast />`](docs/toast.md)
+
 [`<Badge />`](docs/badge.md)
+
 [`<Banner />`](docs/banner.md)
+
 [`<BottomSheet />`](docs/bottomSheet.md)
+
 [`<Button />`](docs/button.md)
+
 [`<Card />`](docs/card.md)
+
 [`<CheckBox />`](docs/checkbox.md)
+
 [`<Input />`](docs/input.md)
+
 [`<InputCode />`](docs/inputCode.md)
+
 [`<InputDate />`](docs/inputDate.md)
+
 [`<InputTime />`](docs/inputTime.md)
+
 [`<InputPhone />`](docs/inputPhone.md)
 
 ---
