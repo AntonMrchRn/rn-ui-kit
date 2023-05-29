@@ -88,6 +88,7 @@ return (
 [`<Badge />`](docs/badge.md)
 [`<Banner />`](docs/banner.md)
 [`<BottomSheet />`](docs/bottomSheet.md)
+[`<Button />`](docs/button.md)
 
 ---
 
