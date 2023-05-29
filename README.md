@@ -86,6 +86,7 @@ return (
 [`<ThemeProvider />`](docs/themeProvider.md)
 [`<Toast />`](docs/toast.md)
 [`<Badge />`](docs/badge.md)
+[`<Banner />`](docs/banner.md)
 
 ---
 
