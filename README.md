@@ -91,6 +91,7 @@ return (
 [`<Button />`](docs/button.md)
 [`<Card />`](docs/card.md)
 [`<CheckBox />`](docs/checkbox.md)
+[`<Input />`](docs/input.md)
 
 ---
 
