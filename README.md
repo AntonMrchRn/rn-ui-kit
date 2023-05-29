@@ -90,6 +90,7 @@ return (
 [`<BottomSheet />`](docs/bottomSheet.md)
 [`<Button />`](docs/button.md)
 [`<Card />`](docs/card.md)
+[`<CheckBox />`](docs/checkbox.md)
 
 ---
 

@@ -15,7 +15,6 @@ export type CardProps = ViewProps & {
   children?: ReactElement | ReactElement[];
   /**
    * Отображение тени карточки
-
    */
   isShadow?: boolean;
 };
