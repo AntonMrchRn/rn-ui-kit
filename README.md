@@ -87,6 +87,7 @@ return (
 [`<Toast />`](docs/toast.md)
 [`<Badge />`](docs/badge.md)
 [`<Banner />`](docs/banner.md)
+[`<BottomSheet />`](docs/bottomSheet.md)
 
 ---
 
