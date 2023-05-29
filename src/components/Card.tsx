@@ -5,21 +5,21 @@ import {
   ViewStyle,
   ViewProps,
   View,
-  TextStyle,
 } from 'react-native';
 import { useTheme } from '../theme/ThemeProvider';
 
 export type CardProps = ViewProps & {
-  labelStyle?: StyleProp<TextStyle>;
-  children: ReactElement | ReactElement[];
+  /**
+   * Элемент или массив элементов, отображаемые в компоненте
+   */
+  children?: ReactElement | ReactElement[];
+  /**
+   * Отображение тени карточки
+
+   */
   isShadow?: boolean;
 };
-
-export const Card: FC<CardProps> = ({
-  isShadow = false,
-  children,
-  ...props
-}) => {
+export const Card: FC<CardProps> = ({ isShadow, children, ...props }) => {
   const theme = useTheme();
 
   const styles = StyleSheet.create({

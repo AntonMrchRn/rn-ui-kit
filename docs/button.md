@@ -16,14 +16,15 @@
 ## Типы
 
 ```js
+type Sizes = 'M' | 'S';
+
 type Variant =
   | 'accent'
   | 'danger'
-  | 'secondary'
-  | 'warning'
-  | 'success'
-  | 'basic'
-  | 'special';
+  | 'outlineAccent'
+  | 'outlineDanger'
+  | 'ghost'
+  | 'dangerGhost';
 ```
 
 ---
