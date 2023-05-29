@@ -1,8 +1,8 @@
-# `<Input />`
+# `<InputPhone />`
 
 ## Пропсы
 
-Принимает в себя все стандартные пропсы компонента TextInput из React Native а также следующие:
+Принимает все пропсы MaskInputProps из библиотеки react-native-mask-input, а также следующие:
 
 | Пропс            | Тип                    | Обязательный | Описание                              |
 | ---------------- | ---------------------- | ------------ | ------------------------------------- |
@@ -12,12 +12,5 @@
 | `hint`           | `string`               | `false`      | Подсказка компонента                  |
 | `hintStyle`      | `StyleProp<TextStyle>` | `false`      | Стиль подсказки компонента            |
 | `containerStyle` | `StyleProp<ViewProps>` | `false`      | Стиль контейнера компонента           |
-| `variant`        | `Variant`              | `true`       | Тип компонента                        |
-
-## Типы
-
-```js
-type Variant = 'text' | 'message' | 'password' | 'textarea';
-```
 
 ---

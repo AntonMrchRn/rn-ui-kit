@@ -92,6 +92,10 @@ return (
 [`<Card />`](docs/card.md)
 [`<CheckBox />`](docs/checkbox.md)
 [`<Input />`](docs/input.md)
+[`<InputCode />`](docs/inputCode.md)
+[`<InputDate />`](docs/inputDate.md)
+[`<InputTime />`](docs/inputTime.md)
+[`<InputPhone />`](docs/inputPhone.md)
 
 ---
 

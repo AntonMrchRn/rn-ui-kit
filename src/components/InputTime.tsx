@@ -12,7 +12,13 @@ import MaskInput, { MaskInputProps } from 'react-native-mask-input';
 import { ClockIcon } from '../icons/ClockIcon';
 
 export type InputTimeProps = MaskInputProps & {
+  /**
+   * Стиль контейнера компонента
+   */
   containerStyle?: StyleProp<ViewProps>;
+  /**
+   * Отображение компонента в стиле ошибки
+   */
   isError?: boolean;
 };
 
