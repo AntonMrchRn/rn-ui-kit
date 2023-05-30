@@ -112,6 +112,8 @@ return (
 
 [`<InputPhone />`](docs/inputPhone.md)
 
+[`<Link />`](docs/link.md)
+
 ---
 
 Made with [create-react-native-library](https://github.com/callstack/react-native-builder-bob)
