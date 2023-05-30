@@ -128,6 +128,10 @@ return (
 
 [`<TabControl />`](docs/tabControl.md)
 
+[`<Tips />`](docs/tips.md)
+
+[`<Tooltip />`](docs/tooltip.md)
+
 ---
 
 Made with [create-react-native-library](https://github.com/callstack/react-native-builder-bob)
