@@ -100,6 +100,8 @@ return (
 
 [`<CheckBox />`](docs/checkbox.md)
 
+[`<Chips />`](docs/chips.md)
+
 [`<Input />`](docs/input.md)
 
 [`<InputCode />`](docs/inputCode.md)

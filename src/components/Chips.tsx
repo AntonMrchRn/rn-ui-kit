@@ -15,11 +15,11 @@ import { ChipsCloseIcon } from '../icons/ChipsCloseIcon';
 
 export type ChipsProps = {
   /**
-   * Иконка компонента слева. Может быть стандартной (геолокация), кастомной или не быть
+   * Иконка компонента слева. Может быть стандартной (геолокация), кастомной или не быть совсем
    */
   icon?: JSX.Element | boolean;
   /**
-   * Иконка компонента справа. Может быть стандартной (крестик), кастомной или не быть
+   * Иконка компонента справа. Может быть стандартной (крестик), кастомной или не быть совсем
    */
   close?: JSX.Element | boolean;
   /**
@@ -112,6 +112,8 @@ export const Chips: FC<ChipsProps> = ({
     },
     wrapper: {
       padding: 8,
+      alignItems: 'center',
+      flexDirection: 'row',
     },
   });
 
@@ -148,12 +150,20 @@ export const Chips: FC<ChipsProps> = ({
 
   return (
     <View style={currentContainerStyle}>
-      <TouchableOpacity onPress={onPress} style={styles.wrapper}>
+      <TouchableOpacity
+        onPress={onPress}
+        style={styles.wrapper}
+        disabled={disabled}
+      >
         {icon && <View style={styles.icon}>{getIcon()}</View>}
         {label && <Text style={currentLabelStyle}>{label}</Text>}
       </TouchableOpacity>
       {close && (
-        <TouchableOpacity onPress={closeIconPress} style={styles.close}>
+        <TouchableOpacity
+          onPress={closeIconPress}
+          style={styles.close}
+          disabled={disabled}
+        >
           {getCloseIcon()}
         </TouchableOpacity>
       )}

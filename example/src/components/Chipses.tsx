@@ -7,8 +7,8 @@ export const Chipses = () => {
       <Chips selected label="chips" />
       <Chips label="chips" />
       <Chips label="chips" disabled />
-      <Chips label="chips" disabled selected />
-      <Chips label="chips" disabled selected close />
+      <Chips label="chips" disabled selected icon />
+      <Chips label="chips" disabled selected close icon />
       <Chips label="chips" selected close />
       <Chips label="chips" close />
     </Spacer>
