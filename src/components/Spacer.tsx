@@ -3,11 +3,23 @@ import { StyleSheet, View } from 'react-native';
 import { useTheme } from '../theme/ThemeProvider';
 
 export type SpaceSize = 'xs' | 's' | 'm' | 'l' | 'xl' | 'xxl';
-
+type Separator = 'top' | 'bottom';
 export type SpacerProps = {
+  /**
+   * Размер компонента
+   */
   size: SpaceSize;
+  /**
+   * Показывать компонент в горизонтальном виде
+   */
   horizontal?: boolean;
-  separator?: 'top' | 'bottom';
+  /**
+   * Разделитель между дочерними элементами
+   */
+  separator?: Separator;
+  /**
+   * Элемент или массив элементов, отображаемые в компоненте
+   */
   children?: JSX.Element | JSX.Element[];
 };
 

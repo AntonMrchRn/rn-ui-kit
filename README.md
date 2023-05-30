@@ -116,6 +116,14 @@ return (
 
 [`<Modal />`](docs/modal.md)
 
+[`<RadioButton />`](docs/radioButton.md)
+
+[`<SegmentedControl />`](docs/segmentedControl.md)
+
+[`<Spacer />`](docs/spacer.md)
+
+[`<SwipeList />`](docs/swipeList.md)
+
 ---
 
 Made with [create-react-native-library](https://github.com/callstack/react-native-builder-bob)

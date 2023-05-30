@@ -7,7 +7,7 @@ import { Spacer } from './components/Spacer';
 import { RadioButton } from './components/RadioButton';
 import { Input } from './components/Input';
 import { InputPhone } from './components/InputPhone';
-import { Switch } from './components/Switcher';
+import { Switch } from './components/Switch';
 import { InputDate } from './components/InputDate';
 import { InputTime } from './components/InputTime';
 import { InputCode } from './components/InputCode';
