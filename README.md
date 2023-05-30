@@ -114,6 +114,8 @@ return (
 
 [`<Link />`](docs/link.md)
 
+[`<Modal />`](docs/modal.md)
+
 ---
 
 Made with [create-react-native-library](https://github.com/callstack/react-native-builder-bob)
