@@ -124,6 +124,10 @@ return (
 
 [`<SwipeList />`](docs/swipeList.md)
 
+[`<Switch />`](docs/switch.md)
+
+[`<TabControl />`](docs/tabControl.md)
+
 ---
 
 Made with [create-react-native-library](https://github.com/callstack/react-native-builder-bob)
