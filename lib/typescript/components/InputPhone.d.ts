@@ -1,5 +1,5 @@
-import { FC } from 'react';
-import { StyleProp, TextProps, ViewProps } from 'react-native';
+import { FC, ForwardedRef } from 'react';
+import { StyleProp, TextProps, TextInput, ViewProps } from 'react-native';
 import { MaskInputProps } from 'react-native-mask-input';
 export type InputPhoneProps = MaskInputProps & {
     /**
@@ -26,6 +26,11 @@ export type InputPhoneProps = MaskInputProps & {
      * Отображение компонента в стиле ошибки
      */
     isError?: boolean;
+    /**
+     * Логика нажатия на иконку крестика
+     */
+    onClear?: () => void;
+    ref?: ForwardedRef<TextInput>;
 };
 export declare const InputPhone: FC<InputPhoneProps>;
 //# sourceMappingURL=InputPhone.d.ts.map

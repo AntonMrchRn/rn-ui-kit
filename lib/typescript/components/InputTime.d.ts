@@ -1,5 +1,5 @@
-import { FC } from 'react';
-import { StyleProp, ViewProps } from 'react-native';
+import { FC, ForwardedRef } from 'react';
+import { StyleProp, TextInput, ViewProps } from 'react-native';
 import { MaskInputProps } from 'react-native-mask-input';
 export type InputTimeProps = MaskInputProps & {
     /**
@@ -10,6 +10,7 @@ export type InputTimeProps = MaskInputProps & {
      * Отображение компонента в стиле ошибки
      */
     isError?: boolean;
+    ref?: ForwardedRef<TextInput>;
 };
 export declare const InputTime: FC<InputTimeProps>;
 //# sourceMappingURL=InputTime.d.ts.map

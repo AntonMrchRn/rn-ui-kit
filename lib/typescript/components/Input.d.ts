@@ -1,5 +1,5 @@
-import { FC } from 'react';
-import { StyleProp, TextInputProps, TextProps, ViewProps } from 'react-native';
+import { FC, ForwardedRef } from 'react';
+import { StyleProp, TextInputProps, TextProps, TextInput, ViewProps } from 'react-native';
 type Variant = 'text' | 'message' | 'password' | 'textarea';
 export type InputProps = TextInputProps & {
     /**
@@ -30,6 +30,11 @@ export type InputProps = TextInputProps & {
      * Отображение компонента в стиле ошибки
      */
     isError?: boolean;
+    /**
+     * Логика нажатия на иконку крестика, если variant === 'text'
+     */
+    onClear?: () => void;
+    ref?: ForwardedRef<TextInput>;
 };
 export declare const Input: FC<InputProps>;
 export {};
