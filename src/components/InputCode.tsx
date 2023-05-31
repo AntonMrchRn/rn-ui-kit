@@ -14,7 +14,7 @@ export type InputCodeProps = Omit<CodeFieldProps, 'renderCell'> & {
 };
 
 export const InputCode: FC<InputCodeProps> = ({
-  cellCount,
+  cellCount = 6,
   value,
   onChangeText,
   ...props
@@ -43,8 +43,7 @@ export const InputCode: FC<InputCodeProps> = ({
     },
   });
   const setValue = onChangeText || (() => {});
-  const currentCellCount = cellCount || 6;
-  const ref = useBlurOnFulfill({ value, cellCount: currentCellCount });
+  const ref = useBlurOnFulfill({ value, cellCount });
   const [prop, getCellOnLayoutHandler] = useClearByFocusCell({
     value,
     setValue,
@@ -57,7 +56,7 @@ export const InputCode: FC<InputCodeProps> = ({
         ref={ref}
         value={value}
         onChangeText={onChangeText}
-        cellCount={currentCellCount}
+        cellCount={cellCount}
         keyboardType="number-pad"
         textContentType="oneTimeCode"
         renderCell={({ index, symbol }) => (

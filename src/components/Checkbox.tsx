@@ -10,7 +10,13 @@ import { useTheme } from '../theme/ThemeProvider';
 import { CheckBoxIcon } from '../icons/CheckBoxIcon';
 
 export type CheckboxProps = TouchableOpacityProps & {
+  /**
+   * Показывает активен ли данный компонент
+   */
   checked: boolean;
+  /**
+   * Иконка компонента в активном состоянии
+   */
   icon?: ReactElement;
 };
 
@@ -68,7 +74,7 @@ export const CheckBox: FC<CheckboxProps> = ({ icon, ...props }) => {
 
   return (
     <TouchableOpacity style={style} {...props} activeOpacity={0.7}>
-      {props.checked && (icon ? icon : <CheckBoxIcon />)}
+      {props.checked && (icon || <CheckBoxIcon />)}
     </TouchableOpacity>
   );
 };

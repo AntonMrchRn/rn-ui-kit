@@ -11,19 +11,41 @@ import {
 
 import { useTheme } from '../theme/ThemeProvider';
 import { PlusIcon } from '../icons/PlusIcon';
-
+type Sizes = 'M' | 'S';
+type Variant =
+  | 'accent'
+  | 'danger'
+  | 'outlineAccent'
+  | 'outlineDanger'
+  | 'ghost'
+  | 'dangerGhost';
 export type ButtonProps = TouchableOpacityProps & {
+  /**
+   * Тип иконки компонента.
+   * Может быть стандартной, кастомной или не быть совсем
+   */
   icon?: ReactElement | boolean;
-  size?: 'M' | 'S';
+  /**
+   * Размер компонента.
+   * По умолчанию 'M'
+   */
+  size?: Sizes;
+  /**
+   * Показывает ActivityIndicator вместо иконки
+   */
   isPending?: boolean;
-  variant?:
-    | 'accent'
-    | 'danger'
-    | 'outlineAccent'
-    | 'outlineDanger'
-    | 'ghost'
-    | 'dangerGhost';
+  /**
+   * Тип компонента.
+   * По умолчанию 'accent'
+   */
+  variant?: Variant;
+  /**
+   *Лейбл компонента
+   */
   label?: string;
+  /**
+   * Стиль лейбла компонента
+   */
   labelStyle?: StyleProp<TextStyle>;
 };
 

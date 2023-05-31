@@ -10,6 +10,9 @@ import { useTheme } from '../theme/ThemeProvider';
 import { View } from 'react-native';
 
 export type RadioButtonProps = TouchableOpacityProps & {
+  /**
+   * Показывает активен ли данный компонент
+   */
   checked: boolean;
 };
 

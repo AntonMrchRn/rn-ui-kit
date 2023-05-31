@@ -20,8 +20,17 @@ export type TabItem = {
 };
 
 export type TabControlProps = {
+  /**
+   * Индекс изначально выбранного элемента
+   */
   initialId?: number;
+  /**
+   * Массив элементов компонента
+   */
   data: TabItem[];
+  /**
+   * Стиль лейбла элементов компонента
+   */
   labelStyle?: StyleProp<TextStyle>;
 };
 

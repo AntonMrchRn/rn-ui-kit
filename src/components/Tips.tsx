@@ -3,14 +3,39 @@ import { StyleProp, Text, TextStyle, View, ViewStyle } from 'react-native';
 import { StyleSheet, TouchableOpacity } from 'react-native';
 import { useTheme } from '../theme/ThemeProvider';
 
+type Types = 'error' | 'success' | 'warning' | 'info';
 export type TipsProps = {
+  /**
+   * Основной текст компонента
+   */
   text?: string;
+  /**
+   * Логика нажатия на кнопку компонента
+   */
   onButtonPress?: () => void;
+  /**
+   * Текст кнопки компонента
+   */
   buttonText?: string;
-  type: 'error' | 'success' | 'warning' | 'info';
+  /**
+   * Тип компонента
+   */
+  type: Types;
+  /**
+   * Стиль контейнера компонента
+   */
   containerStyle?: StyleProp<ViewStyle>;
+  /**
+   * Стиль контейнера кнопки компонента
+   */
   buttonStyle?: StyleProp<ViewStyle>;
+  /**
+   * Стиль основного текста компонента
+   */
   textStyle?: StyleProp<TextStyle>;
+  /**
+   * Стиль текста кнопки компонента
+   */
   buttonTextStyle?: StyleProp<TextStyle>;
 };
 

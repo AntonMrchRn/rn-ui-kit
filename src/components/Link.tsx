@@ -13,12 +13,31 @@ import { useTheme } from '../theme/ThemeProvider';
 import { LinkIcon } from '../icons/LinkIcon';
 import { typography } from './Text';
 
+type Sizes = 'M' | 'L';
 export type LinkProps = {
+  /**
+   *  Лейбл компонента
+   */
   label: string;
+  /**
+   *  Ссылка, по которой будет вести по нажатию на компонент
+   */
   url: string;
-  size: 'M' | 'L';
+  /**
+   *  Размер компонента
+   */
+  size: Sizes;
+  /**
+   *  Стиль компонента
+   */
   style?: StyleProp<ViewStyle>;
+  /**
+   *  Стиль лейбла компонента
+   */
   labelStyle?: StyleProp<TextStyle>;
+  /**
+   *  Показывает стандартную иконку в компоненте
+   */
   icon?: boolean;
 };
 

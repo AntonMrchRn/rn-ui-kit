@@ -7,11 +7,28 @@ import { Spacer } from './components/Spacer';
 import { RadioButton } from './components/RadioButton';
 import { Input } from './components/Input';
 import { InputPhone } from './components/InputPhone';
-import { Switch } from './components/Switcher';
+import { Switch } from './components/Switch';
 import { InputDate } from './components/InputDate';
 import { InputTime } from './components/InputTime';
 import { InputCode } from './components/InputCode';
 import { Tooltip } from './components/Tooltip';
 import { Badge } from './components/Badge';
-export { ThemeProvider, Text, useTheme, CheckBox, SegmentedControl, Link, Spacer, RadioButton, Input, InputPhone, Switch, InputTime, InputDate, InputCode, Tooltip, Badge, };
+export {
+  ThemeProvider,
+  Text,
+  useTheme,
+  CheckBox,
+  SegmentedControl,
+  Link,
+  Spacer,
+  RadioButton,
+  Input,
+  InputPhone,
+  Switch,
+  InputTime,
+  InputDate,
+  InputCode,
+  Tooltip,
+  Badge,
+};
 //# sourceMappingURL=index.d.ts.map

@@ -12,17 +12,32 @@ import {
 import { useTheme } from '../theme/ThemeProvider';
 import { BadgeIcon } from '../icons/BadgeIcon';
 
+export type Variant =
+  | 'accent'
+  | 'danger'
+  | 'secondary'
+  | 'warning'
+  | 'success'
+  | 'basic'
+  | 'special';
+
 export type BadgeProps = ViewProps & {
+  /**
+   * Иконка компонента. Может быть стандартной, кастомной или не быть
+   */
   icon?: ReactElement | boolean;
-  variant?:
-    | 'accent'
-    | 'danger'
-    | 'secondary'
-    | 'warning'
-    | 'success'
-    | 'basic'
-    | 'special';
+  /**
+   * Ключевой параметр, который определяет тип
+   * По умолчанию - 'accent'
+   */
+  variant?: Variant;
+  /**
+   * Лейбл компонента
+   */
   label?: string;
+  /**
+   * Стиль лейбла компонента
+   */
   labelStyle?: StyleProp<TextStyle>;
 };
 

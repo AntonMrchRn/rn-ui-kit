@@ -12,7 +12,13 @@ import MaskInput, { MaskInputProps } from 'react-native-mask-input';
 import { CalendarIcon } from '../icons/CalendarIcon';
 
 export type InputDateProps = MaskInputProps & {
+  /**
+   * Стиль контейнера компонента
+   */
   containerStyle?: StyleProp<ViewProps>;
+  /**
+   * Отображение компонента в стиле ошибки
+   */
   isError?: boolean;
 };
 
