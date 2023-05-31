@@ -44,24 +44,6 @@ yarn add react-native-safe-area-context
 npx pod-install
 ```
 
-# Провайдер
-
-```js
-import { ToastProvider, ThemeProvider } from 'rn-ui-kit';
-import { SafeAreaProvider } from 'react-native-safe-area-context';
-// ...
-
-return (
-  <SafeAreaProvider>
-    <ThemeProvider>
-      <ToastProvider>
-        <App />
-      </ToastProvider>
-    </ThemeProvider>
-  </SafeAreaProvider>
-);
-```
-
 # Использование
 
 ```js
