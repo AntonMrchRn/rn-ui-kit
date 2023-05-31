@@ -1,4 +1,4 @@
-import React, { FC, useRef, useState } from 'react';
+import React, { FC, ForwardedRef, forwardRef, useState } from 'react';
 import {
   NativeSyntheticEvent,
   StyleProp,
@@ -41,144 +41,150 @@ export type InputPhoneProps = MaskInputProps & {
    * Отображение компонента в стиле ошибки
    */
   isError?: boolean;
+  /**
+   * Логика нажатия на иконку крестика
+   */
+  onClear?: () => void;
+  ref?: ForwardedRef<TextInput>;
 };
 
-export const InputPhone: FC<InputPhoneProps> = ({
-  containerStyle,
-  label,
-  labelStyle,
-  hint,
-  hintStyle,
-  isError,
-  placeholderTextColor,
-  style,
-  onFocus,
-  onBlur,
-  placeholder,
-  mask,
-  ...props
-}) => {
-  const [isFocused, setIsFocused] = useState(false);
-
-  const inputRef = useRef<TextInput>(null);
-  const theme = useTheme();
-
-  const styles = StyleSheet.create({
-    initial: {
-      backgroundColor: isError
-        ? theme.background.fieldDanger
-        : theme.background.fieldMain,
-      padding: 0,
-      borderRadius: 8,
-      height: 44,
-      flex: 1,
-      paddingHorizontal: 10,
-      flexDirection: 'row',
-      alignItems: 'center',
-      borderWidth: 1,
-      borderColor: isError
-        ? theme.background.fieldDanger
-        : theme.background.fieldMain,
+export const InputPhone: FC<InputPhoneProps> = forwardRef(
+  (
+    {
+      containerStyle,
+      label,
+      labelStyle,
+      hint,
+      hintStyle,
+      isError,
+      placeholderTextColor,
+      style,
+      onFocus,
+      onBlur,
+      placeholder,
+      mask,
+      onClear,
+      ...props
     },
-    input: {
-      flex: 1,
-      fontFamily: 'Nunito Sans Regular',
-      fontStyle: 'normal',
-      fontWeight: '400',
-      fontSize: 17,
-      lineHeight: 24,
-      color: isError ? theme.text.danger : theme.text.basic,
-    },
-    focused: {
-      borderColor: isError ? theme.stroke.danger : theme.stroke.accent,
-    },
-    label: {
-      fontFamily: 'Nunito Sans Regular',
-      fontStyle: 'normal',
-      fontWeight: '400',
-      fontSize: 13,
-      lineHeight: 16,
-      color: isError ? theme.text.danger : theme.text.neutral,
-      marginBottom: 4,
-    },
-    hint: {
-      fontFamily: 'Nunito Sans Regular',
-      fontStyle: 'normal',
-      fontWeight: '400',
-      fontSize: 13,
-      lineHeight: 16,
-      color: isError ? theme.text.danger : theme.text.neutral,
-      marginTop: 4,
-    },
-    icon: {
-      marginRight: 8,
-    },
-  });
+    ref
+  ) => {
+    const [isFocused, setIsFocused] = useState(false);
 
-  const currentContainerStyle = StyleSheet.compose(styles.initial, [
-    isFocused ? styles.focused : {},
-    containerStyle,
-  ]);
+    const theme = useTheme();
 
-  const currentInputStyle = StyleSheet.compose(styles.input, style);
-  const currentLabelStyle = StyleSheet.compose(styles.label, labelStyle);
-  const currentHintStyle = StyleSheet.compose(styles.hint, hintStyle);
+    const styles = StyleSheet.create({
+      initial: {
+        backgroundColor: isError
+          ? theme.background.fieldDanger
+          : theme.background.fieldMain,
+        padding: 0,
+        borderRadius: 8,
+        height: 44,
+        flex: 1,
+        paddingHorizontal: 10,
+        flexDirection: 'row',
+        alignItems: 'center',
+        borderWidth: 1,
+        borderColor: isError
+          ? theme.background.fieldDanger
+          : theme.background.fieldMain,
+      },
+      input: {
+        flex: 1,
+        fontFamily: 'Nunito Sans Regular',
+        fontStyle: 'normal',
+        fontWeight: '400',
+        fontSize: 17,
+        lineHeight: 24,
+        color: isError ? theme.text.danger : theme.text.basic,
+      },
+      focused: {
+        borderColor: isError ? theme.stroke.danger : theme.stroke.accent,
+      },
+      label: {
+        fontFamily: 'Nunito Sans Regular',
+        fontStyle: 'normal',
+        fontWeight: '400',
+        fontSize: 13,
+        lineHeight: 16,
+        color: isError ? theme.text.danger : theme.text.neutral,
+        marginBottom: 4,
+      },
+      hint: {
+        fontFamily: 'Nunito Sans Regular',
+        fontStyle: 'normal',
+        fontWeight: '400',
+        fontSize: 13,
+        lineHeight: 16,
+        color: isError ? theme.text.danger : theme.text.neutral,
+        marginTop: 4,
+      },
+      icon: {
+        marginRight: 8,
+      },
+    });
 
-  const handleFocus = (e: NativeSyntheticEvent<TextInputFocusEventData>) => {
-    setIsFocused(true);
-    onFocus && onFocus(e);
-  };
+    const currentContainerStyle = StyleSheet.compose(styles.initial, [
+      isFocused ? styles.focused : {},
+      containerStyle,
+    ]);
 
-  const handleBlur = (e: NativeSyntheticEvent<TextInputFocusEventData>) => {
-    setIsFocused(false);
-    onBlur && onBlur(e);
-  };
+    const currentInputStyle = StyleSheet.compose(styles.input, style);
+    const currentLabelStyle = StyleSheet.compose(styles.label, labelStyle);
+    const currentHintStyle = StyleSheet.compose(styles.hint, hintStyle);
 
-  const handleClear = () => {
-    inputRef.current?.clear();
-  };
+    const handleFocus = (e: NativeSyntheticEvent<TextInputFocusEventData>) => {
+      setIsFocused(true);
+      onFocus && onFocus(e);
+    };
 
-  const phoneMask = [
-    '+',
-    /\d/,
-    ' ',
-    /\d/,
-    /\d/,
-    /\d/,
-    ' ',
-    /\d/,
-    /\d/,
-    /\d/,
-    '-',
-    /\d/,
-    /\d/,
-    '-',
-    /\d/,
-    /\d/,
-  ];
+    const handleBlur = (e: NativeSyntheticEvent<TextInputFocusEventData>) => {
+      setIsFocused(false);
+      onBlur && onBlur(e);
+    };
 
-  return (
-    <View>
-      {label && <Text style={currentLabelStyle}>{label}</Text>}
-      <View style={currentContainerStyle}>
-        <View style={styles.icon}>
-          <RuFlagIcon />
+    const phoneMask = [
+      '+',
+      /\d/,
+      ' ',
+      /\d/,
+      /\d/,
+      /\d/,
+      ' ',
+      /\d/,
+      /\d/,
+      /\d/,
+      '-',
+      /\d/,
+      /\d/,
+      '-',
+      /\d/,
+      /\d/,
+    ];
+
+    return (
+      <View>
+        {label && <Text style={currentLabelStyle}>{label}</Text>}
+        <View style={currentContainerStyle}>
+          <View style={styles.icon}>
+            <RuFlagIcon />
+          </View>
+          <MaskInput
+            placeholder={placeholder || '+7 900 000-00-00'}
+            placeholderTextColor={placeholderTextColor || theme.text.neutral}
+            onFocus={handleFocus}
+            style={currentInputStyle}
+            onBlur={handleBlur}
+            ref={ref}
+            mask={mask || phoneMask}
+            {...props}
+          />
+          <TouchableOpacity onPress={onClear}>
+            <InputClearIcon />
+          </TouchableOpacity>
         </View>
-        <MaskInput
-          placeholder={placeholder || '+7 900 000-00-00'}
-          placeholderTextColor={placeholderTextColor || theme.text.neutral}
-          onFocus={handleFocus}
-          style={currentInputStyle}
-          onBlur={handleBlur}
-          ref={inputRef}
-          mask={mask || phoneMask}
-          {...props}
-        />
-        <TouchableOpacity onPress={handleClear}>
-          <InputClearIcon />
-        </TouchableOpacity>
+        {hint && <Text style={currentHintStyle}>{hint}</Text>}
       </View>
-      {hint && <Text style={currentHintStyle}>{hint}</Text>}
-    </View>
-  );
-};
+    );
+  }
+);

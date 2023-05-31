@@ -12,5 +12,6 @@
 | `hint`           | `string`               | `false`      | Подсказка компонента                  |
 | `hintStyle`      | `StyleProp<TextStyle>` | `false`      | Стиль подсказки компонента            |
 | `containerStyle` | `StyleProp<ViewProps>` | `false`      | Стиль контейнера компонента           |
+| `onClear`        | `() => void`           | `false`      | Логика нажатия на иконку крестика     |
 
 ---

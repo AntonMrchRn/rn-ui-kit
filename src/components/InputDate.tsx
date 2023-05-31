@@ -1,8 +1,9 @@
-import React, { FC, useState } from 'react';
+import React, { FC, ForwardedRef, forwardRef, useState } from 'react';
 import {
   NativeSyntheticEvent,
   StyleProp,
   StyleSheet,
+  TextInput,
   TextInputFocusEventData,
   View,
   ViewProps,
@@ -20,101 +21,108 @@ export type InputDateProps = MaskInputProps & {
    * Отображение компонента в стиле ошибки
    */
   isError?: boolean;
+  ref?: ForwardedRef<TextInput>;
 };
 
-export const InputDate: FC<InputDateProps> = ({
-  containerStyle,
-  isError,
-  placeholderTextColor,
-  style,
-  onFocus,
-  onBlur,
-  placeholder,
-  mask,
-  ...props
-}) => {
-  const [isFocused, setIsFocused] = useState(false);
-
-  const theme = useTheme();
-
-  const getColor = () => {
-    if (isError) {
-      return theme.text.danger;
-    }
-    if (props.value) {
-      return theme.text.basic;
-    }
-    return theme.text.neutral;
-  };
-
-  const styles = StyleSheet.create({
-    initial: {
-      backgroundColor: isError
-        ? theme.background.fieldDanger
-        : theme.background.fieldMain,
-      padding: 0,
-      borderRadius: 8,
-      height: 44,
-      width: 150,
-      flex: 1,
-      paddingHorizontal: 10,
-      flexDirection: 'row',
-      alignItems: 'center',
-      borderWidth: 1,
-      borderColor: isError
-        ? theme.background.fieldDanger
-        : theme.background.fieldMain,
+export const InputDate: FC<InputDateProps> = forwardRef(
+  (
+    {
+      containerStyle,
+      isError,
+      placeholderTextColor,
+      style,
+      onFocus,
+      onBlur,
+      placeholder,
+      mask,
+      ...props
     },
-    input: {
-      flex: 1,
-      fontFamily: 'Nunito Sans Regular',
-      fontStyle: 'normal',
-      fontWeight: '400',
-      fontSize: 17,
-      lineHeight: 24,
-      color: isError ? theme.text.danger : theme.text.basic,
-    },
-    focused: {
-      borderColor: isError ? theme.stroke.danger : theme.stroke.accent,
-    },
-    icon: {
-      marginRight: 8,
-    },
-  });
+    ref
+  ) => {
+    const [isFocused, setIsFocused] = useState(false);
 
-  const currentContainerStyle = StyleSheet.compose(styles.initial, [
-    isFocused ? styles.focused : {},
-    containerStyle,
-  ]);
+    const theme = useTheme();
 
-  const currentInputStyle = StyleSheet.compose(styles.input, style);
+    const getColor = () => {
+      if (isError) {
+        return theme.text.danger;
+      }
+      if (props.value) {
+        return theme.text.basic;
+      }
+      return theme.text.neutral;
+    };
 
-  const handleFocus = (e: NativeSyntheticEvent<TextInputFocusEventData>) => {
-    setIsFocused(true);
-    onFocus && onFocus(e);
-  };
+    const styles = StyleSheet.create({
+      initial: {
+        backgroundColor: isError
+          ? theme.background.fieldDanger
+          : theme.background.fieldMain,
+        padding: 0,
+        borderRadius: 8,
+        height: 44,
+        width: 150,
+        flex: 1,
+        paddingHorizontal: 10,
+        flexDirection: 'row',
+        alignItems: 'center',
+        borderWidth: 1,
+        borderColor: isError
+          ? theme.background.fieldDanger
+          : theme.background.fieldMain,
+      },
+      input: {
+        flex: 1,
+        fontFamily: 'Nunito Sans Regular',
+        fontStyle: 'normal',
+        fontWeight: '400',
+        fontSize: 17,
+        lineHeight: 24,
+        color: isError ? theme.text.danger : theme.text.basic,
+      },
+      focused: {
+        borderColor: isError ? theme.stroke.danger : theme.stroke.accent,
+      },
+      icon: {
+        marginRight: 8,
+      },
+    });
 
-  const handleBlur = (e: NativeSyntheticEvent<TextInputFocusEventData>) => {
-    setIsFocused(false);
-    onBlur && onBlur(e);
-  };
+    const currentContainerStyle = StyleSheet.compose(styles.initial, [
+      isFocused ? styles.focused : {},
+      containerStyle,
+    ]);
 
-  const dateMask = [/\d/, /\d/, '/', /\d/, /\d/, '/', /\d/, /\d/];
+    const currentInputStyle = StyleSheet.compose(styles.input, style);
 
-  return (
-    <View style={currentContainerStyle}>
-      <View style={styles.icon}>
-        <CalendarIcon color={getColor()} />
+    const handleFocus = (e: NativeSyntheticEvent<TextInputFocusEventData>) => {
+      setIsFocused(true);
+      onFocus && onFocus(e);
+    };
+
+    const handleBlur = (e: NativeSyntheticEvent<TextInputFocusEventData>) => {
+      setIsFocused(false);
+      onBlur && onBlur(e);
+    };
+
+    const dateMask = [/\d/, /\d/, '/', /\d/, /\d/, '/', /\d/, /\d/];
+
+    return (
+      <View style={currentContainerStyle}>
+        <View style={styles.icon}>
+          <CalendarIcon color={getColor()} />
+        </View>
+        <MaskInput
+          placeholder={placeholder || 'ДД/ММ/ГГ'}
+          placeholderTextColor={placeholderTextColor || theme.text.neutral}
+          onFocus={handleFocus}
+          style={currentInputStyle}
+          onBlur={handleBlur}
+          mask={mask || dateMask}
+          {...props}
+          ref={ref}
+        />
       </View>
-      <MaskInput
-        placeholder={placeholder || 'ДД/ММ/ГГ'}
-        placeholderTextColor={placeholderTextColor || theme.text.neutral}
-        onFocus={handleFocus}
-        style={currentInputStyle}
-        onBlur={handleBlur}
-        mask={mask || dateMask}
-        {...props}
-      />
-    </View>
-  );
-};
+    );
+  }
+);

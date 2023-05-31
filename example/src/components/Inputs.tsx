@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useRef } from 'react';
+import { TextInput } from 'react-native';
 import {
   Input,
   InputCode,
@@ -9,6 +10,7 @@ import {
 } from 'rn-ui-kit';
 
 export const Inputs = () => {
+  const inputRef = useRef<TextInput>(null);
   return (
     <Spacer size="xl">
       <Input
@@ -30,6 +32,8 @@ export const Inputs = () => {
         placeholder="Placeholder"
         label="Label"
         hint="error message"
+        onClear={() => inputRef?.current?.clear()}
+        ref={inputRef}
       />
       <Input variant="password" label="Label" />
       <Input
