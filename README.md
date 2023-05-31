@@ -38,11 +38,25 @@ yarn add react-native-switch
 yarn add react-native-safe-area-context
 ```
 
-затем
+затем нужно установить поды, например так:
 
 ```sh
 npx pod-install
 ```
+
+# Шрифты
+
+Для работы с библиотекой необходимо установить следующий набор шрифтов:
+
+'Open Sans Bold'
+
+'Open Sans Semibold'
+
+'Nunito Sans Regular'
+
+'Nunito Sans Bold'
+
+'Nunito Sans Semibold'
 
 # Использование
 
