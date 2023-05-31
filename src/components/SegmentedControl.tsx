@@ -97,6 +97,7 @@ export const SegmentedControl: React.FC<SegmentedControlProps> = ({
       fontWeight: '400',
       fontSize: 13,
       lineHeight: 16,
+      color: theme.text.basic,
     },
     activeTextStyle: {
       fontFamily: 'Nunito Sans Bold',
