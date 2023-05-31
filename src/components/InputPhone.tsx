@@ -80,7 +80,6 @@ export const InputPhone: FC<InputPhoneProps> = forwardRef(
         padding: 0,
         borderRadius: 8,
         height: 44,
-        flex: 1,
         paddingHorizontal: 10,
         flexDirection: 'row',
         alignItems: 'center',

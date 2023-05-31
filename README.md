@@ -29,7 +29,8 @@ yarn prepack
 
 - Исправлен размер компонента CheckBox
 - Исправлен цвет текста компонента SegmentedControl
-- Компоненты Input, InputTiem,InputDate, InputPhone обернуты в forwardRef для доступа к ref ссылкам
+- Компоненты Input, InputTiem, InputDate, InputPhone обернуты в forwardRef для доступа к ref ссылкам
+- Исправлены стили компонентов Input, InputTiem, InputDate, InputPhone
 
 # Установка
 

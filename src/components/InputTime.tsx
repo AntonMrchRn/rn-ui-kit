@@ -62,7 +62,6 @@ export const InputTime: FC<InputTimeProps> = forwardRef(
         borderRadius: 8,
         height: 44,
         width: 150,
-        flex: 1,
         paddingHorizontal: 10,
         flexDirection: 'row',
         alignItems: 'center',

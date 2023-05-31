@@ -99,7 +99,6 @@ export const Input: FC<InputProps> = forwardRef(
         padding: 0,
         borderRadius: 8,
         height: setHeight(),
-        flex: 1,
         paddingHorizontal: 10,
         flexDirection: 'row',
         alignItems: 'center',
