@@ -1,8 +1,6 @@
 import React, { FC, ReactElement } from 'react';
 import {
   StyleSheet,
-  StyleProp,
-  ViewStyle,
   TouchableOpacityProps,
   TouchableOpacity,
 } from 'react-native';
@@ -25,8 +23,8 @@ export const CheckBox: FC<CheckboxProps> = ({ icon, ...props }) => {
 
   const stylesCheckBox = StyleSheet.create({
     initial: {
-      height: 32,
-      width: 32,
+      height: 20,
+      width: 20,
       borderWidth: 1.5,
       borderColor: theme.background.accent,
       borderRadius: 5,
@@ -68,7 +66,7 @@ export const CheckBox: FC<CheckboxProps> = ({ icon, ...props }) => {
   };
 
   const style = StyleSheet.compose(stylesCheckBox.initial, [
-    props.style as StyleProp<ViewStyle>,
+    props.style,
     currentStyle(),
   ]);
 
