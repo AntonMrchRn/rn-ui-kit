@@ -58,6 +58,8 @@ npx pod-install
 
 'Nunito Sans Semibold'
 
+Данные шрифты присутствуют в папке example/assets/fonts
+
 # Использование
 
 ```js
