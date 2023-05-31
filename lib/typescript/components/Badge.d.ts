@@ -1,9 +1,23 @@
 import { FC, ReactElement } from 'react';
 import { StyleProp, ViewProps, TextStyle } from 'react-native';
+export type Variant = 'accent' | 'danger' | 'secondary' | 'warning' | 'success' | 'basic' | 'special';
 export type BadgeProps = ViewProps & {
-    icon?: ReactElement | true;
-    variant?: 'accent' | 'danger' | 'secondary' | 'warning' | 'success' | 'basic' | 'special';
+    /**
+     * Иконка компонента. Может быть стандартной, кастомной или не быть
+     */
+    icon?: ReactElement | boolean;
+    /**
+     * Ключевой параметр, который определяет тип
+     * По умолчанию - 'accent'
+     */
+    variant?: Variant;
+    /**
+     * Лейбл компонента
+     */
     label?: string;
+    /**
+     * Стиль лейбла компонента
+     */
     labelStyle?: StyleProp<TextStyle>;
 };
 export declare const Badge: FC<BadgeProps>;

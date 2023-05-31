@@ -74,6 +74,10 @@ export declare const typography: {
 };
 export type Variant = 'title1' | 'title2' | 'title3' | 'bodyMRegular' | 'bodyMBold' | 'bodySRegular' | 'bodySBold' | 'captionRegular' | 'captionBold' | 'tabBarLabel';
 export type TextProps = RNTextProps & {
+    /**
+     * Должен быть указан один из дефолтных типов, описанных в компоненте. Стили можно перебить через проп style
+     *
+     */
     variant: Variant;
 };
 export declare const Text: FC<TextProps>;
