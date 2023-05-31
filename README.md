@@ -28,7 +28,7 @@ yarn prepack
 # Установка
 
 ```sh
-yarn add "git+https://git@devgit.apteka-aprel.ru/mobile/rn-ui-kit"
+yarn add "git+https://git@devgit.apteka-aprel.ru/mobile/rn-ui-kit#0.1.0"
 yarn add react-native-svg
 yarn add react-native-confirmation-code-field
 yarn add react-native-mask-input
