@@ -32,6 +32,10 @@ yarn prepack
 - Компоненты Input, InputTiem, InputDate, InputPhone обернуты в forwardRef для доступа к ref ссылкам
 - Исправлены стили компонентов Input, InputTiem, InputDate, InputPhone
 
+### 0.1.2
+
+- Исправлены стили компонента Text
+
 # Установка
 
 ```sh

@@ -98,11 +98,11 @@ export type TextProps = RNTextProps & {
   variant: Variant;
 };
 
-export const Text: FC<TextProps> = (props) => {
+export const Text: FC<TextProps> = ({ style, ...props }) => {
   const variant = typography[props.variant];
-  const style = StyleSheet.compose(variant, props.style);
+  const currentStyle = StyleSheet.compose(variant, style);
   return (
-    <RNText style={style} {...props}>
+    <RNText style={currentStyle} {...props}>
       {props.children}
     </RNText>
   );
