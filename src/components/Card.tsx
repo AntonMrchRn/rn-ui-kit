@@ -1,11 +1,5 @@
 import React, { FC, ReactElement } from 'react';
-import {
-  StyleSheet,
-  StyleProp,
-  ViewStyle,
-  ViewProps,
-  View,
-} from 'react-native';
+import { StyleSheet, ViewProps, View } from 'react-native';
 import { useTheme } from '../theme/ThemeProvider';
 
 export type CardProps = ViewProps & {
@@ -18,7 +12,12 @@ export type CardProps = ViewProps & {
    */
   isShadow?: boolean;
 };
-export const Card: FC<CardProps> = ({ isShadow, children, ...props }) => {
+export const Card: FC<CardProps> = ({
+  isShadow,
+  children,
+  style,
+  ...props
+}) => {
   const theme = useTheme();
 
   const styles = StyleSheet.create({
@@ -30,7 +29,7 @@ export const Card: FC<CardProps> = ({ isShadow, children, ...props }) => {
       width: '100%',
     },
     shadow: {
-      shadowColor: '#0f0f0',
+      shadowColor: '#000000',
       shadowOffset: {
         width: 0,
         height: 1,
@@ -43,7 +42,7 @@ export const Card: FC<CardProps> = ({ isShadow, children, ...props }) => {
 
   const currentCardStyle = StyleSheet.compose(styles.card, [
     isShadow && styles.shadow,
-    props.style as StyleProp<ViewStyle>,
+    style,
   ]);
 
   return (
