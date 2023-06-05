@@ -30,10 +30,10 @@ import { Chipses } from './components/Chipses';
 export default function App() {
   const [fontsLoaded] = useFonts({
     'Open Sans Bold': require('../assets/fonts/OpenSans/OpenSans-Bold.ttf'),
-    'Open Sans Semibold': require('../assets/fonts/OpenSans/OpenSans-SemiBold.ttf'),
+    'Open Sans SemiBold': require('../assets/fonts/OpenSans/OpenSans-SemiBold.ttf'),
     'Nunito Sans Regular': require('../assets/fonts/NunitoSans_7pt/NunitoSans_7pt-Regular.ttf'),
     'Nunito Sans Bold': require('../assets/fonts/NunitoSans_7pt/NunitoSans_7pt-Bold.ttf'),
-    'Nunito Sans Semibold': require('../assets/fonts/NunitoSans_7pt/NunitoSans_7pt-SemiBold.ttf'),
+    'Nunito Sans SemiBold': require('../assets/fonts/NunitoSans_7pt/NunitoSans_7pt-SemiBold.ttf'),
   });
 
   if (!fontsLoaded) {
