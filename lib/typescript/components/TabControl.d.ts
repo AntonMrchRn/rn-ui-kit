@@ -1,5 +1,5 @@
 import { FC, ReactElement } from 'react';
-import { StyleProp, TextStyle } from 'react-native';
+import { StyleProp, TextStyle, ViewStyle } from 'react-native';
 export type TabItem = {
     id: number;
     label: string;
@@ -20,6 +20,10 @@ export type TabControlProps = {
      * Стиль лейбла элементов компонента
      */
     labelStyle?: StyleProp<TextStyle>;
+    /**
+     * Стиль контейнера иконки компонента
+     */
+    iconContainerStyle?: StyleProp<ViewStyle>;
 };
 export declare const TabControl: FC<TabControlProps>;
 //# sourceMappingURL=TabControl.d.ts.map

@@ -5,6 +5,8 @@ import {
   StyleSheet,
   TextStyle,
   TouchableOpacity,
+  View,
+  ViewStyle,
 } from 'react-native';
 import { Text } from 'react-native';
 import { TabControlIcon } from '../icons/TabControlIcon';
@@ -32,12 +34,17 @@ export type TabControlProps = {
    * Стиль лейбла элементов компонента
    */
   labelStyle?: StyleProp<TextStyle>;
+  /**
+   * Стиль контейнера иконки компонента
+   */
+  iconContainerStyle?: StyleProp<ViewStyle>;
 };
 
 export const TabControl: FC<TabControlProps> = ({
   initialId,
   data,
   labelStyle,
+  iconContainerStyle,
   ...props
 }) => {
   const [selectedId, setSelectedId] = useState(initialId);
@@ -45,17 +52,12 @@ export const TabControl: FC<TabControlProps> = ({
 
   const styles = StyleSheet.create({
     wrapper: {
-      padding: 5,
-      borderRadius: 4,
+      paddingBottom: 8,
       backgroundColor: theme.background.main,
       margin: 10,
-      paddingVertical: 5,
-      borderBottomWidth: 1.5,
-      borderColor: theme.icons.neutral,
       flexDirection: 'row',
     },
     label: {
-      marginLeft: 5,
       fontFamily: 'Nunito Sans Regular',
       color: theme.icons.neutral,
     },
@@ -65,13 +67,21 @@ export const TabControl: FC<TabControlProps> = ({
       fontWeight: '700',
     },
     activeBorder: {
+      borderBottomWidth: 1.5,
       borderBottomColor: theme.background.accent,
+    },
+    icon: {
+      marginRight: 5,
     },
   });
 
   const Item: FC<TabItem> = (item) => {
     const isActive = selectedId === item.id;
     const currentLabelStyle = StyleSheet.compose(styles.label, labelStyle);
+    const currentIconContainerStyle = StyleSheet.compose(
+      styles.icon,
+      iconContainerStyle
+    );
 
     const getIcon = () => {
       if (item.icon) {
@@ -99,7 +109,9 @@ export const TabControl: FC<TabControlProps> = ({
           item.onPress && item.onPress();
         }}
       >
-        {getIcon()}
+        {item.icon && (
+          <View style={currentIconContainerStyle}>{getIcon()}</View>
+        )}
         <Text style={[currentLabelStyle, isActive && styles.activeText]}>
           {item?.label}
         </Text>
