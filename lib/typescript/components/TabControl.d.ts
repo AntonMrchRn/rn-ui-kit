@@ -4,7 +4,6 @@ export type TabItem = {
     id: number;
     label: string;
     count?: number;
-    onPress?: () => void;
     icon?: ReactElement | boolean;
 };
 export type TabControlProps = {
@@ -12,6 +11,10 @@ export type TabControlProps = {
      * Индекс изначально выбранного элемента
      */
     initialId?: number;
+    /**
+     * Логика при изменении выбранного элемента
+     */
+    onChange?: (item: TabItem) => void;
     /**
      * Массив элементов компонента
      */
