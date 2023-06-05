@@ -14,7 +14,7 @@ export const TabControls = () => {
       id: 2,
       label: 'test2',
       count: 6,
-      icon: <></>,
+      icon: false,
     },
     {
       id: 3,
