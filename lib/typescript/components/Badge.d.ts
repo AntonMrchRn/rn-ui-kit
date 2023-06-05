@@ -7,6 +7,10 @@ export type BadgeProps = ViewProps & {
      */
     icon?: ReactElement | boolean;
     /**
+     * Если true, то тип сменится на второстепенный
+     */
+    secondary?: boolean;
+    /**
      * Ключевой параметр, который определяет тип
      * По умолчанию - 'accent'
      */
