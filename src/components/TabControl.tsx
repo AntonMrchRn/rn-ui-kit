@@ -17,7 +17,6 @@ export type TabItem = {
   id: number;
   label: string;
   count?: number;
-  onPress?: () => void;
   icon?: ReactElement | boolean;
 };
 
@@ -26,6 +25,10 @@ export type TabControlProps = {
    * Индекс изначально выбранного элемента
    */
   initialId?: number;
+  /**
+   * Логика при изменении выбранного элемента
+   */
+  onChange?: (item: TabItem) => void;
   /**
    * Массив элементов компонента
    */
@@ -45,6 +48,7 @@ export const TabControl: FC<TabControlProps> = ({
   data,
   labelStyle,
   iconContainerStyle,
+  onChange,
   ...props
 }) => {
   const [selectedId, setSelectedId] = useState(initialId);
@@ -106,7 +110,7 @@ export const TabControl: FC<TabControlProps> = ({
         style={[styles.wrapper, isActive && styles.activeBorder]}
         onPress={() => {
           setSelectedId(item.id);
-          item.onPress && item.onPress();
+          onChange && onChange(item);
         }}
       >
         {item.icon && (
