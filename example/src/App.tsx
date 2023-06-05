@@ -46,6 +46,8 @@ export default function App() {
           <SafeAreaView style={{ flex: 1, backgroundColor: '#fff' }}>
             <ScrollView contentContainerStyle={{ paddingHorizontal: 10 }}>
               <Spacer size={'xxl'} separator="bottom">
+                <Cards />
+
                 <Badges />
                 <Toasts />
                 <View
@@ -61,7 +63,6 @@ export default function App() {
                 <BottomSheets />
                 <TabControls />
                 <Buttons />
-                <Cards />
                 <Texts />
                 <SegmentedControl
                   tabs={['Label 1', 'Label 2', 'Label 3']}
