@@ -56,6 +56,7 @@ export const Button: FC<ButtonProps> = ({
   label = '',
   size = 'M',
   isPending,
+  style,
   ...props
 }) => {
   const theme = useTheme();
@@ -65,9 +66,12 @@ export const Button: FC<ButtonProps> = ({
       color: theme.background.main,
       marginLeft: icon || isPending ? 10 : 0,
       fontFamily: 'Nunito Sans Bold',
+      fontSize: 17,
+      fontWeight: '700',
+      lineHeight: 24,
     },
     button: {
-      height: 40,
+      paddingVertical: 12,
       width: '100%',
       borderRadius: 8,
       paddingHorizontal: 16,
@@ -77,7 +81,7 @@ export const Button: FC<ButtonProps> = ({
       alignSelf: 'flex-start',
     },
     smallButton: {
-      height: 40,
+      paddingVertical: 12,
       borderRadius: 8,
       paddingHorizontal: 16,
       flexDirection: 'row',
@@ -204,7 +208,7 @@ export const Button: FC<ButtonProps> = ({
 
   const currentButtonStyle = StyleSheet.compose(
     size === 'S' ? styles.smallButton : styles.button,
-    [styles[variant], props.disabled && styles[`${variant}Disabled`]]
+    [styles[variant], props.disabled && styles[`${variant}Disabled`], style]
   );
 
   const currentLabelStyle = StyleSheet.compose(styles.label, [
@@ -216,7 +220,7 @@ export const Button: FC<ButtonProps> = ({
   return (
     <TouchableOpacity style={currentButtonStyle} {...props} activeOpacity={0.5}>
       {getIcon()}
-      {label && <Text style={currentLabelStyle}>{label}</Text>}
+      {label && !isPending && <Text style={currentLabelStyle}>{label}</Text>}
     </TouchableOpacity>
   );
 };

@@ -41,7 +41,7 @@ export const Inputs = () => {
         value="Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolorem, optio. Laboriosam iusto doloribus autem praesentium incidunt mollitia aliquid et minus pariatur voluptates. Illo provident laborum obcaecati placeat ducimus eveniet porro!"
         label="Label"
       />
-      <InputPhone />
+      <InputPhone value="78732847233" />
       <InputDate />
       <InputDate value={'140497'} />
       <InputDate isError value={'140497'} />
