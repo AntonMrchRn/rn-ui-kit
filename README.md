@@ -40,6 +40,10 @@ yarn prepack
 
 - Исправлены стили компонента Badge, добавлены новые варианты через пропс
 
+### 0.1.4
+
+- Исправлены стили компонента Text, возможность менять цвет через пропс
+
 # Установка
 
 ```sh
@@ -65,13 +69,13 @@ npx pod-install
 
 'Open Sans Bold'
 
-'Open Sans Semibold'
+'Open Sans SemiBold'
 
 'Nunito Sans Regular'
 
 'Nunito Sans Bold'
 
-'Nunito Sans Semibold'
+'Nunito Sans SemiBold'
 
 Данные шрифты присутствуют в папке example/assets/fonts
 

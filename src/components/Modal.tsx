@@ -200,7 +200,7 @@ export const Modal: FC<ModalProps> = ({
       marginBottom: 12,
     },
     title: {
-      fontFamily: 'Open Sans Semibold',
+      fontFamily: 'Open Sans SemiBold',
       fontStyle: 'normal',
       fontWeight: '600',
       fontSize: 20,

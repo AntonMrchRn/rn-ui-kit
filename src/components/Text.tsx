@@ -21,7 +21,7 @@ export const typography = StyleSheet.create({
     lineHeight: 28,
   },
   title3: {
-    fontFamily: 'Open Sans Semibold',
+    fontFamily: 'Open Sans SemiBold',
     fontStyle: 'normal',
     fontWeight: '600',
     fontSize: 20,
@@ -70,7 +70,7 @@ export const typography = StyleSheet.create({
     lineHeight: 16,
   },
   tabBarLabel: {
-    fontFamily: 'Nunito Sans Semibold',
+    fontFamily: 'Nunito Sans SemiBold',
     fontStyle: 'normal',
     fontWeight: '400',
     fontSize: 10,
@@ -93,14 +93,17 @@ export type Variant =
 export type TextProps = RNTextProps & {
   /**
    * Должен быть указан один из дефолтных типов, описанных в компоненте. Стили можно перебить через проп style
-   *
    */
   variant: Variant;
+  /**
+   * Цвет текста. По умолчанию черный. Можно перебить через проп style
+   */
+  color?: string;
 };
 
-export const Text: FC<TextProps> = ({ style, ...props }) => {
+export const Text: FC<TextProps> = ({ style, color = 'black', ...props }) => {
   const variant = typography[props.variant];
-  const currentStyle = StyleSheet.compose(variant, style);
+  const currentStyle = StyleSheet.compose(variant, [{ color }, style]);
   return (
     <RNText style={currentStyle} {...props}>
       {props.children}
