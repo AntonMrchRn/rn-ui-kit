@@ -46,6 +46,7 @@ export default function App() {
           <SafeAreaView style={{ flex: 1, backgroundColor: '#fff' }}>
             <ScrollView contentContainerStyle={{ paddingHorizontal: 10 }}>
               <Spacer size={'xxl'} separator="bottom">
+                <Badges />
                 <Toasts />
                 <View
                   style={{
@@ -71,7 +72,6 @@ export default function App() {
                 <Spacers />
                 <Inputs />
                 <Tooltips />
-                <Badges />
                 <Modals />
                 <Tipses />
                 <Banners />
