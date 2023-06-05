@@ -2,7 +2,6 @@ import React, { FC, ReactElement } from 'react';
 import {
   StyleSheet,
   StyleProp,
-  ViewStyle,
   ViewProps,
   Text,
   View,
@@ -27,6 +26,10 @@ export type BadgeProps = ViewProps & {
    */
   icon?: ReactElement | boolean;
   /**
+   * Если true, то тип сменится на второстепенный
+   */
+  secondary?: boolean;
+  /**
    * Ключевой параметр, который определяет тип
    * По умолчанию - 'accent'
    */
@@ -46,13 +49,14 @@ export const Badge: FC<BadgeProps> = ({
   variant = 'accent',
   labelStyle,
   label = '',
+  secondary,
+  style,
   ...props
 }) => {
   const theme = useTheme();
 
   const styles = StyleSheet.create({
     label: {
-      color: '#fff',
       marginLeft: 5,
       fontFamily: 'Nunito Sans Regular',
     },
@@ -68,42 +72,71 @@ export const Badge: FC<BadgeProps> = ({
     accent: {
       backgroundColor: theme.background.accent,
     },
+    accentSecondary: {
+      backgroundColor: theme.background.fieldMain,
+    },
     danger: {
       backgroundColor: theme.background.danger,
+    },
+    dangerSecondary: {
+      backgroundColor: theme.background.fieldDanger,
     },
     secondary: {
       backgroundColor: theme.background.secondary,
     },
+    secondarySecondary: {
+      backgroundColor: theme.background.secondaryBadge,
+    },
     warning: {
       backgroundColor: theme.icons.warning,
+    },
+    warningSecondary: {
+      backgroundColor: theme.background.fieldWarning,
     },
     success: {
       backgroundColor: theme.background.success,
     },
+    successSecondary: {
+      backgroundColor: theme.background.fieldSuccess,
+    },
     basic: {
       backgroundColor: theme.icons.basic,
+    },
+    basicSecondary: {
+      backgroundColor: theme.background.neutralDisableSecond,
     },
     special: {
       backgroundColor: theme.background.special,
     },
+    specialSecondary: {
+      backgroundColor: theme.background.specialLight,
+    },
   });
+
+  const color = secondary
+    ? styles[variant].backgroundColor
+    : theme.text.contrast;
+  const currentBadgeStyle = StyleSheet.compose(styles.badge, [
+    secondary ? styles[`${variant}Secondary`] : styles[variant],
+    style,
+  ]);
 
   const getIcon = () => {
     if (icon) {
       if (typeof icon === 'boolean') {
-        return <BadgeIcon />;
+        return <BadgeIcon color={color} />;
       }
       return icon;
     }
     return null;
   };
 
-  const currentBadgeStyle = StyleSheet.compose(styles.badge, [
-    styles[variant],
-    props.style as StyleProp<ViewStyle>,
+  const currentLabelStyle = StyleSheet.compose(styles.label, [
+    {
+      color: color,
+    },
+    labelStyle,
   ]);
-
-  const currentLabelStyle = StyleSheet.compose(styles.label, labelStyle);
 
   return (
     <View style={currentBadgeStyle} {...props}>
