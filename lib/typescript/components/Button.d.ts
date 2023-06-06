@@ -1,7 +1,7 @@
 import { FC, ReactElement } from 'react';
 import { StyleProp, TextStyle, TouchableOpacityProps } from 'react-native';
-type Sizes = 'M' | 'S';
-type Variant = 'accent' | 'danger' | 'outlineAccent' | 'outlineDanger' | 'ghost' | 'dangerGhost';
+export type Sizes = 'M' | 'S';
+export type Variant = 'accent' | 'danger' | 'outlineAccent' | 'outlineDanger' | 'ghost' | 'dangerGhost';
 export type ButtonProps = TouchableOpacityProps & {
     /**
      * Тип иконки компонента.
@@ -32,5 +32,4 @@ export type ButtonProps = TouchableOpacityProps & {
     labelStyle?: StyleProp<TextStyle>;
 };
 export declare const Button: FC<ButtonProps>;
-export {};
 //# sourceMappingURL=Button.d.ts.map
