@@ -168,7 +168,7 @@ export const Banner: FC<BannerProps> = ({
     header: {
       flexDirection: 'row',
       justifyContent: 'space-between',
-      alignItems: 'center',
+      alignItems: 'flex-start',
     },
     title: {
       fontFamily: 'Nunito Sans Bold',
