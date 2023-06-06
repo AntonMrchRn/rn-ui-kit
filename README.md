@@ -69,6 +69,10 @@ yarn prepack
 - Исправлена типизиция пропса containerStyle в компонентах Input, InputPhone, InputDate, InputTime
 - Исправлены стили компонента InputPhone
 
+### 0.1.10
+
+- Исправлены стили в компонентах Input, InputPhone, InputDate, InputTime
+
 # Установка
 
 ```sh

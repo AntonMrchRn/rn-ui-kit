@@ -103,6 +103,7 @@ export const InputPhone: FC<InputPhoneProps> = forwardRef(
         fontSize: 17,
         lineHeight: 24,
         color: isError ? theme.text.danger : theme.text.basic,
+        padding: 0,
       },
       focused: {
         borderColor: isError ? theme.stroke.danger : theme.stroke.accent,
