@@ -8,9 +8,9 @@ import {
   TextProps,
   TextInput,
   View,
-  ViewProps,
   TouchableOpacity,
   Platform,
+  ViewStyle,
 } from 'react-native';
 import { useTheme } from '../theme/ThemeProvider';
 import { InputClearIcon } from '../icons/InputClearIcon';
@@ -25,7 +25,7 @@ export type InputPhoneProps = MaskInputProps & {
   /**
    * Стиль контейнера компонента
    */
-  containerStyle?: StyleProp<ViewProps>;
+  containerStyle?: StyleProp<ViewStyle>;
   /**
    * Лейбл компонента
    */
@@ -86,7 +86,8 @@ export const InputPhone: FC<InputPhoneProps> = forwardRef(
         padding: 0,
         borderRadius: 8,
         height: 44,
-        paddingHorizontal: 10,
+        paddingLeft: 16,
+        paddingRight: 10,
         flexDirection: 'row',
         alignItems: 'center',
         borderWidth: 1,

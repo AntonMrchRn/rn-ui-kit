@@ -1,5 +1,5 @@
 import { FC, ForwardedRef } from 'react';
-import { StyleProp, TextProps, TextInput, ViewProps } from 'react-native';
+import { StyleProp, TextProps, TextInput, ViewStyle } from 'react-native';
 import { MaskInputProps } from 'react-native-mask-input';
 export type InputPhoneProps = MaskInputProps & {
     /**
@@ -9,7 +9,7 @@ export type InputPhoneProps = MaskInputProps & {
     /**
      * Стиль контейнера компонента
      */
-    containerStyle?: StyleProp<ViewProps>;
+    containerStyle?: StyleProp<ViewStyle>;
     /**
      * Лейбл компонента
      */
