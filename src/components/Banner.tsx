@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { FC, useState } from 'react';
 import {
   StyleSheet,
   View,
@@ -17,10 +17,6 @@ import { useTheme } from '../theme/ThemeProvider';
 export type Types = 'error' | 'success' | 'warning' | 'info';
 export type IconTypes = 'success' | 'info' | 'alert' | JSX.Element;
 export type BannerProps = {
-  /**
-   * Отвечает за показ компонента
-   */
-  visible: boolean;
   /**
    * Тип компонента
    */
@@ -99,8 +95,12 @@ export const Banner: FC<BannerProps> = ({
   onButtonPress,
   buttonText,
   iconColor,
-  visible,
 }) => {
+  const [visible, setVisible] = useState(true);
+  const onClose = () => {
+    setVisible(false);
+    onClosePress && onClosePress();
+  };
   const theme = useTheme();
 
   const getTextColor = () => {
@@ -247,7 +247,7 @@ export const Banner: FC<BannerProps> = ({
         <View style={styles.wrapper}>
           <View style={styles.header}>
             {title ? <Text style={currentTitleStyle}>{title}</Text> : <View />}
-            <TouchableOpacity onPress={onClosePress}>
+            <TouchableOpacity onPress={onClose}>
               {closeIcon || <BannerCloseIcon />}
             </TouchableOpacity>
           </View>

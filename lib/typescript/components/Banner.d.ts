@@ -4,10 +4,6 @@ export type Types = 'error' | 'success' | 'warning' | 'info';
 export type IconTypes = 'success' | 'info' | 'alert' | JSX.Element;
 export type BannerProps = {
     /**
-     * Отвечает за показ компонента
-     */
-    visible: boolean;
-    /**
      * Тип компонента
      */
     type: Types;
