@@ -113,6 +113,7 @@ export const Input: FC<InputProps> = forwardRef(
       },
       input: {
         flex: 1,
+        padding: 0,
         fontFamily: 'Nunito Sans Regular',
         fontStyle: 'normal',
         fontWeight: '400',
