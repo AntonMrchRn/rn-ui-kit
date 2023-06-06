@@ -73,6 +73,10 @@ yarn prepack
 
 - Исправлены стили в компонентах Input, InputPhone, InputDate, InputTime
 
+### 0.1.11
+
+- Экспорт типов компонента Button
+
 # Установка
 
 ```sh

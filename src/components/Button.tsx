@@ -11,8 +11,9 @@ import {
 
 import { useTheme } from '../theme/ThemeProvider';
 import { PlusIcon } from '../icons/PlusIcon';
-type Sizes = 'M' | 'S';
-type Variant =
+
+export type Sizes = 'M' | 'S';
+export type Variant =
   | 'accent'
   | 'danger'
   | 'outlineAccent'
@@ -57,6 +58,7 @@ export const Button: FC<ButtonProps> = ({
   size = 'M',
   isPending,
   style,
+  activeOpacity,
   ...props
 }) => {
   const theme = useTheme();
@@ -218,7 +220,11 @@ export const Button: FC<ButtonProps> = ({
   ]);
 
   return (
-    <TouchableOpacity style={currentButtonStyle} {...props} activeOpacity={0.5}>
+    <TouchableOpacity
+      style={currentButtonStyle}
+      {...props}
+      activeOpacity={activeOpacity || 0.5}
+    >
       {getIcon()}
       {label && !isPending && <Text style={currentLabelStyle}>{label}</Text>}
     </TouchableOpacity>
