@@ -10,6 +10,7 @@ import {
   View,
   ViewProps,
   TouchableOpacity,
+  Platform,
 } from 'react-native';
 import { useTheme } from '../theme/ThemeProvider';
 import { InputClearIcon } from '../icons/InputClearIcon';
@@ -136,8 +137,7 @@ export const InputPhone: FC<InputPhoneProps> = forwardRef(
         fontFamily: 'Nunito Sans Regular',
         fontStyle: 'normal',
         fontWeight: '400',
-        // TODO check this padding on android
-        paddingTop: 2,
+        paddingTop: Platform.OS === 'ios' ? 2 : 0,
         paddingRight: 3,
       },
     });
