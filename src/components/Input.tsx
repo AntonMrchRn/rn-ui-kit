@@ -26,7 +26,7 @@ export type InputProps = TextInputProps & {
   /**
    * Стиль контейнера компонента
    */
-  containerStyle?: ViewStyle;
+  containerStyle?: StyleProp<ViewStyle>;
   /**
    * Лейбл компонента
    */

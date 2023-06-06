@@ -1,11 +1,11 @@
 import { FC, ForwardedRef } from 'react';
-import { StyleProp, TextInput, ViewProps } from 'react-native';
+import { StyleProp, TextInput, ViewStyle } from 'react-native';
 import { MaskInputProps } from 'react-native-mask-input';
 export type InputTimeProps = MaskInputProps & {
     /**
      * Стиль контейнера компонента
      */
-    containerStyle?: StyleProp<ViewProps>;
+    containerStyle?: StyleProp<ViewStyle>;
     /**
      * Отображение компонента в стиле ошибки
      */

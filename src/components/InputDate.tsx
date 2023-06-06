@@ -6,7 +6,7 @@ import {
   TextInput,
   TextInputFocusEventData,
   View,
-  ViewProps,
+  ViewStyle,
 } from 'react-native';
 import { useTheme } from '../theme/ThemeProvider';
 import MaskInput, { MaskInputProps } from 'react-native-mask-input';
@@ -16,7 +16,7 @@ export type InputDateProps = MaskInputProps & {
   /**
    * Стиль контейнера компонента
    */
-  containerStyle?: StyleProp<ViewProps>;
+  containerStyle?: StyleProp<ViewStyle>;
   /**
    * Отображение компонента в стиле ошибки
    */
