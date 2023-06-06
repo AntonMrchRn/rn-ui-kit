@@ -205,6 +205,7 @@ export const InputPhone: FC<InputPhoneProps> = forwardRef(
             ref={ref}
             value={validatePhone(value)}
             mask={mask || phoneMask}
+            keyboardType={'numeric' || props.keyboardType}
             {...props}
           />
           {!!value.length && (
