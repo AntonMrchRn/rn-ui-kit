@@ -24,7 +24,7 @@ export type SpacerProps = {
 };
 
 export const Spacer: FC<SpacerProps> = ({
-  size,
+  size = 'm',
   children,
   horizontal,
   separator,

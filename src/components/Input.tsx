@@ -9,7 +9,7 @@ import {
   TextProps,
   TextInput,
   View,
-  ViewProps,
+  ViewStyle,
 } from 'react-native';
 import { useTheme } from '../theme/ThemeProvider';
 import { InputClearIcon } from '../icons/InputClearIcon';
@@ -26,7 +26,7 @@ export type InputProps = TextInputProps & {
   /**
    * Стиль контейнера компонента
    */
-  containerStyle?: StyleProp<ViewProps>;
+  containerStyle?: ViewStyle;
   /**
    * Лейбл компонента
    */
@@ -78,6 +78,9 @@ export const Input: FC<InputProps> = forwardRef(
     const [isFocused, setIsFocused] = useState(false);
     const [isVisible, setIsVisible] = useState(false);
 
+    const isPasswordDots =
+      !isVisible && variant === 'password' && props.value?.length;
+
     const theme = useTheme();
 
     const setHeight = () => {
@@ -96,10 +99,11 @@ export const Input: FC<InputProps> = forwardRef(
         backgroundColor: isError
           ? theme.background.fieldDanger
           : theme.background.fieldMain,
-        padding: 0,
         borderRadius: 8,
         height: setHeight(),
-        paddingHorizontal: 10,
+        paddingLeft: 16,
+        paddingRight: 10,
+        paddingVertical: 10,
         flexDirection: 'row',
         alignItems: 'center',
         borderWidth: 1,
@@ -112,7 +116,7 @@ export const Input: FC<InputProps> = forwardRef(
         fontFamily: 'Nunito Sans Regular',
         fontStyle: 'normal',
         fontWeight: '400',
-        fontSize: 17,
+        fontSize: isPasswordDots ? 19 : 17,
         lineHeight: 24,
         color: isError ? theme.text.danger : theme.text.basic,
       },
@@ -188,7 +192,7 @@ export const Input: FC<InputProps> = forwardRef(
             multiline={variant === 'textarea' || multiline}
             {...props}
           />
-          {variant === 'text' && (
+          {variant === 'text' && !!props.value?.length && (
             <TouchableOpacity onPress={onClear}>
               <InputClearIcon />
             </TouchableOpacity>

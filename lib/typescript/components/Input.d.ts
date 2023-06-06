@@ -1,5 +1,5 @@
 import { FC, ForwardedRef } from 'react';
-import { StyleProp, TextInputProps, TextProps, TextInput, ViewProps } from 'react-native';
+import { StyleProp, TextInputProps, TextProps, TextInput, ViewStyle } from 'react-native';
 type Variant = 'text' | 'message' | 'password' | 'textarea';
 export type InputProps = TextInputProps & {
     /**
@@ -9,7 +9,7 @@ export type InputProps = TextInputProps & {
     /**
      * Стиль контейнера компонента
      */
-    containerStyle?: StyleProp<ViewProps>;
+    containerStyle?: ViewStyle;
     /**
      * Лейбл компонента
      */

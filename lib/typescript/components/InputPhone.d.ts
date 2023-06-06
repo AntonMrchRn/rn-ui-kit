@@ -3,6 +3,10 @@ import { StyleProp, TextProps, TextInput, ViewProps } from 'react-native';
 import { MaskInputProps } from 'react-native-mask-input';
 export type InputPhoneProps = MaskInputProps & {
     /**
+     * Значение компонента
+     */
+    value: string;
+    /**
      * Стиль контейнера компонента
      */
     containerStyle?: StyleProp<ViewProps>;

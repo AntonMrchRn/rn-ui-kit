@@ -25,7 +25,6 @@ export const Card: FC<CardProps> = ({
       backgroundColor: theme.background.main,
       alignSelf: 'flex-start',
       paddingVertical: 14,
-      paddingHorizontal: 20,
       width: '100%',
     },
     shadow: {

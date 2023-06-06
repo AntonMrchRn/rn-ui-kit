@@ -10,6 +10,7 @@ import {
   View,
   ViewProps,
   TouchableOpacity,
+  Platform,
 } from 'react-native';
 import { useTheme } from '../theme/ThemeProvider';
 import { InputClearIcon } from '../icons/InputClearIcon';
@@ -17,6 +18,10 @@ import { RuFlagIcon } from '../icons/RuFlagIcon';
 import MaskInput, { MaskInputProps } from 'react-native-mask-input';
 
 export type InputPhoneProps = MaskInputProps & {
+  /**
+   * Значение компонента
+   */
+  value: string;
   /**
    * Стиль контейнера компонента
    */
@@ -51,6 +56,7 @@ export type InputPhoneProps = MaskInputProps & {
 export const InputPhone: FC<InputPhoneProps> = forwardRef(
   (
     {
+      value,
       containerStyle,
       label,
       labelStyle,
@@ -121,6 +127,19 @@ export const InputPhone: FC<InputPhoneProps> = forwardRef(
       icon: {
         marginRight: 8,
       },
+      prefix: {
+        color: isError
+          ? theme.text.danger
+          : isFocused || value.length
+          ? theme.text.basic
+          : placeholderTextColor || theme.text.neutral,
+        fontSize: 17,
+        fontFamily: 'Nunito Sans Regular',
+        fontStyle: 'normal',
+        fontWeight: '400',
+        paddingTop: Platform.OS === 'ios' ? 2 : 0,
+        paddingRight: 3,
+      },
     });
 
     const currentContainerStyle = StyleSheet.compose(styles.initial, [
@@ -143,9 +162,6 @@ export const InputPhone: FC<InputPhoneProps> = forwardRef(
     };
 
     const phoneMask = [
-      '+',
-      /\d/,
-      ' ',
       /\d/,
       /\d/,
       /\d/,
@@ -161,6 +177,16 @@ export const InputPhone: FC<InputPhoneProps> = forwardRef(
       /\d/,
     ];
 
+    const validatePhone = (phone: string) => {
+      phone = phone.replace(/[^\d\s\(\)-]/g, '');
+      phone = phone.replace(/(^[0-8])/, '(9$1');
+      if (phone.length > 1) {
+        phone = phone.replace(/(^[7 | 8])/, '');
+      }
+
+      return phone.replace(/[\D]+/g, '');
+    };
+
     return (
       <View>
         {label && <Text style={currentLabelStyle}>{label}</Text>}
@@ -168,19 +194,25 @@ export const InputPhone: FC<InputPhoneProps> = forwardRef(
           <View style={styles.icon}>
             <RuFlagIcon />
           </View>
+          <Text style={styles.prefix}>+7</Text>
           <MaskInput
-            placeholder={placeholder || '+7 900 000-00-00'}
+            placeholder={placeholder || '900 000-00-00'}
             placeholderTextColor={placeholderTextColor || theme.text.neutral}
             onFocus={handleFocus}
             style={currentInputStyle}
             onBlur={handleBlur}
+            maxLength={value.length < 2 ? 15 : 13}
             ref={ref}
+            value={validatePhone(value)}
             mask={mask || phoneMask}
+            keyboardType={'numeric' || props.keyboardType}
             {...props}
           />
-          <TouchableOpacity onPress={onClear}>
-            <InputClearIcon />
-          </TouchableOpacity>
+          {!!value.length && (
+            <TouchableOpacity onPress={onClear}>
+              <InputClearIcon />
+            </TouchableOpacity>
+          )}
         </View>
         {hint && <Text style={currentHintStyle}>{hint}</Text>}
       </View>

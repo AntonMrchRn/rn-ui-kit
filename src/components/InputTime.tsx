@@ -118,6 +118,7 @@ export const InputTime: FC<InputTimeProps> = forwardRef(
           style={currentInputStyle}
           onBlur={handleBlur}
           mask={mask || timeMask}
+          keyboardType={'numeric' || props.keyboardType}
           {...props}
           ref={ref}
         />
