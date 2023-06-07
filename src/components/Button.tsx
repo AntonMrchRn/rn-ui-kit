@@ -74,9 +74,9 @@ export const Button: FC<ButtonProps> = ({
     },
     button: {
       paddingVertical: 12,
+      paddingHorizontal: 16,
       width: '100%',
       borderRadius: 8,
-      paddingHorizontal: 16,
       flexDirection: 'row',
       alignItems: 'center',
       justifyContent: 'center',
@@ -108,11 +108,15 @@ export const Button: FC<ButtonProps> = ({
     outlineAccent: {
       backgroundColor: 'transparent',
       borderWidth: 2,
+      paddingVertical: 10,
+      paddingHorizontal: 14,
       borderColor: theme.background.accent,
     },
     outlineDanger: {
       backgroundColor: 'transparent',
       borderWidth: 2,
+      paddingVertical: 10,
+      paddingHorizontal: 14,
       borderColor: theme.background.danger,
     },
     accentDisabled: {
