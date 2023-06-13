@@ -1,5 +1,5 @@
 import { FC, ForwardedRef } from 'react';
-import { StyleProp, TextInputProps, TextProps, TextInput, ViewStyle } from 'react-native';
+import { StyleProp, TextInputProps, TextInput, ViewStyle, TextStyle } from 'react-native';
 type Variant = 'text' | 'message' | 'password' | 'textarea';
 export type InputProps = TextInputProps & {
     /**
@@ -17,7 +17,7 @@ export type InputProps = TextInputProps & {
     /**
      * Стиль лейбла компонента
      */
-    labelStyle?: StyleProp<TextProps>;
+    labelStyle?: StyleProp<TextStyle>;
     /**
      * Подсказка компонента
      */
@@ -25,7 +25,7 @@ export type InputProps = TextInputProps & {
     /**
      * Стиль подсказки компонента
      */
-    hintStyle?: StyleProp<TextProps>;
+    hintStyle?: StyleProp<TextStyle>;
     /**
      * Отображение компонента в стиле ошибки
      */

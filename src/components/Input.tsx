@@ -6,10 +6,11 @@ import {
   Text,
   TextInputFocusEventData,
   TextInputProps,
-  TextProps,
   TextInput,
   View,
   ViewStyle,
+  Platform,
+  TextStyle,
 } from 'react-native';
 import { useTheme } from '../theme/ThemeProvider';
 import { InputClearIcon } from '../icons/InputClearIcon';
@@ -34,7 +35,7 @@ export type InputProps = TextInputProps & {
   /**
    * Стиль лейбла компонента
    */
-  labelStyle?: StyleProp<TextProps>;
+  labelStyle?: StyleProp<TextStyle>;
   /**
    * Подсказка компонента
    */
@@ -42,7 +43,7 @@ export type InputProps = TextInputProps & {
   /**
    * Стиль подсказки компонента
    */
-  hintStyle?: StyleProp<TextProps>;
+  hintStyle?: StyleProp<TextStyle>;
   /**
    * Отображение компонента в стиле ошибки
    */
@@ -77,9 +78,6 @@ export const Input: FC<InputProps> = forwardRef(
   ) => {
     const [isFocused, setIsFocused] = useState(false);
     const [isVisible, setIsVisible] = useState(false);
-
-    const isPasswordDots =
-      !isVisible && variant === 'password' && props.value?.length;
 
     const theme = useTheme();
 
@@ -117,8 +115,8 @@ export const Input: FC<InputProps> = forwardRef(
         fontFamily: 'Nunito Sans Regular',
         fontStyle: 'normal',
         fontWeight: '400',
-        fontSize: isPasswordDots ? 19 : 17,
-        lineHeight: 24,
+        fontSize: 17,
+        lineHeight: Platform.OS === 'android' ? 24 : 0,
         color: isError ? theme.text.danger : theme.text.basic,
       },
       focused: {
