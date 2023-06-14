@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import { StyleProp, TextStyle } from 'react-native';
 import { CodeFieldProps, RenderCellOptions } from 'react-native-confirmation-code-field';
-export type InputCodeProps = Omit<CodeFieldProps, 'hint' | 'hintStyle' | 'renderCell'> & {
+export type InputCodeProps = Omit<CodeFieldProps, 'renderCell'> & {
     /**
      * Подсказка компонента
      */

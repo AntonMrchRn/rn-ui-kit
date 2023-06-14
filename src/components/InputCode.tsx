@@ -10,10 +10,7 @@ import {
 
 import { useTheme } from '../theme/ThemeProvider';
 
-export type InputCodeProps = Omit<
-  CodeFieldProps,
-  'hint' | 'hintStyle' | 'renderCell'
-> & {
+export type InputCodeProps = Omit<CodeFieldProps, 'renderCell'> & {
   /**
    * Подсказка компонента
    */
