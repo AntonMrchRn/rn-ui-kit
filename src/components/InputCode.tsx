@@ -1,19 +1,30 @@
 import React, { FC } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleProp, StyleSheet, Text, TextStyle, View } from 'react-native';
 import {
   CodeField,
-  useBlurOnFulfill,
-  useClearByFocusCell,
   CodeFieldProps,
   RenderCellOptions,
+  useBlurOnFulfill,
+  useClearByFocusCell,
 } from 'react-native-confirmation-code-field';
+
 import { useTheme } from '../theme/ThemeProvider';
 
 export type InputCodeProps = Omit<CodeFieldProps, 'renderCell'> & {
+  /**
+   * Подсказка компонента
+   */
+  hint?: string;
+  /**
+   * Стиль подсказки компонента
+   */
+  hintStyle?: StyleProp<TextStyle>;
   renderCell?: (options: RenderCellOptions) => React.ReactNode;
 };
 
 export const InputCode: FC<InputCodeProps> = ({
+  hint,
+  hintStyle,
   cellCount = 6,
   value,
   onChangeText,
@@ -41,7 +52,19 @@ export const InputCode: FC<InputCodeProps> = ({
       lineHeight: 36,
       color: theme.text.basic,
     },
+    hint: {
+      fontFamily: 'Nunito Sans Regular',
+      fontStyle: 'normal',
+      fontWeight: '400',
+      fontSize: 13,
+      lineHeight: 16,
+      color: hint ? theme.text.danger : theme.text.neutral,
+      marginTop: 4,
+    },
   });
+
+  const currentHintStyle = StyleSheet.compose(styles.hint, hintStyle);
+
   const setValue = onChangeText || (() => {});
   const ref = useBlurOnFulfill({ value, cellCount });
   const [prop, getCellOnLayoutHandler] = useClearByFocusCell({
@@ -49,7 +72,7 @@ export const InputCode: FC<InputCodeProps> = ({
     setValue,
   });
   return (
-    <View>
+    <>
       <CodeField
         {...prop}
         {...props}
@@ -75,6 +98,7 @@ export const InputCode: FC<InputCodeProps> = ({
           </View>
         )}
       />
-    </View>
+      {hint && <Text style={currentHintStyle}>{hint}</Text>}
+    </>
   );
 };

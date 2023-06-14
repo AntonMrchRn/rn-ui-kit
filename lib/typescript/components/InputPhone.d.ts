@@ -1,5 +1,5 @@
 import { FC, ForwardedRef } from 'react';
-import { StyleProp, TextProps, TextInput, ViewStyle } from 'react-native';
+import { StyleProp, TextInput, ViewStyle, TextStyle } from 'react-native';
 import { MaskInputProps } from 'react-native-mask-input';
 export type InputPhoneProps = MaskInputProps & {
     /**
@@ -17,7 +17,7 @@ export type InputPhoneProps = MaskInputProps & {
     /**
      * Стиль лейбла компонента
      */
-    labelStyle?: StyleProp<TextProps>;
+    labelStyle?: StyleProp<TextStyle>;
     /**
      * Подсказка компонента
      */
@@ -25,7 +25,7 @@ export type InputPhoneProps = MaskInputProps & {
     /**
      * Стиль подсказки компонента
      */
-    hintStyle?: StyleProp<TextProps>;
+    hintStyle?: StyleProp<TextStyle>;
     /**
      * Отображение компонента в стиле ошибки
      */

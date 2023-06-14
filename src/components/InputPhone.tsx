@@ -5,12 +5,12 @@ import {
   StyleSheet,
   Text,
   TextInputFocusEventData,
-  TextProps,
   TextInput,
   View,
   TouchableOpacity,
   Platform,
   ViewStyle,
+  TextStyle,
 } from 'react-native';
 import { useTheme } from '../theme/ThemeProvider';
 import { InputClearIcon } from '../icons/InputClearIcon';
@@ -33,7 +33,7 @@ export type InputPhoneProps = MaskInputProps & {
   /**
    * Стиль лейбла компонента
    */
-  labelStyle?: StyleProp<TextProps>;
+  labelStyle?: StyleProp<TextStyle>;
   /**
    * Подсказка компонента
    */
@@ -41,7 +41,7 @@ export type InputPhoneProps = MaskInputProps & {
   /**
    * Стиль подсказки компонента
    */
-  hintStyle?: StyleProp<TextProps>;
+  hintStyle?: StyleProp<TextStyle>;
   /**
    * Отображение компонента в стиле ошибки
    */
