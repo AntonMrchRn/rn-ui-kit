@@ -1,5 +1,5 @@
 import { FC, ReactElement } from 'react';
-import { StyleProp, ViewProps, TextStyle } from 'react-native';
+import { StyleProp, ViewProps, TextStyle, ViewStyle } from 'react-native';
 export type Variant = 'accent' | 'danger' | 'secondary' | 'warning' | 'success' | 'basic' | 'special';
 export type BadgeProps = ViewProps & {
     /**
@@ -23,6 +23,10 @@ export type BadgeProps = ViewProps & {
      * Стиль лейбла компонента
      */
     labelStyle?: StyleProp<TextStyle>;
+    /**
+     * Стиль контейнера иконки компонента
+     */
+    iconStyle?: StyleProp<ViewStyle>;
 };
 export declare const Badge: FC<BadgeProps>;
 //# sourceMappingURL=Badge.d.ts.map

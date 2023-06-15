@@ -11,6 +11,7 @@
 | `label`      | `string`                   | `false`      | Лейбл компонента                                                   |
 | `labelStyle` | `StyleProp<TextStyle>`     | `false`      | Стиль лейбла компонента                                            |
 | `secondary`  | `boolean`                  | `false`      | Если true, то тип сменится на второстепенный                       |
+| `iconStyle`  | `StyleProp<ViewStyle>`     | `false`      | Стиль контейнера иконки компонента                                 |
 
 ## Типы
 

@@ -6,6 +6,7 @@ import {
   Text,
   View,
   TextStyle,
+  ViewStyle,
 } from 'react-native';
 
 import { useTheme } from '../theme/ThemeProvider';
@@ -42,6 +43,10 @@ export type BadgeProps = ViewProps & {
    * Стиль лейбла компонента
    */
   labelStyle?: StyleProp<TextStyle>;
+  /**
+   * Стиль контейнера иконки компонента
+   */
+  iconStyle?: StyleProp<ViewStyle>;
 };
 
 export const Badge: FC<BadgeProps> = ({
@@ -51,19 +56,23 @@ export const Badge: FC<BadgeProps> = ({
   label = '',
   secondary,
   style,
+  iconStyle,
   ...props
 }) => {
   const theme = useTheme();
 
   const styles = StyleSheet.create({
     label: {
-      marginLeft: 5,
       fontFamily: 'Nunito Sans Regular',
+      fontStyle: 'normal',
+      fontWeight: '400',
+      fontSize: 13,
+      lineHeight: 16,
     },
     badge: {
-      height: 28,
       borderRadius: 8,
-      paddingHorizontal: 15,
+      paddingHorizontal: 12,
+      paddingVertical: 4,
       flexDirection: 'row',
       alignItems: 'center',
       justifyContent: 'center',
@@ -116,10 +125,6 @@ export const Badge: FC<BadgeProps> = ({
   const color = secondary
     ? styles[variant].backgroundColor
     : theme.text.contrast;
-  const currentBadgeStyle = StyleSheet.compose(styles.badge, [
-    secondary ? styles[`${variant}Secondary`] : styles[variant],
-    style,
-  ]);
 
   const getIcon = () => {
     if (icon) {
@@ -131,6 +136,10 @@ export const Badge: FC<BadgeProps> = ({
     return null;
   };
 
+  const currentBadgeStyle = StyleSheet.compose(styles.badge, [
+    secondary ? styles[`${variant}Secondary`] : styles[variant],
+    style,
+  ]);
   const currentLabelStyle = StyleSheet.compose(styles.label, [
     {
       color: color,
@@ -140,7 +149,7 @@ export const Badge: FC<BadgeProps> = ({
 
   return (
     <View style={currentBadgeStyle} {...props}>
-      {getIcon()}
+      <View style={iconStyle}>{getIcon()}</View>
       <Text style={currentLabelStyle}>{label}</Text>
     </View>
   );
