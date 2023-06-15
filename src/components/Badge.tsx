@@ -70,6 +70,7 @@ export const Badge: FC<BadgeProps> = ({
       lineHeight: 16,
     },
     badge: {
+      height: 28,
       borderRadius: 8,
       paddingHorizontal: 12,
       paddingVertical: 4,
