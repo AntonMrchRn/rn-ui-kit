@@ -1,3 +1,7 @@
+### 0.1.20
+
+- Добавлены пропсы ScrollViewProps для компонента TabControl
+
 ### 0.1.19
 
 - Фикс компонента TabControl

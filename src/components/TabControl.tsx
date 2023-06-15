@@ -1,6 +1,7 @@
 /* eslint-disable react/no-unstable-nested-components */
 import React, { FC, ReactElement, useState } from 'react';
 import {
+  ScrollViewProps,
   StyleProp,
   StyleSheet,
   TextStyle,
@@ -20,7 +21,7 @@ export type TabItem = {
   icon?: ReactElement | boolean;
 };
 
-export type TabControlProps = {
+export type TabControlProps = ScrollViewProps & {
   /**
    * Индекс изначально выбранного элемента
    */
@@ -132,8 +133,8 @@ export const TabControl: FC<TabControlProps> = ({
   return (
     <ScrollView
       horizontal={true}
-      {...props}
       showsHorizontalScrollIndicator={false}
+      {...props}
     >
       {data.map((item, index) => (
         <Item key={item.id} {...item} index={index} />

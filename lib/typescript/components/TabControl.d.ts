@@ -1,12 +1,12 @@
 import { FC, ReactElement } from 'react';
-import { StyleProp, TextStyle, ViewStyle } from 'react-native';
+import { ScrollViewProps, StyleProp, TextStyle, ViewStyle } from 'react-native';
 export type TabItem = {
     id: number;
     label: string;
     count?: number;
     icon?: ReactElement | boolean;
 };
-export type TabControlProps = {
+export type TabControlProps = ScrollViewProps & {
     /**
      * Индекс изначально выбранного элемента
      */
