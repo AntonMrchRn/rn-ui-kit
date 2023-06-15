@@ -58,7 +58,6 @@ export const TabControl: FC<TabControlProps> = ({
     wrapper: {
       paddingBottom: 8,
       backgroundColor: theme.background.main,
-      margin: 10,
       flexDirection: 'row',
     },
     label: {
@@ -77,9 +76,12 @@ export const TabControl: FC<TabControlProps> = ({
     icon: {
       marginRight: 5,
     },
+    ml16: {
+      marginLeft: 16,
+    },
   });
 
-  const Item: FC<TabItem> = (item) => {
+  const Item: FC<TabItem & { index: number }> = (item) => {
     const isActive = selectedId === item.id;
     const currentLabelStyle = StyleSheet.compose(styles.label, labelStyle);
     const currentIconContainerStyle = StyleSheet.compose(
@@ -107,7 +109,11 @@ export const TabControl: FC<TabControlProps> = ({
 
     return (
       <TouchableOpacity
-        style={[styles.wrapper, isActive && styles.activeBorder]}
+        style={[
+          styles.wrapper,
+          isActive && styles.activeBorder,
+          item.index !== 0 && styles.ml16,
+        ]}
         onPress={() => {
           setSelectedId(item.id);
           onChange && onChange(item);
@@ -129,8 +135,8 @@ export const TabControl: FC<TabControlProps> = ({
       {...props}
       showsHorizontalScrollIndicator={false}
     >
-      {data.map((item) => (
-        <Item key={item.id} {...item} />
+      {data.map((item, index) => (
+        <Item key={item.id} {...item} index={index} />
       ))}
     </ScrollView>
   );
