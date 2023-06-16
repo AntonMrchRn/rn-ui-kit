@@ -195,7 +195,8 @@ export const BottomSheet: FC<BottomSheetProps> = ({
       paddingTop: 12,
       paddingHorizontal: 16,
       paddingBottom: insets.bottom,
-      borderRadius: 24,
+      borderTopRightRadius: 24,
+      borderTopLeftRadius: 24,
     },
     closeIconContainer: {
       alignItems: 'flex-end',
