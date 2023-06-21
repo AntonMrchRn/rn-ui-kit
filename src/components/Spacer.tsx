@@ -2,13 +2,13 @@ import React, { Children, FC } from 'react';
 import { StyleSheet, View } from 'react-native';
 import { useTheme } from '../theme/ThemeProvider';
 
-export type SpaceSize = 'xs' | 's' | 'm' | 'l' | 'xl' | 'xxl';
+export type SpaceSize = 'xs' | 's' | 'm' | 'l' | 'xl' | 'xxl' | 'xxxl';
 type Separator = 'top' | 'bottom';
 export type SpacerProps = {
   /**
    * Размер компонента
    */
-  size: SpaceSize;
+  size?: SpaceSize;
   /**
    * Показывать компонент в горизонтальном виде
    */
@@ -64,6 +64,10 @@ export const Spacer: FC<SpacerProps> = ({
       marginHorizontal: horizontal ? 12 : 0,
     },
     xxl: {
+      marginVertical: horizontal ? 0 : 16,
+      marginHorizontal: horizontal ? 16 : 0,
+    },
+    xxxl: {
       marginVertical: horizontal ? 0 : 18,
       marginHorizontal: horizontal ? 18 : 0,
     },
