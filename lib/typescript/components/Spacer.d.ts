@@ -1,11 +1,11 @@
 import { FC } from 'react';
-export type SpaceSize = 'xs' | 's' | 'm' | 'l' | 'xl' | 'xxl';
+export type SpaceSize = 'xs' | 's' | 'm' | 'l' | 'xl' | 'xxl' | 'xxxl';
 type Separator = 'top' | 'bottom';
 export type SpacerProps = {
     /**
      * Размер компонента
      */
-    size: SpaceSize;
+    size?: SpaceSize;
     /**
      * Показывать компонент в горизонтальном виде
      */

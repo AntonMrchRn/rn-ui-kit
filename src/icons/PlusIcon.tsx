@@ -1,9 +1,12 @@
 import React, { FC } from 'react';
 import SVG, { Path } from 'react-native-svg';
 
-export const PlusIcon: FC<{ color?: string }> = ({ color = 'white' }) => {
+export const PlusIcon: FC<{ color?: string; size?: number }> = ({
+  color = 'white',
+  size = 18,
+}) => {
   return (
-    <SVG width="18" height="18" viewBox="0 0 18 18" fill="none">
+    <SVG width={size} height={size} viewBox="0 0 18 18" fill="none">
       <Path
         fill-rule="evenodd"
         clip-rule="evenodd"

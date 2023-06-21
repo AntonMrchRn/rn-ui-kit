@@ -64,6 +64,7 @@ export const TabControl: FC<TabControlProps> = ({
     label: {
       fontFamily: 'Nunito Sans Regular',
       color: theme.icons.neutral,
+      fontSize: 17,
     },
     activeText: {
       color: theme.background.accent,

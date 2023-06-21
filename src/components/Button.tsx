@@ -68,7 +68,7 @@ export const Button: FC<ButtonProps> = ({
       color: theme.background.main,
       marginLeft: icon || isPending ? 10 : 0,
       fontFamily: 'Nunito Sans Bold',
-      fontSize: 17,
+      fontSize: size === 'S' ? 15 : 17,
       fontWeight: '700',
       lineHeight: 24,
     },
@@ -203,6 +203,7 @@ export const Button: FC<ButtonProps> = ({
                 ? stylesLabel[`${variant}Disabled`].color
                 : stylesLabel[variant].color
             }
+            size={size === 'S' ? 15 : 18}
           />
         );
       }
