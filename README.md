@@ -34,6 +34,7 @@ yarn add react-native-modal
 yarn add react-native-swipe-list-view
 yarn add react-native-switch
 yarn add react-native-safe-area-context
+yarn add react-native-reanimated
 ```
 
 затем нужно установить поды, например так:

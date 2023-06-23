@@ -19,6 +19,10 @@ export type InputProps = TextInputProps & {
      */
     labelStyle?: StyleProp<TextStyle>;
     /**
+     * Отображение анимированного лейбла
+     */
+    isAnimatedLabel?: boolean;
+    /**
      * Подсказка компонента
      */
     hint?: string;
@@ -38,4 +42,4 @@ export type InputProps = TextInputProps & {
 };
 export declare const Input: FC<InputProps>;
 export {};
-//# sourceMappingURL=Input.d.ts.map
+//# sourceMappingURL=index.d.ts.map

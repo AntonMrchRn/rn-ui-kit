@@ -145,7 +145,7 @@ export const SegmentedControl: React.FC<SegmentedControlProps> = ({
   const [currentIndex, setCurrentIndex] = useState<number>(initialIndex);
 
   const handleTabPress = React.useCallback(
-    (index) => {
+    (index: number) => {
       setCurrentIndex(index);
       onChange && onChange(index);
     },

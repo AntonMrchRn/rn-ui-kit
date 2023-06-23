@@ -1,2 +1,3 @@
-export declare const ModalErrorIcon: () => JSX.Element;
+import React from 'react';
+export declare const ModalErrorIcon: () => React.JSX.Element;
 //# sourceMappingURL=ModalErrorIcon.d.ts.map

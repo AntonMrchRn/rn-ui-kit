@@ -1,1 +1,1 @@
-{"version":3,"file":"ModalErrorIcon.d.ts","sourceRoot":"","sources":["../../../src/icons/ModalErrorIcon.tsx"],"names":[],"mappings":"AAGA,eAAO,MAAM,cAAc,mBAmB1B,CAAC"}
+{"version":3,"file":"ModalErrorIcon.d.ts","sourceRoot":"","sources":["../../../src/icons/ModalErrorIcon.tsx"],"names":[],"mappings":"AAAA,OAAO,KAAK,MAAM,OAAO,CAAC;AAG1B,eAAO,MAAM,cAAc,yBAmB1B,CAAC"}
