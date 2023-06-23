@@ -6,9 +6,10 @@ export type SpaceSize = 'xs' | 's' | 'm' | 'l' | 'xl' | 'xxl' | 'xxxl';
 type Separator = 'top' | 'bottom';
 export type SpacerProps = {
   /**
-   * Размер компонента
+   * Размер компонента. По умолчанию 'm'
+   * @default 'm'
    */
-  size?: SpaceSize;
+  size?: SpaceSize | number;
   /**
    * Показывать компонент в горизонтальном виде
    */
@@ -17,6 +18,10 @@ export type SpacerProps = {
    * Разделитель между дочерними элементами
    */
   separator?: Separator;
+  /**
+   * Цвет разделителя между дочерними элементами
+   */
+  separatorColor?: string;
   /**
    * Элемент или массив элементов, отображаемые в компоненте
    */
@@ -42,34 +47,34 @@ export const Spacer: FC<SpacerProps> = ({
     return {};
   };
 
+  const getSize = () => {
+    if (typeof size === 'number') {
+      return size;
+    }
+    switch (size) {
+      case 'xs':
+        return 4;
+      case 's':
+        return 8;
+      case 'm':
+        return 12;
+      case 'l':
+        return 16;
+      case 'xl':
+        return 24;
+      case 'xxl':
+        return 32;
+      case 'xxxl':
+        return 36;
+      default:
+        return 0;
+    }
+  };
+
   const styles = StyleSheet.create({
-    xs: {
-      marginVertical: horizontal ? 0 : 2,
-      marginHorizontal: horizontal ? 2 : 0,
-    },
-    s: {
-      marginVertical: horizontal ? 0 : 4,
-      marginHorizontal: horizontal ? 4 : 0,
-    },
-    m: {
-      marginVertical: horizontal ? 0 : 6,
-      marginHorizontal: horizontal ? 6 : 0,
-    },
-    l: {
-      marginVertical: horizontal ? 0 : 8,
-      marginHorizontal: horizontal ? 8 : 0,
-    },
-    xl: {
-      marginVertical: horizontal ? 0 : 12,
-      marginHorizontal: horizontal ? 12 : 0,
-    },
-    xxl: {
-      marginVertical: horizontal ? 0 : 16,
-      marginHorizontal: horizontal ? 16 : 0,
-    },
-    xxxl: {
-      marginVertical: horizontal ? 0 : 18,
-      marginHorizontal: horizontal ? 18 : 0,
+    spacer: {
+      height: horizontal ? '100%' : getSize(),
+      width: horizontal ? getSize() : '100%',
     },
     horizontal: {
       flexDirection: 'row',
@@ -83,7 +88,9 @@ export const Spacer: FC<SpacerProps> = ({
         Children.map(children, (item, index) => {
           return (
             <View key={index} style={horizontal && styles.horizontal}>
-              {index !== 0 && <View style={[styles[size], styles.separator]} />}
+              {index !== 0 && (
+                <View style={[styles.spacer, styles.separator]} />
+              )}
               <>{item}</>
             </View>
           );
@@ -91,7 +98,7 @@ export const Spacer: FC<SpacerProps> = ({
       ) : (
         <View
           style={[
-            styles[size],
+            styles.spacer,
             styles.separator,
             horizontal && styles.horizontal,
           ]}

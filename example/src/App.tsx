@@ -46,6 +46,9 @@ export default function App() {
           <SafeAreaView style={{ flex: 1, backgroundColor: '#fff' }}>
             <ScrollView contentContainerStyle={{ paddingHorizontal: 10 }}>
               <Spacer size={'xxl'} separator="bottom">
+                <Spacer size={'xxl'} horizontal />
+                <Spacer size={'xxl'} />
+                <Spacer size={'xxl'} />
                 <Cards />
 
                 <Badges />
