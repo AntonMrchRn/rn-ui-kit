@@ -41,6 +41,23 @@ export const Inputs = () => {
         value="Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolorem, optio. Laboriosam iusto doloribus autem praesentium incidunt mollitia aliquid et minus pariatur voluptates. Illo provident laborum obcaecati placeat ducimus eveniet porro!"
         label="Label"
       />
+      <Input
+        value="test"
+        variant="text"
+        hint="error"
+        isError={true}
+        isAnimatedLabel
+        label="I am label"
+      />
+      <Input
+        variant="text"
+        hint="error"
+        isError={true}
+        label="I am label"
+        isAnimatedLabel
+      />
+      <Input variant="text" label="I am LABEL" isAnimatedLabel />
+      <Input variant="text" value="test" label="I am label" isAnimatedLabel />
       <InputPhone value="78732847233" />
       <InputDate />
       <InputDate value={'140497'} />

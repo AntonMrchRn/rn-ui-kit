@@ -12,11 +12,13 @@ import {
   Platform,
   TextStyle,
 } from 'react-native';
-import { useTheme } from '../theme/ThemeProvider';
-import { InputClearIcon } from '../icons/InputClearIcon';
+import { useTheme } from '../../theme/ThemeProvider';
+import { InputClearIcon } from '../../icons/InputClearIcon';
 import { TouchableOpacity } from 'react-native';
-import { InputEyeCloseIcon } from '../icons/InputEyeCloseIcon';
-import { InputEyeIcon } from '../icons/InputEyeIcon';
+import { InputEyeCloseIcon } from '../../icons/InputEyeCloseIcon';
+import { InputEyeIcon } from '../../icons/InputEyeIcon';
+import { useAnimatedLabel } from './useAnimatedLabel';
+import Animated from 'react-native-reanimated';
 
 type Variant = 'text' | 'message' | 'password' | 'textarea';
 export type InputProps = TextInputProps & {
@@ -36,6 +38,10 @@ export type InputProps = TextInputProps & {
    * Стиль лейбла компонента
    */
   labelStyle?: StyleProp<TextStyle>;
+  /**
+   * Отображение анимированного лейбла
+   */
+  isAnimatedLabel?: boolean;
   /**
    * Подсказка компонента
    */
@@ -66,6 +72,7 @@ export const Input: FC<InputProps> = forwardRef(
       placeholderTextColor,
       label,
       labelStyle,
+      isAnimatedLabel,
       hint,
       hintStyle,
       isError,
@@ -140,6 +147,9 @@ export const Input: FC<InputProps> = forwardRef(
         color: isError ? theme.text.danger : theme.text.neutral,
         marginTop: 4,
       },
+      animatedLabel: {
+        position: 'absolute',
+      },
     });
 
     const currentContainerStyle = StyleSheet.compose(styles.initial, [
@@ -149,6 +159,10 @@ export const Input: FC<InputProps> = forwardRef(
 
     const currentInputStyle = StyleSheet.compose(styles.input, style);
     const currentLabelStyle = StyleSheet.compose(styles.label, labelStyle);
+    const currentAnimatedLabelStyle = StyleSheet.compose(
+      [styles.label, styles.animatedLabel],
+      labelStyle
+    );
     const currentHintStyle = StyleSheet.compose(styles.hint, hintStyle);
     const currentSecureTextEntry =
       (variant === 'password' && !isVisible) || secureTextEntry;
@@ -177,10 +191,27 @@ export const Input: FC<InputProps> = forwardRef(
       return theme.text.neutral;
     };
 
+    const { placeholder, ...inputProps } = props;
+    const { animatedLabelStyle, animatedContainerStyle } = useAnimatedLabel(
+      !!props?.value,
+      !!isError,
+      isFocused,
+      getPlaceholderColor()
+    );
+
     return (
-      <View>
-        {label && <Text style={currentLabelStyle}>{label}</Text>}
+      <Animated.View style={[isAnimatedLabel && animatedContainerStyle]}>
+        {label && !isAnimatedLabel && (
+          <Text style={currentLabelStyle}>{label}</Text>
+        )}
         <View style={currentContainerStyle}>
+          {label && isAnimatedLabel && variant === 'text' && (
+            <Animated.Text
+              style={[currentAnimatedLabelStyle, animatedLabelStyle]}
+            >
+              {label}
+            </Animated.Text>
+          )}
           <TextInput
             placeholderTextColor={getPlaceholderColor()}
             onFocus={handleFocus}
@@ -189,7 +220,8 @@ export const Input: FC<InputProps> = forwardRef(
             ref={ref}
             secureTextEntry={!!currentSecureTextEntry}
             multiline={variant === 'textarea' || multiline}
-            {...props}
+            placeholder={isAnimatedLabel ? undefined : placeholder}
+            {...inputProps}
           />
           {variant === 'text' && !!props.value?.length && (
             <TouchableOpacity onPress={onClear}>
@@ -203,7 +235,7 @@ export const Input: FC<InputProps> = forwardRef(
           )}
         </View>
         {hint && <Text style={currentHintStyle}>{hint}</Text>}
-      </View>
+      </Animated.View>
     );
   }
 );
