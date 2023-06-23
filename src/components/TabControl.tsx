@@ -110,38 +110,38 @@ export const TabControl: FC<TabControlProps> = ({
     };
 
     return (
-      <View>
-        <TouchableOpacity
-          style={[
-            styles.wrapper,
-            isActive && styles.activeBorder,
-            item.index !== 0 && styles.ml16,
-          ]}
-          onPress={() => {
-            setSelectedId(item.id);
-            onChange && onChange(item);
-          }}
-        >
-          {item.icon && (
-            <View style={currentIconContainerStyle}>{getIcon()}</View>
-          )}
-          <Text style={[currentLabelStyle, isActive && styles.activeText]}>
-            {item?.label}
-          </Text>
-        </TouchableOpacity>
-      </View>
+      <TouchableOpacity
+        style={[
+          styles.wrapper,
+          isActive && styles.activeBorder,
+          item.index !== 0 && styles.ml16,
+        ]}
+        onPress={() => {
+          setSelectedId(item.id);
+          onChange && onChange(item);
+        }}
+      >
+        {item.icon && (
+          <View style={currentIconContainerStyle}>{getIcon()}</View>
+        )}
+        <Text style={[currentLabelStyle, isActive && styles.activeText]}>
+          {item?.label}
+        </Text>
+      </TouchableOpacity>
     );
   };
 
   return (
-    <ScrollView
-      horizontal={true}
-      showsHorizontalScrollIndicator={false}
-      {...props}
-    >
-      {data.map((item, index) => (
-        <Item key={item.id} {...item} index={index} />
-      ))}
-    </ScrollView>
+    <View>
+      <ScrollView
+        horizontal={true}
+        showsHorizontalScrollIndicator={false}
+        {...props}
+      >
+        {data.map((item, index) => (
+          <Item key={item.id} {...item} index={index} />
+        ))}
+      </ScrollView>
+    </View>
   );
 };
