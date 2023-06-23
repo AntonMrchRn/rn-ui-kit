@@ -1,6 +1,10 @@
+### 0.1.25
+
+- Исправлены стили компонента TabControl
+
 ### 0.1.24
 
-Добавлен separatorColor в компонент Spacer
+- Добавлен separatorColor в компонент Spacer
 
 ### 0.1.23
 

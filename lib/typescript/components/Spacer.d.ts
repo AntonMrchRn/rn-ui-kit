@@ -3,9 +3,10 @@ export type SpaceSize = 'xs' | 's' | 'm' | 'l' | 'xl' | 'xxl' | 'xxxl';
 type Separator = 'top' | 'bottom';
 export type SpacerProps = {
     /**
-     * Размер компонента
+     * Размер компонента. По умолчанию 'm'
+     * @default 'm'
      */
-    size?: SpaceSize;
+    size?: SpaceSize | number;
     /**
      * Показывать компонент в горизонтальном виде
      */
@@ -14,6 +15,10 @@ export type SpacerProps = {
      * Разделитель между дочерними элементами
      */
     separator?: Separator;
+    /**
+     * Цвет разделителя между дочерними элементами
+     */
+    separatorColor?: string;
     /**
      * Элемент или массив элементов, отображаемые в компоненте
      */
