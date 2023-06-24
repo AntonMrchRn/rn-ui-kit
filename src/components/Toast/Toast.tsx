@@ -7,12 +7,16 @@ import {
   View,
   ViewStyle,
   TouchableOpacity,
-  Animated,
-  PanResponder,
-  PanResponderInstance,
 } from 'react-native';
 import { useTheme } from '../../theme/ThemeProvider';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import Animated, {
+  runOnJS,
+  useAnimatedStyle,
+  useSharedValue,
+  withTiming,
+} from 'react-native-reanimated';
+import { Gesture, GestureDetector } from 'react-native-gesture-handler';
 
 export type Types = 'error' | 'success' | 'warning' | 'info';
 export type Action = {
@@ -95,49 +99,24 @@ export const Toast: FC<ToastProps> = ({
   secondAction,
   animationDuration = 250,
   duration = 2000,
-  contentHeight = 170,
+  contentHeight = 300,
   swipeEnabled = true,
 }) => {
   const theme = useTheme();
   const insets = useSafeAreaInsets();
-  const animation = useRef(new Animated.Value(0)).current;
+  const animation = useSharedValue(-contentHeight);
   const closeTimeoutRef = useRef<NodeJS.Timeout | null>(null);
-  const panResponderAnimRef = useRef<Animated.ValueXY>();
-  const panResponderRef = useRef<PanResponderInstance>();
 
   const handleClose = () => {
-    Animated.timing(animation, {
-      toValue: 0,
-      useNativeDriver: false,
-      duration: animationDuration,
-    }).start(() => onDestroy());
+    animation.value = withTiming(
+      -contentHeight,
+      { duration: animationDuration },
+      (finished) => {
+        finished && runOnJS(onDestroy)();
+      }
+    );
   };
-  const getPanResponderAnim = () => {
-    if (panResponderAnimRef.current) return panResponderAnimRef.current;
-    panResponderAnimRef.current = new Animated.ValueXY({ x: 0, y: 0 });
-    return panResponderAnimRef.current;
-  };
-  const getPanResponder = () => {
-    if (panResponderRef.current) return panResponderRef.current;
-    panResponderRef.current = PanResponder.create({
-      onMoveShouldSetPanResponder: (_, gestureState) => {
-        //return true if user is swiping, return false if it's a single click
-        return !(gestureState.dx === 0 && gestureState.dy === 0);
-      },
-      onPanResponderMove: (_, gestureState) => {
-        getPanResponderAnim()?.setValue({
-          x: gestureState.dx,
-          y: gestureState.dy,
-        });
-      },
-      onPanResponderRelease: (_, gestureState) => {
-        if (gestureState.dy < -50) {
-          handleClose();
-        }
-      },
-    });
-    return panResponderRef.current;
-  };
+
   const getBackgroundColor = () => {
     switch (type) {
       case 'error':
@@ -156,7 +135,6 @@ export const Toast: FC<ToastProps> = ({
       position: 'absolute',
       top: -1,
       backgroundColor: getBackgroundColor(),
-      paddingVertical: 12,
       paddingHorizontal: 20,
       width: '100%',
       borderBottomLeftRadius: 24,
@@ -186,9 +164,6 @@ export const Toast: FC<ToastProps> = ({
       marginTop: 16,
     },
   });
-  const animationContainerStyle: Animated.WithAnimatedObject<ViewStyle> = {
-    height: animation,
-  };
 
   const currentContainerStyle = StyleSheet.compose(
     styles.container,
@@ -209,12 +184,14 @@ export const Toast: FC<ToastProps> = ({
     secondAction?.style
   );
 
+  const animatedStyles = useAnimatedStyle(() => {
+    return {
+      transform: [{ translateY: animation.value }],
+    };
+  });
+
   useEffect(() => {
-    Animated.timing(animation, {
-      toValue: contentHeight,
-      useNativeDriver: false,
-      duration: animationDuration,
-    }).start();
+    animation.value = withTiming(0, { duration: animationDuration });
     if (duration !== 0 && typeof duration === 'number') {
       closeTimeoutRef.current = setTimeout(() => {
         handleClose();
@@ -235,30 +212,37 @@ export const Toast: FC<ToastProps> = ({
     secondAction?.onPress && secondAction.onPress();
     handleClose();
   };
+
+  const gesture = Gesture.Pan().onStart((event) => {
+    if (event.translationY < -15) {
+      swipeEnabled && runOnJS(handleClose)();
+    }
+  });
+
   return (
-    <Animated.View
-      style={[currentContainerStyle, animationContainerStyle]}
-      {...(swipeEnabled ? getPanResponder().panHandlers : null)}
-    >
-      <View style={{ marginTop: insets.top }} />
-      {title && <Text style={currentTitleStyle}>{title}</Text>}
-      {text && <Text style={currentTextStyle}>{text}</Text>}
-      <View style={currentActionsContainerStyle}>
-        {firstAction ? (
-          <TouchableOpacity onPress={firstActionPress}>
-            <Text style={currentFirstActionStyle}>{firstAction.text}</Text>
-          </TouchableOpacity>
-        ) : (
-          <View />
-        )}
-        {secondAction ? (
-          <TouchableOpacity onPress={secondActionPress}>
-            <Text style={currentSecondActionStyle}>{secondAction.text}</Text>
-          </TouchableOpacity>
-        ) : (
-          <View />
-        )}
-      </View>
-    </Animated.View>
+    <GestureDetector gesture={gesture}>
+      <Animated.View style={[animatedStyles, currentContainerStyle]}>
+        <View style={{ height: insets.top }} />
+        {title && <Text style={currentTitleStyle}>{title}</Text>}
+        {text && <Text style={currentTextStyle}>{text}</Text>}
+        <View style={currentActionsContainerStyle}>
+          {firstAction ? (
+            <TouchableOpacity onPress={firstActionPress}>
+              <Text style={currentFirstActionStyle}>{firstAction.text}</Text>
+            </TouchableOpacity>
+          ) : (
+            <View />
+          )}
+          {secondAction ? (
+            <TouchableOpacity onPress={secondActionPress}>
+              <Text style={currentSecondActionStyle}>{secondAction.text}</Text>
+            </TouchableOpacity>
+          ) : (
+            <View />
+          )}
+        </View>
+        <View style={{ height: 20 }} />
+      </Animated.View>
+    </GestureDetector>
   );
 };
