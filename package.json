@@ -67,15 +67,15 @@
     "pod-install": "^0.1.0",
     "prettier": "^2.0.5",
     "react": "18.2.0",
-    "react-native": "0.71.7",
+    "react-native": "0.71.8",
     "react-native-builder-bob": "^0.20.4",
     "react-native-confirmation-code-field": "^7.3.1",
+    "react-native-gesture-handler": "^2.12.0",
     "react-native-mask-input": "^1.2.3",
     "react-native-modal": "^13.0.1",
     "react-native-reanimated": "^3.3.0",
     "react-native-safe-area-context": "^4.5.3",
     "react-native-svg": "^13.9.0",
-    "react-native-swipe-list-view": "^3.2.9",
     "react-native-switch": "^1.5.1",
     "release-it": "^15.0.0",
     "typescript": "^4.5.2"
@@ -87,12 +87,12 @@
     "react": "*",
     "react-native": "*",
     "react-native-confirmation-code-field": "*",
+    "react-native-gesture-handler": "*",
     "react-native-mask-input": "*",
     "react-native-modal": "*",
     "react-native-reanimated": "*",
     "react-native-safe-area-context": "*",
     "react-native-svg": "*",
-    "react-native-swipe-list-view": "*",
     "react-native-switch": "*"
   },
   "engines": {
@@ -127,36 +127,6 @@
         "preset": "angular"
       }
     }
-  },
-  "eslintConfig": {
-    "root": true,
-    "extends": [
-      "@react-native-community",
-      "prettier"
-    ],
-    "rules": {
-      "prettier/prettier": [
-        "error",
-        {
-          "quoteProps": "consistent",
-          "singleQuote": true,
-          "tabWidth": 2,
-          "trailingComma": "es5",
-          "useTabs": false
-        }
-      ]
-    }
-  },
-  "eslintIgnore": [
-    "node_modules/",
-    "lib/"
-  ],
-  "prettier": {
-    "quoteProps": "consistent",
-    "singleQuote": true,
-    "tabWidth": 2,
-    "trailingComma": "es5",
-    "useTabs": false
   },
   "react-native-builder-bob": {
     "source": "src",

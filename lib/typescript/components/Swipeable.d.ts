@@ -1,21 +1,15 @@
 import { FC } from 'react';
-import { StyleProp, ViewStyle, TextStyle } from 'react-native';
-export type SwipeListData = {
-    id: string;
-    label?: string;
-    title: string;
-    items: {
-        id: string;
-        icon?: JSX.Element;
-        text: string;
-    }[];
+import { StyleProp, TextStyle, ViewStyle } from 'react-native';
+export type Variant = 'default' | 'user' | 'coordinator' | 'delete';
+export type SwipeableItem = {
+    text: string;
+    icon?: JSX.Element;
 };
-type Variant = 'default' | 'user' | 'coordinator' | 'delete';
-export type SwipeListProps = {
+export type SwipeableProps = {
     /**
-     * Массив элементов для отображения в листе
+     * Массив элементов для отображения в нижней части компонента
      */
-    data: SwipeListData[];
+    items?: SwipeableItem[];
     /**
      * Один из вариантов отображения компонента
      */
@@ -23,11 +17,11 @@ export type SwipeListProps = {
     /**
      * Логика нажатия первой скрытой кнопки в компоненте
      */
-    fistAction: (item: SwipeListData) => void;
+    fistAction: () => void;
     /**
      * Логика нажатия второй скрытой кнопки в компоненте
      */
-    secondAction: (item: SwipeListData) => void;
+    secondAction: () => void;
     /**
      * Стиль контейнера компонента
      */
@@ -53,9 +47,17 @@ export type SwipeListProps = {
      */
     secondActionStyle?: StyleProp<ViewStyle>;
     /**
+     * Лейбл компонента
+     */
+    label?: string;
+    /**
      * Стиль лейбла компонента
      */
     labelStyle?: StyleProp<TextStyle>;
+    /**
+     * Заголовок компонента
+     */
+    title: string;
     /**
      * Стиль заголовка компонента
      */
@@ -64,7 +66,10 @@ export type SwipeListProps = {
      * Стиль текста нижних элементов компонента
      */
     itemTextStyle?: StyleProp<TextStyle>;
+    /**
+     * Показать наличине скрытых кнопок компонента
+     */
+    previewActions?: boolean;
 };
-export declare const SwipeList: FC<SwipeListProps>;
-export {};
-//# sourceMappingURL=SwipeList.d.ts.map
+export declare const Swipeable: FC<SwipeableProps>;
+//# sourceMappingURL=Swipeable.d.ts.map

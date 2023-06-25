@@ -35,6 +35,7 @@ yarn add react-native-swipe-list-view
 yarn add react-native-switch
 yarn add react-native-safe-area-context
 yarn add react-native-reanimated
+yarn add react-native-gesture-handler
 ```
 
 затем нужно установить поды, например так:
@@ -42,6 +43,8 @@ yarn add react-native-reanimated
 ```sh
 npx pod-install
 ```
+
+Для установки библиотек react-native-reanimated и react-native-gesture-handler необходимо будет проделать дополнительные манипуляции, описанные в документации на их сайтах
 
 # Шрифты
 
@@ -119,7 +122,7 @@ return (
 
 [`<Spacer />`](docs/spacer.md)
 
-[`<SwipeList />`](docs/swipeList.md)
+[`<Swipeable />`](docs/swipeable.md)
 
 [`<Switch />`](docs/switch.md)
 

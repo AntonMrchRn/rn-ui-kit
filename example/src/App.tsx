@@ -26,6 +26,7 @@ import { Toasts } from './components/Toasts';
 import { Buttons } from './components/Buttons';
 import { BottomSheets } from './components/BottomSheets';
 import { Chipses } from './components/Chipses';
+import { Swipeables } from './components/Swipeables';
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -49,6 +50,7 @@ export default function App() {
                 <Spacer size={'xxl'} horizontal />
                 <Spacer size={'xxl'} />
                 <Spacer size={'xxl'} />
+                <Swipeables />
                 <Cards />
 
                 <Badges />
@@ -81,7 +83,6 @@ export default function App() {
                 <Banners />
               </Spacer>
             </ScrollView>
-            {/* <SwipeLists /> */}
           </SafeAreaView>
         </ToastProvider>
       </ThemeProvider>

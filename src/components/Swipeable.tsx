@@ -1,35 +1,29 @@
-import React, { FC } from 'react';
+import React, { FC, useEffect, useRef } from 'react';
+import RNSwipeable from 'react-native-gesture-handler/Swipeable';
 import {
-  View,
-  Text,
-  StyleSheet,
-  TouchableOpacity,
   StyleProp,
-  ViewStyle,
+  StyleSheet,
+  Text,
   TextStyle,
+  TouchableOpacity,
+  View,
+  ViewStyle,
 } from 'react-native';
-import { SwipeListView } from 'react-native-swipe-list-view';
 import { useTheme } from '../theme/ThemeProvider';
-import { EditActionIcon } from '../icons/EditActionIcon';
 import { DeleteActionIcon } from '../icons/DeleteActionIcon';
+import { EditActionIcon } from '../icons/EditActionIcon';
 import { ReturnActionIcon } from '../icons/ReturnActionIcon';
 
-export type SwipeListData = {
-  id: string;
-  label?: string;
-  title: string;
-  items: {
-    id: string;
-    icon?: JSX.Element;
-    text: string;
-  }[];
+export type Variant = 'default' | 'user' | 'coordinator' | 'delete';
+export type SwipeableItem = {
+  text: string;
+  icon?: JSX.Element;
 };
-type Variant = 'default' | 'user' | 'coordinator' | 'delete';
-export type SwipeListProps = {
+export type SwipeableProps = {
   /**
-   * Массив элементов для отображения в листе
+   * Массив элементов для отображения в нижней части компонента
    */
-  data: SwipeListData[];
+  items?: SwipeableItem[];
   /**
    * Один из вариантов отображения компонента
    */
@@ -37,11 +31,11 @@ export type SwipeListProps = {
   /**
    * Логика нажатия первой скрытой кнопки в компоненте
    */
-  fistAction: (item: SwipeListData) => void;
+  fistAction: () => void;
   /**
    * Логика нажатия второй скрытой кнопки в компоненте
    */
-  secondAction: (item: SwipeListData) => void;
+  secondAction: () => void;
   /**
    * Стиль контейнера компонента
    */
@@ -67,9 +61,17 @@ export type SwipeListProps = {
    */
   secondActionStyle?: StyleProp<ViewStyle>;
   /**
+   * Лейбл компонента
+   */
+  label?: string;
+  /**
    * Стиль лейбла компонента
    */
   labelStyle?: StyleProp<TextStyle>;
+  /**
+   * Заголовок компонента
+   */
+  title: string;
   /**
    * Стиль заголовка компонента
    */
@@ -78,10 +80,16 @@ export type SwipeListProps = {
    * Стиль текста нижних элементов компонента
    */
   itemTextStyle?: StyleProp<TextStyle>;
+  /**
+   * Показать наличине скрытых кнопок компонента
+   */
+  previewActions?: boolean;
 };
 
-export const SwipeList: FC<SwipeListProps> = ({
-  data,
+export const Swipeable: FC<SwipeableProps> = ({
+  items = [],
+  label,
+  title,
   variant,
   fistAction,
   secondAction,
@@ -94,8 +102,23 @@ export const SwipeList: FC<SwipeListProps> = ({
   actionStyle,
   firstActionStyle,
   secondActionStyle,
+  previewActions,
 }) => {
   const theme = useTheme();
+  const ref = useRef<RNSwipeable>(null);
+
+  useEffect(() => {
+    if (previewActions) {
+      setTimeout(() => {
+        ref.current?.openRight();
+      }, 3000);
+      setTimeout(() => {
+        ref.current?.close();
+      }, 4000);
+    }
+  }, [previewActions]);
+
+  const isDelete = variant === 'delete';
 
   const getContainerBackgroundColor = () => {
     switch (variant) {
@@ -108,7 +131,14 @@ export const SwipeList: FC<SwipeListProps> = ({
     }
   };
 
-  const isDelete = variant === 'delete';
+  const onFirstAction = () => {
+    ref.current?.close();
+    fistAction();
+  };
+  const onSecondAction = () => {
+    ref.current?.close();
+    secondAction();
+  };
 
   const styles = StyleSheet.create({
     text: {
@@ -147,9 +177,7 @@ export const SwipeList: FC<SwipeListProps> = ({
       justifyContent: 'space-between',
     },
     hidden: {
-      flex: 1,
       flexDirection: 'row',
-      justifyContent: 'flex-end',
     },
     action: {
       alignItems: 'center',
@@ -199,33 +227,18 @@ export const SwipeList: FC<SwipeListProps> = ({
     currentSecondActionStyle
   );
 
-  const renderItem: FC<{ item: SwipeListData }> = ({ item }) => (
-    <View style={currentContainerStyle}>
-      <Text style={currentLabelStyle}>{item.label}</Text>
-      <Text style={currentTitleStyle}>{item.title}</Text>
-      <View style={currentItemsContainerStyle}>
-        {item.items.map((i) => (
-          <View key={i.id}>
-            {i?.icon}
-            <Text style={currentItemTextStyle}>{i.text}</Text>
-          </View>
-        ))}
-      </View>
-    </View>
-  );
-
-  const renderHiddenItem: FC<{ item: SwipeListData }> = ({ item }) => {
+  const renderRightActions: FC = () => {
     return (
       <View style={currentHiddenContainerStyle}>
         <TouchableOpacity
           style={firstActionStyleCompose}
-          onPress={() => fistAction(item)}
+          onPress={onFirstAction}
         >
           <EditActionIcon />
         </TouchableOpacity>
         <TouchableOpacity
           style={secondActionStyleCompose}
-          onPress={() => secondAction(item)}
+          onPress={onSecondAction}
         >
           {isDelete ? <ReturnActionIcon /> : <DeleteActionIcon />}
         </TouchableOpacity>
@@ -234,12 +247,25 @@ export const SwipeList: FC<SwipeListProps> = ({
   };
 
   return (
-    <SwipeListView
-      data={data}
-      keyExtractor={(item) => item.id}
-      renderItem={renderItem}
-      renderHiddenItem={renderHiddenItem}
-      rightOpenValue={-142}
-    />
+    <RNSwipeable
+      ref={ref}
+      renderRightActions={renderRightActions}
+      friction={1}
+      overshootLeft={false}
+      overshootRight={false}
+    >
+      <View style={currentContainerStyle}>
+        <Text style={currentLabelStyle}>{label}</Text>
+        <Text style={currentTitleStyle}>{title}</Text>
+        <View style={currentItemsContainerStyle}>
+          {items.map((i, index) => (
+            <View key={index}>
+              {i?.icon}
+              <Text style={currentItemTextStyle}>{i?.text}</Text>
+            </View>
+          ))}
+        </View>
+      </View>
+    </RNSwipeable>
   );
 };
