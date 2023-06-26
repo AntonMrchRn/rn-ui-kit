@@ -45,9 +45,17 @@ export type SwipeableProps = {
    */
   hiddenContainerStyle?: StyleProp<ViewStyle>;
   /**
-   * Стиль нижних элементов компонента
+   * Стиль контейнера нижних элементов компонента
    */
   itemsContainerStyle?: StyleProp<ViewStyle>;
+  /**
+   * Стиль каждого из нижних элементов компонента
+   */
+  itemContainerStyle?: StyleProp<ViewStyle>;
+  /**
+   * Стиль контейнера каждой из нижних иконок элементов компонента
+   */
+  itemIconStyle?: StyleProp<ViewStyle>;
   /**
    * Стиль контейнера скрытых кнопкок компонента
    */
@@ -103,6 +111,8 @@ export const Swipeable: FC<SwipeableProps> = ({
   firstActionStyle,
   secondActionStyle,
   previewActions,
+  itemContainerStyle,
+  itemIconStyle,
 }) => {
   const theme = useTheme();
   const ref = useRef<RNSwipeable>(null);
@@ -192,6 +202,14 @@ export const Swipeable: FC<SwipeableProps> = ({
         ? theme.background.success
         : theme.background.danger,
     },
+    item: {
+      flexDirection: 'row',
+      alignItems: 'center',
+      justifyContent: 'center',
+    },
+    icon: {
+      marginRight: 4,
+    },
   });
 
   const currentContainerStyle = StyleSheet.compose(
@@ -205,6 +223,11 @@ export const Swipeable: FC<SwipeableProps> = ({
     styles.items,
     itemsContainerStyle
   );
+  const currentItemContainerStyle = StyleSheet.compose(
+    styles.item,
+    itemContainerStyle
+  );
+  const currentItemIconStyle = StyleSheet.compose(styles.icon, itemIconStyle);
   const currentHiddenContainerStyle = StyleSheet.compose(
     styles.hidden,
     hiddenContainerStyle
@@ -259,8 +282,8 @@ export const Swipeable: FC<SwipeableProps> = ({
         <Text style={currentTitleStyle}>{title}</Text>
         <View style={currentItemsContainerStyle}>
           {items.map((i, index) => (
-            <View key={index}>
-              {i?.icon}
+            <View key={index} style={currentItemContainerStyle}>
+              {i?.icon && <View style={currentItemIconStyle}>{i?.icon}</View>}
               <Text style={currentItemTextStyle}>{i?.text}</Text>
             </View>
           ))}

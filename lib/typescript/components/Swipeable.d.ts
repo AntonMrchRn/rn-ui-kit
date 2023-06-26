@@ -31,9 +31,17 @@ export type SwipeableProps = {
      */
     hiddenContainerStyle?: StyleProp<ViewStyle>;
     /**
-     * Стиль нижних элементов компонента
+     * Стиль контейнера нижних элементов компонента
      */
     itemsContainerStyle?: StyleProp<ViewStyle>;
+    /**
+     * Стиль каждого из нижних элементов компонента
+     */
+    itemContainerStyle?: StyleProp<ViewStyle>;
+    /**
+     * Стиль контейнера каждой из нижних иконок элементов компонента
+     */
+    itemIconStyle?: StyleProp<ViewStyle>;
     /**
      * Стиль контейнера скрытых кнопкок компонента
      */
