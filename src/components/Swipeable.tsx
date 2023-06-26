@@ -31,7 +31,7 @@ export type SwipeableProps = {
   /**
    * Логика нажатия первой скрытой кнопки в компоненте
    */
-  fistAction: () => void;
+  firstAction: () => void;
   /**
    * Логика нажатия второй скрытой кнопки в компоненте
    */
@@ -99,7 +99,7 @@ export const Swipeable: FC<SwipeableProps> = ({
   label,
   title,
   variant,
-  fistAction,
+  firstAction,
   secondAction,
   containerStyle,
   labelStyle,
@@ -143,7 +143,7 @@ export const Swipeable: FC<SwipeableProps> = ({
 
   const onFirstAction = () => {
     ref.current?.close();
-    fistAction();
+    firstAction();
   };
   const onSecondAction = () => {
     ref.current?.close();
