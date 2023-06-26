@@ -27,6 +27,7 @@ import { Buttons } from './components/Buttons';
 import { BottomSheets } from './components/BottomSheets';
 import { Chipses } from './components/Chipses';
 import { Swipeables } from './components/Swipeables';
+import { GestureHandlerRootView } from 'react-native-gesture-handler';
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -41,51 +42,53 @@ export default function App() {
     return null;
   }
   return (
-    <SafeAreaProvider>
-      <ThemeProvider>
-        <ToastProvider>
-          <SafeAreaView style={{ flex: 1, backgroundColor: '#fff' }}>
-            <ScrollView contentContainerStyle={{ paddingHorizontal: 10 }}>
-              <Spacer size={'xxl'} separator="bottom">
-                <Spacer size={'xxl'} horizontal />
-                <Spacer size={'xxl'} />
-                <Spacer size={'xxl'} />
-                <Swipeables />
-                <Cards />
+    <GestureHandlerRootView style={{ flex: 1 }}>
+      <SafeAreaProvider>
+        <ThemeProvider>
+          <ToastProvider>
+            <SafeAreaView style={{ flex: 1, backgroundColor: '#fff' }}>
+              <ScrollView contentContainerStyle={{ paddingHorizontal: 10 }}>
+                <Spacer size={'xxl'} separator="bottom">
+                  <Spacer size={'xxl'} horizontal />
+                  <Spacer size={'xxl'} />
+                  <Spacer size={'xxl'} />
+                  <Swipeables />
+                  <Cards />
 
-                <Badges />
-                <Toasts />
-                <View
-                  style={{
-                    flexDirection: 'row',
-                    justifyContent: 'space-evenly',
-                  }}
-                >
-                  <CheckBoxes />
-                  <RadioButtons />
-                  <Switches />
-                </View>
-                <BottomSheets />
-                <TabControls />
-                <Buttons />
-                <Texts />
-                <SegmentedControl
-                  tabs={['Label 1', 'Label 2', 'Label 3']}
-                  onChange={() => {}}
-                />
-                <Chipses />
-                <Links />
-                <Spacers />
-                <Inputs />
-                <Tooltips />
-                <Modals />
-                <Tipses />
-                <Banners />
-              </Spacer>
-            </ScrollView>
-          </SafeAreaView>
-        </ToastProvider>
-      </ThemeProvider>
-    </SafeAreaProvider>
+                  <Badges />
+                  <Toasts />
+                  <View
+                    style={{
+                      flexDirection: 'row',
+                      justifyContent: 'space-evenly',
+                    }}
+                  >
+                    <CheckBoxes />
+                    <RadioButtons />
+                    <Switches />
+                  </View>
+                  <BottomSheets />
+                  <TabControls />
+                  <Buttons />
+                  <Texts />
+                  <SegmentedControl
+                    tabs={['Label 1', 'Label 2', 'Label 3']}
+                    onChange={() => {}}
+                  />
+                  <Chipses />
+                  <Links />
+                  <Spacers />
+                  <Inputs />
+                  <Tooltips />
+                  <Modals />
+                  <Tipses />
+                  <Banners />
+                </Spacer>
+              </ScrollView>
+            </SafeAreaView>
+          </ToastProvider>
+        </ThemeProvider>
+      </SafeAreaProvider>
+    </GestureHandlerRootView>
   );
 }

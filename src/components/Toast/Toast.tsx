@@ -7,6 +7,7 @@ import {
   View,
   ViewStyle,
   TouchableOpacity,
+  Platform,
 } from 'react-native';
 import { useTheme } from '../../theme/ThemeProvider';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
@@ -16,7 +17,12 @@ import Animated, {
   useSharedValue,
   withTiming,
 } from 'react-native-reanimated';
-import { Gesture, GestureDetector } from 'react-native-gesture-handler';
+import {
+  Gesture,
+  GestureDetector,
+  GestureStateChangeEvent,
+  PanGestureHandlerEventPayload,
+} from 'react-native-gesture-handler';
 
 export type Types = 'error' | 'success' | 'warning' | 'info';
 export type Action = {
@@ -213,11 +219,19 @@ export const Toast: FC<ToastProps> = ({
     handleClose();
   };
 
-  const gesture = Gesture.Pan().onStart((event: { translationY: number }) => {
-    if (event.translationY < -15) {
-      swipeEnabled && runOnJS(handleClose)();
-    }
-  });
+  const gesture = Gesture.Pan()
+    .minDistance(15)
+    .onStart(
+      (event: GestureStateChangeEvent<PanGestureHandlerEventPayload>) => {
+        const requirement =
+          Platform.OS === 'ios'
+            ? event.translationY < -15
+            : event.velocityY <= -1000;
+        if (requirement) {
+          swipeEnabled && runOnJS(handleClose)();
+        }
+      }
+    );
 
   return (
     <GestureDetector gesture={gesture}>

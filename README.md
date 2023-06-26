@@ -67,16 +67,19 @@ npx pod-install
 ```js
 import { ToastProvider, ThemeProvider } from 'rn-ui-kit';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
+import { GestureHandlerRootView } from 'react-native-gesture-handler';
 // ...
 
 return (
-  <SafeAreaProvider>
-    <ThemeProvider>
-      <ToastProvider>
-        <App />
-      </ToastProvider>
-    </ThemeProvider>
-  </SafeAreaProvider>
+  <GestureHandlerRootView style={{ flex: 1 }}>
+    <SafeAreaProvider>
+      <ThemeProvider>
+        <ToastProvider>
+          <App />
+        </ToastProvider>
+      </ThemeProvider>
+    </SafeAreaProvider>
+  </GestureHandlerRootView>
 );
 ```
 
