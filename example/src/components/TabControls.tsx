@@ -6,19 +6,19 @@ export const TabControls = () => {
   const list = [
     {
       id: 1,
-      label: 'test1',
+      label: 'test',
       count: 3,
       icon: true,
     },
     {
       id: 2,
-      label: 'test2',
-      count: 6,
+      label: 'ne test',
+      count: 15,
       icon: false,
     },
     {
       id: 3,
-      label: 'test3454545',
+      label: 'testtrtrtrt',
       count: 4,
       icon: <LinkIcon color="#000" size="M" />,
     },

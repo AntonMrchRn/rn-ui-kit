@@ -48,10 +48,15 @@ export default function App() {
           <ToastProvider>
             <SafeAreaView style={{ flex: 1, backgroundColor: '#fff' }}>
               <ScrollView contentContainerStyle={{ paddingHorizontal: 10 }}>
-                <Spacer size={'xxl'} separator="bottom">
+                <Spacer size={'xxl'}>
                   <Spacer size={'xxl'} horizontal />
                   <Spacer size={'xxl'} />
                   <Spacer size={'xxl'} />
+                  <SegmentedControl
+                    tabs={['Label 1', 'Label 2', 'Label 3']}
+                    onChange={() => {}}
+                  />
+                  <TabControls />
                   <Swipeables />
                   <Cards />
 
@@ -68,13 +73,8 @@ export default function App() {
                     <Switches />
                   </View>
                   <BottomSheets />
-                  <TabControls />
                   <Buttons />
                   <Texts />
-                  <SegmentedControl
-                    tabs={['Label 1', 'Label 2', 'Label 3']}
-                    onChange={() => {}}
-                  />
                   <Chipses />
                   <Links />
                   <Spacers />

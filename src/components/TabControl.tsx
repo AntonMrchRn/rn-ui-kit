@@ -60,6 +60,7 @@ export const TabControl: FC<TabControlProps> = ({
       paddingBottom: 8,
       backgroundColor: theme.background.main,
       flexDirection: 'row',
+      height: 36,
     },
     label: {
       fontFamily: 'Nunito Sans Regular',
@@ -68,18 +69,37 @@ export const TabControl: FC<TabControlProps> = ({
     },
     activeText: {
       color: theme.background.accent,
-      fontFamily: 'Nunito Sans Bold',
-      fontWeight: '700',
     },
     activeBorder: {
-      borderBottomWidth: 1.5,
+      borderBottomWidth: 2,
       borderBottomColor: theme.background.accent,
     },
     icon: {
-      marginRight: 5,
+      marginRight: 6,
+      top: 2,
     },
     ml16: {
       marginLeft: 16,
+    },
+    badge: {
+      backgroundColor: theme.background.neutralDisableSecond,
+      borderRadius: 8,
+      paddingHorizontal: 8,
+      paddingVertical: 4,
+      marginLeft: 10,
+      justifyContent: 'center',
+      height: 26,
+    },
+    activeBadge: {
+      backgroundColor: theme.background.fieldMain,
+    },
+    badgeLabel: {
+      fontSize: 13,
+      fontFamily: 'Nunito Sans Regular',
+      color: theme.text.basic,
+    },
+    activeBadgeLabel: {
+      color: theme.background.accent,
     },
   });
 
@@ -127,6 +147,15 @@ export const TabControl: FC<TabControlProps> = ({
         <Text style={[currentLabelStyle, isActive && styles.activeText]}>
           {item?.label}
         </Text>
+        {item.count ? (
+          <View style={[styles.badge, isActive && styles.activeBadge]}>
+            <Text
+              style={[styles.badgeLabel, isActive && styles.activeBadgeLabel]}
+            >
+              {item?.count}
+            </Text>
+          </View>
+        ) : null}
       </TouchableOpacity>
     );
   };
