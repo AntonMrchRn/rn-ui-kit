@@ -278,8 +278,8 @@ export const Swipeable: FC<SwipeableProps> = ({
       overshootRight={false}
     >
       <View style={currentContainerStyle}>
-        <Text style={currentLabelStyle}>{label}</Text>
-        <Text style={currentTitleStyle}>{title}</Text>
+        {label && <Text style={currentLabelStyle}>{label}</Text>}
+        {title && <Text style={currentTitleStyle}>{title}</Text>}
         <View style={currentItemsContainerStyle}>
           {items.map((i, index) => (
             <View key={index} style={currentItemContainerStyle}>
