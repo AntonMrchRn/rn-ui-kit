@@ -64,15 +64,15 @@ export const useAnimatedLabel = (
 
   const animatedContainerStyle = useAnimatedStyle(() => {
     const marginTop = interpolate(
-      Number((isError && !isFocused) || isValue || isFocused),
+      Number(isUnfocusedErrorInput || isValue || isFocused),
       [0, 1],
-      [0, 12]
+      [0, 18]
     );
 
     return {
       marginTop: withTiming(marginTop, animationConfig),
     };
-  }, [isFocused, isValue]);
+  }, [isFocused, isValue, isError]);
 
   return { animatedLabelStyle, animatedContainerStyle };
 };

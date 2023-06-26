@@ -213,7 +213,7 @@ export const Toast: FC<ToastProps> = ({
     handleClose();
   };
 
-  const gesture = Gesture.Pan().onStart((event) => {
+  const gesture = Gesture.Pan().onStart((event: { translationY: number }) => {
     if (event.translationY < -15) {
       swipeEnabled && runOnJS(handleClose)();
     }

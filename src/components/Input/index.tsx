@@ -200,7 +200,7 @@ export const Input: FC<InputProps> = forwardRef(
     );
 
     return (
-      <Animated.View style={[isAnimatedLabel && animatedContainerStyle]}>
+      <Animated.View style={isAnimatedLabel && animatedContainerStyle}>
         {label && !isAnimatedLabel && (
           <Text style={currentLabelStyle}>{label}</Text>
         )}
