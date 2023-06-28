@@ -1,8 +1,6 @@
 import React, { FC } from 'react';
 import {
   StyleSheet,
-  StyleProp,
-  ViewStyle,
   TouchableOpacityProps,
   TouchableOpacity,
 } from 'react-native';
@@ -16,10 +14,14 @@ export type RadioButtonProps = TouchableOpacityProps & {
   checked: boolean;
 };
 
-export const RadioButton: FC<RadioButtonProps> = (props) => {
+export const RadioButton: FC<RadioButtonProps> = ({
+  style,
+  activeOpacity = 0.7,
+  ...props
+}) => {
   const theme = useTheme();
 
-  const stylesRadioButton = StyleSheet.create({
+  const styles = StyleSheet.create({
     initial: {
       height: 26,
       width: 26,
@@ -56,35 +58,33 @@ export const RadioButton: FC<RadioButtonProps> = (props) => {
     },
   });
 
-  const currentStyle = () => {
+  const getStyle = () => {
     if (!props.checked && !props.disabled) {
-      return stylesRadioButton.uncheckedUndisabled;
+      return styles.uncheckedUndisabled;
     }
     if (props.checked && !props.disabled) {
-      return stylesRadioButton.checkedUndisabled;
+      return styles.checkedUndisabled;
     }
     if (!props.checked && props.disabled) {
-      return stylesRadioButton.uncheckedDisabled;
+      return styles.uncheckedDisabled;
     }
     if (props.checked && props.disabled) {
-      return stylesRadioButton.checkedDisabled;
+      return styles.checkedDisabled;
     }
     return;
   };
 
-  const style = StyleSheet.compose(stylesRadioButton.initial, [
-    props.style as StyleProp<ViewStyle>,
-    currentStyle(),
-  ]);
+  const currentStyle = StyleSheet.compose(styles.initial, [getStyle(), style]);
 
   return (
-    <TouchableOpacity style={style} {...props} activeOpacity={0.7}>
+    <TouchableOpacity
+      style={currentStyle}
+      activeOpacity={activeOpacity}
+      {...props}
+    >
       {props.checked && (
         <View
-          style={[
-            stylesRadioButton.radioActive,
-            props.disabled && stylesRadioButton.radioDisabled,
-          ]}
+          style={[styles.radioActive, props.disabled && styles.radioDisabled]}
         />
       )}
     </TouchableOpacity>
