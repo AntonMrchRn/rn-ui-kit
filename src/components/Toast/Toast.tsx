@@ -236,7 +236,7 @@ export const Toast: FC<ToastProps> = ({
   return (
     <GestureDetector gesture={gesture}>
       <Animated.View style={[animatedStyles, currentContainerStyle]}>
-        <View style={{ height: insets.top }} />
+        <View style={{ height: insets.top + 20 }} />
         {title && <Text style={currentTitleStyle}>{title}</Text>}
         {text && <Text style={currentTextStyle}>{text}</Text>}
         <View style={currentActionsContainerStyle}>
