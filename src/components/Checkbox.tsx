@@ -18,7 +18,12 @@ export type CheckboxProps = TouchableOpacityProps & {
   icon?: ReactElement;
 };
 
-export const CheckBox: FC<CheckboxProps> = ({ icon, ...props }) => {
+export const CheckBox: FC<CheckboxProps> = ({
+  icon,
+  style,
+  activeOpacity = 0.7,
+  ...props
+}) => {
   const theme = useTheme();
 
   const stylesCheckBox = StyleSheet.create({
@@ -49,7 +54,7 @@ export const CheckBox: FC<CheckboxProps> = ({ icon, ...props }) => {
     },
   });
 
-  const currentStyle = () => {
+  const getStyle = () => {
     if (!props.checked && !props.disabled) {
       return stylesCheckBox.uncheckedUndisabled;
     }
@@ -65,13 +70,17 @@ export const CheckBox: FC<CheckboxProps> = ({ icon, ...props }) => {
     return;
   };
 
-  const style = StyleSheet.compose(stylesCheckBox.initial, [
-    props.style,
-    currentStyle(),
+  const currentStyle = StyleSheet.compose(stylesCheckBox.initial, [
+    getStyle(),
+    style,
   ]);
 
   return (
-    <TouchableOpacity style={style} {...props} activeOpacity={0.7}>
+    <TouchableOpacity
+      style={currentStyle}
+      activeOpacity={activeOpacity}
+      {...props}
+    >
       {props.checked && (icon || <CheckBoxIcon />)}
     </TouchableOpacity>
   );
