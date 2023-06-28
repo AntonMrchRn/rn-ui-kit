@@ -78,6 +78,11 @@ export type SwipeableProps = {
      * Показать наличине скрытых кнопок компонента
      */
     previewActions?: boolean;
+    /**
+     * Возможность свайпать для показа скрытых кнопок. По умолчанию true
+     * @default true
+     */
+    canSwipe?: boolean;
 };
 export declare const Swipeable: FC<SwipeableProps>;
 //# sourceMappingURL=Swipeable.d.ts.map

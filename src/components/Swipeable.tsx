@@ -92,6 +92,11 @@ export type SwipeableProps = {
    * Показать наличине скрытых кнопок компонента
    */
   previewActions?: boolean;
+  /**
+   * Возможность свайпать для показа скрытых кнопок. По умолчанию true
+   * @default true
+   */
+  canSwipe?: boolean;
 };
 
 export const Swipeable: FC<SwipeableProps> = ({
@@ -113,6 +118,7 @@ export const Swipeable: FC<SwipeableProps> = ({
   previewActions,
   itemContainerStyle,
   itemIconStyle,
+  canSwipe = true,
 }) => {
   const theme = useTheme();
   const ref = useRef<RNSwipeable>(null);
@@ -251,7 +257,7 @@ export const Swipeable: FC<SwipeableProps> = ({
   );
 
   const renderRightActions: FC = () => {
-    return (
+    if (canSwipe) {
       <View style={currentHiddenContainerStyle}>
         <TouchableOpacity
           style={firstActionStyleCompose}
@@ -265,8 +271,9 @@ export const Swipeable: FC<SwipeableProps> = ({
         >
           {isDelete ? <ReturnActionIcon /> : <DeleteActionIcon />}
         </TouchableOpacity>
-      </View>
-    );
+      </View>;
+    }
+    return <View />;
   };
 
   return (
