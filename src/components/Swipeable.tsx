@@ -257,7 +257,7 @@ export const Swipeable: FC<SwipeableProps> = ({
   );
 
   const renderRightActions: FC = () => {
-    if (canSwipe) {
+    return (
       <View style={currentHiddenContainerStyle}>
         <TouchableOpacity
           style={firstActionStyleCompose}
@@ -271,19 +271,11 @@ export const Swipeable: FC<SwipeableProps> = ({
         >
           {isDelete ? <ReturnActionIcon /> : <DeleteActionIcon />}
         </TouchableOpacity>
-      </View>;
-    }
-    return <View />;
+      </View>
+    );
   };
-
-  return (
-    <RNSwipeable
-      ref={ref}
-      renderRightActions={renderRightActions}
-      friction={1}
-      overshootLeft={false}
-      overshootRight={false}
-    >
+  const Item: FC = () => {
+    return (
       <View style={currentContainerStyle}>
         {label && <Text style={currentLabelStyle}>{label}</Text>}
         {title && <Text style={currentTitleStyle}>{title}</Text>}
@@ -296,6 +288,24 @@ export const Swipeable: FC<SwipeableProps> = ({
           ))}
         </View>
       </View>
-    </RNSwipeable>
+    );
+  };
+  return (
+    <>
+      {canSwipe ? (
+        <RNSwipeable
+          ref={ref}
+          renderRightActions={renderRightActions}
+          friction={1}
+          overshootLeft={false}
+          overshootRight={false}
+          rightThreshold={100}
+        >
+          <Item />
+        </RNSwipeable>
+      ) : (
+        <Item />
+      )}
+    </>
   );
 };

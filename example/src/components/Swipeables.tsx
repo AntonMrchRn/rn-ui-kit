@@ -27,6 +27,7 @@ export const Swipeables = () => {
       />
       <Swipeable
         variant={'user'}
+        canSwipe={false}
         fistAction={() => {}}
         secondAction={() => {}}
         items={[
