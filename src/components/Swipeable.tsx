@@ -190,7 +190,7 @@ export const Swipeable: FC<SwipeableProps> = ({
     items: {
       marginTop: 10,
       flexDirection: 'row',
-      justifyContent: 'space-between',
+      gap: 12,
     },
     hidden: {
       flexDirection: 'row',
@@ -274,6 +274,7 @@ export const Swipeable: FC<SwipeableProps> = ({
       </View>
     );
   };
+  // eslint-disable-next-line react/no-unstable-nested-components
   const Item: FC = () => {
     return (
       <View style={currentContainerStyle}>
