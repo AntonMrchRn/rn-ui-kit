@@ -97,7 +97,7 @@ export const InputPhone: FC<InputPhoneProps> = forwardRef(
       },
       input: {
         flex: 1,
-        fontFamily: 'Nunito Sans Regular',
+        fontFamily: 'Nunito Sans',
         fontStyle: 'normal',
         fontWeight: '400',
         fontSize: 17,
@@ -109,7 +109,7 @@ export const InputPhone: FC<InputPhoneProps> = forwardRef(
         borderColor: isError ? theme.stroke.danger : theme.stroke.accent,
       },
       label: {
-        fontFamily: 'Nunito Sans Regular',
+        fontFamily: 'Nunito Sans',
         fontStyle: 'normal',
         fontWeight: '400',
         fontSize: 13,
@@ -118,7 +118,7 @@ export const InputPhone: FC<InputPhoneProps> = forwardRef(
         marginBottom: 4,
       },
       hint: {
-        fontFamily: 'Nunito Sans Regular',
+        fontFamily: 'Nunito Sans',
         fontStyle: 'normal',
         fontWeight: '400',
         fontSize: 13,
@@ -136,7 +136,7 @@ export const InputPhone: FC<InputPhoneProps> = forwardRef(
           ? theme.text.basic
           : placeholderTextColor || theme.text.neutral,
         fontSize: 17,
-        fontFamily: 'Nunito Sans Regular',
+        fontFamily: 'Nunito Sans',
         fontStyle: 'normal',
         fontWeight: '400',
         paddingTop: Platform.OS === 'ios' ? 2 : 0,
