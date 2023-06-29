@@ -111,7 +111,7 @@ export const Tips: FC<TipsProps> = ({
       alignItems: 'flex-start',
     },
     text: {
-      fontFamily: 'Nunito Sans',
+      fontFamily: 'Nunito Sans Regular',
       fontStyle: 'normal',
       fontWeight: '400',
       fontSize: 15,
@@ -129,7 +129,7 @@ export const Tips: FC<TipsProps> = ({
       borderRadius: 8,
     },
     buttonText: {
-      fontFamily: 'Nunito Sans',
+      fontFamily: 'Nunito Sans Bold',
       fontStyle: 'normal',
       fontWeight: '700',
       fontSize: 15,
