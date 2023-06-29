@@ -33,11 +33,12 @@ export const Spacer: FC<SpacerProps> = ({
   children,
   horizontal,
   separator,
+  separatorColor,
 }) => {
   const theme = useTheme();
 
   const getSeparator = () => {
-    const borderColor = theme.stroke.disableDivider;
+    const borderColor = separatorColor || theme.stroke.disableDivider;
     if (separator === 'top') {
       return { borderTopWidth: 1, borderColor };
     }
