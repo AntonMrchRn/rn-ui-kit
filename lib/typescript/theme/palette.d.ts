@@ -26,6 +26,7 @@ export type Colors = {
         neutralDisable: string;
         neutralDisableSecond: string;
         accent: string;
+        accentToast: string;
         accentDisable: string;
         accentMessage: string;
         fieldMain: string;
@@ -33,10 +34,13 @@ export type Colors = {
         secondaryDisable: string;
         secondaryBadge: string;
         success: string;
+        successToast: string;
         fieldSuccess: string;
         danger: string;
+        dangerToast: string;
         dangerDisable: string;
         fieldDanger: string;
+        warningToast: string;
         fieldWarning: string;
         modal: string;
         tooltip: string;

@@ -126,13 +126,13 @@ export const Toast: FC<ToastProps> = ({
   const getBackgroundColor = () => {
     switch (type) {
       case 'error':
-        return theme.background.danger;
+        return theme.background.dangerToast;
       case 'success':
-        return theme.background.success;
+        return theme.background.successToast;
       case 'warning':
-        return theme.text.warning;
+        return theme.background.warningToast;
       default:
-        return theme.background.accent;
+        return theme.background.accentToast;
     }
   };
 
