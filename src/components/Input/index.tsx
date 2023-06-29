@@ -58,6 +58,14 @@ export type InputProps = TextInputProps & {
    * Логика нажатия на иконку крестика, если variant === 'text'
    */
   onClear?: () => void;
+  /**
+   * Иконка слева от инпута
+   */
+  iconLeft?: JSX.Element;
+  /**
+   * Стиль контейнера иконки слева от инпута
+   */
+  iconLeftStyle?: StyleProp<ViewStyle>;
   ref?: ForwardedRef<TextInput>;
 };
 
@@ -79,6 +87,8 @@ export const Input: FC<InputProps> = forwardRef(
       secureTextEntry,
       multiline,
       onClear,
+      iconLeft,
+      iconLeftStyle,
       ...props
     },
     ref
@@ -150,14 +160,22 @@ export const Input: FC<InputProps> = forwardRef(
       animatedLabel: {
         position: 'absolute',
       },
+      iconLeft: {
+        marginRight: 8,
+        alignItems: 'center',
+        justifyContent: 'center',
+      },
     });
 
     const currentContainerStyle = StyleSheet.compose(styles.initial, [
       isFocused ? styles.focused : {},
       containerStyle,
     ]);
-
     const currentInputStyle = StyleSheet.compose(styles.input, style);
+    const currentIconLeftStyle = StyleSheet.compose(
+      styles.iconLeft,
+      iconLeftStyle
+    );
     const currentLabelStyle = StyleSheet.compose(styles.label, labelStyle);
     const currentAnimatedLabelStyle = StyleSheet.compose(
       [styles.label, styles.animatedLabel],
@@ -205,6 +223,7 @@ export const Input: FC<InputProps> = forwardRef(
           <Text style={currentLabelStyle}>{label}</Text>
         )}
         <View style={currentContainerStyle}>
+          {iconLeft && <View style={currentIconLeftStyle}>{iconLeft}</View>}
           {label && isAnimatedLabel && variant === 'text' && (
             <Animated.Text
               style={[currentAnimatedLabelStyle, animatedLabelStyle]}

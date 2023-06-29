@@ -38,6 +38,14 @@ export type InputProps = TextInputProps & {
      * Логика нажатия на иконку крестика, если variant === 'text'
      */
     onClear?: () => void;
+    /**
+     * Иконка слева от инпута
+     */
+    iconLeft?: JSX.Element;
+    /**
+     * Стиль контейнера иконки слева от инпута
+     */
+    iconLeftStyle?: StyleProp<ViewStyle>;
     ref?: ForwardedRef<TextInput>;
 };
 export declare const Input: FC<InputProps>;

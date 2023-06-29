@@ -14,6 +14,8 @@
 | `containerStyle` | `StyleProp<ViewProps>` | `false`      | Стиль контейнера компонента                                |
 | `variant`        | `Variant`              | `true`       | Тип компонента                                             |
 | `onClear`        | `() => void`           | `false`      | Логика нажатия на иконку крестика, если variant === 'text' |
+| `iconLeft`       | `JSX.Element`          | `false`      | Иконка слева от инпута                                     |
+| `iconLeftStyle`  | `StyleProp<ViewStyle>` | `false`      | Стиль контейнера иконки слева от инпута                    |
 
 ## Типы
 

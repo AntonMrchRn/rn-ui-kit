@@ -1,5 +1,5 @@
 import React, { useRef } from 'react';
-import { TextInput } from 'react-native';
+import { TextInput, View } from 'react-native';
 import {
   Input,
   InputCode,
@@ -14,10 +14,13 @@ export const Inputs = () => {
   return (
     <Spacer size="xl">
       <Input
-        variant="message"
+        variant="text"
         placeholder="Сообщение..."
         label="Label"
         hint="hint"
+        iconLeft={
+          <View style={{ height: 24, width: 24, backgroundColor: 'red' }} />
+        }
       />
       <Input
         variant="message"
