@@ -63,7 +63,7 @@ export const TabControl: FC<TabControlProps> = ({
       height: 36,
     },
     label: {
-      fontFamily: 'Nunito Sans',
+      fontFamily: 'Nunito Sans Regular',
       fontWeight: '400',
       color: theme.icons.neutral,
       fontSize: 17,
@@ -96,7 +96,7 @@ export const TabControl: FC<TabControlProps> = ({
     },
     badgeLabel: {
       fontSize: 13,
-      fontFamily: 'Nunito Sans',
+      fontFamily: 'Nunito Sans Regular',
       fontWeight: '400',
       color: theme.text.basic,
     },

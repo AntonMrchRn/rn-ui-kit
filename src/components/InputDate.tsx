@@ -73,7 +73,7 @@ export const InputDate: FC<InputDateProps> = forwardRef(
       input: {
         flex: 1,
         padding: 0,
-        fontFamily: 'Nunito Sans',
+        fontFamily: 'Nunito Sans Regular',
         fontStyle: 'normal',
         fontWeight: '400',
         fontSize: 17,
