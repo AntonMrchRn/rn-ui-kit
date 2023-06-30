@@ -24,6 +24,7 @@ import { Button } from './components/Button';
 import { BottomSheet } from './components/BottomSheet';
 import { Chips } from './components/Chips';
 import { Swipeable } from './components/Swipeable';
+import { BottomSheetModal } from './components/BottomSheetModal';
 
 export {
   ThemeProvider,
@@ -54,4 +55,5 @@ export {
   BottomSheet,
   Chips,
   Swipeable,
+  BottomSheetModal,
 };
