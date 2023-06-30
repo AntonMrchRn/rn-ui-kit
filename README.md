@@ -36,6 +36,7 @@ yarn add react-native-switch
 yarn add react-native-safe-area-context
 yarn add react-native-reanimated
 yarn add react-native-gesture-handler
+yarn add @gorhom/bottom-sheet
 ```
 
 затем нужно установить поды, например так:
@@ -68,17 +69,20 @@ npx pod-install
 import { ToastProvider, ThemeProvider } from 'rn-ui-kit';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
+import { BottomSheetModalProvider } from '@gorhom/bottom-sheet';
 // ...
 
 return (
   <GestureHandlerRootView style={{ flex: 1 }}>
-    <SafeAreaProvider>
-      <ThemeProvider>
-        <ToastProvider>
-          <App />
-        </ToastProvider>
-      </ThemeProvider>
-    </SafeAreaProvider>
+    <BottomSheetModalProvider>
+      <SafeAreaProvider>
+        <ThemeProvider>
+          <ToastProvider>
+            <App />
+          </ToastProvider>
+        </ThemeProvider>
+      </SafeAreaProvider>
+    </BottomSheetModalProvider>
   </GestureHandlerRootView>
 );
 ```
@@ -134,6 +138,8 @@ return (
 [`<Tips />`](docs/tips.md)
 
 [`<Tooltip />`](docs/tooltip.md)
+
+[`<BottomSheetModal />`](docs/bottomSheetModal.md)
 
 ---
 
