@@ -1,5 +1,5 @@
 /* eslint-disable react/no-unstable-nested-components */
-import React, { FC, ReactElement, useState } from 'react';
+import React, { FC, ReactElement, useEffect, useState } from 'react';
 import {
   ScrollViewProps,
   StyleProp,
@@ -54,6 +54,10 @@ export const TabControl: FC<TabControlProps> = ({
 }) => {
   const [selectedId, setSelectedId] = useState(initialId);
   const theme = useTheme();
+
+  useEffect(() => {
+    setSelectedId(initialId);
+  }, [initialId]);
 
   const styles = StyleSheet.create({
     wrapper: {
