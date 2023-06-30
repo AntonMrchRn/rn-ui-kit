@@ -1,5 +1,5 @@
-import React from 'react';
-import { TabControl } from 'rn-ui-kit';
+import React, { useRef } from 'react';
+import { TabControl, Text } from 'rn-ui-kit';
 import { LinkIcon } from '../../../src/icons/LinkIcon';
 
 export const TabControls = () => {
@@ -37,6 +37,20 @@ export const TabControls = () => {
   ];
 
   const initialId = 2;
-
-  return <TabControl data={list} initialId={initialId} />;
+  const ref = useRef<{
+    setId: (id: number) => void;
+  }>(null);
+  return (
+    <>
+      <TabControl data={list} initialId={initialId} ref={ref} />
+      <Text
+        variant={'title1'}
+        onPress={() => {
+          ref.current?.setId(1);
+        }}
+      >
+        press me
+      </Text>
+    </>
+  );
 };
