@@ -1,4 +1,4 @@
-import { FC, ReactElement } from 'react';
+import React, { FC, ReactElement } from 'react';
 import { ScrollViewProps, StyleProp, TextStyle, ViewStyle } from 'react-native';
 export type TabItem = {
     id: number;
@@ -6,7 +6,7 @@ export type TabItem = {
     count?: number;
     icon?: ReactElement | boolean;
 };
-export type TabControlProps = ScrollViewProps & {
+export type TabControlProps = Omit<ScrollViewProps, 'ref'> & {
     /**
      * Индекс изначально выбранного элемента
      */
@@ -27,6 +27,9 @@ export type TabControlProps = ScrollViewProps & {
      * Стиль контейнера иконки компонента
      */
     iconContainerStyle?: StyleProp<ViewStyle>;
+    ref?: React.ForwardedRef<{
+        setId(id: number): void;
+    }>;
 };
 export declare const TabControl: FC<TabControlProps>;
 //# sourceMappingURL=TabControl.d.ts.map
