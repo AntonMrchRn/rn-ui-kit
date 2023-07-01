@@ -121,7 +121,9 @@ export const Chips: FC<ChipsProps> = ({
     if (icon) {
       if (typeof icon === 'boolean') {
         return (
-          <ChipsIcon color={disabled ? theme.text.neutralDisable : undefined} />
+          <ChipsIcon
+            color={disabled || selected ? theme.text.neutralDisable : undefined}
+          />
         );
       }
       return icon;
@@ -133,7 +135,7 @@ export const Chips: FC<ChipsProps> = ({
       if (typeof close === 'boolean') {
         return (
           <ChipsCloseIcon
-            color={disabled ? theme.text.neutralDisable : undefined}
+            color={disabled || selected ? theme.text.neutralDisable : undefined}
           />
         );
       }
