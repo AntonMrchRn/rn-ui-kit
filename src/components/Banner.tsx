@@ -193,6 +193,7 @@ export const Banner: FC<BannerProps> = ({
       lineHeight: 20,
       color: getTextColor(),
       marginTop: title ? 8 : 0,
+      flexShrink: 1,
     },
     button: {
       marginTop: 12,
