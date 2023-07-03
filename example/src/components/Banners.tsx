@@ -13,8 +13,8 @@ export const Banners = () => {
         visible={true}
       />
       <Banner type="success" icon="success" visible={true} />
-      <Banner type="warning" icon="alert" visible={true} />
-      <Banner type="info" icon="info" visible={true} />
+      <Banner type="warning" icon="alert" title="title" text="text" />
+      <Banner type="info" icon="info" text="text" />
     </Spacer>
   );
 };

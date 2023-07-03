@@ -87,7 +87,7 @@ export const Banner: FC<BannerProps> = ({
   titleStyle,
   title,
   closeIcon,
-  text,
+  text = '',
   textStyle,
   onClosePress,
   buttonStyle,
@@ -192,7 +192,7 @@ export const Banner: FC<BannerProps> = ({
       fontSize: 15,
       lineHeight: 20,
       color: getTextColor(),
-      marginTop: 8,
+      marginTop: title ? 8 : 0,
     },
     button: {
       marginTop: 12,
@@ -246,13 +246,17 @@ export const Banner: FC<BannerProps> = ({
         <View style={currentIconStyle}>{getIcon()}</View>
         <View style={styles.wrapper}>
           <View style={styles.header}>
-            {title ? <Text style={currentTitleStyle}>{title}</Text> : <View />}
+            {title ? (
+              <Text style={currentTitleStyle}>{title}</Text>
+            ) : (
+              <Text style={[currentTextStyle]}>{text}</Text>
+            )}
             <TouchableOpacity onPress={onClose}>
               {closeIcon || <BannerCloseIcon />}
             </TouchableOpacity>
           </View>
           <View style={styles.body}>
-            {text && <Text style={currentTextStyle}>{text}</Text>}
+            {text && title && <Text style={currentTextStyle}>{text}</Text>}
             {buttonText && (
               <TouchableOpacity
                 style={currentButtonStyle}
