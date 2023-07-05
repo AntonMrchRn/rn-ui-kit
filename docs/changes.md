@@ -1,3 +1,7 @@
+### 0.3.6
+
+- Добавлен пропс backdropTransitionOutTiming для компонента BottomSheet
+
 ### 0.3.5
 
 - Исправлены стили компонента Banner
