@@ -32,6 +32,11 @@ export type BottomSheetProps = {
      */
     backdropColor?: string;
     /**
+     * Время скрытия компонента
+     * По умолчанию 300
+     */
+    backdropTransitionOutTiming?: number;
+    /**
      * Непрозрачность заднего фона компонента.
      * По умолчанию 1
      */
