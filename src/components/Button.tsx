@@ -99,21 +99,21 @@ export const Button: FC<ButtonProps> = ({
     },
     ghost: {
       borderWidth: 0,
-      backgroundColor: 'transparent',
+      backgroundColor: 'white',
     },
     dangerGhost: {
       borderWidth: 0,
-      backgroundColor: 'transparent',
+      backgroundColor: 'white',
     },
     outlineAccent: {
-      backgroundColor: 'transparent',
+      backgroundColor: 'white',
       borderWidth: 2,
       paddingVertical: 10,
       paddingHorizontal: 14,
       borderColor: theme.background.accent,
     },
     outlineDanger: {
-      backgroundColor: 'transparent',
+      backgroundColor: 'white',
       borderWidth: 2,
       paddingVertical: 10,
       paddingHorizontal: 14,
@@ -128,18 +128,18 @@ export const Button: FC<ButtonProps> = ({
       borderWidth: 0,
     },
     outlineAccentDisabled: {
-      backgroundColor: 'transparent',
+      backgroundColor: 'white',
       borderColor: theme.background.neutralDisable,
     },
     outlineDangerDisabled: {
-      backgroundColor: 'transparent',
+      backgroundColor: 'white',
       borderColor: theme.background.dangerDisable,
     },
     ghostDisabled: {
-      backgroundColor: 'transparent',
+      backgroundColor: 'white',
     },
     dangerGhostDisabled: {
-      backgroundColor: 'transparent',
+      backgroundColor: 'white',
     },
   });
 

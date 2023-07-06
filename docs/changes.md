@@ -1,3 +1,7 @@
+### 0.3.7
+
+- Исправлены стили компонента Button
+
 ### 0.3.6
 
 - Добавлен пропс backdropTransitionOutTiming для компонента BottomSheet
