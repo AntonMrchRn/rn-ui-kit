@@ -26,6 +26,10 @@ export type BannerProps = {
    */
   icon: IconTypes;
   /**
+   * Размер иконки
+   */
+  iconSize: number;
+  /**
    * Стиль контейнера компонента
    */
   containerStyle?: StyleProp<ViewStyle>;
@@ -95,6 +99,7 @@ export const Banner: FC<BannerProps> = ({
   onButtonPress,
   buttonText,
   iconColor,
+  iconSize,
 }) => {
   const [visible, setVisible] = useState(true);
   const onClose = () => {
@@ -183,7 +188,6 @@ export const Banner: FC<BannerProps> = ({
     },
     wrapper: {
       flexShrink: 1,
-      flex: 1,
     },
     text: {
       fontFamily: 'Nunito Sans Regular',
@@ -218,11 +222,23 @@ export const Banner: FC<BannerProps> = ({
   const getIcon = () => {
     switch (icon) {
       case 'success':
-        return <BannerSuccessIcon color={iconColor || getTextColor()} />;
+        return (
+          <BannerSuccessIcon
+            color={iconColor || getTextColor()}
+            size={iconSize}
+          />
+        );
       case 'info':
-        return <BannerInfoIcon color={iconColor || getTextColor()} />;
+        return (
+          <BannerInfoIcon color={iconColor || getTextColor()} size={iconSize} />
+        );
       case 'alert':
-        return <BannerAlertIcon color={iconColor || getTextColor()} />;
+        return (
+          <BannerAlertIcon
+            color={iconColor || getTextColor()}
+            size={iconSize}
+          />
+        );
       default:
         return icon;
     }

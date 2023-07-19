@@ -12,6 +12,10 @@ export type BannerProps = {
      */
     icon: IconTypes;
     /**
+     * Размер иконки
+     */
+    iconSize: number;
+    /**
      * Стиль контейнера компонента
      */
     containerStyle?: StyleProp<ViewStyle>;

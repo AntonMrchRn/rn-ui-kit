@@ -1,11 +1,12 @@
 import React, { FC } from 'react';
 import SVG, { Path } from 'react-native-svg';
 
-export const BannerInfoIcon: FC<{ color?: string }> = ({
+export const BannerInfoIcon: FC<{ color?: string; size?: number }> = ({
   color = '#3F51B5',
+  size = 24,
 }) => {
   return (
-    <SVG width="24" height="24" viewBox="0 0 24 24" fill="none">
+    <SVG width={size} height={size} viewBox="0 0 24 24" fill="none">
       <Path
         d="M10.25 11.125C10.25 10.6418 10.6418 10.25 11.125 10.25H12C12.4832 10.25 12.875 10.6418 12.875 11.125V16.375C13.3582 16.375 13.75 16.7668 13.75 17.25C13.75 17.7332 13.3582 18.125 12.875 18.125H12C11.5168 18.125 11.125 17.7332 11.125 17.25V12C10.6418 12 10.25 11.6082 10.25 11.125Z"
         fill={color}
