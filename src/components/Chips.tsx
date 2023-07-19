@@ -158,7 +158,11 @@ export const Chips: FC<ChipsProps> = ({
         disabled={disabled}
       >
         {icon && <View style={styles.icon}>{getIcon()}</View>}
-        {label && <Text style={currentLabelStyle}>{label}</Text>}
+        {label && (
+          <Text numberOfLines={1} style={currentLabelStyle}>
+            {label}
+          </Text>
+        )}
       </TouchableOpacity>
       {close && (
         <TouchableOpacity
