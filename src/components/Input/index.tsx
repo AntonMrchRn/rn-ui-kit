@@ -134,7 +134,7 @@ export const Input: FC<InputProps> = forwardRef(
         fontWeight: '400',
         fontSize: 17,
         lineHeight: Platform.OS === 'android' ? 24 : 0,
-        color: isError ? theme.text.danger : theme.text.basic,
+        color: theme.text.basic,
       },
       focused: {
         borderColor: isError ? theme.stroke.danger : theme.stroke.accent,

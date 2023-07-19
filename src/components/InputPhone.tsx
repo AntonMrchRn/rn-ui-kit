@@ -102,7 +102,7 @@ export const InputPhone: FC<InputPhoneProps> = forwardRef(
         fontWeight: '400',
         fontSize: 17,
         lineHeight: 24,
-        color: isError ? theme.text.danger : theme.text.basic,
+        color: theme.text.basic,
         padding: 0,
       },
       focused: {
@@ -130,11 +130,10 @@ export const InputPhone: FC<InputPhoneProps> = forwardRef(
         marginRight: 8,
       },
       prefix: {
-        color: isError
-          ? theme.text.danger
-          : isFocused || value.length
-          ? theme.text.basic
-          : placeholderTextColor || theme.text.neutral,
+        color:
+          isFocused || value.length
+            ? theme.text.basic
+            : placeholderTextColor || theme.text.neutral,
         fontSize: 17,
         fontFamily: 'Nunito Sans Regular',
         fontStyle: 'normal',
