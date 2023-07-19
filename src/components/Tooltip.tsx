@@ -224,7 +224,7 @@ export const Tooltip: FC<TooltipProps> = ({
   }, [isVisible]);
 
   return (
-    <View ref={ref}>
+    <View ref={ref} collapsable={false}>
       <Modal
         isVisible={isVisible}
         onBackdropPress={onClose}
