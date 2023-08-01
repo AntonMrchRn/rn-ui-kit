@@ -128,6 +128,7 @@ export const Input: FC<InputProps> = forwardRef(
       },
       input: {
         flex: 1,
+        height: setHeight(),
         padding: 0,
         fontFamily: 'Nunito Sans Regular',
         fontStyle: 'normal',
