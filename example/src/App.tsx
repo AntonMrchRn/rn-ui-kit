@@ -1,4 +1,3 @@
-import { useFonts } from 'expo-font';
 import * as React from 'react';
 import { SafeAreaView, ScrollView, View } from 'react-native';
 import { Texts } from './components/Texts';
@@ -31,17 +30,6 @@ import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { BottomSheetModalProvider } from '@gorhom/bottom-sheet';
 
 export default function App() {
-  const [fontsLoaded] = useFonts({
-    'Open Sans Bold': require('../assets/fonts/OpenSans/OpenSans-Bold.ttf'),
-    'Open Sans SemiBold': require('../assets/fonts/OpenSans/OpenSans-SemiBold.ttf'),
-    'Nunito Sans Regular': require('../assets/fonts/NunitoSans_7pt/NunitoSans_7pt-Regular.ttf'),
-    'Nunito Sans Bold': require('../assets/fonts/NunitoSans_7pt/NunitoSans_7pt-Bold.ttf'),
-    'Nunito Sans SemiBold': require('../assets/fonts/NunitoSans_7pt/NunitoSans_7pt-SemiBold.ttf'),
-  });
-
-  if (!fontsLoaded) {
-    return null;
-  }
   return (
     <GestureHandlerRootView style={{ flex: 1 }}>
       <BottomSheetModalProvider>
