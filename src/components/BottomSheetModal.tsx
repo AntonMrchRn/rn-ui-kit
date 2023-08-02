@@ -128,7 +128,7 @@ export const BottomSheetModal: FC<BottomSheetModalProps> = forwardRef(
         zIndex: -1,
       },
       title: {
-        fontFamily: 'Open Sans SemiBold',
+        fontFamily: 'Open Sans',
         fontStyle: 'normal',
         fontWeight: '600',
         fontSize: 20,
@@ -137,7 +137,7 @@ export const BottomSheetModal: FC<BottomSheetModalProps> = forwardRef(
         color: theme.text.basic,
       },
       subtitle: {
-        fontFamily: 'Nunito Sans Regular',
+        fontFamily: 'Nunito Sans',
         fontStyle: 'normal',
         fontWeight: '400',
         fontSize: 15,

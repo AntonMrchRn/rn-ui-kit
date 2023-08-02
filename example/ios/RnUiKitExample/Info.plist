@@ -53,22 +53,22 @@
 	<false/>
 	<key>UIAppFonts</key>
 	<array>
-		<string>NunitoSans_7pt-Black.ttf</string>
-		<string>NunitoSans_7pt-BlackItalic.ttf</string>
-		<string>NunitoSans_7pt-Bold.ttf</string>
-		<string>NunitoSans_7pt-BoldItalic.ttf</string>
-		<string>NunitoSans_7pt-ExtraBold.ttf</string>
-		<string>NunitoSans_7pt-ExtraBoldItalic.ttf</string>
-		<string>NunitoSans_7pt-ExtraLight.ttf</string>
-		<string>NunitoSans_7pt-ExtraLightItalic.ttf</string>
-		<string>NunitoSans_7pt-Italic.ttf</string>
-		<string>NunitoSans_7pt-Light.ttf</string>
-		<string>NunitoSans_7pt-LightItalic.ttf</string>
-		<string>NunitoSans_7pt-Medium.ttf</string>
-		<string>NunitoSans_7pt-MediumItalic.ttf</string>
-		<string>NunitoSans_7pt-Regular.ttf</string>
-		<string>NunitoSans_7pt-SemiBold.ttf</string>
-		<string>NunitoSans_7pt-SemiBoldItalic.ttf</string>
+		<string>NunitoSans-Black.ttf</string>
+		<string>NunitoSans-BlackItalic.ttf</string>
+		<string>NunitoSans-Bold.ttf</string>
+		<string>NunitoSans-BoldItalic.ttf</string>
+		<string>NunitoSans-ExtraBold.ttf</string>
+		<string>NunitoSans-ExtraBoldItalic.ttf</string>
+		<string>NunitoSans-ExtraLight.ttf</string>
+		<string>NunitoSans-ExtraLightItalic.ttf</string>
+		<string>NunitoSans-Italic.ttf</string>
+		<string>NunitoSans-Light.ttf</string>
+		<string>NunitoSans-LightItalic.ttf</string>
+		<string>NunitoSans-Medium.ttf</string>
+		<string>NunitoSans-MediumItalic.ttf</string>
+		<string>NunitoSans-Regular.ttf</string>
+		<string>NunitoSans-SemiBold.ttf</string>
+		<string>NunitoSans-SemiBoldItalic.ttf</string>
 		<string>OpenSans-Bold.ttf</string>
 		<string>OpenSans-BoldItalic.ttf</string>
 		<string>OpenSans-ExtraBold.ttf</string>

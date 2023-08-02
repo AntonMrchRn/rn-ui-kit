@@ -92,7 +92,7 @@ export const SegmentedControl: React.FC<SegmentedControlProps> = ({
       borderRadius: 7,
     },
     textStyle: {
-      fontFamily: 'Nunito Sans Regular',
+      fontFamily: 'Nunito Sans',
       fontStyle: 'normal',
       fontWeight: '400',
       fontSize: 13,
@@ -100,7 +100,7 @@ export const SegmentedControl: React.FC<SegmentedControlProps> = ({
       color: theme.text.basic,
     },
     activeTextStyle: {
-      fontFamily: 'Nunito Sans Bold',
+      fontFamily: 'Nunito Sans',
       fontWeight: '700',
       color: theme.text.accent,
     },

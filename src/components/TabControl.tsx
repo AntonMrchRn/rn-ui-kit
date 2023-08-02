@@ -61,7 +61,7 @@ export const TabControl: FC<TabControlProps> = forwardRef(
       labelStyle,
       iconContainerStyle,
       onChange,
-      // eslint-disable-next-line @typescript-eslint/no-unused-vars
+
       ...props
     },
     ref
@@ -90,7 +90,7 @@ export const TabControl: FC<TabControlProps> = forwardRef(
         height: 36,
       },
       label: {
-        fontFamily: 'Nunito Sans Regular',
+        fontFamily: 'Nunito Sans',
         fontWeight: '400',
         color: theme.icons.neutral,
         fontSize: 17,
@@ -123,7 +123,7 @@ export const TabControl: FC<TabControlProps> = forwardRef(
       },
       badgeLabel: {
         fontSize: 13,
-        fontFamily: 'Nunito Sans Regular',
+        fontFamily: 'Nunito Sans',
         fontWeight: '400',
         color: theme.text.basic,
       },

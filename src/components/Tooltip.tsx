@@ -101,7 +101,7 @@ export const Tooltip: FC<TooltipProps> = ({
       alignSelf: 'flex-start',
     },
     title: {
-      fontFamily: 'Nunito Sans Bold',
+      fontFamily: 'Nunito Sans',
       fontStyle: 'normal',
       fontWeight: '700',
       fontSize: 15,
@@ -109,7 +109,7 @@ export const Tooltip: FC<TooltipProps> = ({
       color: theme.text.contrast,
     },
     text: {
-      fontFamily: 'Nunito Sans Regular',
+      fontFamily: 'Nunito Sans',
       fontStyle: 'normal',
       fontWeight: '400',
       fontSize: 13,

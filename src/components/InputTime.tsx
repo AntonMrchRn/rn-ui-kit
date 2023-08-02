@@ -73,7 +73,7 @@ export const InputTime: FC<InputTimeProps> = forwardRef(
       input: {
         flex: 1,
         padding: 0,
-        fontFamily: 'Nunito Sans Regular',
+        fontFamily: 'Nunito Sans',
         fontStyle: 'normal',
         fontWeight: '400',
         fontSize: 17,
