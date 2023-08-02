@@ -147,7 +147,7 @@ export const Toast: FC<ToastProps> = ({
       borderBottomRightRadius: 24,
     },
     title: {
-      fontFamily: 'Nunito Sans Bold',
+      fontFamily: 'Nunito Sans',
       fontStyle: 'normal',
       fontWeight: '700',
       fontSize: 15,
@@ -155,7 +155,7 @@ export const Toast: FC<ToastProps> = ({
       color: theme.text.contrast,
     },
     text: {
-      fontFamily: 'Nunito Sans Regular',
+      fontFamily: 'Nunito Sans',
       fontStyle: 'normal',
       fontWeight: '400',
       fontSize: 13,

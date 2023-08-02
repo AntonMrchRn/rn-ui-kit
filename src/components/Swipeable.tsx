@@ -158,7 +158,7 @@ export const Swipeable: FC<SwipeableProps> = ({
 
   const styles = StyleSheet.create({
     text: {
-      fontFamily: 'Nunito Sans Regular',
+      fontFamily: 'Nunito Sans',
       fontStyle: 'normal',
       fontWeight: '400',
       fontSize: 13,
@@ -166,7 +166,7 @@ export const Swipeable: FC<SwipeableProps> = ({
       color: isDelete ? theme.text.neutralDisable : theme.text.neutral,
     },
     label: {
-      fontFamily: 'Nunito Sans Regular',
+      fontFamily: 'Nunito Sans',
       fontStyle: 'normal',
       fontWeight: '400',
       fontSize: 13,
@@ -175,7 +175,7 @@ export const Swipeable: FC<SwipeableProps> = ({
       marginBottom: 4,
     },
     title: {
-      fontFamily: 'Nunito Sans Bold',
+      fontFamily: 'Nunito Sans',
       fontStyle: 'normal',
       fontWeight: '700',
       fontSize: 17,

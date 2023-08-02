@@ -200,7 +200,7 @@ export const Modal: FC<ModalProps> = ({
       marginBottom: 12,
     },
     title: {
-      fontFamily: 'Open Sans SemiBold',
+      fontFamily: 'Open Sans',
       fontStyle: 'normal',
       fontWeight: '600',
       fontSize: 20,
@@ -210,7 +210,7 @@ export const Modal: FC<ModalProps> = ({
       marginTop: 8,
     },
     description: {
-      fontFamily: 'Nunito Sans Regular',
+      fontFamily: 'Nunito Sans',
       fontStyle: 'normal',
       fontWeight: '400',
       fontSize: 15,
