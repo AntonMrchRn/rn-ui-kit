@@ -67,7 +67,7 @@ export const Button: FC<ButtonProps> = ({
     label: {
       color: theme.background.main,
       marginLeft: icon || isPending ? 10 : 0,
-      fontFamily: 'Nunito Sans Bold',
+      fontFamily: 'Nunito Sans',
       fontSize: size === 'S' ? 15 : 17,
       fontWeight: '700',
       lineHeight: size === 'S' ? 20 : 24,

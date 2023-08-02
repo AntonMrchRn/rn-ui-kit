@@ -45,7 +45,7 @@ export const InputCode: FC<InputCodeProps> = ({
       backgroundColor: theme.background.neutralDisable,
     },
     text: {
-      fontFamily: 'Open Sans Bold',
+      fontFamily: 'Open Sans',
       fontStyle: 'normal',
       fontWeight: '700',
       fontSize: 32,
@@ -53,7 +53,7 @@ export const InputCode: FC<InputCodeProps> = ({
       color: theme.text.basic,
     },
     hint: {
-      fontFamily: 'Nunito Sans Regular',
+      fontFamily: 'Nunito Sans',
       fontStyle: 'normal',
       fontWeight: '400',
       fontSize: 13,

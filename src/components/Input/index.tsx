@@ -130,7 +130,7 @@ export const Input: FC<InputProps> = forwardRef(
         flex: 1,
         height: setHeight(),
         padding: 0,
-        fontFamily: 'Nunito Sans Regular',
+        fontFamily: 'Nunito Sans',
         fontStyle: 'normal',
         fontWeight: '400',
         fontSize: 17,
@@ -141,7 +141,7 @@ export const Input: FC<InputProps> = forwardRef(
         borderColor: isError ? theme.stroke.danger : theme.stroke.accent,
       },
       label: {
-        fontFamily: 'Nunito Sans Regular',
+        fontFamily: 'Nunito Sans',
         fontStyle: 'normal',
         fontWeight: '400',
         fontSize: 13,
@@ -150,7 +150,7 @@ export const Input: FC<InputProps> = forwardRef(
         marginBottom: 4,
       },
       hint: {
-        fontFamily: 'Nunito Sans Regular',
+        fontFamily: 'Nunito Sans',
         fontStyle: 'normal',
         fontWeight: '400',
         fontSize: 13,

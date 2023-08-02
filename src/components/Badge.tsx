@@ -63,7 +63,7 @@ export const Badge: FC<BadgeProps> = ({
 
   const styles = StyleSheet.create({
     label: {
-      fontFamily: 'Nunito Sans Regular',
+      fontFamily: 'Nunito Sans',
       fontStyle: 'normal',
       fontWeight: '400',
       fontSize: 13,

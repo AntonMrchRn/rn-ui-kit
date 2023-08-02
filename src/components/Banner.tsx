@@ -177,7 +177,7 @@ export const Banner: FC<BannerProps> = ({
       width: '100%',
     },
     title: {
-      fontFamily: 'Nunito Sans Bold',
+      fontFamily: 'Nunito Sans',
       fontStyle: 'normal',
       fontWeight: '700',
       fontSize: 15,
@@ -191,7 +191,7 @@ export const Banner: FC<BannerProps> = ({
       flexShrink: 1,
     },
     text: {
-      fontFamily: 'Nunito Sans Regular',
+      fontFamily: 'Nunito Sans',
       fontStyle: 'normal',
       fontWeight: '400',
       fontSize: 15,
@@ -211,7 +211,7 @@ export const Banner: FC<BannerProps> = ({
       borderRadius: 8,
     },
     buttonText: {
-      fontFamily: 'Nunito Sans Bold',
+      fontFamily: 'Nunito Sans',
       fontStyle: 'normal',
       fontWeight: '700',
       fontSize: 15,

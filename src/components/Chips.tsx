@@ -90,7 +90,7 @@ export const Chips: FC<ChipsProps> = ({
       fontStyle: 'normal',
       fontWeight: '400',
       lineHeight: 20,
-      fontFamily: 'Nunito Sans Regular',
+      fontFamily: 'Nunito Sans',
     },
     container: {
       alignSelf: 'flex-start',
