@@ -135,6 +135,7 @@ export const InputPhone: FC<InputPhoneProps> = forwardRef(
             ? theme.text.basic
             : placeholderTextColor || theme.text.neutral,
         fontSize: 17,
+        lineHeight: 24,
         fontFamily: 'Nunito Sans',
         fontStyle: 'normal',
         fontWeight: '400',
