@@ -1,16 +1,11 @@
-import React, { FC, ReactElement } from 'react';
+import { FC, ReactElement } from 'react';
 import { ScrollViewProps, StyleProp, TextStyle, ViewStyle } from 'react-native';
 export type TabItem = {
-    id: number;
-    label: string;
+    name: string;
     count?: number;
     icon?: ReactElement | boolean;
 };
-export type TabControlProps = Omit<ScrollViewProps, 'ref'> & {
-    /**
-     * Индекс изначально выбранного элемента
-     */
-    initialId?: number;
+export type TabControlProps = ScrollViewProps & {
     /**
      * Логика при изменении выбранного элемента
      */
@@ -27,9 +22,10 @@ export type TabControlProps = Omit<ScrollViewProps, 'ref'> & {
      * Стиль контейнера иконки компонента
      */
     iconContainerStyle?: StyleProp<ViewStyle>;
-    ref?: React.ForwardedRef<{
-        setId(id: number): void;
-    }>;
+    /**
+     * Выбранный таб
+     */
+    currentTab: TabItem;
 };
 export declare const TabControl: FC<TabControlProps>;
 //# sourceMappingURL=TabControl.d.ts.map

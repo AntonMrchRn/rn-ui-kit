@@ -6,7 +6,7 @@
 
 | Пропс                | Тип                                  | Обязательный | Описание                                 |
 | -------------------- | ------------------------------------ | ------------ | ---------------------------------------- |
-| `initialId`          | `number`                             | `false`      | Индекс изначально выбранного элемента    |
+| `currentTab`         | `TabItem`                            | `true`       | Выбранный таб                            |
 | `data`               | `TabItem[]`                          | `true`       | Массив элементов компонента              |
 | `labelStyle`         | `StyleProp<TextStyle>`               | `false`      | Стиль лейбла элементов компонента        |
 | `iconContainerStyle` | `StyleProp<ViewStyle>`               | `false`      | Стиль контейнера иконки компонента       |
@@ -14,12 +14,11 @@
 
 ## Типы
 
-```js
+```ts
 type TabItem = {
-  id: number,
-  label: string,
-  count?: number,
-  icon?: ReactElement | boolean,
+  name: string;
+  count?: number;
+  icon?: ReactElement | boolean;
 };
 ```
 
