@@ -1,7 +1,8 @@
 import { FC, ReactElement } from 'react';
 import { ScrollViewProps, StyleProp, TextStyle, ViewStyle } from 'react-native';
 export type TabItem = {
-    name: string;
+    id: number;
+    label: string;
     count?: number;
     icon?: ReactElement | boolean;
 };
@@ -23,9 +24,9 @@ export type TabControlProps = ScrollViewProps & {
      */
     iconContainerStyle?: StyleProp<ViewStyle>;
     /**
-     * Выбранный таб
+     * id выбранного таба
      */
-    currentTab: TabItem;
+    currentTabId: number;
 };
 export declare const TabControl: FC<TabControlProps>;
 //# sourceMappingURL=TabControl.d.ts.map
