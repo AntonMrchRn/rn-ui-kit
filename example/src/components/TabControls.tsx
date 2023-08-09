@@ -1,56 +1,49 @@
-import React, { useRef } from 'react';
-import { TabControl, Text } from 'rn-ui-kit';
+import React, { useState } from 'react';
+import { TabControl } from 'rn-ui-kit';
 import { LinkIcon } from '../../../src/icons/LinkIcon';
+import { TabItem } from 'src/components/TabControl';
 
 export const TabControls = () => {
-  const list = [
+  const [currentTab, setCurrentTab] = useState<TabItem>({
+    name: 'test2',
+    count: 3,
+    icon: true,
+  });
+  const list: TabItem[] = [
     {
-      id: 1,
-      label: 'test',
+      name: 'test2',
       count: 3,
       icon: true,
     },
     {
-      id: 2,
-      label: 'ne test',
+      name: 'ne test',
       count: 15,
       icon: false,
     },
     {
-      id: 3,
-      label: 'testtrtrtrt',
+      name: 'testtrtrtrt',
       count: 4,
       icon: <LinkIcon color="#000" size="M" />,
     },
     {
-      id: 4,
-      label: 'test',
+      name: 'test4',
       count: 4,
       icon: <LinkIcon color="#000" size="M" />,
     },
     {
-      id: 5,
-      label: 'test3',
+      name: 'test3',
       count: 4,
       icon: <LinkIcon color="#000" size="M" />,
     },
   ];
 
-  const initialId = 2;
-  const ref = useRef<{
-    setId: (id: number) => void;
-  }>(null);
   return (
     <>
-      <TabControl data={list} initialId={initialId} ref={ref} />
-      <Text
-        variant={'title1'}
-        onPress={() => {
-          ref.current?.setId(1);
-        }}
-      >
-        press me
-      </Text>
+      <TabControl
+        data={list}
+        currentTab={currentTab}
+        onChange={(tab) => setCurrentTab(tab)}
+      />
     </>
   );
 };
