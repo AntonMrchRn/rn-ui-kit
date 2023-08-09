@@ -15,7 +15,8 @@ import { useTheme } from '../theme/ThemeProvider';
 import { ScrollView } from 'react-native';
 
 export type TabItem = {
-  name: string;
+  id: number;
+  label: string;
   count?: number;
   icon?: ReactElement | boolean;
 };
@@ -38,13 +39,13 @@ export type TabControlProps = ScrollViewProps & {
    */
   iconContainerStyle?: StyleProp<ViewStyle>;
   /**
-   * Выбранный таб
+   * id выбранного таба
    */
-  currentTab: TabItem;
+  currentTabId: number;
 };
 
 export const TabControl: FC<TabControlProps> = ({
-  currentTab,
+  currentTabId,
   data,
   labelStyle,
   iconContainerStyle,
@@ -104,7 +105,7 @@ export const TabControl: FC<TabControlProps> = ({
   });
 
   const Item: FC<TabItem & { index: number }> = (item) => {
-    const isActive = currentTab.name === item.name;
+    const isActive = currentTabId === item.id;
     const currentLabelStyle = StyleSheet.compose(styles.label, labelStyle);
     const currentIconContainerStyle = StyleSheet.compose(
       styles.icon,
@@ -144,7 +145,7 @@ export const TabControl: FC<TabControlProps> = ({
           <View style={currentIconContainerStyle}>{getIcon()}</View>
         )}
         <Text style={[currentLabelStyle, isActive && styles.activeText]}>
-          {item?.name}
+          {item?.label}
         </Text>
         {item.count ? (
           <View style={[styles.badge, isActive && styles.activeBadge]}>
@@ -166,7 +167,7 @@ export const TabControl: FC<TabControlProps> = ({
         {...(props as any)}
       >
         {data.map((item, index) => (
-          <Item key={item.name} {...item} index={index} />
+          <Item key={item.id} {...item} index={index} />
         ))}
       </ScrollView>
     </View>
