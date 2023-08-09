@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import { TextInput, View } from 'react-native';
 import {
   Input,
@@ -11,6 +11,7 @@ import {
 
 export const Inputs = () => {
   const inputRef = useRef<TextInput>(null);
+  const [phone, setPhone] = useState('');
   return (
     <Spacer size="xl">
       <Input
@@ -35,7 +36,7 @@ export const Inputs = () => {
         placeholder="Placeholder"
         label="Label"
         hint="error message"
-        onClear={() => inputRef?.current?.clear()}
+        onClear={inputRef?.current?.clear}
         ref={inputRef}
       />
       <Input variant="password" label="Label" />
@@ -61,7 +62,7 @@ export const Inputs = () => {
       />
       <Input variant="text" label="I am LABEL" isAnimatedLabel />
       <Input variant="text" value="test" label="I am label" isAnimatedLabel />
-      <InputPhone value="78732847233" />
+      <InputPhone value={phone} onChangeText={setPhone} />
       <InputDate />
       <InputDate value={'140497'} />
       <InputDate isError value={'140497'} />
