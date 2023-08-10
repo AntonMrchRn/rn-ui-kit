@@ -19,8 +19,8 @@
 
 ## Типы
 
-```js
-type Variant = 'text' | 'message' | 'password' | 'textarea';
+```ts
+type Variant = 'text' | 'message' | 'password' | 'textarea' | 'number';
 ```
 
 ---

@@ -20,7 +20,7 @@ import { InputEyeIcon } from '../../icons/InputEyeIcon';
 import { useAnimatedLabel } from './useAnimatedLabel';
 import Animated from 'react-native-reanimated';
 
-type Variant = 'text' | 'message' | 'password' | 'textarea';
+type Variant = 'text' | 'message' | 'password' | 'textarea' | 'number';
 export type InputProps = TextInputProps & {
   /**
    * Тип компонента
@@ -89,6 +89,8 @@ export const Input: FC<InputProps> = forwardRef(
       onClear,
       iconLeft,
       iconLeftStyle,
+      keyboardType,
+      onChangeText,
       ...props
     },
     ref
@@ -210,6 +212,18 @@ export const Input: FC<InputProps> = forwardRef(
       return theme.text.neutral;
     };
 
+    const handleOnChangeText = (text: string) => {
+      if (onChangeText) {
+        if (variant === 'number' && text) {
+          const regExp = new RegExp(/^\d+$/);
+          const isNumber = regExp.test(text);
+          isNumber && onChangeText(text);
+        } else {
+          onChangeText(text);
+        }
+      }
+    };
+
     const { placeholder, ...inputProps } = props;
     const { animatedLabelStyle, animatedContainerStyle } = useAnimatedLabel(
       !!props?.value,
@@ -241,6 +255,8 @@ export const Input: FC<InputProps> = forwardRef(
             secureTextEntry={!!currentSecureTextEntry}
             multiline={variant === 'textarea' || multiline}
             placeholder={isAnimatedLabel ? undefined : placeholder}
+            keyboardType={variant === 'number' ? 'numeric' : keyboardType}
+            onChangeText={handleOnChangeText}
             {...inputProps}
           />
           {variant === 'text' && !!props.value?.length && (

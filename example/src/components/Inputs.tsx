@@ -12,6 +12,7 @@ import {
 export const Inputs = () => {
   const inputRef = useRef<TextInput>(null);
   const [phone, setPhone] = useState('');
+  const [number, setNumber] = useState('');
   return (
     <Spacer size="xl">
       <Input
@@ -31,6 +32,12 @@ export const Inputs = () => {
         hint="error message"
       />
       <Input variant="message" placeholder="Сообщение..." editable={false} />
+      <Input
+        variant="number"
+        placeholder="number"
+        value={number}
+        onChangeText={setNumber}
+      />
       <Input
         variant="text"
         placeholder="Placeholder"
