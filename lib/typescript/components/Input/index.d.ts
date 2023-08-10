@@ -1,6 +1,6 @@
 import { FC, ForwardedRef } from 'react';
 import { StyleProp, TextInputProps, TextInput, ViewStyle, TextStyle } from 'react-native';
-type Variant = 'text' | 'message' | 'password' | 'textarea';
+type Variant = 'text' | 'message' | 'password' | 'textarea' | 'number';
 export type InputProps = TextInputProps & {
     /**
      * Тип компонента
