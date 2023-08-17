@@ -50,6 +50,10 @@ export type InputPhoneProps = MaskInputProps & {
    * Логика нажатия на иконку крестика
    */
   onClear?: () => void;
+  /**
+   * Отображение иконки с флагом
+   */
+  withRuFlagIcon?: boolean;
   ref?: ForwardedRef<TextInput>;
 };
 
@@ -69,6 +73,7 @@ export const InputPhone: FC<InputPhoneProps> = forwardRef(
       onBlur,
       placeholder,
       mask,
+      withRuFlagIcon,
       onClear,
       ...props
     },
@@ -193,9 +198,11 @@ export const InputPhone: FC<InputPhoneProps> = forwardRef(
       <View>
         {label && <Text style={currentLabelStyle}>{label}</Text>}
         <View style={currentContainerStyle}>
-          <View style={styles.icon}>
-            <RuFlagIcon />
-          </View>
+          {withRuFlagIcon && (
+            <View style={styles.icon}>
+              <RuFlagIcon />
+            </View>
+          )}
           <Text style={styles.prefix}>+7</Text>
           <MaskInput
             placeholder={placeholder || '900 000-00-00'}
