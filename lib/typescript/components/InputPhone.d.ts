@@ -34,6 +34,10 @@ export type InputPhoneProps = MaskInputProps & {
      * Логика нажатия на иконку крестика
      */
     onClear?: () => void;
+    /**
+     * Отображение иконки с флагом
+     */
+    withRuFlagIcon?: boolean;
     ref?: ForwardedRef<TextInput>;
 };
 export declare const InputPhone: FC<InputPhoneProps>;
