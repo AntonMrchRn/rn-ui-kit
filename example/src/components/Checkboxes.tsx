@@ -1,13 +1,14 @@
 import React, { useState } from 'react';
-import { CheckBox, Spacer } from 'rn-ui-kit';
+import { CheckBox } from 'rn-ui-kit';
 import { LinkIcon } from '../../../src/icons/LinkIcon';
+import { View } from 'react-native';
 
 export const CheckBoxes = () => {
   const [isChecked, setIsChecked] = useState(true);
   const [isChecked2, setIsChecked2] = useState(false);
 
   return (
-    <Spacer size="s">
+    <View>
       <CheckBox
         checked={isChecked}
         onPress={() => setIsChecked(!isChecked)}
@@ -18,16 +19,10 @@ export const CheckBoxes = () => {
         onPress={() => setIsChecked2(!isChecked2)}
         disabled={false}
       />
-      <CheckBox
-        checked={true}
-        disabled={true}
-        icon={<LinkIcon size="M" color="#fff" />}
-      />
-      <CheckBox
-        checked={false}
-        disabled={true}
-        icon={<LinkIcon size="M" color="#fff" />}
-      />
-    </Spacer>
+      <CheckBox checked={true} disabled={true} />
+      <CheckBox checked={false} disabled={true} />
+      <CheckBox checked={true} disabled={false} />
+      <CheckBox checked={false} disabled={false} />
+    </View>
   );
 };
