@@ -2,7 +2,6 @@ import React, { FC, ReactElement } from 'react';
 import {
   StyleSheet,
   StyleProp,
-  Text,
   TextStyle,
   TouchableOpacityProps,
   ActivityIndicator,
@@ -11,6 +10,7 @@ import {
 
 import { useTheme } from '../theme/ThemeProvider';
 import { PlusIcon } from '../icons/PlusIcon';
+import { Text } from './Text';
 
 export type Sizes = 'M' | 'S';
 export type Variant =
@@ -65,27 +65,23 @@ export const Button: FC<ButtonProps> = ({
 
   const styles = StyleSheet.create({
     label: {
-      color: theme.background.main,
       marginLeft: icon || isPending ? 10 : 0,
-      fontFamily: 'Nunito Sans',
-      fontSize: size === 'S' ? 15 : 17,
-      fontWeight: '700',
-      lineHeight: size === 'S' ? 20 : 24,
     },
     button: {
       paddingVertical: 12,
-      paddingHorizontal: 16,
+      paddingHorizontal: 24,
       width: '100%',
-      borderRadius: 8,
+      borderRadius: 12,
       flexDirection: 'row',
       alignItems: 'center',
       justifyContent: 'center',
       alignSelf: 'flex-start',
+      minHeight: 48,
     },
     smallButton: {
-      paddingVertical: 12,
-      borderRadius: 8,
+      paddingVertical: 8,
       paddingHorizontal: 16,
+      borderRadius: 8,
       flexDirection: 'row',
       alignItems: 'center',
       justifyContent: 'center',
@@ -108,15 +104,15 @@ export const Button: FC<ButtonProps> = ({
     outlineAccent: {
       backgroundColor: 'white',
       borderWidth: 2,
-      paddingVertical: 10,
-      paddingHorizontal: 14,
+      paddingVertical: size === 'S' ? 6 : 10,
+      paddingHorizontal: size === 'S' ? 14 : 22,
       borderColor: theme.background.accent,
     },
     outlineDanger: {
       backgroundColor: 'white',
       borderWidth: 2,
-      paddingVertical: 10,
-      paddingHorizontal: 14,
+      paddingVertical: size === 'S' ? 6 : 10,
+      paddingHorizontal: size === 'S' ? 14 : 22,
       borderColor: theme.background.danger,
     },
     accentDisabled: {
@@ -231,7 +227,15 @@ export const Button: FC<ButtonProps> = ({
       activeOpacity={activeOpacity || 0.5}
     >
       {getIcon()}
-      {label && !isPending && <Text style={currentLabelStyle}>{label}</Text>}
+      {label && !isPending && (
+        <Text
+          variant={size === 'S' ? 'bodySBold' : 'bodyMBold'}
+          color={theme.background.main}
+          style={currentLabelStyle}
+        >
+          {label}
+        </Text>
+      )}
     </TouchableOpacity>
   );
 };
