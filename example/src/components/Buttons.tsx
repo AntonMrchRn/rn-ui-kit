@@ -6,7 +6,7 @@ export const Buttons = () => {
     <Spacer size="s">
       <Button variant="accent" label="Отправить" isPending />
       <Button variant="outlineAccent" label="Добавить" icon disabled />
-      <Button variant="danger" label="Отправка" />
+      <Button variant="danger" label="Да, удалить" />
       <Button variant="outlineDanger" label="Отправка" />
       <Button variant="outlineAccent" label="Отправка" disabled isPending />
       <Button variant="ghost" label="Отправка" icon disabled />
