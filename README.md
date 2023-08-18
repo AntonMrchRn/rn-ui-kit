@@ -21,7 +21,7 @@ yarn prepack
 
 # История изменений
 
-[`Посмотреть историю изменений`](docs/changes.md)
+[`Посмотреть историю изменений`](https://devgit.apteka-aprel.ru/mobile/rn-ui-kit/-/tags)
 
 # Установка
 
