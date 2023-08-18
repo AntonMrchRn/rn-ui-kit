@@ -123,14 +123,6 @@ export const SegmentedControl: React.FC<SegmentedControlProps> = ({
       marginHorizontal: 2,
       width: (width ? width - 8 : ScreenWidth - 35) / tabs?.length,
       backgroundColor: activeTabColor,
-      shadowColor: '#000',
-      shadowOpacity: 0.2,
-      shadowRadius: 3,
-      shadowOffset: {
-        width: 0,
-        height: 2,
-      },
-      elevation: 4,
       transform: [
         {
           translateX: translateXAnimation,
