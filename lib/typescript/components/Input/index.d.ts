@@ -35,7 +35,7 @@ export type InputProps = TextInputProps & {
      */
     isError?: boolean;
     /**
-     * Логика нажатия на иконку крестика, если variant === 'text'
+     * Логика нажатия на иконку крестика, если variant 'text' или 'number'
      */
     onClear?: () => void;
     /**

@@ -55,7 +55,7 @@ export type InputProps = TextInputProps & {
    */
   isError?: boolean;
   /**
-   * Логика нажатия на иконку крестика, если variant === 'text'
+   * Логика нажатия на иконку крестика, если variant 'text' или 'number'
    */
   onClear?: () => void;
   /**
@@ -259,7 +259,7 @@ export const Input: FC<InputProps> = forwardRef(
             onChangeText={handleOnChangeText}
             {...inputProps}
           />
-          {variant === 'text' && !!props.value?.length && (
+          {['text', 'number'].includes(variant) && !!props.value?.length && (
             <TouchableOpacity onPress={onClear}>
               <InputClearIcon />
             </TouchableOpacity>
