@@ -122,6 +122,7 @@ export const BottomSheetModal: FC<BottomSheetModalProps> = forwardRef(
         right: 0,
         top: 0,
         position: 'absolute',
+        zIndex: 100,
       },
       indicatorBottom: {
         height: 12,
