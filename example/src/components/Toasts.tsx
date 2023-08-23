@@ -10,16 +10,15 @@ export const Toasts = () => {
         onPress={() => {
           toast.show({
             type: 'error',
-            text: 'Какое-то описание, раскрывающее суть сообщения. Может быть в несколько строчек',
-            title: 'Заголовок желательно в одну строчку',
-            firstAction: {
-              text: 'Отменить',
-              onPress: () => {},
-            },
-            secondAction: {
-              text: 'Подтвердить',
-              onPress: () => {},
-            },
+            text: 'Сервис временно не доступен',
+            // firstAction: {
+            //   text: 'Отменить',
+            //   onPress: () => {},
+            // },
+            // secondAction: {
+            //   text: 'Подтвердить',
+            //   onPress: () => {},
+            // },
           });
         }}
       >

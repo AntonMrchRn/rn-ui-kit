@@ -66,9 +66,12 @@ export const Button: FC<ButtonProps> = ({
   const styles = StyleSheet.create({
     label: {
       marginLeft: icon || isPending ? 10 : 0,
+      lineHeight: 24,
+      fontFamily: 'Nunito Sans',
+      fontStyle: 'normal',
+      fontWeight: '700',
     },
     button: {
-      paddingVertical: 12,
       paddingHorizontal: 24,
       width: '100%',
       borderRadius: 12,
@@ -76,12 +79,12 @@ export const Button: FC<ButtonProps> = ({
       alignItems: 'center',
       justifyContent: 'center',
       alignSelf: 'flex-start',
-      minHeight: 48,
+      height: 48,
     },
     smallButton: {
       paddingVertical: 8,
       paddingHorizontal: 16,
-      borderRadius: 8,
+      borderRadius: 12,
       flexDirection: 'row',
       alignItems: 'center',
       justifyContent: 'center',
@@ -104,14 +107,12 @@ export const Button: FC<ButtonProps> = ({
     outlineAccent: {
       backgroundColor: 'white',
       borderWidth: 2,
-      paddingVertical: size === 'S' ? 6 : 10,
       paddingHorizontal: size === 'S' ? 14 : 22,
       borderColor: theme.background.accent,
     },
     outlineDanger: {
       backgroundColor: 'white',
       borderWidth: 2,
-      paddingVertical: size === 'S' ? 6 : 10,
       paddingHorizontal: size === 'S' ? 14 : 22,
       borderColor: theme.background.danger,
     },

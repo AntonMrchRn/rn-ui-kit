@@ -15,7 +15,7 @@ export const Inputs = () => {
   const [number, setNumber] = useState('');
   return (
     <Spacer size="xl">
-      <Input
+      {/* <Input
         variant="text"
         placeholder="Сообщение..."
         label="Label"
@@ -68,7 +68,7 @@ export const Inputs = () => {
         isAnimatedLabel
       />
       <Input variant="text" label="I am LABEL" isAnimatedLabel />
-      <Input variant="text" value="test" label="I am label" isAnimatedLabel />
+      <Input variant="text" value="test" label="I am label" isAnimatedLabel /> */}
       <InputPhone value={phone} onChangeText={setPhone} />
       <InputDate />
       <InputDate value={'140497'} />

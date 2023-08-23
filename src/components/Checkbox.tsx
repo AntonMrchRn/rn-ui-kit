@@ -33,6 +33,7 @@ export const CheckBox: FC<CheckboxProps> = ({
       borderRadius: 4,
       alignItems: 'center',
       justifyContent: 'center',
+      borderColor: 'tranpsarent',
     },
     uncheckedUndisabled: {
       borderWidth: 1.5,
