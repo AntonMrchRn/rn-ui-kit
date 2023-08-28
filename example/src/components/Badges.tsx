@@ -9,6 +9,7 @@ export const Badges = () => {
       <Badge variant="accent" icon label="Badge" />
       <Badge variant="danger" label="Badge" />
       <Badge variant="secondary" label="Badge" />
+
       <Badge variant="warning" label="Badge" />
       <Badge variant="success" label="Badge" />
       <Badge variant="basic" label="Badge" />

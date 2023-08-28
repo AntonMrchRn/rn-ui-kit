@@ -70,7 +70,7 @@ export const Badge: FC<BadgeProps> = ({
       lineHeight: 16,
     },
     badge: {
-      height: 28,
+      height: 24,
       borderRadius: 8,
       paddingHorizontal: 12,
       paddingVertical: 4,
@@ -121,6 +121,9 @@ export const Badge: FC<BadgeProps> = ({
     specialSecondary: {
       backgroundColor: theme.background.specialLight,
     },
+    iconWrapper: {
+      marginRight: 2,
+    },
   });
 
   const color = secondary
@@ -150,8 +153,10 @@ export const Badge: FC<BadgeProps> = ({
 
   return (
     <View style={currentBadgeStyle} {...props}>
-      <View style={iconStyle}>{getIcon()}</View>
-      <Text style={currentLabelStyle}>{label}</Text>
+      <View style={{ flexDirection: 'row', height: 16, alignItems: 'center' }}>
+        <View style={[iconStyle, icon && styles.iconWrapper]}>{getIcon()}</View>
+        <Text style={currentLabelStyle}>{label}</Text>
+      </View>
     </View>
   );
 };

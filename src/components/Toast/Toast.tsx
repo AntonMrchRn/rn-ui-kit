@@ -10,7 +10,7 @@ import {
   Platform,
 } from 'react-native';
 import { useTheme } from '../../theme/ThemeProvider';
-import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import { SafeAreaView } from 'react-native-safe-area-context';
 import Animated, {
   runOnJS,
   useAnimatedStyle,
@@ -109,7 +109,6 @@ export const Toast: FC<ToastProps> = ({
   swipeEnabled = true,
 }) => {
   const theme = useTheme();
-  const insets = useSafeAreaInsets();
   const animation = useSharedValue(-contentHeight);
   const closeTimeoutRef = useRef<NodeJS.Timeout | null>(null);
 
@@ -145,20 +144,23 @@ export const Toast: FC<ToastProps> = ({
       width: '100%',
       borderBottomLeftRadius: 24,
       borderBottomRightRadius: 24,
+      padding: 12,
     },
     title: {
+      display: 'flex',
       fontFamily: 'Nunito Sans',
       fontStyle: 'normal',
       fontWeight: '700',
-      fontSize: 15,
+      fontSize: 17,
       lineHeight: 20,
       color: theme.text.contrast,
     },
     text: {
+      display: 'flex',
       fontFamily: 'Nunito Sans',
       fontStyle: 'normal',
       fontWeight: '400',
-      fontSize: 13,
+      fontSize: 14,
       lineHeight: 16,
       color: theme.text.contrast,
       marginTop: 4,
@@ -167,7 +169,11 @@ export const Toast: FC<ToastProps> = ({
       flexDirection: 'row',
       justifyContent: 'space-between',
       alignItems: 'center',
-      marginTop: 16,
+      paddingTop: 16,
+    },
+    wrapperContent: {
+      justifyContent: 'flex-end',
+      marginTop: Platform.OS === 'android' ? 12 : 0,
     },
   });
 
@@ -236,26 +242,37 @@ export const Toast: FC<ToastProps> = ({
   return (
     <GestureDetector gesture={gesture}>
       <Animated.View style={[animatedStyles, currentContainerStyle]}>
-        <View style={{ height: insets.top + 20 }} />
-        {title && <Text style={currentTitleStyle}>{title}</Text>}
-        {text && <Text style={currentTextStyle}>{text}</Text>}
-        <View style={currentActionsContainerStyle}>
-          {firstAction ? (
-            <TouchableOpacity onPress={firstActionPress}>
-              <Text style={currentFirstActionStyle}>{firstAction.text}</Text>
-            </TouchableOpacity>
-          ) : (
-            <View />
-          )}
-          {secondAction ? (
-            <TouchableOpacity onPress={secondActionPress}>
-              <Text style={currentSecondActionStyle}>{secondAction.text}</Text>
-            </TouchableOpacity>
-          ) : (
-            <View />
-          )}
-        </View>
-        <View style={{ height: 20 }} />
+        <SafeAreaView edges={['top']}>
+          <View style={styles.wrapperContent}>
+            {title && <Text style={currentTitleStyle}>{title}</Text>}
+            {text && <Text style={currentTextStyle}>{text}</Text>}
+
+            {firstAction || secondAction ? (
+              <View style={currentActionsContainerStyle}>
+                {firstAction ? (
+                  <TouchableOpacity onPress={firstActionPress}>
+                    <Text style={currentFirstActionStyle}>
+                      {firstAction.text}
+                    </Text>
+                  </TouchableOpacity>
+                ) : (
+                  <View />
+                )}
+                {secondAction ? (
+                  <TouchableOpacity onPress={secondActionPress}>
+                    <Text style={currentSecondActionStyle}>
+                      {secondAction.text}
+                    </Text>
+                  </TouchableOpacity>
+                ) : (
+                  <View />
+                )}
+              </View>
+            ) : (
+              <></>
+            )}
+          </View>
+        </SafeAreaView>
       </Animated.View>
     </GestureDetector>
   );

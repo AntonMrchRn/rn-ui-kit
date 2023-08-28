@@ -10,7 +10,7 @@ export const Toasts = () => {
         onPress={() => {
           toast.show({
             type: 'error',
-            text: 'Сервис временно не доступен',
+            title: 'Сервис временно не доступен',
             // firstAction: {
             //   text: 'Отменить',
             //   onPress: () => {},
