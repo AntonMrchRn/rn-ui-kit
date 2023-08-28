@@ -19,6 +19,14 @@ export type InputProps = TextInputProps & {
      */
     labelStyle?: StyleProp<TextStyle>;
     /**
+     * Иконка слева от лейбла
+     */
+    labelIcon?: JSX.Element;
+    /**
+     * Логика нажатия на иконку лейбла
+     */
+    onLabelIconPress?: () => void;
+    /**
      * Отображение анимированного лейбла
      */
     isAnimatedLabel?: boolean;
@@ -46,6 +54,10 @@ export type InputProps = TextInputProps & {
      * Стиль контейнера иконки слева от инпута
      */
     iconLeftStyle?: StyleProp<ViewStyle>;
+    /**
+     * Отображение символа обязательности заполнения поля
+     */
+    isRequired?: boolean;
     ref?: ForwardedRef<TextInput>;
 };
 export declare const Input: FC<InputProps>;

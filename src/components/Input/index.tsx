@@ -39,6 +39,14 @@ export type InputProps = TextInputProps & {
    */
   labelStyle?: StyleProp<TextStyle>;
   /**
+   * Иконка слева от лейбла
+   */
+  labelIcon?: JSX.Element;
+  /**
+   * Логика нажатия на иконку лейбла
+   */
+  onLabelIconPress?: () => void;
+  /**
    * Отображение анимированного лейбла
    */
   isAnimatedLabel?: boolean;
@@ -66,6 +74,10 @@ export type InputProps = TextInputProps & {
    * Стиль контейнера иконки слева от инпута
    */
   iconLeftStyle?: StyleProp<ViewStyle>;
+  /**
+   * Отображение символа обязательности заполнения поля
+   */
+  isRequired?: boolean;
   ref?: ForwardedRef<TextInput>;
 };
 
@@ -80,6 +92,7 @@ export const Input: FC<InputProps> = forwardRef(
       placeholderTextColor,
       label,
       labelStyle,
+      labelIcon,
       isAnimatedLabel,
       hint,
       hintStyle,
@@ -89,8 +102,10 @@ export const Input: FC<InputProps> = forwardRef(
       onClear,
       iconLeft,
       iconLeftStyle,
+      isRequired,
       keyboardType,
       onChangeText,
+      onLabelIconPress,
       ...props
     },
     ref
@@ -149,7 +164,13 @@ export const Input: FC<InputProps> = forwardRef(
         fontSize: 13,
         lineHeight: 16,
         color: isError ? theme.text.danger : theme.text.neutral,
+      },
+      labelContainer: {
+        flexDirection: 'row',
         marginBottom: 4,
+      },
+      labelIcon: {
+        marginLeft: 5,
       },
       hint: {
         fontFamily: 'Nunito Sans',
@@ -167,6 +188,9 @@ export const Input: FC<InputProps> = forwardRef(
         marginRight: 8,
         alignItems: 'center',
         justifyContent: 'center',
+      },
+      requiredSymbol: {
+        color: theme.text.secondary,
       },
     });
 
@@ -235,7 +259,21 @@ export const Input: FC<InputProps> = forwardRef(
     return (
       <Animated.View style={isAnimatedLabel && animatedContainerStyle}>
         {label && !isAnimatedLabel && (
-          <Text style={currentLabelStyle}>{label}</Text>
+          <View style={styles.labelContainer}>
+            <Text style={currentLabelStyle}>
+              {label}
+              {isRequired && <Text style={styles.requiredSymbol}>{'*'}</Text>}
+            </Text>
+            {labelIcon && (
+              <TouchableOpacity
+                disabled={!onLabelIconPress}
+                style={styles.labelIcon}
+                onPress={onLabelIconPress}
+              >
+                {labelIcon}
+              </TouchableOpacity>
+            )}
+          </View>
         )}
         <View style={currentContainerStyle}>
           {iconLeft && <View style={currentIconLeftStyle}>{iconLeft}</View>}
@@ -244,6 +282,9 @@ export const Input: FC<InputProps> = forwardRef(
               style={[currentAnimatedLabelStyle, animatedLabelStyle]}
             >
               {label}
+              {isRequired && (
+                <Animated.Text style={styles.requiredSymbol}>*</Animated.Text>
+              )}
             </Animated.Text>
           )}
           <TextInput
