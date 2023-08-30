@@ -31,6 +31,10 @@ export type InputPhoneProps = MaskInputProps & {
      */
     isError?: boolean;
     /**
+     * Редактируемость компонента
+     */
+    disabled?: boolean;
+    /**
      * Логика нажатия на иконку крестика
      */
     onClear?: () => void;
