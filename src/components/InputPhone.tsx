@@ -47,6 +47,10 @@ export type InputPhoneProps = MaskInputProps & {
    */
   isError?: boolean;
   /**
+   * Редактируемость компонента
+   */
+  disabled?: boolean;
+  /**
    * Логика нажатия на иконку крестика
    */
   onClear?: () => void;
@@ -72,6 +76,7 @@ export const InputPhone: FC<InputPhoneProps> = forwardRef(
       onFocus,
       onBlur,
       placeholder,
+      disabled,
       mask,
       withRuFlagIcon,
       onClear,
@@ -85,7 +90,9 @@ export const InputPhone: FC<InputPhoneProps> = forwardRef(
 
     const styles = StyleSheet.create({
       initial: {
-        backgroundColor: isError
+        backgroundColor: disabled
+          ? theme.background.neutralDisableSecond
+          : isError
           ? theme.background.fieldDanger
           : theme.background.fieldMain,
         padding: 0,
@@ -96,7 +103,9 @@ export const InputPhone: FC<InputPhoneProps> = forwardRef(
         flexDirection: 'row',
         alignItems: 'center',
         borderWidth: 1,
-        borderColor: isError
+        borderColor: disabled
+          ? theme.background.neutralDisableSecond
+          : isError
           ? theme.background.fieldDanger
           : theme.background.fieldMain,
       },
@@ -107,7 +116,7 @@ export const InputPhone: FC<InputPhoneProps> = forwardRef(
         fontWeight: '400',
         fontSize: 17,
         lineHeight: 24,
-        color: theme.text.basic,
+        color: disabled ? theme.text.neutral : theme.text.basic,
         padding: 0,
       },
       focused: {
@@ -136,7 +145,7 @@ export const InputPhone: FC<InputPhoneProps> = forwardRef(
       },
       prefix: {
         color:
-          isFocused || value.length
+          (isFocused || value.length) && !disabled
             ? theme.text.basic
             : placeholderTextColor || theme.text.neutral,
         fontSize: 17,
@@ -210,6 +219,7 @@ export const InputPhone: FC<InputPhoneProps> = forwardRef(
             onFocus={handleFocus}
             style={currentInputStyle}
             onBlur={handleBlur}
+            editable={!disabled}
             maxLength={value.length < 2 ? 15 : 13}
             ref={ref}
             value={validatePhone(value)}
@@ -217,7 +227,7 @@ export const InputPhone: FC<InputPhoneProps> = forwardRef(
             keyboardType={'numeric' || props.keyboardType}
             {...props}
           />
-          {!!value.length && (
+          {!!value.length && !disabled && (
             <TouchableOpacity onPress={onClear}>
               <InputClearIcon />
             </TouchableOpacity>
