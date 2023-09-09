@@ -8,7 +8,7 @@ const MyInputDateMeta = {
   component: MyInputDate,
   decorators: [
     (Story) => (
-      <View style={{ justifyContent: 'center', flex: 1 }}>
+      <View style={{ alignSelf: 'center', justifyContent: 'center', flex: 1 }}>
         <Story />
       </View>
     ),
