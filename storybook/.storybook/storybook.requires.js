@@ -60,6 +60,7 @@ const getStories = () => {
     "./.storybook/stories/InputTime.stories.tsx": require("./stories/InputTime.stories.tsx"),
     "./.storybook/stories/Link.stories.tsx": require("./stories/Link.stories.tsx"),
     "./.storybook/stories/Modal.stories.tsx": require("./stories/Modal.stories.tsx"),
+    "./.storybook/stories/MyToast.stories.tsx": require("./stories/MyToast.stories.tsx"),
     "./.storybook/stories/RadioButton.stories.tsx": require("./stories/RadioButton.stories.tsx"),
     "./.storybook/stories/Swipeable.stories.tsx": require("./stories/Swipeable.stories.tsx"),
     "./.storybook/stories/Switch.stories.tsx": require("./stories/Switch.stories.tsx"),
