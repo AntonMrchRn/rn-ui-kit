@@ -1,10 +1,10 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import { View } from 'react-native';
 import { MyButton } from '../../src/components/MyButton';
 import { ButtonProps } from '../../../lib/typescript/components/Button';
 
 const MyButtonMeta = {
-  title: 'Buttons',
+  title: 'Button',
   component: MyButton,
   decorators: [
     (Story) => (

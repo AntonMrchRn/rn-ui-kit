@@ -4,7 +4,7 @@ import { MyBadge } from '../../src/components/MyBadge';
 import { BadgeProps } from '../../../lib/typescript/components/Badge';
 
 const MyBadgeMeta = {
-  title: 'Badges',
+  title: 'Badge',
   component: MyBadge,
   decorators: [
     (Story) => (
