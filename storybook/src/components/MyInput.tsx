@@ -1,9 +1,9 @@
 import React from 'react';
-import { Chips } from 'rn-ui-kit';
-import { ChipsProps } from '../../../lib/typescript/components/Chips';
+import { InputProps } from '../../../lib/typescript/components/Input/index';
+import { Input } from 'rn-ui-kit';
 import { useFonts } from 'expo-font';
 
-export const MyChips = (props: ChipsProps) => {
+export const MyInput = (props: InputProps) => {
   const [fontsLoaded] = useFonts({
     'Open Sans': require('../../assets/fonts/OpenSans.ttf'),
     'Nunito Sans': require('../../assets/fonts/NunitoSans.ttf'),
@@ -12,5 +12,5 @@ export const MyChips = (props: ChipsProps) => {
   if (!fontsLoaded) {
     return null;
   }
-  return <Chips {...props} />;
+  return <Input {...props} />;
 };
