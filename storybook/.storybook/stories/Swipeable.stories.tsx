@@ -1,6 +1,5 @@
 import React from 'react';
 import { View } from 'react-native';
-import { RadioButtonProps } from '../../../lib/typescript/components/RadioButton';
 import { MySwipeable } from '../../src/components/MySwipeable';
 import { SwipeableProps } from '../../../lib/typescript/components/Swipeable';
 
