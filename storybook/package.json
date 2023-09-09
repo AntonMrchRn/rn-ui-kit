@@ -5,7 +5,9 @@
   "scripts": {
     "start": "npx expo start",
     "android": "npx expo start --android",
-    "ios": "npx expo start --ios"
+    "ios": "npx expo start --ios",
+    "storybook-generate": "sb-rn-get-stories",
+    "storybook-watch": "sb-rn-watcher"
   },
   "dependencies": {
     "@gorhom/bottom-sheet": "^4.4.7",
@@ -21,13 +23,21 @@
     "react-native-mask-input": "^1.2.3",
     "react-native-modal": "^13.0.1",
     "react-native-reanimated": "2.14.4",
-    "react-native-safe-area-context": "4.5.0",
+    "react-native-safe-area-context": "^4.7.2",
     "react-native-svg": "13.4.0",
     "react-native-switch": "^1.5.1"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0",
     "@expo/webpack-config": "^18.0.1",
+    "@react-native-async-storage/async-storage": "^1.19.3",
+    "@react-native-community/datetimepicker": "^7.5.0",
+    "@react-native-community/slider": "^4.4.3",
+    "@storybook/addon-actions": "^6.5.16",
+    "@storybook/addon-controls": "^6.5.16",
+    "@storybook/addon-ondevice-actions": "^6.5.6",
+    "@storybook/addon-ondevice-controls": "^6.5.6",
+    "@storybook/react-native": "^6.5.6",
     "babel-loader": "^8.1.0",
     "babel-plugin-module-resolver": "^4.1.0"
   },

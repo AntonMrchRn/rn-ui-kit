@@ -9,8 +9,8 @@ const root = path.resolve(__dirname, '..');
 const modules = Object.keys({
   ...pak.peerDependencies,
 });
-
 const defaultConfig = getDefaultConfig(__dirname);
+defaultConfig.resolver.resolverMainFields.unshift('sbmodern');
 
 module.exports = {
   ...defaultConfig,
