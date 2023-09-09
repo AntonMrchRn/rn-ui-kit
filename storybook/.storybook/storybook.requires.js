@@ -52,6 +52,7 @@ const getStories = () => {
     "./.storybook/stories/Button.stories.tsx": require("./stories/Button.stories.tsx"),
     "./.storybook/stories/CheckBox.stories.tsx": require("./stories/CheckBox.stories.tsx"),
     "./.storybook/stories/RadioButton.stories.tsx": require("./stories/RadioButton.stories.tsx"),
+    "./.storybook/stories/Swipeable.stories.tsx": require("./stories/Swipeable.stories.tsx"),
     "./.storybook/stories/TabControl.stories.tsx": require("./stories/TabControl.stories.tsx"),
     "./.storybook/stories/Text.stories.tsx": require("./stories/Text.stories.tsx"),
   };
