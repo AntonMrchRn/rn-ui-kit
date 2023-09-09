@@ -49,6 +49,7 @@ const getStories = () => {
   return {
     "./.storybook/stories/Badge.stories.tsx": require("./stories/Badge.stories.tsx"),
     "./.storybook/stories/Banner.stories.tsx": require("./stories/Banner.stories.tsx"),
+    "./.storybook/stories/BottomSheet.stories.tsx": require("./stories/BottomSheet.stories.tsx"),
     "./.storybook/stories/Button.stories.tsx": require("./stories/Button.stories.tsx"),
     "./.storybook/stories/CheckBox.stories.tsx": require("./stories/CheckBox.stories.tsx"),
     "./.storybook/stories/Chips.stories.tsx": require("./stories/Chips.stories.tsx"),
@@ -58,6 +59,7 @@ const getStories = () => {
     "./.storybook/stories/InputPhone.stories.tsx": require("./stories/InputPhone.stories.tsx"),
     "./.storybook/stories/InputTime.stories.tsx": require("./stories/InputTime.stories.tsx"),
     "./.storybook/stories/Link.stories.tsx": require("./stories/Link.stories.tsx"),
+    "./.storybook/stories/Modal.stories.tsx": require("./stories/Modal.stories.tsx"),
     "./.storybook/stories/RadioButton.stories.tsx": require("./stories/RadioButton.stories.tsx"),
     "./.storybook/stories/Swipeable.stories.tsx": require("./stories/Swipeable.stories.tsx"),
     "./.storybook/stories/Switch.stories.tsx": require("./stories/Switch.stories.tsx"),
