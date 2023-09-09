@@ -66,6 +66,7 @@ const getStories = () => {
     "./.storybook/stories/TabControl.stories.tsx": require("./stories/TabControl.stories.tsx"),
     "./.storybook/stories/Text.stories.tsx": require("./stories/Text.stories.tsx"),
     "./.storybook/stories/Tips.stories.tsx": require("./stories/Tips.stories.tsx"),
+    "./.storybook/stories/Tooltip.stories.tsx": require("./stories/Tooltip.stories.tsx"),
   };
 };
 
