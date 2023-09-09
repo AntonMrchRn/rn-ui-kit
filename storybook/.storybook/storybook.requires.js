@@ -51,6 +51,7 @@ const getStories = () => {
     "./.storybook/stories/Banner.stories.tsx": require("./stories/Banner.stories.tsx"),
     "./.storybook/stories/Button.stories.tsx": require("./stories/Button.stories.tsx"),
     "./.storybook/stories/CheckBox.stories.tsx": require("./stories/CheckBox.stories.tsx"),
+    "./.storybook/stories/Chips.stories.tsx": require("./stories/Chips.stories.tsx"),
     "./.storybook/stories/Link.stories.tsx": require("./stories/Link.stories.tsx"),
     "./.storybook/stories/RadioButton.stories.tsx": require("./stories/RadioButton.stories.tsx"),
     "./.storybook/stories/Swipeable.stories.tsx": require("./stories/Swipeable.stories.tsx"),
