@@ -18,7 +18,6 @@ const MyInputTimeMeta = {
 export default MyInputTimeMeta;
 
 const basicProps: InputTimeProps = {
-  value: '',
   placeholder: '',
   isError: false,
 };

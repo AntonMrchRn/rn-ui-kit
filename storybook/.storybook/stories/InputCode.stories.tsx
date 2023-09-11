@@ -8,7 +8,9 @@ const MyInputCodeMeta = {
   component: MyInputCode,
   decorators: [
     (Story) => (
-      <View style={{ justifyContent: 'center', flex: 1 }}>
+      <View
+        style={{ justifyContent: 'center', flex: 1, paddingHorizontal: 20 }}
+      >
         <Story />
       </View>
     ),
@@ -18,7 +20,6 @@ const MyInputCodeMeta = {
 export default MyInputCodeMeta;
 
 const basicProps: InputCodeProps = {
-  value: '',
   hint: '',
 };
 export const Basic = {
