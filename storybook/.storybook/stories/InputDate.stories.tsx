@@ -18,7 +18,6 @@ const MyInputDateMeta = {
 export default MyInputDateMeta;
 
 const basicProps: InputDateProps = {
-  value: '',
   placeholder: '',
   isError: false,
 };

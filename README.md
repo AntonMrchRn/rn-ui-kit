@@ -141,6 +141,11 @@ return (
 
 [`<BottomSheetModal />`](docs/bottomSheetModal.md)
 
+# StoryBook
+
+Для использования storybook необходимо зайти в папку storybook, установить все зависимости через пакетный менеджер и запустить приложение через команды ios или android.
+Если есть необходимость доработать какие то story, лучше всего параллельно с приложением запустить в терминале скрипт storybook-watch, который будет следить за всеми вашими изменениями.
+
 ---
 
 Made with [create-react-native-library](https://github.com/callstack/react-native-builder-bob)

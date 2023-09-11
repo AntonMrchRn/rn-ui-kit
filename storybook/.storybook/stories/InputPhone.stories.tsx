@@ -10,7 +10,7 @@ const MyInputPhoneMeta = {
   component: MyInputPhone,
   decorators: [
     (Story) => (
-      <View style={{ justifyContent: 'center', flex: 1 }}>
+      <View style={{ justifyContent: 'center', flex: 1, marginHorizontal: 20 }}>
         <Story />
       </View>
     ),
@@ -19,8 +19,7 @@ const MyInputPhoneMeta = {
 
 export default MyInputPhoneMeta;
 
-const basicProps: InputPhoneProps = {
-  value: '',
+const basicProps: Omit<InputPhoneProps, 'value'> = {
   label: 'label',
   hint: 'hint',
   placeholder: '',

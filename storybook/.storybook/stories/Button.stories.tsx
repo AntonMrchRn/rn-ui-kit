@@ -8,7 +8,14 @@ const MyButtonMeta = {
   component: MyButton,
   decorators: [
     (Story) => (
-      <View style={{ alignItems: 'center', justifyContent: 'center', flex: 1 }}>
+      <View
+        style={{
+          alignItems: 'center',
+          justifyContent: 'center',
+          flex: 1,
+          paddingHorizontal: 20,
+        }}
+      >
         <Story />
       </View>
     ),
