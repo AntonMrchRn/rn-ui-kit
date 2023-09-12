@@ -1,0 +1,28 @@
+stages:
+  - storybook
+
+storybook:
+  stage: storybook
+  tags:
+    - sandbox
+  only:
+    - master
+  script:
+    - PATH_INSTALL=/opt/rn-ui-kit
+    - PATH_SERVICE=/etc/systemd/system
+    - echo $PATH_INSTALL
+    - rm -rf $PATH_INSTALL
+    - ln -s $(pwd) $PATH_INSTALL
+    - rm -rf $PATH_SERVICE/storybook-mobile.apteka-aprel.ru.service
+    - echo "$SERVICE" > $PATH_INSTALL/storybook-mobile.apteka-aprel.ru.service
+    - ln -s $PATH_INSTALL/storybook-mobile.apteka-aprel.ru.service $PATH_SERVICE/storybook-mobile.apteka-aprel.ru.service
+    - cd $PATH_INSTALL
+    - npm i
+    - cd $PATH_INSTALL/storybook
+    - nvm use v18.17.1
+    - npm i
+    - systemctl daemon-reload
+    - systemctl enable storybook-mobile.apteka-aprel.ru.service
+    - systemctl restart storybook-mobile.apteka-aprel.ru.service
+    - systemctl status storybook-mobile.apteka-aprel.ru.service
+
