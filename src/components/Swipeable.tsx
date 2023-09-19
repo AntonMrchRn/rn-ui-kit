@@ -122,6 +122,7 @@ export const Swipeable: FC<SwipeableProps> = ({
 }) => {
   const theme = useTheme();
   const ref = useRef<RNSwipeable>(null);
+  let actionName = useRef<'first' | 'second'>().current;
 
   useEffect(() => {
     if (previewActions) {
@@ -149,11 +150,11 @@ export const Swipeable: FC<SwipeableProps> = ({
 
   const onFirstAction = () => {
     ref.current?.close();
-    firstAction();
+    actionName = 'first';
   };
   const onSecondAction = () => {
     ref.current?.close();
-    secondAction();
+    actionName = 'second';
   };
 
   const styles = StyleSheet.create({
@@ -291,6 +292,16 @@ export const Swipeable: FC<SwipeableProps> = ({
       </View>
     );
   };
+
+  const onSwipeableClose = () => {
+    switch (actionName) {
+      case 'first':
+        return firstAction();
+      case 'second':
+        return secondAction();
+    }
+  };
+
   return (
     <>
       {canSwipe ? (
@@ -301,6 +312,7 @@ export const Swipeable: FC<SwipeableProps> = ({
           overshootLeft={false}
           overshootRight={false}
           rightThreshold={100}
+          onSwipeableClose={onSwipeableClose}
         >
           <Item />
         </RNSwipeable>
