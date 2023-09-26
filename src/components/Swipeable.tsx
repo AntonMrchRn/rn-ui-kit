@@ -287,7 +287,6 @@ export const Swipeable: FC<SwipeableProps> = ({
   const Item: FC = () => {
     return (
       <View style={currentContainerStyle}>
-        {label && <Text style={currentLabelStyle}>{label}</Text>}
         {label && labelPosition === 'top' && (
           <Text style={currentLabelStyle}>{label}</Text>
         )}
