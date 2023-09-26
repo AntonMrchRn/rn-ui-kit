@@ -83,6 +83,11 @@ export type SwipeableProps = {
      * @default true
      */
     canSwipe?: boolean;
+    /**
+     * Расположение лейбла. По умолчанию top
+     * @default top
+     */
+    labelPosition?: 'top' | 'bottom';
 };
 export declare const Swipeable: FC<SwipeableProps>;
 //# sourceMappingURL=Swipeable.d.ts.map
