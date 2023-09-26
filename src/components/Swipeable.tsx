@@ -97,6 +97,11 @@ export type SwipeableProps = {
    * @default true
    */
   canSwipe?: boolean;
+  /**
+   * Расположение лейбла. По умолчанию top
+   * @default top
+   */
+  labelPosition?: 'top' | 'bottom';
 };
 
 export const Swipeable: FC<SwipeableProps> = ({
@@ -119,6 +124,7 @@ export const Swipeable: FC<SwipeableProps> = ({
   itemContainerStyle,
   itemIconStyle,
   canSwipe = true,
+  labelPosition = 'top',
 }) => {
   const theme = useTheme();
   const ref = useRef<RNSwipeable>(null);
@@ -173,7 +179,7 @@ export const Swipeable: FC<SwipeableProps> = ({
       fontSize: 13,
       lineHeight: 16,
       color: isDelete ? theme.text.neutralDisable : theme.text.neutral,
-      marginBottom: 4,
+      marginBottom: labelPosition === 'top' ? 4 : 0,
     },
     title: {
       fontFamily: 'Nunito Sans',
@@ -192,6 +198,8 @@ export const Swipeable: FC<SwipeableProps> = ({
       marginTop: 10,
       flexDirection: 'row',
       gap: 12,
+      alignItems: 'center',
+      justifyContent: labelPosition === 'bottom' ? 'space-between' : undefined,
     },
     hidden: {
       flexDirection: 'row',
@@ -280,6 +288,9 @@ export const Swipeable: FC<SwipeableProps> = ({
     return (
       <View style={currentContainerStyle}>
         {label && <Text style={currentLabelStyle}>{label}</Text>}
+        {label && labelPosition === 'top' && (
+          <Text style={currentLabelStyle}>{label}</Text>
+        )}
         {title && <Text style={currentTitleStyle}>{title}</Text>}
         <View style={currentItemsContainerStyle}>
           {items.map((i, index) => (
@@ -288,6 +299,9 @@ export const Swipeable: FC<SwipeableProps> = ({
               <Text style={currentItemTextStyle}>{i?.text}</Text>
             </View>
           ))}
+          {label && labelPosition === 'bottom' && (
+            <Text style={currentLabelStyle}>{label}</Text>
+          )}
         </View>
       </View>
     );
