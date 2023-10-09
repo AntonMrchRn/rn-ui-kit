@@ -24,67 +24,62 @@ const MyButtonMeta = {
 
 export default MyButtonMeta;
 
-const accentProps: ButtonProps = {
-  label: 'accent',
-  variant: 'accent',
+const initProps: ButtonProps = {
   icon: false,
   isPending: false,
   size: 'M',
+  disabled: false,
+};
+
+const accentProps: ButtonProps = {
+  ...initProps,
+  label: 'accent',
+  variant: 'accent',
 };
 export const Accent = {
   args: accentProps,
 };
 
 const dangerProps: ButtonProps = {
+  ...initProps,
   label: 'danger',
   variant: 'danger',
-  icon: false,
-  isPending: false,
-  size: 'M',
 };
 export const Danger = {
   args: dangerProps,
 };
 
 const outlineAccentProps: ButtonProps = {
+  ...initProps,
   label: 'outlineAccent',
   variant: 'outlineAccent',
-  icon: false,
-  isPending: false,
-  size: 'M',
 };
 export const OutlineAccent = {
   args: outlineAccentProps,
 };
 
 const outlineDangerProps: ButtonProps = {
+  ...initProps,
   label: 'outlineDanger',
   variant: 'outlineDanger',
-  icon: false,
-  isPending: false,
-  size: 'M',
 };
 export const OutlineDanger = {
   args: outlineDangerProps,
 };
 
 const ghostProps: ButtonProps = {
+  ...initProps,
   label: 'ghost',
   variant: 'ghost',
-  icon: false,
-  isPending: false,
-  size: 'M',
 };
 export const Ghost = {
   args: ghostProps,
 };
 
 const dangerGhostProps: ButtonProps = {
+  ...initProps,
   label: 'dangerGhost',
   variant: 'dangerGhost',
-  icon: false,
-  isPending: false,
-  size: 'M',
 };
 export const DangerGhost = {
   args: dangerGhostProps,

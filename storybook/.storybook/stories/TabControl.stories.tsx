@@ -1,10 +1,7 @@
 import React from 'react';
 import { View } from 'react-native';
-import { MyRadioButton } from '../../src/components/MyRadioButton';
-import { RadioButtonProps } from '../../../lib/typescript/components/RadioButton';
 import { MyTabControl } from '../../src/components/MyTabControl';
 import { TabControlProps } from '../../../lib/typescript/components/TabControl';
-import { LinkIcon } from '../../../src/icons/LinkIcon';
 
 const MyTabControlMeta = {
   title: 'TabControl',

@@ -17,58 +17,56 @@ const MyBadgeMeta = {
 
 export default MyBadgeMeta;
 
-const basicProps: BadgeProps = {
-  label: 'basic',
-  variant: 'basic',
+const initProps: BadgeProps = {
   secondary: false,
   icon: false,
+};
+
+const basicProps: BadgeProps = {
+  ...initProps,
+  label: 'basic',
+  variant: 'basic',
 };
 export const Basic = { args: basicProps };
 
 const accentProps: BadgeProps = {
+  ...initProps,
   label: 'accent',
   variant: 'accent',
-  secondary: false,
-  icon: false,
 };
 export const Accent = { args: accentProps };
 
 const dangerProps: BadgeProps = {
+  ...initProps,
   label: 'danger',
   variant: 'danger',
-  secondary: false,
-  icon: false,
 };
 export const Danger = { args: dangerProps };
 
 const secondaryProps: BadgeProps = {
+  ...initProps,
   label: 'secondary',
   variant: 'secondary',
-  secondary: false,
-  icon: false,
 };
 export const Secondary = { args: secondaryProps };
 
 const warningProps: BadgeProps = {
+  ...initProps,
   label: 'warning',
   variant: 'warning',
-  secondary: false,
-  icon: false,
 };
 export const Warning = { args: warningProps };
 
 const successProps: BadgeProps = {
+  ...initProps,
   label: 'success',
   variant: 'success',
-  secondary: false,
-  icon: false,
 };
 export const Success = { args: successProps };
 
 const specialProps: BadgeProps = {
+  ...initProps,
   label: 'special',
   variant: 'special',
-  secondary: false,
-  icon: false,
 };
 export const Special = { args: specialProps };
