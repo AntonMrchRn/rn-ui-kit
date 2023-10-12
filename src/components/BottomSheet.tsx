@@ -173,6 +173,10 @@ export type BottomSheetProps = {
    * По умолчанию 'down'
    */
   swipeDirection?: Direction | Direction[];
+  /**
+   * Логика, выполняемая после скрытия компонента
+   */
+  onModalHide?: () => void;
 };
 
 export const BottomSheet: FC<BottomSheetProps> = ({
@@ -190,6 +194,7 @@ export const BottomSheet: FC<BottomSheetProps> = ({
   children,
   onSwipeComplete,
   swipeDirection = 'down',
+  onModalHide,
   ...props
 }) => {
   const theme = useTheme();
@@ -275,6 +280,7 @@ export const BottomSheet: FC<BottomSheetProps> = ({
       style={currentModalStyle}
       onSwipeComplete={onSwipeComplete}
       swipeDirection={swipeDirection}
+      onModalHide={onModalHide}
     >
       <View style={currentContainerStyle}>
         <View style={styles.line} />

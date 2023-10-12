@@ -95,6 +95,10 @@ export type BottomSheetProps = {
      * По умолчанию 'down'
      */
     swipeDirection?: Direction | Direction[];
+    /**
+     * Логика, выполняемая после скрытия компонента
+     */
+    onModalHide?: () => void;
 };
 export declare const BottomSheet: FC<BottomSheetProps>;
 export {};

@@ -25,6 +25,7 @@
 | `children`                | `JSX.Element или JSX.Element[]`                                                  | `false`      | Элемент или массив элементов, отображаемые в компоненте                         |
 | `onSwipeComplete`         | `(params: OnSwipeCompleteParams,gestureState: PanResponderGestureState) => void` | `false`      | Логика, выполняемая при завершении свайпа компонента                            |
 | `swipeDirection`          | `Direction или Direction[]`                                                      | `false`      | Направление свайпа компонента. По умолчанию 'down'                              |
+| `onModalHide`             | `() => void`                                                                     | `false`      | Логика, выполняемая после скрытия компонента'                                   |
 
 ## Типы
 
