@@ -7,7 +7,7 @@ export const Swipeables = () => {
       <Swipeable
         variant={'user'}
         previewActions
-        fistAction={() => {}}
+        firstAction={() => {}}
         secondAction={() => {}}
         items={[
           {
@@ -28,7 +28,7 @@ export const Swipeables = () => {
       <Swipeable
         variant={'user'}
         canSwipe={false}
-        fistAction={() => {}}
+        firstAction={() => {}}
         secondAction={() => {}}
         items={[
           {
