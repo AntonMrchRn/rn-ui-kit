@@ -11,17 +11,21 @@ export type SwipeableProps = {
      */
     items?: SwipeableItem[];
     /**
+     * Элемент для отображения в верхней части компонента
+     */
+    topItem?: JSX.Element;
+    /**
      * Один из вариантов отображения компонента
      */
     variant: Variant;
     /**
      * Логика нажатия первой скрытой кнопки в компоненте
      */
-    firstAction: () => void;
+    firstAction?: () => void;
     /**
      * Логика нажатия второй скрытой кнопки в компоненте
      */
-    secondAction: () => void;
+    secondAction?: () => void;
     /**
      * Стиль контейнера компонента
      */

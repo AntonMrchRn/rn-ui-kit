@@ -25,17 +25,21 @@ export type SwipeableProps = {
    */
   items?: SwipeableItem[];
   /**
+   * Элемент для отображения в верхней части компонента
+   */
+  topItem?: JSX.Element;
+  /**
    * Один из вариантов отображения компонента
    */
   variant: Variant;
   /**
    * Логика нажатия первой скрытой кнопки в компоненте
    */
-  firstAction: () => void;
+  firstAction?: () => void;
   /**
    * Логика нажатия второй скрытой кнопки в компоненте
    */
-  secondAction: () => void;
+  secondAction?: () => void;
   /**
    * Стиль контейнера компонента
    */
@@ -106,6 +110,7 @@ export type SwipeableProps = {
 
 export const Swipeable: FC<SwipeableProps> = ({
   items = [],
+  topItem,
   label,
   title,
   variant,
@@ -268,18 +273,22 @@ export const Swipeable: FC<SwipeableProps> = ({
   const renderRightActions: FC = () => {
     return (
       <View style={currentHiddenContainerStyle}>
-        <TouchableOpacity
-          style={firstActionStyleCompose}
-          onPress={onFirstAction}
-        >
-          <EditActionIcon />
-        </TouchableOpacity>
-        <TouchableOpacity
-          style={secondActionStyleCompose}
-          onPress={onSecondAction}
-        >
-          {isDelete ? <ReturnActionIcon /> : <DeleteActionIcon />}
-        </TouchableOpacity>
+        {firstAction && (
+          <TouchableOpacity
+            style={firstActionStyleCompose}
+            onPress={onFirstAction}
+          >
+            <EditActionIcon />
+          </TouchableOpacity>
+        )}
+        {secondAction && (
+          <TouchableOpacity
+            style={secondActionStyleCompose}
+            onPress={onSecondAction}
+          >
+            {isDelete ? <ReturnActionIcon /> : <DeleteActionIcon />}
+          </TouchableOpacity>
+        )}
       </View>
     );
   };
@@ -287,6 +296,7 @@ export const Swipeable: FC<SwipeableProps> = ({
   const Item: FC = () => {
     return (
       <View style={currentContainerStyle}>
+        {topItem && topItem}
         {label && labelPosition === 'top' && (
           <Text style={currentLabelStyle}>{label}</Text>
         )}
@@ -309,9 +319,15 @@ export const Swipeable: FC<SwipeableProps> = ({
   const onSwipeableClose = () => {
     switch (actionName) {
       case 'first':
-        return firstAction();
+        if (firstAction) {
+          return firstAction();
+        }
+        return () => null;
       case 'second':
-        return secondAction();
+        if (secondAction) {
+          return secondAction();
+        }
+        return () => null;
     }
   };
 
