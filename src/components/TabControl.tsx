@@ -59,7 +59,7 @@ export const TabControl: FC<TabControlProps> = ({
       paddingBottom: 8,
       backgroundColor: theme.background.main,
       flexDirection: 'row',
-      height: 36,
+      height: 32,
     },
     label: {
       fontFamily: 'Nunito Sans',
@@ -69,6 +69,7 @@ export const TabControl: FC<TabControlProps> = ({
     },
     activeText: {
       color: theme.background.accent,
+      fontWeight: '700',
     },
     activeBorder: {
       borderBottomWidth: 2,
