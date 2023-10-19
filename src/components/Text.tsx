@@ -78,18 +78,7 @@ export const typography = StyleSheet.create({
   },
 });
 
-export type Variant =
-  | 'title1'
-  | 'title2'
-  | 'title3'
-  | 'bodyMRegular'
-  | 'bodyMBold'
-  | 'bodySRegular'
-  | 'bodySBold'
-  | 'captionRegular'
-  | 'captionBold'
-  | 'tabBarLabel';
-
+export type Variant = keyof typeof typography;
 export type TextProps = RNTextProps & {
   /**
    * Должен быть указан один из дефолтных типов, описанных в компоненте. Стили можно перебить через проп style

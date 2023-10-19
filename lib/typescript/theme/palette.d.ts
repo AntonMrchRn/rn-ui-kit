@@ -3,6 +3,7 @@ export type Colors = {
         basic: string;
         neutral: string;
         neutralDisable: string;
+        neutralOptional: string;
         contrast: string;
         accent: string;
         secondary: string;
@@ -14,6 +15,7 @@ export type Colors = {
         basic: string;
         neutral: string;
         neutralDisable: string;
+        neutralOptional: string;
         contrast: string;
         accent: string;
         secondary: string;
@@ -25,6 +27,7 @@ export type Colors = {
         main: string;
         neutralDisable: string;
         neutralDisableSecond: string;
+        neutralOptional: string;
         accent: string;
         accentToast: string;
         accentDisable: string;
@@ -53,6 +56,7 @@ export type Colors = {
         secondary: string;
         disableDivider: string;
         neutral: string;
+        neutralOptional: string;
         success: string;
         successDisable: string;
         danger: string;
