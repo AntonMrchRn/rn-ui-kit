@@ -87,9 +87,9 @@ export const TabControl: FC<TabControlProps> = ({
       borderRadius: 8,
       paddingHorizontal: 8,
       paddingVertical: 4,
-      marginLeft: 10,
+      marginLeft: 8,
       justifyContent: 'center',
-      height: 26,
+      height: 24,
     },
     activeBadge: {
       backgroundColor: theme.background.fieldMain,
