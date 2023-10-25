@@ -57,13 +57,13 @@ export type Colors = {
         disableDivider: string;
         neutral: string;
         neutralOptional: string;
-        neutralLight: string;
         success: string;
         successDisable: string;
         danger: string;
         dangerDisable: string;
         warning: string;
         warningDisable: string;
+        neutralLight: string;
     };
 };
 export declare const colors: Colors;
