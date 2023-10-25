@@ -3,6 +3,7 @@ export type Colors = {
     basic: string;
     neutral: string;
     neutralDisable: string;
+    neutralOptional: string;
     contrast: string;
     accent: string;
     secondary: string;
@@ -14,6 +15,7 @@ export type Colors = {
     basic: string;
     neutral: string;
     neutralDisable: string;
+    neutralOptional: string;
     contrast: string;
     accent: string;
     secondary: string;
@@ -25,6 +27,7 @@ export type Colors = {
     main: string;
     neutralDisable: string;
     neutralDisableSecond: string;
+    neutralOptional: string;
     accent: string;
     accentToast: string;
     accentDisable: string;
@@ -54,13 +57,13 @@ export type Colors = {
     disableDivider: string;
     neutral: string;
     neutralOptional: string;
-    neutralLight: string;
     success: string;
     successDisable: string;
     danger: string;
     dangerDisable: string;
     warning: string;
     warningDisable: string;
+    neutralLight: string;
   };
 };
 
@@ -69,6 +72,7 @@ export const colors: Colors = {
     basic: '#1B1B1B',
     neutral: '#707070',
     neutralDisable: '#D5D5D6',
+    neutralOptional: '#B1B0B0',
     contrast: '#FFFFFF',
     accent: '#3F51B5',
     secondary: '#FF0089',
@@ -80,6 +84,7 @@ export const colors: Colors = {
     basic: '#1B1B1B',
     neutral: '#707070',
     neutralDisable: '#D5D5D6',
+    neutralOptional: '#B1B0B0',
     contrast: '#FFFFFF',
     accent: '#3F51B5',
     secondary: '#FF0089',
@@ -91,6 +96,7 @@ export const colors: Colors = {
     main: '#FFFFFF',
     neutralDisable: '#D5D5D6',
     neutralDisableSecond: '#F1F1F1',
+    neutralOptional: '#F9F9F9',
     accent: '#3F51B5',
     accentToast: '#6F7FD4',
     accentDisable: '#ACB8F8',
