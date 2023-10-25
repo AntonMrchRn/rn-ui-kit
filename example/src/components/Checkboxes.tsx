@@ -23,6 +23,13 @@ export const CheckBoxes = () => {
       <CheckBox checked={false} disabled={true} />
       <CheckBox checked={true} disabled={false} />
       <CheckBox checked={false} disabled={false} />
+      <CheckBox
+        checked={isChecked2}
+        onPress={() => setIsChecked2(!isChecked2)}
+        disabled={false}
+        isError={true}
+      />
+      <CheckBox checked={false} disabled={false} isError={true} />
     </View>
   );
 };

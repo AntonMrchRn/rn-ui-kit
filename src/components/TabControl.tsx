@@ -56,16 +56,17 @@ export const TabControl: FC<TabControlProps> = ({
 
   const styles = StyleSheet.create({
     wrapper: {
-      paddingBottom: 8,
       backgroundColor: theme.background.main,
       flexDirection: 'row',
-      height: 32,
+      height: 40,
+      marginBottom: 4,
     },
     label: {
       fontFamily: 'Nunito Sans',
       fontWeight: '400',
       color: theme.icons.neutral,
       fontSize: 17,
+      lineHeight: 24,
     },
     activeText: {
       color: theme.background.accent,
@@ -76,36 +77,44 @@ export const TabControl: FC<TabControlProps> = ({
       borderBottomColor: theme.background.accent,
     },
     icon: {
-      marginRight: 6,
+      marginRight: 8,
       top: 2,
     },
     ml16: {
       marginLeft: 16,
     },
-    badge: {
-      backgroundColor: theme.background.neutralDisableSecond,
-      borderRadius: 8,
-      paddingHorizontal: 8,
-      paddingVertical: 4,
-      marginLeft: 8,
-      justifyContent: 'center',
-      height: 24,
+    labelWrapper: {
+      paddingTop: 8,
+      flexDirection: 'row',
     },
-    activeBadge: {
-      backgroundColor: theme.background.fieldMain,
+    badge: {
+      backgroundColor: theme.background.danger,
+      borderRadius: 32,
+      paddingHorizontal: 4.5,
+      paddingVertical: 2,
+      justifyContent: 'center',
+      alignItems: 'center',
+      height: 16,
+      position: 'absolute',
+      right: -10,
+      top: 0,
     },
     badgeLabel: {
-      fontSize: 13,
+      fontSize: 11,
       fontFamily: 'Nunito Sans',
       fontWeight: '400',
-      color: theme.text.basic,
+      lineHeight: 14,
+      color: theme.text.contrast,
     },
-    activeBadgeLabel: {
-      color: theme.background.accent,
+    mr10: {
+      marginRight: 10,
     },
   });
 
-  const Item: FC<TabItem & { index: number }> = (item) => {
+  const Item: FC<TabItem & { index: number; isLast: boolean }> = (
+    item,
+    isLast
+  ) => {
     const isActive = currentTabId === item.id;
     const currentLabelStyle = StyleSheet.compose(styles.label, labelStyle);
     const currentIconContainerStyle = StyleSheet.compose(
@@ -118,11 +127,7 @@ export const TabControl: FC<TabControlProps> = ({
         if (typeof item.icon === 'boolean') {
           return (
             <TabControlIcon
-              color={
-                isActive
-                  ? theme.background.accent
-                  : theme.background.neutralDisable
-              }
+              color={isActive ? theme.background.accent : theme.icons.neutral}
             />
           );
         }
@@ -137,26 +142,25 @@ export const TabControl: FC<TabControlProps> = ({
           styles.wrapper,
           isActive && styles.activeBorder,
           item.index !== 0 && styles.ml16,
+          item?.count && isLast && styles.mr10,
         ]}
         onPress={() => {
           onChange && onChange(item);
         }}
       >
-        {item.icon && (
-          <View style={currentIconContainerStyle}>{getIcon()}</View>
-        )}
-        <Text style={[currentLabelStyle, isActive && styles.activeText]}>
-          {item?.label}
-        </Text>
-        {item.count ? (
-          <View style={[styles.badge, isActive && styles.activeBadge]}>
-            <Text
-              style={[styles.badgeLabel, isActive && styles.activeBadgeLabel]}
-            >
-              {item?.count}
-            </Text>
+        <View style={styles.labelWrapper}>
+          {item.icon && (
+            <View style={currentIconContainerStyle}>{getIcon()}</View>
+          )}
+          <Text style={[currentLabelStyle, isActive && styles.activeText]}>
+            {item?.label}
+          </Text>
+        </View>
+        {item?.count && (
+          <View style={styles.badge}>
+            <Text style={styles.badgeLabel}>{item?.count}</Text>
           </View>
-        ) : null}
+        )}
       </TouchableOpacity>
     );
   };
@@ -167,8 +171,13 @@ export const TabControl: FC<TabControlProps> = ({
         showsHorizontalScrollIndicator={false}
         {...(props as any)}
       >
-        {data.map((item, index) => (
-          <Item key={item.id} {...item} index={index} />
+        {data.map((item, index, array) => (
+          <Item
+            key={item.id}
+            {...item}
+            index={index}
+            isLast={index === array?.length - 1}
+          />
         ))}
       </ScrollView>
     </View>

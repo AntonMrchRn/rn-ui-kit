@@ -21,6 +21,10 @@ export type InputDateProps = MaskInputProps & {
    * Отображение компонента в стиле ошибки
    */
   isError?: boolean;
+  /**
+   * Неактивное состояние компонента
+   */
+  disabled?: boolean;
   ref?: ForwardedRef<TextInput>;
 };
 
@@ -29,6 +33,7 @@ export const InputDate: FC<InputDateProps> = forwardRef(
     {
       containerStyle,
       isError,
+      disabled,
       placeholderTextColor,
       style,
       onFocus,
@@ -47,6 +52,9 @@ export const InputDate: FC<InputDateProps> = forwardRef(
       if (isError) {
         return theme.text.danger;
       }
+      if (disabled) {
+        return theme.text.neutralDisable;
+      }
       if (props.value) {
         return theme.text.basic;
       }
@@ -55,17 +63,19 @@ export const InputDate: FC<InputDateProps> = forwardRef(
 
     const styles = StyleSheet.create({
       initial: {
-        backgroundColor: isError
+        backgroundColor: disabled
+          ? '#F9F9F9'
+          : isError
           ? theme.background.fieldDanger
           : theme.background.fieldMain,
         padding: 0,
         borderRadius: 8,
         height: 44,
         width: 150,
-        paddingHorizontal: 10,
+        paddingHorizontal: 16,
         flexDirection: 'row',
         alignItems: 'center',
-        borderWidth: 1,
+        borderWidth: disabled ? 0 : 1,
         borderColor: isError
           ? theme.background.fieldDanger
           : theme.background.fieldMain,
@@ -78,7 +88,7 @@ export const InputDate: FC<InputDateProps> = forwardRef(
         fontWeight: '400',
         fontSize: 17,
         lineHeight: 24,
-        color: isError ? theme.text.danger : theme.text.basic,
+        color: disabled ? theme.text.neutralDisable : theme.text.basic,
       },
       focused: {
         borderColor: isError ? theme.stroke.danger : theme.stroke.accent,
@@ -114,7 +124,13 @@ export const InputDate: FC<InputDateProps> = forwardRef(
         </View>
         <MaskInput
           placeholder={placeholder || 'ДД/ММ/ГГ'}
-          placeholderTextColor={placeholderTextColor || theme.text.neutral}
+          placeholderTextColor={
+            disabled
+              ? theme.text.neutralDisable
+              : placeholderTextColor || theme.text.neutral
+          }
+          editable={!disabled}
+          selectTextOnFocus={!disabled}
           onFocus={handleFocus}
           style={currentInputStyle}
           onBlur={handleBlur}

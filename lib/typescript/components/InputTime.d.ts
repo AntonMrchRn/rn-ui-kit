@@ -10,6 +10,7 @@ export type InputTimeProps = MaskInputProps & {
      * Отображение компонента в стиле ошибки
      */
     isError?: boolean;
+    disabled?: boolean;
     ref?: ForwardedRef<TextInput>;
 };
 export declare const InputTime: FC<InputTimeProps>;

@@ -70,48 +70,52 @@ export const Chips: FC<ChipsProps> = ({
       return theme.text.neutralDisable;
     }
     if (selected) {
-      return theme.text.contrast;
+      return theme.text.accent;
     }
-    return theme.text.basic;
+    return theme.text.neutral;
   };
   const getBorderColor = () => {
     if (disabled) {
-      return theme.stroke.disableDivider;
+      return theme.stroke.neutralLight;
     }
     if (selected) {
       return theme.background.accent;
     }
-    return theme.stroke.neutral;
+    return theme.stroke.neutralOptional;
   };
 
   const styles = StyleSheet.create({
     label: {
       color: getLabelColor(),
       fontStyle: 'normal',
-      fontWeight: '400',
-      lineHeight: 20,
+      fontWeight: '700',
+      fontSize: 13,
+      lineHeight: 16,
       fontFamily: 'Nunito Sans',
     },
     container: {
       alignSelf: 'flex-start',
-      borderRadius: 12,
+      borderRadius: 16,
       minWidth: 40,
+      minHeight: 32,
       flexDirection: 'row',
       alignItems: 'center',
       justifyContent: 'space-between',
       borderWidth: 1,
       borderColor: getBorderColor(),
       backgroundColor:
-        selected && !disabled ? theme.background.accent : 'transparent',
+        selected && !disabled ? theme.background.fieldMain : 'transparent',
     },
     icon: {
       marginRight: 4,
     },
     close: {
-      paddingRight: 8,
+      paddingRight: 12,
     },
     wrapper: {
-      padding: 8,
+      paddingVertical: 8,
+      paddingRight: close ? 8 : 12,
+      paddingLeft: 12,
       alignItems: 'center',
       flexDirection: 'row',
     },
@@ -122,7 +126,13 @@ export const Chips: FC<ChipsProps> = ({
       if (typeof icon === 'boolean') {
         return (
           <ChipsIcon
-            color={disabled || selected ? theme.text.neutralDisable : undefined}
+            color={
+              disabled
+                ? theme.icons.neutralDisable
+                : selected
+                ? theme.text.accent
+                : theme.text.neutral
+            }
           />
         );
       }
@@ -135,7 +145,11 @@ export const Chips: FC<ChipsProps> = ({
       if (typeof close === 'boolean') {
         return (
           <ChipsCloseIcon
-            color={disabled || selected ? theme.text.neutralDisable : undefined}
+            color={
+              disabled
+                ? theme.icons.neutralDisable
+                : theme.stroke.neutralOptional
+            }
           />
         );
       }

@@ -62,6 +62,7 @@ const getStories = () => {
     "./.storybook/stories/Modal.stories.tsx": require("./stories/Modal.stories.tsx"),
     "./.storybook/stories/MyToast.stories.tsx": require("./stories/MyToast.stories.tsx"),
     "./.storybook/stories/RadioButton.stories.tsx": require("./stories/RadioButton.stories.tsx"),
+    "./.storybook/stories/SegmentedControl.stories.tsx": require("./stories/SegmentedControl.stories.tsx"),
     "./.storybook/stories/Swipeable.stories.tsx": require("./stories/Swipeable.stories.tsx"),
     "./.storybook/stories/Switch.stories.tsx": require("./stories/Switch.stories.tsx"),
     "./.storybook/stories/TabControl.stories.tsx": require("./stories/TabControl.stories.tsx"),

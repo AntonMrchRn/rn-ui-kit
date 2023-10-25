@@ -10,6 +10,7 @@ export type InputDateProps = MaskInputProps & {
      * Отображение компонента в стиле ошибки
      */
     isError?: boolean;
+    disabled?: boolean;
     ref?: ForwardedRef<TextInput>;
 };
 export declare const InputDate: FC<InputDateProps>;

@@ -197,7 +197,7 @@ export const Modal: FC<ModalProps> = ({
     },
     headerIconContainer: {
       alignItems: 'center',
-      marginBottom: 12,
+      marginBottom: 16,
     },
     title: {
       fontFamily: 'Open Sans',
@@ -219,8 +219,18 @@ export const Modal: FC<ModalProps> = ({
       color: theme.text.neutral,
       marginTop: 8,
     },
+    containerCloseAbsolute: {
+      position: 'absolute',
+      right: 12,
+      top: 22,
+      zIndex: 100,
+    },
+    containerText: {
+      paddingHorizontal: 19,
+    },
   });
 
+  const hitSlop = { top: 24, left: 24, right: 24, bottom: 24 };
   const currentContainerStyle = StyleSheet.compose(
     styles.container,
     containerStyle
@@ -262,6 +272,8 @@ export const Modal: FC<ModalProps> = ({
     return null;
   };
 
+  const checkHeaderIcon = getHeaderIcon();
+
   return (
     <RNModal
       {...props}
@@ -270,13 +282,29 @@ export const Modal: FC<ModalProps> = ({
       style={modalStyle}
     >
       <View style={currentContainerStyle}>
-        <View style={currentCloseIconContainerStyle}>
-          <TouchableOpacity onPress={closeIconPress}>
+        <View
+          style={[
+            currentCloseIconContainerStyle,
+            !checkHeaderIcon && styles.containerCloseAbsolute,
+          ]}
+        >
+          <TouchableOpacity hitSlop={hitSlop} onPress={closeIconPress}>
             {getCloseIcon()}
           </TouchableOpacity>
         </View>
-        <View style={currentHeaderIconContainerStyle}>{getHeaderIcon()}</View>
-        {title && <Text style={currentTitleStyle}>{title}</Text>}
+        {checkHeaderIcon && (
+          <View style={currentHeaderIconContainerStyle}>{getHeaderIcon()}</View>
+        )}
+        {title && (
+          <Text
+            style={[
+              currentTitleStyle,
+              !checkHeaderIcon && styles.containerText,
+            ]}
+          >
+            {title}
+          </Text>
+        )}
         {description && (
           <Text style={currentDescriptionStyle}>{description}</Text>
         )}

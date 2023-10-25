@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleProp, ViewStyle, TextStyle } from 'react-native';
-type SegmentedControlProps = {
+export type SegmentedControlProps = {
     /**
      * Массив элементов в ячейках компонента
      */
@@ -48,5 +48,4 @@ type SegmentedControlProps = {
     onChange: (index: number) => void;
 };
 export declare const SegmentedControl: React.FC<SegmentedControlProps>;
-export {};
 //# sourceMappingURL=SegmentedControl.d.ts.map

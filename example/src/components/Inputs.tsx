@@ -1,5 +1,11 @@
-import React, { useRef, useState } from 'react';
-import { TextInput, View } from 'react-native';
+import React, {
+  // useRef,
+  useState,
+} from 'react';
+import {
+  //  TextInput,
+  View,
+} from 'react-native';
 import {
   Input,
   InputCode,
@@ -10,21 +16,22 @@ import {
 } from 'rn-ui-kit';
 
 export const Inputs = () => {
-  const inputRef = useRef<TextInput>(null);
+  // const inputRef = useRef<TextInput>(null);
   const [phone, setPhone] = useState('');
-  const [number, setNumber] = useState('');
+  // const [number, setNumber] = useState('');
   return (
     <Spacer size="xl">
-      {/* <Input
-        variant="text"
+      <Input
+        variant="textarea"
         placeholder="Сообщение..."
         label="Label"
+        value="23232"
         hint="hint"
         iconLeft={
-          <View style={{ height: 24, width: 24, backgroundColor: 'red' }} />
+          <View style={{ height: 24, width: 24, backgroundColor: 'gray' }} />
         }
       />
-      <Input
+      {/* <Input
         variant="message"
         placeholder="Сообщение..."
         isError
@@ -67,13 +74,13 @@ export const Inputs = () => {
         label="I am label"
         isAnimatedLabel
       />
-      <Input variant="text" label="I am LABEL" isAnimatedLabel />
-      <Input variant="text" value="test" label="I am label" isAnimatedLabel /> */}
+      <Input variant="text" label="I am LABEL" isAnimatedLabel /> */}
+      <Input variant="text" value="test" label="I am label" isAnimatedLabel />
       <InputPhone value={phone} onChangeText={setPhone} />
-      <InputDate />
+      <InputDate disabled />
       <InputDate value={'140497'} />
       <InputDate isError value={'140497'} />
-      <InputTime />
+      <InputTime disabled />
       <InputTime value={'1337'} />
       <InputTime isError value={'1337'} />
       <InputCode />

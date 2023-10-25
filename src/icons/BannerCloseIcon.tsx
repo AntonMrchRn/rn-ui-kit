@@ -2,7 +2,7 @@ import React, { FC } from 'react';
 import SVG, { Path } from 'react-native-svg';
 
 export const BannerCloseIcon: FC<{ color?: string }> = ({
-  color = '#707070',
+  color = '#B1B0B0',
 }) => {
   return (
     <SVG width="24" height="24" viewBox="0 0 24 24" fill="none">

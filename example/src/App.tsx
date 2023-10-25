@@ -49,7 +49,6 @@ export default function App() {
                     <TabControls />
                     <Swipeables />
                     <Cards />
-
                     <Badges />
                     <Toasts />
                     <View

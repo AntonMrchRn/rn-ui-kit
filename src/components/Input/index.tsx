@@ -133,9 +133,8 @@ export const Input: FC<InputProps> = forwardRef(
           : theme.background.fieldMain,
         borderRadius: variant === 'message' ? 12 : 8,
         height: height,
-        paddingVertical: isError || isFocused ? 9 : 10,
-        paddingLeft: isError || isFocused ? 15 : 16,
-        paddingRight: isError || isFocused ? 9 : 10,
+        paddingVertical: variant === 'textarea' ? 8 : 10,
+        paddingHorizontal: variant === 'textarea' ? 12 : 16,
         flexDirection: 'row',
         alignItems: 'center',
         borderWidth: isError || isFocused ? 1 : 0,
@@ -300,11 +299,13 @@ export const Input: FC<InputProps> = forwardRef(
             onChangeText={handleOnChangeText}
             {...inputProps}
           />
-          {['text', 'number'].includes(variant) && !!props.value?.length && (
-            <TouchableOpacity onPress={onClear}>
-              <InputClearIcon />
-            </TouchableOpacity>
-          )}
+          {['text', 'number'].includes(variant) &&
+            isFocused &&
+            !!props.value?.length && (
+              <TouchableOpacity onPress={onClear}>
+                <InputClearIcon />
+              </TouchableOpacity>
+            )}
           {variant === 'password' && (
             <TouchableOpacity onPress={handleEye}>
               {!isVisible ? <InputEyeIcon /> : <InputEyeCloseIcon />}

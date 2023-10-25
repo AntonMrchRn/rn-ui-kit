@@ -12,7 +12,7 @@ import {
   StyleSheet,
 } from 'react-native';
 
-type SegmentedControlProps = {
+export type SegmentedControlProps = {
   /**
    * Массив элементов в ячейках компонента
    */

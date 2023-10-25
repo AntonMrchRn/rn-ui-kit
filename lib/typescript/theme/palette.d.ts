@@ -53,6 +53,8 @@ export type Colors = {
         secondary: string;
         disableDivider: string;
         neutral: string;
+        neutralOptional: string;
+        neutralLight: string;
         success: string;
         successDisable: string;
         danger: string;

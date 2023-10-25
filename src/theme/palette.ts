@@ -53,6 +53,8 @@ export type Colors = {
     secondary: string;
     disableDivider: string;
     neutral: string;
+    neutralOptional: string;
+    neutralLight: string;
     success: string;
     successDisable: string;
     danger: string;
@@ -117,11 +119,13 @@ export const colors: Colors = {
     secondary: '#FF0089',
     disableDivider: '#D5D5D6',
     neutral: '#707070',
+    neutralOptional: '#B1B0B0',
     success: '#03A803',
     successDisable: '#BFEFBF',
     danger: '#EB142D',
     dangerDisable: '#FCD9DC',
     warning: '#FF820F',
     warningDisable: '#FFDEC0',
+    neutralLight: '#F1F1F1',
   },
 };

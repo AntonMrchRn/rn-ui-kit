@@ -19,6 +19,7 @@ export default MyRadioButtonMeta;
 
 const basicProps: RadioButtonProps = {
   checked: false,
+  isError: false,
 };
 export const Basic = {
   args: basicProps,

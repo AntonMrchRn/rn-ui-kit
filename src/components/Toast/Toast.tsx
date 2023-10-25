@@ -144,15 +144,15 @@ export const Toast: FC<ToastProps> = ({
       width: '100%',
       borderBottomLeftRadius: 24,
       borderBottomRightRadius: 24,
-      padding: 12,
+      paddingTop: 12,
     },
     title: {
       display: 'flex',
       fontFamily: 'Nunito Sans',
       fontStyle: 'normal',
       fontWeight: '700',
-      fontSize: 17,
-      lineHeight: 20,
+      fontSize: 15,
+      lineHeight: 24,
       color: theme.text.contrast,
     },
     text: {
@@ -160,20 +160,27 @@ export const Toast: FC<ToastProps> = ({
       fontFamily: 'Nunito Sans',
       fontStyle: 'normal',
       fontWeight: '400',
-      fontSize: 14,
+      fontSize: 13,
       lineHeight: 16,
       color: theme.text.contrast,
       marginTop: 4,
+    },
+    containerBtn: {
+      height: 44,
+      justifyContent: 'center',
     },
     actionsContainer: {
       flexDirection: 'row',
       justifyContent: 'space-between',
       alignItems: 'center',
-      paddingTop: 16,
     },
     wrapperContent: {
       justifyContent: 'flex-end',
       marginTop: Platform.OS === 'android' ? 12 : 0,
+    },
+    noBtnWrapper: {
+      height: 12,
+      paddingBottom: 12,
     },
   });
 
@@ -250,7 +257,10 @@ export const Toast: FC<ToastProps> = ({
             {firstAction || secondAction ? (
               <View style={currentActionsContainerStyle}>
                 {firstAction ? (
-                  <TouchableOpacity onPress={firstActionPress}>
+                  <TouchableOpacity
+                    style={styles.containerBtn}
+                    onPress={firstActionPress}
+                  >
                     <Text style={currentFirstActionStyle}>
                       {firstAction.text}
                     </Text>
@@ -259,7 +269,10 @@ export const Toast: FC<ToastProps> = ({
                   <View />
                 )}
                 {secondAction ? (
-                  <TouchableOpacity onPress={secondActionPress}>
+                  <TouchableOpacity
+                    style={styles.containerBtn}
+                    onPress={secondActionPress}
+                  >
                     <Text style={currentSecondActionStyle}>
                       {secondAction.text}
                     </Text>
@@ -269,7 +282,7 @@ export const Toast: FC<ToastProps> = ({
                 )}
               </View>
             ) : (
-              <></>
+              <View style={styles.noBtnWrapper} />
             )}
           </View>
         </SafeAreaView>
