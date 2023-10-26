@@ -301,7 +301,6 @@ export const BottomSheet: FC<BottomSheetProps> = ({
         >
           {getCloseIcon()}
         </TouchableOpacity>
-        {/* <View style={styles.indicatorBottom} /> */}
         {title && <Text style={currentTitleStyle}>{title}</Text>}
         {subtitle && <Text style={currentSubtitleStyle}>{subtitle}</Text>}
         {children}

@@ -66,7 +66,7 @@ export const RadioButton: FC<RadioButtonProps> = ({
     },
     uncheckedUndisabledError: {
       borderColor: theme.background.danger,
-      backgroundColor: '#FEEDEE',
+      backgroundColor: theme.background.fieldDanger,
     },
     checkedUndisabledError: {
       borderColor: theme.background.danger,

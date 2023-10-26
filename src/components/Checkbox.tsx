@@ -62,7 +62,7 @@ export const CheckBox: FC<CheckboxProps> = ({
     uncheckedUndisabledError: {
       borderWidth: 1.5,
       borderColor: theme.background.danger,
-      backgroundColor: '#FEEDEE',
+      backgroundColor: theme.background.fieldDanger,
     },
     checkedUndisabledError: {
       borderWidth: 0,

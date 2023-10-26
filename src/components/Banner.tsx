@@ -147,8 +147,7 @@ export const Banner: FC<BannerProps> = ({
 
   const styles = StyleSheet.create({
     container: {
-      paddingVertical: 16,
-      paddingHorizontal: 16,
+      padding: 16,
       flexDirection: 'row',
       backgroundColor: getBackgroundColor(),
       borderWidth: 1,
@@ -173,7 +172,7 @@ export const Banner: FC<BannerProps> = ({
       fontWeight: '700',
       fontSize: 15,
       lineHeight: 20,
-      color: '#707070',
+      color: theme.text.neutral,
     },
     body: {
       alignItems: 'flex-start',
@@ -187,7 +186,7 @@ export const Banner: FC<BannerProps> = ({
       fontWeight: '400',
       fontSize: 15,
       lineHeight: 20,
-      color: '#707070',
+      color: theme.text.neutral,
       marginTop: title ? 8 : 0,
       flexShrink: 1,
     },
@@ -198,7 +197,7 @@ export const Banner: FC<BannerProps> = ({
       paddingVertical: 7,
       paddingHorizontal: 16,
       borderWidth: 1.5,
-      borderColor: '#707070',
+      borderColor: theme.text.neutral,
       borderRadius: 8,
     },
     buttonText: {
@@ -207,7 +206,7 @@ export const Banner: FC<BannerProps> = ({
       fontWeight: '700',
       fontSize: 15,
       lineHeight: 20,
-      color: '#707070',
+      color: theme.text.neutral,
     },
   });
 

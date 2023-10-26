@@ -64,7 +64,7 @@ export const InputTime: FC<InputTimeProps> = forwardRef(
     const styles = StyleSheet.create({
       initial: {
         backgroundColor: disabled
-          ? '#F9F9F9'
+          ? theme.background.neutralOptional
           : isError
           ? theme.background.fieldDanger
           : theme.background.fieldMain,
