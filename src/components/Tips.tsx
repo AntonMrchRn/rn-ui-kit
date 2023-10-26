@@ -107,6 +107,9 @@ export const Tips: FC<TipsProps> = ({
     wrapIcon: {
       marginRight: 12,
     },
+    wrapRight: {
+      flex: 1,
+    },
   });
 
   const currentContainerStyle = StyleSheet.compose(
@@ -123,7 +126,7 @@ export const Tips: FC<TipsProps> = ({
   return (
     <View style={currentContainerStyle}>
       <View style={styles.wrapIcon}>{getIcon()}</View>
-      <View>
+      <View style={styles.wrapRight}>
         {text && <Text style={currentTextStyle}>{text}</Text>}
         {buttonText && (
           <TouchableOpacity style={currentButtonStyle} onPress={onButtonPress}>

@@ -156,7 +156,7 @@ export const TabControl: FC<TabControlProps> = ({
             {item?.label}
           </Text>
         </View>
-        {item?.count && (
+        {!!item?.count && (
           <View style={styles.badge}>
             <Text style={styles.badgeLabel}>{item?.count}</Text>
           </View>
