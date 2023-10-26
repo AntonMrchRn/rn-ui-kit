@@ -61,13 +61,19 @@ export const InputTime: FC<InputTimeProps> = forwardRef(
       return theme.text.neutral;
     };
 
+    const getBackgroundColor = () => {
+      if (disabled) {
+        return theme.background.neutralOptional;
+      }
+      if (isError) {
+        return theme.background.fieldDanger;
+      }
+      return theme.background.fieldMain;
+    };
+
     const styles = StyleSheet.create({
       initial: {
-        backgroundColor: disabled
-          ? theme.background.neutralOptional
-          : isError
-          ? theme.background.fieldDanger
-          : theme.background.fieldMain,
+        backgroundColor: getBackgroundColor(),
         padding: 0,
         borderRadius: 8,
         height: 44,
