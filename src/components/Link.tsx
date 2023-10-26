@@ -69,7 +69,13 @@ export const Link: FC<LinkProps> = ({
       flexDirection: 'row',
       alignItems: 'center',
     },
-    label: { color: theme.text.accent },
+    label: {
+      color: theme.text.accent,
+      fontFamily: 'Nunito Sans',
+      fontSize: size === 'L' ? 17 : 14,
+      fontWeight: '400',
+      lineHeight: 24,
+    },
     icon: { marginRight: 4 },
   });
   const containerStyle = StyleSheet.compose(styles.container, style);

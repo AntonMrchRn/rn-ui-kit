@@ -12,10 +12,15 @@ export type RadioButtonProps = TouchableOpacityProps & {
    * Показывает активен ли данный компонент
    */
   checked: boolean;
+  /**
+   * Показывает ошибку данного компонента
+   */
+  isError?: boolean;
 };
 
 export const RadioButton: FC<RadioButtonProps> = ({
   style,
+  isError,
   activeOpacity = 0.7,
   ...props
 }) => {
@@ -23,8 +28,8 @@ export const RadioButton: FC<RadioButtonProps> = ({
 
   const styles = StyleSheet.create({
     initial: {
-      height: 26,
-      width: 26,
+      height: 20,
+      width: 20,
       borderWidth: 1.5,
       borderColor: theme.background.accent,
       borderRadius: 50,
@@ -48,21 +53,32 @@ export const RadioButton: FC<RadioButtonProps> = ({
       backgroundColor: 'transparent',
     },
     radioActive: {
-      height: 13,
-      width: 13,
-      backgroundColor: theme.background.accent,
+      height: 10,
+      width: 10,
+      backgroundColor:
+        isError && props.checked && !props.disabled
+          ? theme.background.danger
+          : theme.background.accent,
       borderRadius: 50,
     },
     radioDisabled: {
       backgroundColor: theme.background.neutralDisable,
     },
+    uncheckedUndisabledError: {
+      borderColor: theme.background.danger,
+      backgroundColor: theme.background.fieldDanger,
+    },
+    checkedUndisabledError: {
+      borderColor: theme.background.danger,
+      backgroundColor: 'transparent',
+    },
   });
 
   const getStyle = () => {
-    if (!props.checked && !props.disabled) {
+    if (!props.checked && !props.disabled && !isError) {
       return styles.uncheckedUndisabled;
     }
-    if (props.checked && !props.disabled) {
+    if (props.checked && !props.disabled && !isError) {
       return styles.checkedUndisabled;
     }
     if (!props.checked && props.disabled) {
@@ -70,6 +86,12 @@ export const RadioButton: FC<RadioButtonProps> = ({
     }
     if (props.checked && props.disabled) {
       return styles.checkedDisabled;
+    }
+    if (isError && !props.checked && !props.disabled) {
+      return styles.uncheckedUndisabledError;
+    }
+    if (isError && props.checked && !props.disabled) {
+      return styles.checkedUndisabledError;
     }
     return;
   };

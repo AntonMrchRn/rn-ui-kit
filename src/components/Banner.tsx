@@ -129,7 +129,7 @@ export const Banner: FC<BannerProps> = ({
       case 'warning':
         return theme.stroke.warningDisable;
       default:
-        return theme.background.accentDisable;
+        return theme.background.accentMessage;
     }
   };
   const getBackgroundColor = () => {
@@ -144,23 +144,10 @@ export const Banner: FC<BannerProps> = ({
         return theme.background.fieldMain;
     }
   };
-  const getButtonBorderColor = () => {
-    switch (type) {
-      case 'error':
-        return theme.stroke.danger;
-      case 'success':
-        return theme.stroke.success;
-      case 'warning':
-        return theme.stroke.warning;
-      default:
-        return theme.stroke.accent;
-    }
-  };
 
   const styles = StyleSheet.create({
     container: {
-      paddingVertical: 12,
-      paddingHorizontal: 18,
+      padding: 16,
       flexDirection: 'row',
       backgroundColor: getBackgroundColor(),
       borderWidth: 1,
@@ -168,7 +155,7 @@ export const Banner: FC<BannerProps> = ({
       borderRadius: 12,
     },
     icon: {
-      marginRight: 10,
+      marginRight: 8,
     },
     header: {
       flexDirection: 'row',
@@ -176,13 +163,16 @@ export const Banner: FC<BannerProps> = ({
       alignItems: 'flex-start',
       width: '100%',
     },
+    containerTxt: {
+      maxWidth: '90%',
+    },
     title: {
       fontFamily: 'Nunito Sans',
       fontStyle: 'normal',
       fontWeight: '700',
       fontSize: 15,
       lineHeight: 20,
-      color: getTextColor(),
+      color: theme.text.neutral,
     },
     body: {
       alignItems: 'flex-start',
@@ -196,7 +186,7 @@ export const Banner: FC<BannerProps> = ({
       fontWeight: '400',
       fontSize: 15,
       lineHeight: 20,
-      color: getTextColor(),
+      color: theme.text.neutral,
       marginTop: title ? 8 : 0,
       flexShrink: 1,
     },
@@ -204,10 +194,10 @@ export const Banner: FC<BannerProps> = ({
       marginTop: 12,
       alignItems: 'center',
       justifyContent: 'center',
-      paddingVertical: 8,
+      paddingVertical: 7,
       paddingHorizontal: 16,
       borderWidth: 1.5,
-      borderColor: getButtonBorderColor(),
+      borderColor: theme.text.neutral,
       borderRadius: 8,
     },
     buttonText: {
@@ -216,7 +206,7 @@ export const Banner: FC<BannerProps> = ({
       fontWeight: '700',
       fontSize: 15,
       lineHeight: 20,
-      color: getTextColor(),
+      color: theme.text.neutral,
     },
   });
 
@@ -245,6 +235,7 @@ export const Banner: FC<BannerProps> = ({
     }
   };
 
+  const hitSlop = { top: 24, left: 24, right: 24, bottom: 24 };
   const currentContainerStyle = StyleSheet.compose(
     styles.container,
     containerStyle
@@ -264,12 +255,14 @@ export const Banner: FC<BannerProps> = ({
         <View style={currentIconStyle}>{getIcon()}</View>
         <View style={styles.wrapper}>
           <View style={styles.header}>
-            {title ? (
-              <Text style={currentTitleStyle}>{title}</Text>
-            ) : (
-              <Text style={[currentTextStyle]}>{text}</Text>
-            )}
-            <TouchableOpacity onPress={onClose}>
+            <View style={styles.containerTxt}>
+              {title ? (
+                <Text style={currentTitleStyle}>{title}</Text>
+              ) : (
+                <Text style={[currentTextStyle]}>{text}</Text>
+              )}
+            </View>
+            <TouchableOpacity hitSlop={hitSlop} onPress={onClose}>
               {closeIcon || <BannerCloseIcon />}
             </TouchableOpacity>
           </View>

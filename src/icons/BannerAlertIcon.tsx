@@ -3,7 +3,7 @@ import SVG, { Path } from 'react-native-svg';
 
 export const BannerAlertIcon: FC<{ color?: string; size?: number }> = ({
   color = '#EB142D',
-  size = 24,
+  size = 28,
 }) => {
   return (
     <SVG width={size} height={size} viewBox="0 0 24 24" fill="none">

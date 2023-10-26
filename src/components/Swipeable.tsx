@@ -200,7 +200,7 @@ export const Swipeable: FC<SwipeableProps> = ({
       backgroundColor: getContainerBackgroundColor(),
     },
     items: {
-      marginTop: 10,
+      marginTop: 8,
       flexDirection: 'row',
       gap: 12,
       alignItems: 'center',

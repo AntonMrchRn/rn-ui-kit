@@ -9,6 +9,10 @@ export type CheckboxProps = TouchableOpacityProps & {
      * Иконка компонента в активном состоянии
      */
     icon?: ReactElement;
+    /**
+     * Показывает ошибку данного компонента
+     */
+    isError?: boolean;
 };
 export declare const CheckBox: FC<CheckboxProps>;
 //# sourceMappingURL=Checkbox.d.ts.map

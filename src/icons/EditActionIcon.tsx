@@ -3,7 +3,7 @@ import SVG, { Path } from 'react-native-svg';
 
 export const EditActionIcon = () => {
   return (
-    <SVG width="19" height="19" viewBox="0 0 19 19" fill="none">
+    <SVG width="24" height="24" viewBox="0 0 24 24" fill="none">
       <Path
         fill-rule="evenodd"
         clip-rule="evenodd"

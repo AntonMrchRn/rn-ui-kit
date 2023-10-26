@@ -99,7 +99,7 @@ export const InputPhone: FC<InputPhoneProps> = forwardRef(
         borderRadius: 8,
         height: 44,
         paddingLeft: 16,
-        paddingRight: 10,
+        paddingRight: 16,
         flexDirection: 'row',
         alignItems: 'center',
         borderWidth: 1,
@@ -154,7 +154,7 @@ export const InputPhone: FC<InputPhoneProps> = forwardRef(
         fontStyle: 'normal',
         fontWeight: '400',
         paddingTop: Platform.OS === 'ios' ? 2 : 0,
-        paddingRight: 3,
+        paddingRight: 4,
       },
     });
 
@@ -227,7 +227,7 @@ export const InputPhone: FC<InputPhoneProps> = forwardRef(
             keyboardType={'numeric' || props.keyboardType}
             {...props}
           />
-          {!!value.length && !disabled && (
+          {isFocused && !!value.length && !disabled && (
             <TouchableOpacity onPress={onClear}>
               <InputClearIcon />
             </TouchableOpacity>

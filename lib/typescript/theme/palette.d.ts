@@ -63,6 +63,7 @@ export type Colors = {
         dangerDisable: string;
         warning: string;
         warningDisable: string;
+        neutralLight: string;
     };
 };
 export declare const colors: Colors;

@@ -34,7 +34,7 @@ export const InputCode: FC<InputCodeProps> = ({
   const styles = StyleSheet.create({
     cell: {
       width: 40,
-      height: 40,
+      height: 52,
       alignItems: 'center',
       justifyContent: 'center',
     },

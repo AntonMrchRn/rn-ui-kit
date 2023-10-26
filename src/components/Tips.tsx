@@ -1,6 +1,10 @@
 import React, { FC } from 'react';
 import { StyleProp, Text, TextStyle, View, ViewStyle } from 'react-native';
 import { StyleSheet, TouchableOpacity } from 'react-native';
+import { ErrorIcon } from '../icons/ErrorIcon';
+import { InfoIcon } from '../icons/InfoIcon';
+import { SuccessIcon } from '../icons/SuccessIcon';
+import { WarningIcon } from '../icons/WarningIcon';
 import { useTheme } from '../theme/ThemeProvider';
 
 type Types = 'error' | 'success' | 'warning' | 'info';
@@ -51,64 +55,28 @@ export const Tips: FC<TipsProps> = ({
 }) => {
   const theme = useTheme();
 
-  const getBorderColor = () => {
+  const getIcon = () => {
     switch (type) {
       case 'error':
-        return theme.stroke.dangerDisable;
+        return <ErrorIcon />;
       case 'success':
-        return theme.stroke.successDisable;
+        return <SuccessIcon />;
       case 'warning':
-        return theme.stroke.warningDisable;
+        return <WarningIcon />;
       default:
-        return theme.background.accentDisable;
-    }
-  };
-  const getBackgroundColor = () => {
-    switch (type) {
-      case 'error':
-        return theme.background.fieldDanger;
-      case 'success':
-        return theme.background.fieldSuccess;
-      case 'warning':
-        return theme.background.fieldWarning;
-      default:
-        return theme.background.fieldMain;
-    }
-  };
-  const getTextColor = () => {
-    switch (type) {
-      case 'error':
-        return theme.text.danger;
-      case 'success':
-        return theme.text.success;
-      case 'warning':
-        return theme.text.warning;
-      default:
-        return theme.text.accent;
-    }
-  };
-  const getButtonBorderColor = () => {
-    switch (type) {
-      case 'error':
-        return theme.stroke.danger;
-      case 'success':
-        return theme.stroke.success;
-      case 'warning':
-        return theme.stroke.warning;
-      default:
-        return theme.stroke.accent;
+        return <InfoIcon />;
     }
   };
 
   const styles = StyleSheet.create({
     container: {
       paddingHorizontal: 16,
-      paddingVertical: 12,
-      backgroundColor: getBackgroundColor(),
-      borderWidth: 1,
-      borderColor: getBorderColor(),
+      paddingTop: 12,
+      backgroundColor: theme.stroke.neutralLight,
       borderRadius: 12,
       alignItems: 'flex-start',
+      flexDirection: 'row',
+      paddingBottom: buttonText ? 16 : 12,
     },
     text: {
       fontFamily: 'Nunito Sans',
@@ -116,16 +84,16 @@ export const Tips: FC<TipsProps> = ({
       fontWeight: '400',
       fontSize: 15,
       lineHeight: 20,
-      color: getTextColor(),
+      color: theme.stroke.neutral,
     },
     button: {
       marginTop: 12,
       alignItems: 'center',
       justifyContent: 'center',
-      paddingVertical: 8,
+      paddingVertical: 7,
       paddingHorizontal: 16,
       borderWidth: 1.5,
-      borderColor: getButtonBorderColor(),
+      borderColor: theme.stroke.neutral,
       borderRadius: 8,
     },
     buttonText: {
@@ -134,7 +102,10 @@ export const Tips: FC<TipsProps> = ({
       fontWeight: '700',
       fontSize: 15,
       lineHeight: 20,
-      color: getTextColor(),
+      color: theme.stroke.neutral,
+    },
+    wrapIcon: {
+      marginRight: 12,
     },
   });
 
@@ -151,12 +122,15 @@ export const Tips: FC<TipsProps> = ({
 
   return (
     <View style={currentContainerStyle}>
-      {text && <Text style={currentTextStyle}>{text}</Text>}
-      {buttonText && (
-        <TouchableOpacity style={currentButtonStyle} onPress={onButtonPress}>
-          <Text style={currentButtonTextStyle}>{buttonText}</Text>
-        </TouchableOpacity>
-      )}
+      <View style={styles.wrapIcon}>{getIcon()}</View>
+      <View>
+        {text && <Text style={currentTextStyle}>{text}</Text>}
+        {buttonText && (
+          <TouchableOpacity style={currentButtonStyle} onPress={onButtonPress}>
+            <Text style={currentButtonTextStyle}>{buttonText}</Text>
+          </TouchableOpacity>
+        )}
+      </View>
     </View>
   );
 };

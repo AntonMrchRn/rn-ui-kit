@@ -65,8 +65,8 @@ export const Button: FC<ButtonProps> = ({
 
   const styles = StyleSheet.create({
     label: {
-      marginLeft: icon || isPending ? 10 : 0,
-      lineHeight: 24,
+      marginLeft: icon || isPending ? 8 : 0,
+      lineHeight: size === 'S' ? 20 : 24,
       fontFamily: 'Nunito Sans',
       fontStyle: 'normal',
       fontWeight: '700',
@@ -92,29 +92,47 @@ export const Button: FC<ButtonProps> = ({
     },
     accent: {
       backgroundColor: theme.background.accent,
+      height: size === 'S' ? 36 : 48,
+      fontFamily: 'Nunito Sans',
+      borderRadius: size === 'S' ? 8 : 12,
     },
     danger: {
       backgroundColor: theme.background.danger,
+      fontFamily: 'Nunito Sans',
+      lineHeight: size === 'S' ? 20 : 24,
+      borderRadius: size === 'S' ? 8 : 12,
     },
     ghost: {
       borderWidth: 0,
       backgroundColor: 'white',
+      fontFamily: 'Nunito Sans',
+      lineHeight: size === 'S' ? 20 : 24,
+      paddingHorizontal: size === 'S' ? 0 : 24,
+      height: size === 'S' ? 36 : 40,
     },
     dangerGhost: {
       borderWidth: 0,
       backgroundColor: 'white',
+      fontFamily: 'Nunito Sans',
+      lineHeight: size === 'S' ? 20 : 24,
+      paddingHorizontal: size === 'S' ? 0 : 24,
+      height: size === 'S' ? 36 : 40,
     },
     outlineAccent: {
       backgroundColor: 'white',
       borderWidth: 2,
-      paddingHorizontal: size === 'S' ? 14 : 22,
+      paddingHorizontal: size === 'S' ? 14 : 24,
       borderColor: theme.background.accent,
+      height: size === 'S' ? 36 : 44,
+      borderRadius: size === 'S' ? 16 : 14,
     },
     outlineDanger: {
       backgroundColor: 'white',
       borderWidth: 2,
-      paddingHorizontal: size === 'S' ? 14 : 22,
+      paddingHorizontal: size === 'S' ? 14 : 24,
       borderColor: theme.background.danger,
+      height: size === 'S' ? 36 : 44,
+      borderRadius: size === 'S' ? 16 : 14,
     },
     accentDisabled: {
       backgroundColor: theme.background.accentDisable,
@@ -200,7 +218,7 @@ export const Button: FC<ButtonProps> = ({
                 ? stylesLabel[`${variant}Disabled`].color
                 : stylesLabel[variant].color
             }
-            size={size === 'S' ? 15 : 18}
+            size={size === 'S' ? 20 : 24}
           />
         );
       }

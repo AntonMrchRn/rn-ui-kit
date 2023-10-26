@@ -21,6 +21,10 @@ export type InputTimeProps = MaskInputProps & {
    * Отображение компонента в стиле ошибки
    */
   isError?: boolean;
+  /**
+   * Неактивное состояние компонента
+   */
+  disabled?: boolean;
   ref?: ForwardedRef<TextInput>;
 };
 
@@ -29,6 +33,7 @@ export const InputTime: FC<InputTimeProps> = forwardRef(
     {
       containerStyle,
       isError,
+      disabled,
       placeholderTextColor,
       style,
       onFocus,
@@ -47,25 +52,36 @@ export const InputTime: FC<InputTimeProps> = forwardRef(
       if (isError) {
         return theme.text.danger;
       }
+      if (disabled) {
+        return theme.text.neutralDisable;
+      }
       if (props.value) {
         return theme.text.basic;
       }
       return theme.text.neutral;
     };
 
+    const getBackgroundColor = () => {
+      if (disabled) {
+        return theme.background.neutralOptional;
+      }
+      if (isError) {
+        return theme.background.fieldDanger;
+      }
+      return theme.background.fieldMain;
+    };
+
     const styles = StyleSheet.create({
       initial: {
-        backgroundColor: isError
-          ? theme.background.fieldDanger
-          : theme.background.fieldMain,
+        backgroundColor: getBackgroundColor(),
         padding: 0,
         borderRadius: 8,
         height: 44,
         width: 150,
-        paddingHorizontal: 10,
+        paddingHorizontal: 16,
         flexDirection: 'row',
         alignItems: 'center',
-        borderWidth: 1,
+        borderWidth: disabled ? 0 : 1,
         borderColor: isError
           ? theme.background.fieldDanger
           : theme.background.fieldMain,
@@ -78,7 +94,7 @@ export const InputTime: FC<InputTimeProps> = forwardRef(
         fontWeight: '400',
         fontSize: 17,
         lineHeight: 24,
-        color: isError ? theme.text.danger : theme.text.basic,
+        color: disabled ? theme.text.neutralDisable : theme.text.basic,
       },
       focused: {
         borderColor: isError ? theme.stroke.danger : theme.stroke.accent,
@@ -114,7 +130,13 @@ export const InputTime: FC<InputTimeProps> = forwardRef(
         </View>
         <MaskInput
           placeholder={placeholder || '00:00'}
-          placeholderTextColor={placeholderTextColor || theme.text.neutral}
+          editable={!disabled}
+          selectTextOnFocus={!disabled}
+          placeholderTextColor={
+            disabled
+              ? theme.text.neutralDisable
+              : placeholderTextColor || theme.text.neutral
+          }
           onFocus={handleFocus}
           style={currentInputStyle}
           onBlur={handleBlur}

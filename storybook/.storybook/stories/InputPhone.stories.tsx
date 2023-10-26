@@ -24,6 +24,7 @@ const basicProps: Omit<InputPhoneProps, 'value'> = {
   hint: 'hint',
   placeholder: '',
   isError: false,
+  withRuFlagIcon: false,
 };
 export const Basic = {
   args: basicProps,

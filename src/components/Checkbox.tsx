@@ -16,10 +16,15 @@ export type CheckboxProps = TouchableOpacityProps & {
    * Иконка компонента в активном состоянии
    */
   icon?: ReactElement;
+  /**
+   * Показывает ошибку данного компонента
+   */
+  isError?: boolean;
 };
 
 export const CheckBox: FC<CheckboxProps> = ({
   icon,
+  isError,
   style,
   activeOpacity = 0.7,
   ...props
@@ -54,13 +59,22 @@ export const CheckBox: FC<CheckboxProps> = ({
       borderColor: theme.background.neutralDisable,
       backgroundColor: theme.background.neutralDisable,
     },
+    uncheckedUndisabledError: {
+      borderWidth: 1.5,
+      borderColor: theme.background.danger,
+      backgroundColor: theme.background.fieldDanger,
+    },
+    checkedUndisabledError: {
+      borderWidth: 0,
+      backgroundColor: theme.background.danger,
+    },
   });
 
   const getStyle = () => {
-    if (!props.checked && !props.disabled) {
+    if (!props.checked && !props.disabled && !isError) {
       return stylesCheckBox.uncheckedUndisabled;
     }
-    if (props.checked && !props.disabled) {
+    if (props.checked && !props.disabled && !isError) {
       return stylesCheckBox.checkedUndisabled;
     }
     if (!props.checked && props.disabled) {
@@ -68,6 +82,12 @@ export const CheckBox: FC<CheckboxProps> = ({
     }
     if (props.checked && props.disabled) {
       return stylesCheckBox.checkedDisabled;
+    }
+    if (isError && !props.checked && !props.disabled) {
+      return stylesCheckBox.uncheckedUndisabledError;
+    }
+    if (isError && props.checked && !props.disabled) {
+      return stylesCheckBox.checkedUndisabledError;
     }
     return;
   };

@@ -17,6 +17,16 @@ export const RadioButtons = () => {
       />
       <RadioButton checked={true} disabled={true} />
       <RadioButton checked={false} disabled={true} />
+      <RadioButton
+        checked={isChecked}
+        onPress={() => setIsChecked(!isChecked)}
+        isError={true}
+      />
+      <RadioButton
+        checked={isChecked2}
+        onPress={() => setIsChecked2(!isChecked2)}
+        isError={true}
+      />
     </Spacer>
   );
 };

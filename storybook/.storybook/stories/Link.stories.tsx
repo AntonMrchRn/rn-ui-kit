@@ -21,6 +21,7 @@ const basicProps: LinkProps = {
   url: 'https://www.google.ru/?hl=ru',
   label: 'Link to Google',
   size: 'M',
+  icon: true,
 };
 export const Basic = {
   args: basicProps,

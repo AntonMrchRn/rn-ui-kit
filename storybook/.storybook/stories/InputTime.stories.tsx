@@ -20,6 +20,7 @@ export default MyInputTimeMeta;
 const basicProps: InputTimeProps = {
   placeholder: '',
   isError: false,
+  disabled: false,
 };
 export const Basic = {
   args: basicProps,

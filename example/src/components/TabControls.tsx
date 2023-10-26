@@ -6,8 +6,8 @@ export const TabControls = () => {
   const list = [
     {
       id: 1,
-      label: 'test',
-      count: 3,
+      label: 'Selected tab',
+      count: 999,
       icon: true,
     },
     {

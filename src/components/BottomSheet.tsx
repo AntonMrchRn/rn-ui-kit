@@ -209,11 +209,18 @@ export const BottomSheet: FC<BottomSheetProps> = ({
       borderTopLeftRadius: 24,
     },
     closeIconContainer: {
-      alignItems: 'flex-end',
+      right: 20,
+      top: 17,
+      position: 'absolute',
+      zIndex: 100,
     },
     headerIconContainer: {
       alignItems: 'center',
       marginBottom: 12,
+    },
+    indicatorBottom: {
+      height: 12,
+      zIndex: -1,
     },
     title: {
       fontFamily: 'Open Sans',
@@ -233,6 +240,7 @@ export const BottomSheet: FC<BottomSheetProps> = ({
       textAlign: 'center',
       color: theme.text.neutral,
       marginTop: 4,
+      marginBottom: 8,
     },
     modal: {
       justifyContent: 'flex-end',
@@ -244,9 +252,11 @@ export const BottomSheet: FC<BottomSheetProps> = ({
       width: 36,
       height: 4,
       alignSelf: 'center',
+      marginBottom: 12,
     },
   });
 
+  const hitSlop = { top: 24, left: 24, right: 24, bottom: 24 };
   const currentContainerStyle = StyleSheet.compose(
     styles.container,
     containerStyle
@@ -284,11 +294,13 @@ export const BottomSheet: FC<BottomSheetProps> = ({
     >
       <View style={currentContainerStyle}>
         <View style={styles.line} />
-        <View style={currentCloseIconContainerStyle}>
-          <TouchableOpacity onPress={closeIconPress}>
-            {getCloseIcon()}
-          </TouchableOpacity>
-        </View>
+        <TouchableOpacity
+          style={currentCloseIconContainerStyle}
+          hitSlop={hitSlop}
+          onPress={closeIconPress}
+        >
+          {getCloseIcon()}
+        </TouchableOpacity>
         {title && <Text style={currentTitleStyle}>{title}</Text>}
         {subtitle && <Text style={currentSubtitleStyle}>{subtitle}</Text>}
         {children}

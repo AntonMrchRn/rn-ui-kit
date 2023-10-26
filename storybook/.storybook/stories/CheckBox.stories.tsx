@@ -19,6 +19,7 @@ export default MyCheckBoxMeta;
 
 const basicProps: CheckboxProps = {
   checked: false,
+  isError: false,
 };
 export const Basic = {
   args: basicProps,

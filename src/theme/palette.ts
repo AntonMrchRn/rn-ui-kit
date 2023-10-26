@@ -63,6 +63,7 @@ export type Colors = {
     dangerDisable: string;
     warning: string;
     warningDisable: string;
+    neutralLight: string;
   };
 };
 
@@ -131,5 +132,6 @@ export const colors: Colors = {
     dangerDisable: '#FCD9DC',
     warning: '#FF820F',
     warningDisable: '#FFDEC0',
+    neutralLight: '#F1F1F1',
   },
 };

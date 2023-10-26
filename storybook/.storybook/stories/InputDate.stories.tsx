@@ -20,6 +20,7 @@ export default MyInputDateMeta;
 const basicProps: InputDateProps = {
   placeholder: '',
   isError: false,
+  disabled: false,
 };
 export const Basic = {
   args: basicProps,

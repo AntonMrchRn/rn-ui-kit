@@ -19,6 +19,7 @@ export default MySwitchMeta;
 
 const basicProps: SwitchProps = {
   value: false,
+  disabled: false,
 };
 export const Basic = {
   args: basicProps,
