@@ -10,11 +10,6 @@ export type SegmentedControlProps = {
      */
     width?: number;
     /**
-     * Индекс выбранного элемента при инициализации.
-     * По умолчанию 0
-     */
-    initialIndex?: number;
-    /**
      * Стиль текста активного элемента компонента
      */
     activeTextStyle?: StyleProp<TextStyle>;
@@ -46,6 +41,10 @@ export type SegmentedControlProps = {
      * Логика нажатия на элемент компонента
      */
     onChange: (index: number) => void;
+    /**
+     * id выбранного таба
+     */
+    currentTabId: number;
 };
 export declare const SegmentedControl: React.FC<SegmentedControlProps>;
 //# sourceMappingURL=SegmentedControl.d.ts.map

@@ -2,12 +2,7 @@ import * as React from 'react';
 import { SafeAreaView, ScrollView, View } from 'react-native';
 import { Texts } from './components/Texts';
 import { CheckBoxes } from './components/Checkboxes';
-import {
-  SegmentedControl,
-  Spacer,
-  ThemeProvider,
-  ToastProvider,
-} from 'rn-ui-kit';
+import { Spacer, ThemeProvider, ToastProvider } from 'rn-ui-kit';
 import { Links } from './components/Links';
 import { Spacers } from './components/Spacers';
 import { RadioButtons } from './components/RadioButtons';
@@ -29,6 +24,8 @@ import { Swipeables } from './components/Swipeables';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { BottomSheetModalProvider } from '@gorhom/bottom-sheet';
 
+import { SegmentedControls } from './components/SegmentedControls';
+
 export default function App() {
   return (
     <GestureHandlerRootView style={{ flex: 1 }}>
@@ -38,14 +35,12 @@ export default function App() {
             <ToastProvider>
               <SafeAreaView style={{ flex: 1, backgroundColor: '#fff' }}>
                 <ScrollView contentContainerStyle={{ paddingHorizontal: 10 }}>
+                  <SegmentedControls />
                   <Spacer size={'xxl'}>
                     <Spacer size={'xxl'} horizontal />
                     <Spacer size={'xxl'} />
                     <Spacer size={'xxl'} />
-                    <SegmentedControl
-                      tabs={['Label 1', 'Label 2', 'Label 3']}
-                      onChange={() => {}}
-                    />
+
                     <TabControls />
                     <Swipeables />
                     <Cards />

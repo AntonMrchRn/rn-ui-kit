@@ -22,11 +22,6 @@ export type SegmentedControlProps = {
    */
   width?: number;
   /**
-   * Индекс выбранного элемента при инициализации.
-   * По умолчанию 0
-   */
-  initialIndex?: number;
-  /**
    * Стиль текста активного элемента компонента
    */
   activeTextStyle?: StyleProp<TextStyle>;
@@ -58,6 +53,10 @@ export type SegmentedControlProps = {
    * Логика нажатия на элемент компонента
    */
   onChange: (index: number) => void;
+  /**
+   * id выбранного таба
+   */
+  currentTabId: number;
 };
 
 export const SegmentedControl: React.FC<SegmentedControlProps> = ({
@@ -68,7 +67,7 @@ export const SegmentedControl: React.FC<SegmentedControlProps> = ({
   tabStyle,
   textStyle,
   selectedTabStyle,
-  initialIndex = 0,
+  currentTabId,
   activeTextStyle,
   activeTabColor = '#FFFFFF',
   extraSpacing = 0,
@@ -134,11 +133,9 @@ export const SegmentedControl: React.FC<SegmentedControlProps> = ({
   const translateValue =
     (width ? width + extraSpacing : ScreenWidth - 35) / tabs.length;
   const [slideAnimation, _] = useState(new Animated.Value(0));
-  const [currentIndex, setCurrentIndex] = useState<number>(initialIndex);
 
   const handleTabPress = React.useCallback(
     (index: number) => {
-      setCurrentIndex(index);
       onChange && onChange(index);
     },
     [onChange]
@@ -146,13 +143,13 @@ export const SegmentedControl: React.FC<SegmentedControlProps> = ({
 
   useEffect(() => {
     Animated.spring(slideAnimation, {
-      toValue: (I18nManager.isRTL ? -1 : 1) * currentIndex * translateValue,
+      toValue: (I18nManager.isRTL ? -1 : 1) * currentTabId * translateValue,
       stiffness: 180,
       damping: 25,
       mass: 1,
       useNativeDriver: true,
     }).start();
-  }, [currentIndex, slideAnimation, translateValue]);
+  }, [currentTabId, slideAnimation, translateValue]);
 
   const renderSelectedTab = () => (
     <Animated.View
@@ -165,7 +162,7 @@ export const SegmentedControl: React.FC<SegmentedControlProps> = ({
   );
 
   const renderTab = (tab: string, index: number) => {
-    const isActiveTab = currentIndex === index;
+    const isActiveTab = currentTabId === index;
     const isTabText = typeof tab === 'string';
     return (
       <TouchableOpacity
