@@ -79,7 +79,7 @@ export const Button: FC<ButtonProps> = ({
       alignItems: 'center',
       justifyContent: 'center',
       alignSelf: 'flex-start',
-      height: 48,
+      minHeight: 48,
     },
     smallButton: {
       paddingVertical: 8,
@@ -92,7 +92,7 @@ export const Button: FC<ButtonProps> = ({
     },
     accent: {
       backgroundColor: theme.background.accent,
-      height: size === 'S' ? 36 : 48,
+      minHeight: size === 'S' ? 36 : 48,
       fontFamily: 'Nunito Sans',
       borderRadius: size === 'S' ? 8 : 12,
     },
@@ -108,7 +108,7 @@ export const Button: FC<ButtonProps> = ({
       fontFamily: 'Nunito Sans',
       lineHeight: size === 'S' ? 20 : 24,
       paddingHorizontal: size === 'S' ? 0 : 24,
-      height: size === 'S' ? 36 : 40,
+      minHeight: size === 'S' ? 36 : 40,
     },
     dangerGhost: {
       borderWidth: 0,
@@ -116,14 +116,14 @@ export const Button: FC<ButtonProps> = ({
       fontFamily: 'Nunito Sans',
       lineHeight: size === 'S' ? 20 : 24,
       paddingHorizontal: size === 'S' ? 0 : 24,
-      height: size === 'S' ? 36 : 40,
+      minHeight: size === 'S' ? 36 : 40,
     },
     outlineAccent: {
       backgroundColor: 'white',
       borderWidth: 2,
       paddingHorizontal: size === 'S' ? 14 : 24,
       borderColor: theme.background.accent,
-      height: size === 'S' ? 36 : 44,
+      minHeight: size === 'S' ? 36 : 44,
       borderRadius: size === 'S' ? 16 : 14,
     },
     outlineDanger: {
@@ -131,7 +131,7 @@ export const Button: FC<ButtonProps> = ({
       borderWidth: 2,
       paddingHorizontal: size === 'S' ? 14 : 24,
       borderColor: theme.background.danger,
-      height: size === 'S' ? 36 : 44,
+      minHeight: size === 'S' ? 36 : 44,
       borderRadius: size === 'S' ? 16 : 14,
     },
     accentDisabled: {
