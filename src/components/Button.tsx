@@ -70,9 +70,11 @@ export const Button: FC<ButtonProps> = ({
       fontFamily: 'Nunito Sans',
       fontStyle: 'normal',
       fontWeight: '700',
+      textAlign: 'center',
     },
     button: {
       paddingHorizontal: 24,
+      paddingVertical: 4,
       width: '100%',
       borderRadius: 12,
       flexDirection: 'row',
@@ -82,7 +84,7 @@ export const Button: FC<ButtonProps> = ({
       minHeight: 48,
     },
     smallButton: {
-      paddingVertical: 8,
+      paddingVertical: 4,
       paddingHorizontal: 16,
       borderRadius: 12,
       flexDirection: 'row',
