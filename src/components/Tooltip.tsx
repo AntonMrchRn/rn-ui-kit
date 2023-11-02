@@ -127,16 +127,19 @@ export const Tooltip: FC<TooltipProps> = ({
     top: {
       start: {
         position: 'absolute',
+        opacity: 0.65,
         top: -8,
         left: 12,
       },
       center: {
         position: 'absolute',
+        opacity: 0.65,
         top: -8,
         left: '48%',
       },
       end: {
         position: 'absolute',
+        opacity: 0.65,
         top: -8,
         right: 12,
       },
@@ -144,18 +147,21 @@ export const Tooltip: FC<TooltipProps> = ({
     left: {
       start: {
         position: 'absolute',
+        opacity: 0.65,
         top: 12,
         left: -14,
         transform: [{ rotate: '270deg' }],
       },
       center: {
         position: 'absolute',
+        opacity: 0.65,
         top: '60%',
         left: -14,
         transform: [{ rotate: '270deg' }],
       },
       end: {
         position: 'absolute',
+        opacity: 0.65,
         bottom: 12,
         left: -14,
         transform: [{ rotate: '270deg' }],
@@ -164,18 +170,21 @@ export const Tooltip: FC<TooltipProps> = ({
     right: {
       start: {
         position: 'absolute',
+        opacity: 0.65,
         top: 12,
         right: -14,
         transform: [{ rotate: '90deg' }],
       },
       center: {
         position: 'absolute',
+        opacity: 0.65,
         top: '60%',
         right: -14,
         transform: [{ rotate: '90deg' }],
       },
       end: {
         position: 'absolute',
+        opacity: 0.65,
         bottom: 12,
         right: -14,
         transform: [{ rotate: '90deg' }],
@@ -184,18 +193,21 @@ export const Tooltip: FC<TooltipProps> = ({
     bottom: {
       start: {
         position: 'absolute',
+        opacity: 0.65,
         bottom: -8,
         left: 12,
         transform: [{ rotate: '180deg' }],
       },
       center: {
         position: 'absolute',
+        opacity: 0.65,
         bottom: -8,
         left: '48%',
         transform: [{ rotate: '180deg' }],
       },
       end: {
         position: 'absolute',
+        opacity: 0.65,
         bottom: -8,
         right: 12,
         transform: [{ rotate: '180deg' }],
