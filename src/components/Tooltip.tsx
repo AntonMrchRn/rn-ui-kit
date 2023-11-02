@@ -118,7 +118,7 @@ export const Tooltip: FC<TooltipProps> = ({
     },
     modal: {
       top: measure.y - coords.y,
-      left: measure.x + coords.x,
+      right: measure.x + coords.x,
       position: 'absolute',
     },
   });
