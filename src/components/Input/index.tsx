@@ -132,7 +132,7 @@ export const Input: FC<InputProps> = forwardRef(
           ? theme.background.fieldDanger
           : theme.background.fieldMain,
         borderRadius: variant === 'message' ? 12 : 8,
-        height: height,
+        minHeight: height,
         paddingVertical: variant === 'textarea' ? 8 : 10,
         paddingHorizontal: variant === 'textarea' ? 12 : 16,
         flexDirection: 'row',
@@ -144,7 +144,7 @@ export const Input: FC<InputProps> = forwardRef(
       },
       input: {
         flex: 1,
-        height: height,
+        minHeight: height,
         padding: 0,
         fontFamily: 'Nunito Sans',
         fontStyle: 'normal',
