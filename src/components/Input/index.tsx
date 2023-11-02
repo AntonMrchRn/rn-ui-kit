@@ -132,7 +132,7 @@ export const Input: FC<InputProps> = forwardRef(
           ? theme.background.fieldDanger
           : theme.background.fieldMain,
         borderRadius: variant === 'message' ? 12 : 8,
-        minHeight: height,
+        height: height,
         paddingVertical: variant === 'textarea' ? 8 : 10,
         paddingHorizontal: variant === 'textarea' ? 12 : 16,
         flexDirection: 'row',

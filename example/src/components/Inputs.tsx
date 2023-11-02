@@ -25,7 +25,7 @@ export const Inputs = () => {
         variant="textarea"
         placeholder="Сообщение..."
         label="Label"
-        value="23232"
+        value="23232232"
         hint="hint"
         iconLeft={
           <View style={{ height: 24, width: 24, backgroundColor: 'gray' }} />
