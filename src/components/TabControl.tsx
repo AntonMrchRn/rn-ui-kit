@@ -90,11 +90,8 @@ export const TabControl: FC<TabControlProps> = ({
     badge: {
       backgroundColor: theme.background.danger,
       borderRadius: 32,
-      paddingHorizontal: 4.5,
-      paddingVertical: 2,
-      justifyContent: 'center',
-      alignItems: 'center',
-      height: 16,
+      paddingHorizontal: 5.5,
+      paddingVertical: 1,
       position: 'absolute',
       right: -10,
       top: 0,
@@ -103,7 +100,6 @@ export const TabControl: FC<TabControlProps> = ({
       fontSize: 11,
       fontFamily: 'Nunito Sans',
       fontWeight: '400',
-      lineHeight: 14,
       color: theme.text.contrast,
     },
     mr10: {
