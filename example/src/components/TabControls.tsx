@@ -7,7 +7,7 @@ export const TabControls = () => {
     {
       id: 1,
       label: 'Selected tab',
-      count: 999,
+      count: 9,
       icon: true,
     },
     {
