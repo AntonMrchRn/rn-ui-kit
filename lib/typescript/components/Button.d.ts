@@ -1,7 +1,7 @@
 import { FC, ReactElement } from 'react';
 import { StyleProp, TextStyle, TouchableOpacityProps } from 'react-native';
 export type Sizes = 'M' | 'S';
-export type Variant = 'accent' | 'danger' | 'outlineAccent' | 'outlineDanger' | 'ghost' | 'dangerGhost';
+export type Variant = 'accent' | 'danger' | 'outlineAccent' | 'outlineDanger' | 'ghost' | 'dangerGhost' | 'secondary';
 export type ButtonProps = TouchableOpacityProps & {
     /**
      * Тип иконки компонента.

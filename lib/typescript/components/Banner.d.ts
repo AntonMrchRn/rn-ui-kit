@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import { ViewStyle, StyleProp, TextStyle } from 'react-native';
 export type Types = 'error' | 'success' | 'warning' | 'info';
-export type IconTypes = 'success' | 'info' | 'alert' | JSX.Element;
+export type IconTypes = 'success' | 'info' | 'alert' | 'warning' | JSX.Element;
 export type BannerProps = {
     /**
      * Тип компонента
