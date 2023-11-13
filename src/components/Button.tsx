@@ -19,7 +19,8 @@ export type Variant =
   | 'outlineAccent'
   | 'outlineDanger'
   | 'ghost'
-  | 'dangerGhost';
+  | 'dangerGhost'
+  | 'secondary';
 export type ButtonProps = TouchableOpacityProps & {
   /**
    * Тип иконки компонента.
@@ -86,55 +87,50 @@ export const Button: FC<ButtonProps> = ({
     smallButton: {
       paddingVertical: 4,
       paddingHorizontal: 16,
-      borderRadius: 12,
+      borderRadius: 8,
       flexDirection: 'row',
       alignItems: 'center',
       justifyContent: 'center',
       alignSelf: 'flex-start',
+      minHeight: 36,
     },
     accent: {
       backgroundColor: theme.background.accent,
-      minHeight: size === 'S' ? 36 : 48,
       fontFamily: 'Nunito Sans',
-      borderRadius: size === 'S' ? 8 : 12,
     },
     danger: {
       backgroundColor: theme.background.danger,
       fontFamily: 'Nunito Sans',
-      lineHeight: size === 'S' ? 20 : 24,
-      borderRadius: size === 'S' ? 8 : 12,
+      lineHeight: size === 'S' ? 36.3 : 24,
     },
     ghost: {
       borderWidth: 0,
-      backgroundColor: 'white',
       fontFamily: 'Nunito Sans',
       lineHeight: size === 'S' ? 20 : 24,
       paddingHorizontal: size === 'S' ? 0 : 24,
-      minHeight: size === 'S' ? 36 : 40,
+      borderRadius: 0,
+    },
+    secondary: {
+      backgroundColor: theme.background.neutralDisableSecond,
     },
     dangerGhost: {
       borderWidth: 0,
-      backgroundColor: 'white',
       fontFamily: 'Nunito Sans',
       lineHeight: size === 'S' ? 20 : 24,
       paddingHorizontal: size === 'S' ? 0 : 24,
-      minHeight: size === 'S' ? 36 : 40,
+      borderRadius: 0,
     },
     outlineAccent: {
       backgroundColor: 'white',
-      borderWidth: 2,
+      borderWidth: 1.5,
       paddingHorizontal: size === 'S' ? 14 : 24,
       borderColor: theme.background.accent,
-      minHeight: size === 'S' ? 36 : 44,
-      borderRadius: size === 'S' ? 16 : 14,
     },
     outlineDanger: {
       backgroundColor: 'white',
-      borderWidth: 2,
+      borderWidth: 1.5,
       paddingHorizontal: size === 'S' ? 14 : 24,
       borderColor: theme.background.danger,
-      minHeight: size === 'S' ? 36 : 44,
-      borderRadius: size === 'S' ? 16 : 14,
     },
     accentDisabled: {
       backgroundColor: theme.background.accentDisable,
@@ -152,11 +148,14 @@ export const Button: FC<ButtonProps> = ({
       backgroundColor: 'white',
       borderColor: theme.background.dangerDisable,
     },
+    secondaryDisabled: {
+      backgroundColor: theme.background.neutralOptional,
+    },
     ghostDisabled: {
-      backgroundColor: 'white',
+      backgroundColor: 'transparent',
     },
     dangerGhostDisabled: {
-      backgroundColor: 'white',
+      backgroundColor: 'transparent',
     },
   });
 
@@ -169,6 +168,9 @@ export const Button: FC<ButtonProps> = ({
     },
     ghost: {
       color: theme.icons.basic,
+    },
+    secondary: {
+      color: theme.text.basic,
     },
     dangerGhost: {
       color: theme.background.danger,
@@ -196,6 +198,9 @@ export const Button: FC<ButtonProps> = ({
     },
     outlineDangerDisabled: {
       color: theme.background.dangerDisable,
+    },
+    secondaryDisabled: {
+      color: theme.text.neutralDisable,
     },
   });
 

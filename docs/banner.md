@@ -25,7 +25,7 @@
 ```js
 type Types = 'error' | 'success' | 'warning' | 'info';
 
-type IconTypes = 'success' | 'info' | 'alert' | JSX.Element;
+type IconTypes = 'success' | 'info' | 'alert' | 'warning' | JSX.Element;
 ```
 
 ---

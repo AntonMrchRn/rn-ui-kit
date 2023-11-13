@@ -10,7 +10,7 @@ export const Buttons = () => {
       <Button variant="outlineDanger" label="Отправка" />
       <Button variant="outlineAccent" label="Отправка" disabled isPending />
       <Button variant="ghost" label="Отправка" icon disabled />
-      <Button variant="dangerGhost" label="Отправка" icon isPending />
+      <Button variant="dangerGhost" label="Отправка" icon size="S" />
       <Button
         variant="accent"
         label="Для теста много текста"
@@ -19,6 +19,9 @@ export const Buttons = () => {
       />
       <Button variant="outlineDanger" label="Мало" size="S" />
       <Button variant="outlineAccent" size="S" isPending />
+      <Spacer size="s">
+        <Button variant="secondary" icon size="M" label="Label" />
+      </Spacer>
     </Spacer>
   );
 };

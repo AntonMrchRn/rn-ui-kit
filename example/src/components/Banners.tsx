@@ -10,11 +10,15 @@ export const Banners = () => {
         title="Заголовок на 1 строчку!"
         text="Координатор проверяет выполненные услуги. После успешной проверки задача будет передана на оплату"
         buttonText="Какое-то действие"
-        visible={true}
       />
-      <Banner type="success" icon="success" visible={true} />
-      <Banner type="warning" icon="alert" title="title" text="text" />
-      <Banner type="info" icon="info" text="text" />
+      <Banner type="success" icon="success" text="text" />
+      <Banner type="warning" icon="warning" title="title" text="text" />
+      <Banner
+        type="info"
+        icon="info"
+        title="Заголовок на 1 строчку!"
+        text="text"
+      />
     </Spacer>
   );
 };

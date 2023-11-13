@@ -13,9 +13,10 @@ import { BannerInfoIcon } from '../icons/BannerInfoIcon';
 import { BannerAlertIcon } from '../icons/BannerAlertIcon';
 import { BannerCloseIcon } from '../icons/BannerCloseIcon';
 import { useTheme } from '../theme/ThemeProvider';
+import { BannerWarningIcon } from '../icons/BannerWarningIcon';
 
 export type Types = 'error' | 'success' | 'warning' | 'info';
-export type IconTypes = 'success' | 'info' | 'alert' | JSX.Element;
+export type IconTypes = 'success' | 'info' | 'alert' | 'warning' | JSX.Element;
 export type BannerProps = {
   /**
    * Тип компонента
@@ -147,7 +148,7 @@ export const Banner: FC<BannerProps> = ({
 
   const styles = StyleSheet.create({
     container: {
-      padding: 16,
+      padding: buttonText ? 16 : 12,
       flexDirection: 'row',
       backgroundColor: getBackgroundColor(),
       borderWidth: 1,
@@ -187,14 +188,14 @@ export const Banner: FC<BannerProps> = ({
       fontSize: 15,
       lineHeight: 20,
       color: theme.text.neutral,
-      marginTop: title ? 8 : 0,
+      marginTop: title ? 4 : 0,
       flexShrink: 1,
     },
     button: {
       marginTop: 12,
       alignItems: 'center',
       justifyContent: 'center',
-      paddingVertical: 7,
+      paddingVertical: 6.5,
       paddingHorizontal: 16,
       borderWidth: 1.5,
       borderColor: theme.text.neutral,
@@ -207,6 +208,7 @@ export const Banner: FC<BannerProps> = ({
       fontSize: 15,
       lineHeight: 20,
       color: theme.text.neutral,
+      textAlign: 'center',
     },
   });
 
@@ -230,6 +232,8 @@ export const Banner: FC<BannerProps> = ({
             size={iconSize}
           />
         );
+      case 'warning':
+        return <BannerWarningIcon color={iconColor || getTextColor()} />;
       default:
         return icon;
     }

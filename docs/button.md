@@ -24,7 +24,8 @@ type Variant =
   | 'outlineAccent'
   | 'outlineDanger'
   | 'ghost'
-  | 'dangerGhost';
+  | 'dangerGhost'
+  | 'secondary';
 ```
 
 ---

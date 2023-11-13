@@ -70,13 +70,11 @@ export const Tips: FC<TipsProps> = ({
 
   const styles = StyleSheet.create({
     container: {
-      paddingHorizontal: 16,
-      paddingTop: 12,
+      padding: buttonText ? 16 : 12,
       backgroundColor: theme.stroke.neutralLight,
       borderRadius: 12,
       alignItems: 'flex-start',
       flexDirection: 'row',
-      paddingBottom: buttonText ? 16 : 12,
     },
     text: {
       fontFamily: 'Nunito Sans',
@@ -90,10 +88,10 @@ export const Tips: FC<TipsProps> = ({
       marginTop: 12,
       alignItems: 'center',
       justifyContent: 'center',
-      paddingVertical: 7,
+      paddingVertical: 6.5,
       paddingHorizontal: 16,
       borderWidth: 1.5,
-      borderColor: theme.stroke.neutral,
+      borderColor: theme.text.neutral,
       borderRadius: 8,
     },
     buttonText: {
@@ -102,13 +100,15 @@ export const Tips: FC<TipsProps> = ({
       fontWeight: '700',
       fontSize: 15,
       lineHeight: 20,
-      color: theme.stroke.neutral,
+      color: theme.text.neutral,
+      textAlign: 'center',
     },
     wrapIcon: {
-      marginRight: 12,
+      marginRight: 8,
     },
     wrapRight: {
-      flex: 1,
+      flexShrink: 1,
+      alignItems: 'flex-start',
     },
   });
 
