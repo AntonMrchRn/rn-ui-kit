@@ -70,7 +70,7 @@ export const Button: FC<ButtonProps> = ({
       lineHeight: size === 'S' ? 20 : 24,
       fontFamily: 'Nunito Sans',
       fontStyle: 'normal',
-      fontWeight: '700',
+      fontWeight: '600',
       textAlign: 'center',
     },
     button: {
