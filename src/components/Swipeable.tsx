@@ -189,7 +189,7 @@ export const Swipeable: FC<SwipeableProps> = ({
     title: {
       fontFamily: 'Nunito Sans',
       fontStyle: 'normal',
-      fontWeight: '700',
+      fontWeight: '400',
       fontSize: 17,
       lineHeight: 24,
       color: isDelete ? theme.text.neutralDisable : theme.text.basic,

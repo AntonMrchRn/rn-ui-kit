@@ -1,6 +1,6 @@
 {
   "name": "rn-ui-kit",
-  "version": "3.1.7",
+  "version": "3.1.8",
   "description": "test",
   "main": "lib/commonjs/index",
   "module": "lib/module/index",
