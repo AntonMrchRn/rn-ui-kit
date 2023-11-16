@@ -19,6 +19,7 @@ import {
   TextStyle,
   TouchableOpacity,
   View,
+  ViewStyle,
 } from 'react-native';
 import { useTheme } from '../theme/ThemeProvider';
 import { ModalCloseIcon } from '../icons/ModalCloseIcon';
@@ -66,6 +67,10 @@ export type BottomSheetModalProps = Omit<
    * Стиль подзаголовка компонента
    */
   subtitleStyle?: StyleProp<TextStyle>;
+  /**
+   * Стиль иконки закрытия компонента
+   */
+  closeIconStyle?: StyleProp<ViewStyle>;
 };
 export const BottomSheetModal: FC<BottomSheetModalProps> = forwardRef(
   (
@@ -84,6 +89,7 @@ export const BottomSheetModal: FC<BottomSheetModalProps> = forwardRef(
       titleStyle,
       subtitle,
       subtitleStyle,
+      closeIconStyle,
       ...props
     },
     ref
@@ -164,6 +170,7 @@ export const BottomSheetModal: FC<BottomSheetModalProps> = forwardRef(
       styles.subtitle,
       subtitleStyle
     );
+    const currentIconStyle = StyleSheet.compose(styles.icon, closeIconStyle);
 
     return (
       <RNBottomSheetModal
@@ -179,7 +186,7 @@ export const BottomSheetModal: FC<BottomSheetModalProps> = forwardRef(
         ]}
         {...props}
       >
-        <TouchableOpacity style={styles.icon} onPress={closeIconPress}>
+        <TouchableOpacity style={currentIconStyle} onPress={closeIconPress}>
           {getCloseIcon()}
         </TouchableOpacity>
         <View style={styles.indicatorBottom} />

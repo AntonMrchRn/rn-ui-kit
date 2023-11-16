@@ -14,6 +14,7 @@
 | `subtitle`        | `string`                        | `false`      | Подзаголовок компонента                                                         |
 | `subtitleStyle`   | `StyleProp<TextStyle>`          | `false`      | Стиль подзаголовка компонента                                                   |
 | `children`        | `JSX.Element или JSX.Element[]` | `false`      | Элемент или массив элементов, отображаемые в компоненте                         |
+| `closeIconStyle`  | `StyleProp<ViewStyle>`          | `false`      | Стиль иконки закрытия компонента                                                |
 
 ## Типы
 

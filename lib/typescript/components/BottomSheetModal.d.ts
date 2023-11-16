@@ -2,7 +2,7 @@ import { BottomSheetModalProps as RNBottomSheetModalProps, BottomSheetBackdropPr
 import { BottomSheetModalMethods } from '@gorhom/bottom-sheet/lib/typescript/types';
 import React, { FC, ForwardedRef } from 'react';
 import { SharedValue } from 'react-native-reanimated';
-import { TextStyle } from 'react-native';
+import { TextStyle, ViewStyle } from 'react-native';
 import { StyleProp } from 'react-native';
 export type BottomSheetModalProps = Omit<RNBottomSheetModalProps, 'snapPoints' | 'backdropComponent'> & {
     ref?: ForwardedRef<BottomSheetModalMethods>;
@@ -43,6 +43,10 @@ export type BottomSheetModalProps = Omit<RNBottomSheetModalProps, 'snapPoints' |
      * Стиль подзаголовка компонента
      */
     subtitleStyle?: StyleProp<TextStyle>;
+    /**
+     * Стиль иконки закрытия компонента
+     */
+    closeIconStyle?: StyleProp<ViewStyle>;
 };
 export declare const BottomSheetModal: FC<BottomSheetModalProps>;
 //# sourceMappingURL=BottomSheetModal.d.ts.map
