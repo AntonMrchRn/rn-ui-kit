@@ -1,10 +1,12 @@
 import React, { FC } from 'react';
 import {
+  Keyboard,
   PanResponderGestureState,
   StyleProp,
   StyleSheet,
   Text,
   TextStyle,
+  TouchableWithoutFeedback,
   View,
   ViewStyle,
 } from 'react-native';
@@ -14,69 +16,7 @@ import { ModalCloseIcon } from '../icons/ModalCloseIcon';
 import { TouchableOpacity } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
-type Animation =
-  | 'bounce'
-  | 'flash'
-  | 'jello'
-  | 'pulse'
-  | 'rotate'
-  | 'rubberBand'
-  | 'shake'
-  | 'swing'
-  | 'tada'
-  | 'wobble'
-  | 'bounceIn'
-  | 'bounceInDown'
-  | 'bounceInUp'
-  | 'bounceInLeft'
-  | 'bounceInRight'
-  | 'bounceOut'
-  | 'bounceOutDown'
-  | 'bounceOutUp'
-  | 'bounceOutLeft'
-  | 'bounceOutRight'
-  | 'fadeIn'
-  | 'fadeInDown'
-  | 'fadeInDownBig'
-  | 'fadeInUp'
-  | 'fadeInUpBig'
-  | 'fadeInLeft'
-  | 'fadeInLeftBig'
-  | 'fadeInRight'
-  | 'fadeInRightBig'
-  | 'fadeOut'
-  | 'fadeOutDown'
-  | 'fadeOutDownBig'
-  | 'fadeOutUp'
-  | 'fadeOutUpBig'
-  | 'fadeOutLeft'
-  | 'fadeOutLeftBig'
-  | 'fadeOutRight'
-  | 'fadeOutRightBig'
-  | 'flipInX'
-  | 'flipInY'
-  | 'flipOutX'
-  | 'flipOutY'
-  | 'lightSpeedIn'
-  | 'lightSpeedOut'
-  | 'slideInDown'
-  | 'slideInUp'
-  | 'slideInLeft'
-  | 'slideInRight'
-  | 'slideOutDown'
-  | 'slideOutUp'
-  | 'slideOutLeft'
-  | 'slideOutRight'
-  | 'zoomIn'
-  | 'zoomInDown'
-  | 'zoomInUp'
-  | 'zoomInLeft'
-  | 'zoomInRight'
-  | 'zoomOut'
-  | 'zoomOutDown'
-  | 'zoomOutUp'
-  | 'zoomOutLeft'
-  | 'zoomOutRight';
+type Animation = typeof Modal.defaultProps.animationIn;
 export type BottomSheetProps = {
   /**
    * Анимация появления компонента
@@ -292,19 +232,21 @@ export const BottomSheet: FC<BottomSheetProps> = ({
       swipeDirection={swipeDirection}
       onModalHide={onModalHide}
     >
-      <View style={currentContainerStyle}>
-        <View style={styles.line} />
-        <TouchableOpacity
-          style={currentCloseIconContainerStyle}
-          hitSlop={hitSlop}
-          onPress={closeIconPress}
-        >
-          {getCloseIcon()}
-        </TouchableOpacity>
-        {title && <Text style={currentTitleStyle}>{title}</Text>}
-        {subtitle && <Text style={currentSubtitleStyle}>{subtitle}</Text>}
-        {children}
-      </View>
+      <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>
+        <View style={currentContainerStyle}>
+          <View style={styles.line} />
+          <TouchableOpacity
+            style={currentCloseIconContainerStyle}
+            hitSlop={hitSlop}
+            onPress={closeIconPress}
+          >
+            {getCloseIcon()}
+          </TouchableOpacity>
+          {title && <Text style={currentTitleStyle}>{title}</Text>}
+          {subtitle && <Text style={currentSubtitleStyle}>{subtitle}</Text>}
+          {children}
+        </View>
+      </TouchableWithoutFeedback>
     </Modal>
   );
 };
