@@ -219,12 +219,13 @@ export const Tooltip: FC<TooltipProps> = ({
   const ref = useRef<View>(null);
 
   useEffect(() => {
-    if (isVisible) {
+    if (isVisible && ref?.current) {
       ref?.current?.measureInWindow((x, y) => {
         setMeasure({ x, y });
       });
     }
-  }, [isVisible]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isVisible, ref?.current]);
 
   return (
     <View ref={ref} collapsable={false}>
