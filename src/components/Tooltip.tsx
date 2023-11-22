@@ -118,7 +118,7 @@ export const Tooltip: FC<TooltipProps> = ({
     },
     modal: {
       top: measure.y - coords.y,
-      right: measure.x + coords.x,
+      left: measure.x + coords.x,
       position: 'absolute',
     },
   });
@@ -219,13 +219,12 @@ export const Tooltip: FC<TooltipProps> = ({
   const ref = useRef<View>(null);
 
   useEffect(() => {
-    if (isVisible && ref?.current) {
+    if (isVisible) {
       ref?.current?.measureInWindow((x, y) => {
         setMeasure({ x, y });
       });
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [isVisible, ref?.current]);
+  }, [isVisible, measure]);
 
   return (
     <View ref={ref} collapsable={false}>
