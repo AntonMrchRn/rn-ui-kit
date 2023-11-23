@@ -145,7 +145,7 @@ export const Input: FC<InputProps> = forwardRef(
       input: {
         flex: 1,
         minHeight: height,
-        padding: 0,
+        padding: variant === 'textarea' ? undefined : 0,
         fontFamily: 'Nunito Sans',
         fontStyle: 'normal',
         fontWeight: '400',
@@ -287,6 +287,7 @@ export const Input: FC<InputProps> = forwardRef(
             </Animated.Text>
           )}
           <TextInput
+            textAlignVertical={variant === 'textarea' ? 'top' : undefined}
             placeholderTextColor={getPlaceholderColor()}
             onFocus={handleFocus}
             style={currentInputStyle}
