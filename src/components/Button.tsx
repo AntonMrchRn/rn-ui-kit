@@ -123,13 +123,13 @@ export const Button: FC<ButtonProps> = ({
     outlineAccent: {
       backgroundColor: 'white',
       borderWidth: 1.5,
-      paddingHorizontal: size === 'S' ? 14 : 24,
+      paddingHorizontal: size === 'S' ? 16 : 24,
       borderColor: theme.background.accent,
     },
     outlineDanger: {
       backgroundColor: 'white',
       borderWidth: 1.5,
-      paddingHorizontal: size === 'S' ? 14 : 24,
+      paddingHorizontal: size === 'S' ? 16 : 24,
       borderColor: theme.background.danger,
     },
     accentDisabled: {
@@ -142,7 +142,7 @@ export const Button: FC<ButtonProps> = ({
     },
     outlineAccentDisabled: {
       backgroundColor: 'white',
-      borderColor: theme.background.neutralDisable,
+      borderColor: theme.background.accentMessage,
     },
     outlineDangerDisabled: {
       backgroundColor: 'white',
@@ -194,7 +194,7 @@ export const Button: FC<ButtonProps> = ({
       color: theme.background.main,
     },
     outlineAccentDisabled: {
-      color: theme.background.neutralDisable,
+      color: theme.background.accentMessage,
     },
     outlineDangerDisabled: {
       color: theme.background.dangerDisable,

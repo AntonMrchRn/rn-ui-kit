@@ -3,10 +3,6 @@ import React, {
   useState,
 } from 'react';
 import {
-  //  TextInput,
-  View,
-} from 'react-native';
-import {
   Input,
   InputCode,
   InputDate,
@@ -22,14 +18,11 @@ export const Inputs = () => {
   return (
     <Spacer size="xl">
       <Input
-        variant="textarea"
+        variant="message"
         placeholder="Сообщение..."
-        label="Label"
-        value="23232232"
-        hint="hint"
-        iconLeft={
-          <View style={{ height: 24, width: 24, backgroundColor: 'gray' }} />
-        }
+        // label="Label"
+        value="232322322323223232232232322323223223232232322322323223232232232322323223"
+        // hint="hint"
       />
       {/* <Input
         variant="message"

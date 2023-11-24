@@ -18,7 +18,7 @@ export const Buttons = () => {
         isPending
       />
       <Button variant="outlineDanger" label="Мало" size="S" />
-      <Button variant="outlineAccent" size="S" isPending />
+      <Button variant="outlineAccent" size="M" disabled label="test" icon />
       <Spacer size="s">
         <Button variant="secondary" icon size="M" label="Label" />
       </Spacer>

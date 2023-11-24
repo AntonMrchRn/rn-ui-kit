@@ -58,7 +58,7 @@ export const TabControl: FC<TabControlProps> = ({
     wrapper: {
       backgroundColor: theme.background.main,
       flexDirection: 'row',
-      height: 40,
+      height: 44,
       marginBottom: 4,
     },
     label: {
