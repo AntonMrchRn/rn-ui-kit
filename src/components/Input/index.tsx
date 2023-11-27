@@ -132,8 +132,6 @@ export const Input: FC<InputProps> = forwardRef(
           ? theme.background.fieldDanger
           : theme.background.fieldMain,
         borderRadius: variant === 'message' ? 12 : 8,
-        height: height,
-        paddingVertical: variant === 'textarea' ? 8 : 10,
         paddingHorizontal: variant === 'textarea' ? 12 : 16,
         flexDirection: 'row',
         alignItems: 'center',
@@ -144,8 +142,8 @@ export const Input: FC<InputProps> = forwardRef(
       },
       input: {
         flex: 1,
-        minHeight: height,
         padding: variant === 'textarea' ? undefined : 0,
+        paddingBottom: variant === 'textarea' ? 8 : 0,
         fontFamily: 'Nunito Sans',
         fontStyle: 'normal',
         fontWeight: '400',
@@ -191,13 +189,30 @@ export const Input: FC<InputProps> = forwardRef(
       requiredSymbol: {
         color: theme.text.secondary,
       },
+      mH: {
+        minHeight: height,
+      },
+      messageInitial: {
+        paddingTop: 5,
+        paddingBottom: 10,
+      },
+      defaultInitial: {
+        height: height,
+        paddingVertical: variant === 'textarea' ? 8 : 10,
+      },
     });
+
+    let numOfLinesCompany = 0;
 
     const currentContainerStyle = StyleSheet.compose(styles.initial, [
       isFocused ? styles.focused : {},
+      variant === 'message' ? styles.messageInitial : styles.defaultInitial,
       containerStyle,
     ]);
-    const currentInputStyle = StyleSheet.compose(styles.input, style);
+    const currentInputStyle = StyleSheet.compose(styles.input, [
+      variant !== 'message' && styles.mH,
+      style,
+    ]);
     const currentIconLeftStyle = StyleSheet.compose(
       styles.iconLeft,
       iconLeftStyle
@@ -294,7 +309,15 @@ export const Input: FC<InputProps> = forwardRef(
             onBlur={handleBlur}
             ref={ref}
             secureTextEntry={!!currentSecureTextEntry}
-            multiline={variant === 'textarea' || multiline}
+            multiline={
+              variant === 'textarea' || variant === 'message' || multiline
+            }
+            numberOfLines={
+              variant === 'message' ? numOfLinesCompany : undefined
+            }
+            onContentSizeChange={(e) => {
+              numOfLinesCompany = e.nativeEvent.contentSize.height / 18;
+            }}
             placeholder={isAnimatedLabel ? undefined : placeholder}
             keyboardType={variant === 'number' ? 'numeric' : keyboardType}
             onChangeText={handleOnChangeText}

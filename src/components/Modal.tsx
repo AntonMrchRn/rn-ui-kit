@@ -207,7 +207,6 @@ export const Modal: FC<ModalProps> = ({
       lineHeight: 24,
       textAlign: 'center',
       color: theme.text.basic,
-      marginTop: 8,
     },
     description: {
       fontFamily: 'Nunito Sans',
@@ -222,7 +221,7 @@ export const Modal: FC<ModalProps> = ({
     containerCloseAbsolute: {
       position: 'absolute',
       right: 12,
-      top: 22,
+      top: 14,
       zIndex: 100,
     },
     containerText: {
