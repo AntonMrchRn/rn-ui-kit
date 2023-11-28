@@ -146,13 +146,22 @@ export const Toast: FC<ToastProps> = ({
       borderBottomRightRadius: 24,
       paddingTop: 12,
     },
+    titleHeader: {
+      display: 'flex',
+      fontFamily: 'Nunito Sans',
+      fontStyle: 'normal',
+      fontWeight: '700',
+      fontSize: 17,
+      lineHeight: 24,
+      color: theme.text.contrast,
+    },
     title: {
       display: 'flex',
       fontFamily: 'Nunito Sans',
       fontStyle: 'normal',
       fontWeight: '700',
       fontSize: 15,
-      lineHeight: 24,
+      lineHeight: 20,
       color: theme.text.contrast,
     },
     text: {
@@ -173,6 +182,7 @@ export const Toast: FC<ToastProps> = ({
       flexDirection: 'row',
       justifyContent: 'space-between',
       alignItems: 'center',
+      marginBottom: 4,
     },
     wrapperContent: {
       justifyContent: 'flex-end',
@@ -188,7 +198,7 @@ export const Toast: FC<ToastProps> = ({
     styles.container,
     containerStyle
   );
-  const currentTitleStyle = StyleSheet.compose(styles.title, titleStyle);
+  const currentTitleStyle = StyleSheet.compose(styles.titleHeader, titleStyle);
   const currentTextStyle = StyleSheet.compose(styles.text, textStyle);
   const currentActionsContainerStyle = StyleSheet.compose(
     styles.actionsContainer,

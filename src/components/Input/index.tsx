@@ -112,13 +112,14 @@ export const Input: FC<InputProps> = forwardRef(
   ) => {
     const [isFocused, setIsFocused] = useState(false);
     const [isVisible, setIsVisible] = useState(false);
+    const [numOfLinesCompany, setNumOfLinesCompany] = useState(0);
 
     const theme = useTheme();
 
     const getHeight = () => {
       switch (variant) {
         case 'message':
-          return 48;
+          return 188;
         case 'textarea':
           return 100;
         default:
@@ -193,16 +194,17 @@ export const Input: FC<InputProps> = forwardRef(
         minHeight: height,
       },
       messageInitial: {
-        paddingTop: 5,
-        paddingBottom: 10,
+        paddingTop: 7,
+        paddingBottom: numOfLinesCompany > 10 ? 7 : 12,
       },
       defaultInitial: {
         height: height,
         paddingVertical: variant === 'textarea' ? 8 : 10,
       },
+      numOfLinesCompanyHeight: {
+        height: height,
+      },
     });
-
-    let numOfLinesCompany = 0;
 
     const currentContainerStyle = StyleSheet.compose(styles.initial, [
       isFocused ? styles.focused : {},
@@ -211,6 +213,9 @@ export const Input: FC<InputProps> = forwardRef(
     ]);
     const currentInputStyle = StyleSheet.compose(styles.input, [
       variant !== 'message' && styles.mH,
+      variant === 'message' &&
+        numOfLinesCompany > 10 &&
+        styles.numOfLinesCompanyHeight,
       style,
     ]);
     const currentIconLeftStyle = StyleSheet.compose(
@@ -316,7 +321,9 @@ export const Input: FC<InputProps> = forwardRef(
               variant === 'message' ? numOfLinesCompany : undefined
             }
             onContentSizeChange={(e) => {
-              numOfLinesCompany = e.nativeEvent.contentSize.height / 18;
+              if (variant === 'message') {
+                setNumOfLinesCompany(e.nativeEvent.contentSize.height / 18);
+              }
             }}
             placeholder={isAnimatedLabel ? undefined : placeholder}
             keyboardType={variant === 'number' ? 'numeric' : keyboardType}

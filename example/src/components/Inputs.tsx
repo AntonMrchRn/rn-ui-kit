@@ -17,11 +17,10 @@ export const Inputs = () => {
   // const [number, setNumber] = useState('');
   return (
     <Spacer size="xl">
-      <Input variant="message" placeholder="Сообщение..." maxLength={250} />
+      <Input variant="message" placeholder="Сообщение..." />
       <Input
         variant="textarea"
         placeholder="Сообщение..."
-        maxLength={250}
         // label="Label"
         // hint="hint"
       />
