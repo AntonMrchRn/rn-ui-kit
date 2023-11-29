@@ -212,10 +212,9 @@ export const Input: FC<InputProps> = forwardRef(
       containerStyle,
     ]);
     const currentInputStyle = StyleSheet.compose(styles.input, [
-      variant !== 'message' && styles.mH,
-      variant === 'message' &&
-        numOfLines > 10 &&
-        styles.numOfLinesCompanyHeight,
+      variant === 'message'
+        ? numOfLines > 10 && styles.numOfLinesCompanyHeight
+        : styles.mH,
       style,
     ]);
     const currentIconLeftStyle = StyleSheet.compose(
