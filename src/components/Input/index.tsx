@@ -112,7 +112,7 @@ export const Input: FC<InputProps> = forwardRef(
   ) => {
     const [isFocused, setIsFocused] = useState(false);
     const [isVisible, setIsVisible] = useState(false);
-    const [numOfLinesCompany, setNumOfLinesCompany] = useState(0);
+    const [numOfLines, setNumOfLines] = useState(0);
 
     const theme = useTheme();
 
@@ -195,7 +195,7 @@ export const Input: FC<InputProps> = forwardRef(
       },
       messageInitial: {
         paddingTop: 7,
-        paddingBottom: numOfLinesCompany > 10 ? 7 : 12,
+        paddingBottom: numOfLines > 10 ? 7 : 12,
       },
       defaultInitial: {
         height: height,
@@ -214,7 +214,7 @@ export const Input: FC<InputProps> = forwardRef(
     const currentInputStyle = StyleSheet.compose(styles.input, [
       variant !== 'message' && styles.mH,
       variant === 'message' &&
-        numOfLinesCompany > 10 &&
+        numOfLines > 10 &&
         styles.numOfLinesCompanyHeight,
       style,
     ]);
@@ -317,12 +317,17 @@ export const Input: FC<InputProps> = forwardRef(
             multiline={
               variant === 'textarea' || variant === 'message' || multiline
             }
-            numberOfLines={
-              variant === 'message' ? numOfLinesCompany : undefined
-            }
+            numberOfLines={variant === 'message' ? numOfLines : undefined}
             onContentSizeChange={(e) => {
               if (variant === 'message') {
-                setNumOfLinesCompany(e.nativeEvent.contentSize.height / 18);
+                if (
+                  props?.value?.length === 0 &&
+                  e.nativeEvent.contentSize.height / 18 > 2
+                ) {
+                  setNumOfLines(0);
+                } else {
+                  setNumOfLines(e.nativeEvent.contentSize.height / 18);
+                }
               }
             }}
             placeholder={isAnimatedLabel ? undefined : placeholder}

@@ -14,10 +14,15 @@ import {
 export const Inputs = () => {
   // const inputRef = useRef<TextInput>(null);
   const [phone, setPhone] = useState('');
-  // const [number, setNumber] = useState('');
+  const [number, setNumber] = useState('');
   return (
     <Spacer size="xl">
-      <Input variant="message" placeholder="Сообщение..." />
+      <Input
+        variant="message"
+        value={number}
+        onChangeText={setNumber}
+        placeholder="Сообщение..."
+      />
       <Input
         variant="textarea"
         placeholder="Сообщение..."
