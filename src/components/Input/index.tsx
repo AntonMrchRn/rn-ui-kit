@@ -148,6 +148,7 @@ export const Input: FC<InputProps> = forwardRef(
         fontStyle: 'normal',
         fontWeight: '400',
         fontSize: 17,
+        color: theme.text.basic,
       },
       focused: {
         borderColor: isError ? theme.stroke.danger : theme.stroke.accent,
