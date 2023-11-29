@@ -9,7 +9,6 @@ import {
   TextInput,
   View,
   ViewStyle,
-  Platform,
   TextStyle,
 } from 'react-native';
 import { useTheme } from '../../theme/ThemeProvider';
@@ -149,8 +148,6 @@ export const Input: FC<InputProps> = forwardRef(
         fontStyle: 'normal',
         fontWeight: '400',
         fontSize: 17,
-        lineHeight: Platform.OS === 'android' ? 24 : 0,
-        color: theme.text.basic,
       },
       focused: {
         borderColor: isError ? theme.stroke.danger : theme.stroke.accent,
