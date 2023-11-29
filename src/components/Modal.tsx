@@ -194,6 +194,10 @@ export const Modal: FC<ModalProps> = ({
     },
     closeIconContainer: {
       alignItems: 'flex-end',
+      position: 'absolute',
+      right: 12,
+      top: 15,
+      zIndex: 100,
     },
     headerIconContainer: {
       alignItems: 'center',
@@ -207,7 +211,6 @@ export const Modal: FC<ModalProps> = ({
       lineHeight: 24,
       textAlign: 'center',
       color: theme.text.basic,
-      marginTop: 8,
     },
     description: {
       fontFamily: 'Nunito Sans',
@@ -218,12 +221,6 @@ export const Modal: FC<ModalProps> = ({
       textAlign: 'center',
       color: theme.text.neutral,
       marginTop: 8,
-    },
-    containerCloseAbsolute: {
-      position: 'absolute',
-      right: 12,
-      top: 22,
-      zIndex: 100,
     },
     containerText: {
       paddingHorizontal: 19,
@@ -282,12 +279,7 @@ export const Modal: FC<ModalProps> = ({
       style={modalStyle}
     >
       <View style={currentContainerStyle}>
-        <View
-          style={[
-            currentCloseIconContainerStyle,
-            !checkHeaderIcon && styles.containerCloseAbsolute,
-          ]}
-        >
+        <View style={currentCloseIconContainerStyle}>
           <TouchableOpacity hitSlop={hitSlop} onPress={closeIconPress}>
             {getCloseIcon()}
           </TouchableOpacity>

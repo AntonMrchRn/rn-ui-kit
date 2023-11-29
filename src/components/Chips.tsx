@@ -97,7 +97,7 @@ export const Chips: FC<ChipsProps> = ({
       alignSelf: 'flex-start',
       borderRadius: 16,
       minWidth: 40,
-      minHeight: 32,
+      height: 32,
       flexDirection: 'row',
       alignItems: 'center',
       justifyContent: 'space-between',
@@ -131,7 +131,7 @@ export const Chips: FC<ChipsProps> = ({
                 ? theme.icons.neutralDisable
                 : selected
                 ? theme.text.accent
-                : theme.text.neutral
+                : theme.stroke.neutral
             }
           />
         );

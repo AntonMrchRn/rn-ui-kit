@@ -58,7 +58,7 @@ export const TabControl: FC<TabControlProps> = ({
     wrapper: {
       backgroundColor: theme.background.main,
       flexDirection: 'row',
-      height: 40,
+      height: 44,
       marginBottom: 4,
     },
     label: {
@@ -74,6 +74,9 @@ export const TabControl: FC<TabControlProps> = ({
     },
     activeBorder: {
       borderBottomWidth: 2,
+      height: 1,
+      width: '100%',
+      marginTop: 6,
       borderBottomColor: theme.background.accent,
     },
     icon: {
@@ -136,7 +139,6 @@ export const TabControl: FC<TabControlProps> = ({
       <TouchableOpacity
         style={[
           styles.wrapper,
-          isActive && styles.activeBorder,
           item.index !== 0 && styles.ml16,
           item?.count && isLast && styles.mr10,
         ]}
@@ -144,13 +146,16 @@ export const TabControl: FC<TabControlProps> = ({
           onChange && onChange(item);
         }}
       >
-        <View style={styles.labelWrapper}>
-          {item.icon && (
-            <View style={currentIconContainerStyle}>{getIcon()}</View>
-          )}
-          <Text style={[currentLabelStyle, isActive && styles.activeText]}>
-            {item?.label}
-          </Text>
+        <View>
+          <View style={styles.labelWrapper}>
+            {item.icon && (
+              <View style={currentIconContainerStyle}>{getIcon()}</View>
+            )}
+            <Text style={[currentLabelStyle, isActive && styles.activeText]}>
+              {item?.label}
+            </Text>
+          </View>
+          {isActive && <View style={isActive && styles.activeBorder} />}
         </View>
         {!!item?.count && (
           <View style={styles.badge}>

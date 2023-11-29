@@ -112,13 +112,14 @@ export const Input: FC<InputProps> = forwardRef(
   ) => {
     const [isFocused, setIsFocused] = useState(false);
     const [isVisible, setIsVisible] = useState(false);
+    const [numOfLines, setNumOfLines] = useState(0);
 
     const theme = useTheme();
 
     const getHeight = () => {
       switch (variant) {
         case 'message':
-          return 48;
+          return 188;
         case 'textarea':
           return 100;
         default:
@@ -132,8 +133,6 @@ export const Input: FC<InputProps> = forwardRef(
           ? theme.background.fieldDanger
           : theme.background.fieldMain,
         borderRadius: variant === 'message' ? 12 : 8,
-        height: height,
-        paddingVertical: variant === 'textarea' ? 8 : 10,
         paddingHorizontal: variant === 'textarea' ? 12 : 16,
         flexDirection: 'row',
         alignItems: 'center',
@@ -144,8 +143,8 @@ export const Input: FC<InputProps> = forwardRef(
       },
       input: {
         flex: 1,
-        minHeight: height,
         padding: variant === 'textarea' ? undefined : 0,
+        paddingBottom: variant === 'textarea' ? 8 : 0,
         fontFamily: 'Nunito Sans',
         fontStyle: 'normal',
         fontWeight: '400',
@@ -191,13 +190,33 @@ export const Input: FC<InputProps> = forwardRef(
       requiredSymbol: {
         color: theme.text.secondary,
       },
+      mH: {
+        minHeight: height,
+      },
+      messageInitial: {
+        paddingTop: 7,
+        paddingBottom: numOfLines > 10 ? 7 : 12,
+      },
+      defaultInitial: {
+        height: height,
+        paddingVertical: variant === 'textarea' ? 8 : 10,
+      },
+      numOfLinesCompanyHeight: {
+        height: height,
+      },
     });
 
     const currentContainerStyle = StyleSheet.compose(styles.initial, [
       isFocused ? styles.focused : {},
+      variant === 'message' ? styles.messageInitial : styles.defaultInitial,
       containerStyle,
     ]);
-    const currentInputStyle = StyleSheet.compose(styles.input, style);
+    const currentInputStyle = StyleSheet.compose(styles.input, [
+      variant === 'message'
+        ? numOfLines > 10 && styles.numOfLinesCompanyHeight
+        : styles.mH,
+      style,
+    ]);
     const currentIconLeftStyle = StyleSheet.compose(
       styles.iconLeft,
       iconLeftStyle
@@ -294,7 +313,22 @@ export const Input: FC<InputProps> = forwardRef(
             onBlur={handleBlur}
             ref={ref}
             secureTextEntry={!!currentSecureTextEntry}
-            multiline={variant === 'textarea' || multiline}
+            multiline={
+              variant === 'textarea' || variant === 'message' || multiline
+            }
+            numberOfLines={variant === 'message' ? numOfLines : undefined}
+            onContentSizeChange={(e) => {
+              if (variant === 'message') {
+                if (
+                  props?.value?.length === 0 &&
+                  e.nativeEvent.contentSize.height / 18 > 2
+                ) {
+                  setNumOfLines(0);
+                } else {
+                  setNumOfLines(e.nativeEvent.contentSize.height / 18);
+                }
+              }
+            }}
             placeholder={isAnimatedLabel ? undefined : placeholder}
             keyboardType={variant === 'number' ? 'numeric' : keyboardType}
             onChangeText={handleOnChangeText}

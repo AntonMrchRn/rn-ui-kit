@@ -3,10 +3,6 @@ import React, {
   useState,
 } from 'react';
 import {
-  //  TextInput,
-  View,
-} from 'react-native';
-import {
   Input,
   InputCode,
   InputDate,
@@ -18,18 +14,20 @@ import {
 export const Inputs = () => {
   // const inputRef = useRef<TextInput>(null);
   const [phone, setPhone] = useState('');
-  // const [number, setNumber] = useState('');
+  const [number, setNumber] = useState('');
   return (
     <Spacer size="xl">
       <Input
+        variant="message"
+        value={number}
+        onChangeText={setNumber}
+        placeholder="Сообщение..."
+      />
+      <Input
         variant="textarea"
         placeholder="Сообщение..."
-        label="Label"
-        value="23232232"
-        hint="hint"
-        iconLeft={
-          <View style={{ height: 24, width: 24, backgroundColor: 'gray' }} />
-        }
+        // label="Label"
+        // hint="hint"
       />
       {/* <Input
         variant="message"
