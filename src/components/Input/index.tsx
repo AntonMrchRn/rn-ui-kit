@@ -9,8 +9,8 @@ import {
   TextInput,
   View,
   ViewStyle,
-  Platform,
   TextStyle,
+  Platform,
 } from 'react-native';
 import { useTheme } from '../../theme/ThemeProvider';
 import { InputClearIcon } from '../../icons/InputClearIcon';
@@ -126,6 +126,7 @@ export const Input: FC<InputProps> = forwardRef(
           return 44;
       }
     };
+    const lhMessageAndroid = variant === 'message' ? undefined : 24;
     const height = getHeight();
     const styles = StyleSheet.create({
       initial: {
@@ -149,7 +150,7 @@ export const Input: FC<InputProps> = forwardRef(
         fontStyle: 'normal',
         fontWeight: '400',
         fontSize: 17,
-        lineHeight: Platform.OS === 'android' ? 24 : 0,
+        lineHeight: Platform.OS === 'android' ? lhMessageAndroid : 0,
         color: theme.text.basic,
       },
       focused: {

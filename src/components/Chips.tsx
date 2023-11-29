@@ -90,7 +90,7 @@ export const Chips: FC<ChipsProps> = ({
       fontStyle: 'normal',
       fontWeight: '700',
       fontSize: 13,
-      lineHeight: 16,
+      lineHeight: 17,
       fontFamily: 'Nunito Sans',
     },
     container: {
@@ -113,7 +113,6 @@ export const Chips: FC<ChipsProps> = ({
       paddingRight: 12,
     },
     wrapper: {
-      paddingVertical: 8,
       paddingRight: close ? 8 : 12,
       paddingLeft: 12,
       alignItems: 'center',
