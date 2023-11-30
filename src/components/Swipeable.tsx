@@ -139,7 +139,7 @@ export const Swipeable: FC<SwipeableProps> = ({
     if (previewActions) {
       setTimeout(() => {
         ref.current?.openRight();
-      }, 3000);
+      }, 2000);
       setTimeout(() => {
         ref.current?.close();
       }, 4000);
