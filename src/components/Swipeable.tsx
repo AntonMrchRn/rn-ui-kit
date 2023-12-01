@@ -1,6 +1,7 @@
 import React, { FC, useEffect, useRef } from 'react';
 import RNSwipeable from 'react-native-gesture-handler/Swipeable';
 import {
+  Pressable,
   StyleProp,
   StyleSheet,
   Text,
@@ -167,6 +168,9 @@ export const Swipeable: FC<SwipeableProps> = ({
     ref.current?.close();
     actionName = 'second';
   };
+  const onLongPress = () => {
+    ref.current?.openRight();
+  };
 
   const styles = StyleSheet.create({
     text: {
@@ -295,7 +299,7 @@ export const Swipeable: FC<SwipeableProps> = ({
   // eslint-disable-next-line react/no-unstable-nested-components
   const Item: FC = () => {
     return (
-      <View style={currentContainerStyle}>
+      <Pressable onLongPress={onLongPress} style={currentContainerStyle}>
         {topItem && topItem}
         {label && labelPosition === 'top' && (
           <Text style={currentLabelStyle}>{label}</Text>
@@ -312,7 +316,7 @@ export const Swipeable: FC<SwipeableProps> = ({
             <Text style={currentLabelStyle}>{label}</Text>
           )}
         </View>
-      </View>
+      </Pressable>
     );
   };
 
